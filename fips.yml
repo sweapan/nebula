@@ -3,44 +3,57 @@ imports:
     fips-zlib:
         git: https://github.com/floooh/fips-zlib.git
         group: misc
+        rev: 4b3d505
     fips-directxmath:
         git: https://github.com/gscept/fips-directxmath.git
         group: misc
+        rev: b9a7739
     fips-glfw:
         git: https://github.com/gscept/fips-glfw.git
         group: gfx
+        rev: 1799c94
     fips-anyfx:
         git: https://github.com/Duttenheim/fips-anyfx.git
         group: gfx
+        rev: e8e2c52
     fips-devil:
         git: https://github.com/gscept/fips-devil.git
         group: gfx
+        rev: c5343fa
     fips-stackwalker:
         git: https://github.com/gscept/fips-stackwalker.git
         cond: "FIPS_WINDOWS"
         group: misc
+        rev: 0eb70e3
     fips-cjson:
         git: https://github.com/floooh/fips-cjson.git
         cond: "FIPS_LINUX"
         group: misc
+        rev: 89693c8
     fips-imgui:
         git: https://github.com/gscept/fips-imgui.git
+        rev: 8c3bdef
     fips-pybind11:
         git: https://github.com/gscept/fips-pybind11.git
+        rev: 49487ea
     fips-stb:
         git: https://github.com/fips-libs/fips-stb.git
         group: misc
+        rev: 31b2f5e
     fips-soloud:
         git: https://github.com/fLindahl/fips-soloud.git
         group: audio
+        rev: b600bdc
     nebula-libs:
         git: https://github.com/gscept/nebula-libs
         group: misc
+        rev: 8e7f918
     physx:
         git: https://github.com/NVIDIAGameWorks/PhysX.git
         branch: 4.1
     fips-flatbuffers:
         git: https://github.com/gscept/fips-flatbuffers.git
+        rev: 0c87969
 
 exports:
     header-dirs :
