@@ -106,6 +106,7 @@ VkShaderServer::Open()
 	this->albedoBufferTextureVar = ShaderGetConstantBinding(shader, "AlbedoBuffer");
 	this->emissiveBufferTextureVar = ShaderGetConstantBinding(shader, "EmissiveBuffer");
 	this->lightBufferTextureVar = ShaderGetConstantBinding(shader, "LightBuffer");
+	this->depthBufferCopyTextureVar = ShaderGetConstantBinding(shader, "DepthBufferCopy");
 
 	this->environmentMapVar = ShaderGetConstantBinding(shader, "EnvironmentMap");
 	this->irradianceMapVar = ShaderGetConstantBinding(shader, "IrradianceMap");
@@ -161,11 +162,14 @@ VkShaderServer::RegisterTexture(const CoreGraphics::TextureId& tex, bool depth, 
 		break;
 	}
 
+	// get pixel format
+	bool isDepthFormat = PixelFormat::IsDepthFormat(CoreGraphics::TextureGetPixelFormat(tex));
+
 	ResourceTableTexture info;
 	info.tex = tex;
 	info.index = idx;
 	info.sampler = SamplerId::Invalid();
-	info.isDepth = false;
+	info.isDepth = isDepthFormat;
 	info.slot = var;
 
 	// update textures for all tables
@@ -176,6 +180,44 @@ VkShaderServer::RegisterTexture(const CoreGraphics::TextureId& tex, bool depth, 
 	}
 
 	return idx;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void 
+VkShaderServer::ReregisterTexture(const CoreGraphics::TextureId& tex, bool depth, CoreGraphics::TextureType type, uint32_t slot)
+{
+	IndexT var;
+	switch (type)
+	{
+	case Texture2D:
+		var = this->texture2DTextureVar;
+		break;
+	case Texture2DArray:
+		var = this->texture2DArrayTextureVar;
+		break;
+	case Texture3D:
+		var = this->texture3DTextureVar;
+		break;
+	case TextureCube:
+		var = this->textureCubeTextureVar;
+		break;
+	}
+
+	ResourceTableTexture info;
+	info.tex = tex;
+	info.index = slot;
+	info.sampler = SamplerId::Invalid();
+	info.isDepth = false;
+	info.slot = var;
+
+	// update textures for all tables
+	IndexT i;
+	for (i = 0; i < this->resourceTables.Size(); i++)
+	{
+		ResourceTableSetTexture(this->resourceTables[i], info);
+	}
 }
 
 //------------------------------------------------------------------------------
@@ -224,6 +266,7 @@ VkShaderServer::SetupGBufferConstants()
 	this->tickParams.AlbedoBuffer = TextureGetBindlessHandle(CoreGraphics::GetTexture("AlbedoBuffer"));
 	this->tickParams.EmissiveBuffer = TextureGetBindlessHandle(CoreGraphics::GetTexture("EmissiveBuffer"));
 	this->tickParams.LightBuffer = TextureGetBindlessHandle(CoreGraphics::GetTexture("LightBuffer"));
+	this->tickParams.DepthBufferCopy = TextureGetBindlessHandle(CoreGraphics::GetTexture("ZBufferCopy"));
 }
 
 //------------------------------------------------------------------------------

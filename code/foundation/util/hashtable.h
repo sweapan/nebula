@@ -127,10 +127,11 @@ private:
 
 	/// if type is integral, just use that value directly
 	template <typename HASHKEY> const IndexT GetHashCode(const typename std::enable_if<std::is_integral<HASHKEY>::value, HASHKEY>::type& key) const { return IndexT(key % this->hashArray.Size()); };
-	/// if type is pointer, convert using questionable method
-	template <typename HASHKEY> const IndexT GetHashCode(const typename std::enable_if<std::is_pointer<HASHKEY>::value, HASHKEY>::type& key) const { return ((IndexT)(std::hash<unsigned long long>{}(PtrT(key)) & 0x7FFFFFFF)) % this->hashArray.Size(); }
 	/// if not, call the function on HashCode on HASHKEY
-	template <typename HASHKEY> const IndexT GetHashCode(const HASHKEY& key) const { return key.HashCode() % this->hashArray.Size();  };
+	template <typename HASHKEY> const IndexT GetHashCode(const HASHKEY& key) const { return key.HashCode() % this->hashArray.Size(); };
+	/// if type is pointer, convert using questionable method
+	template <typename HASHKEY> const IndexT GetHashCode(const typename std::enable_if<std::is_pointer<HASHKEY>::value, HASHKEY>::type& key) const { return key->HashCode() % this->hashArray.Size(); }
+
 };
 
 //------------------------------------------------------------------------------
@@ -210,18 +211,6 @@ HashTable<KEYTYPE, VALUETYPE, TABLE_SIZE, STACK_SIZE>::End()
 	ret.val = nullptr;
 	ret.key = nullptr;
 	ret.arr = &this->hashArray;
-	IndexT i;
-	for (i = this->hashArray.Size()-1; i >= 0; i--)
-	{
-		if (this->hashArray[i].Size() != 0)
-		{
-			ret.hashIndex = i;
-			ret.bucketIndex = this->hashArray[i].Size();
-			ret.val = &this->hashArray[i].Back().Value();
-			ret.key = &this->hashArray[i].Back().Key();
-			break;
-		}
-	}
 	return ret;
 }
 
@@ -464,7 +453,12 @@ HashTable<KEYTYPE, VALUETYPE, TABLE_SIZE, STACK_SIZE>::AddUnique(const KEYTYPE& 
 	}
 	else
 	{
-		elementIndex = hashElements.BinarySearchIndex<KEYTYPE>(key);
+        // binary search requires the array to be sorted, which it isn't if we're in bulk add mode
+        if (this->inBulkAdd)
+		    elementIndex = hashElements.FindIndex<KEYTYPE>(key);
+        else
+		    elementIndex = hashElements.BinarySearchIndex<KEYTYPE>(key);
+
 		if (elementIndex == InvalidIndex)
 		{
 			elementIndex = this->Add(key, VALUETYPE());
@@ -629,7 +623,7 @@ HashTable<KEYTYPE, VALUETYPE, TABLE_SIZE, STACK_SIZE>::Iterator::operator++(int)
 
 	// always increment bucket index
 	this->bucketIndex++;
-	if (arr[this->hashIndex].Size() < this->bucketIndex)
+	if (arr[this->hashIndex].Size() > this->bucketIndex)
 	{
 		this->val = &arr[this->hashIndex][this->bucketIndex].Value();
 		this->key = &arr[this->hashIndex][this->bucketIndex].Key();
@@ -649,6 +643,15 @@ HashTable<KEYTYPE, VALUETYPE, TABLE_SIZE, STACK_SIZE>::Iterator::operator++(int)
 				break;
 			}
 		}
+
+		// no bucket found, set to 'end'
+		if (i == arr.Size())
+		{
+			this->hashIndex = arr.Size();
+			this->bucketIndex = 0;
+			this->val = nullptr;
+			this->key = nullptr;
+		}
 	}
 	return *this;
 }
@@ -660,7 +663,7 @@ template<class KEYTYPE, class VALUETYPE, int TABLE_SIZE, int STACK_SIZE>
 const bool
 HashTable<KEYTYPE, VALUETYPE, TABLE_SIZE, STACK_SIZE>::Iterator::operator==(const Iterator& rhs) const
 {
-	return this->hashIndex == rhs.hashIndex && this->bucketIndex == rhs.bucketIndex;
+	return this->val == rhs.val;
 }
 
 //------------------------------------------------------------------------------
@@ -670,7 +673,7 @@ template<class KEYTYPE, class VALUETYPE, int TABLE_SIZE, int STACK_SIZE>
 const bool
 HashTable<KEYTYPE, VALUETYPE, TABLE_SIZE, STACK_SIZE>::Iterator::operator!=(const Iterator& rhs) const
 {
-	return !(this->hashIndex == rhs.hashIndex && this->bucketIndex == rhs.bucketIndex);
+	return this->val != rhs.val;
 }
 } // namespace Util
 //------------------------------------------------------------------------------

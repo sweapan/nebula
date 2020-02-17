@@ -21,6 +21,10 @@ namespace Visibility
 {
 class VisibilityContext;
 }
+namespace Graphics
+{
+struct FrameContext;
+}
 namespace Models
 {
 
@@ -68,7 +72,7 @@ private:
 	friend class CharacterNode;
 	friend class CharacterSkinNode;
 	friend class ParticleSystemNode;
-	friend class ModelContext;
+	friend class Models::ModelContext;
 	friend class Visibility::VisibilityContext;
 
 	/// create an instance of a model recursively

@@ -85,7 +85,7 @@ CreateVertexBuffer(const VertexBufferCreateInfo& info)
 	// allocate a device memory backing for this
 	uint32_t alignedSize;
 	uint32_t flags = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT;
-	flags |= info.sync == CoreGraphics::GpuBufferTypes::SyncingCoherent ? VK_MEMORY_PROPERTY_HOST_COHERENT_BIT : 0;
+	flags |= info.sync == CoreGraphics::GpuBufferTypes::SyncingAutomatic ? VK_MEMORY_PROPERTY_HOST_COHERENT_BIT : 0;
 	VkUtilities::AllocateBufferMemory(loadInfo.dev, runtimeInfo.buf, loadInfo.mem, VkMemoryPropertyFlagBits(flags), alignedSize);
 
 	// now bind memory to buffer
@@ -120,7 +120,7 @@ CreateVertexBuffer(const VertexBufferCreateInfo& info)
 	ret.id24 = id;
 
 #if NEBULA_GRAPHICS_DEBUG
-	ObjectSetName(ret, info.name.AsString());
+	ObjectSetName(ret, info.name.Value());
 #endif
 
 	return ret;
@@ -162,7 +162,7 @@ CreateVertexBuffer(const VertexBufferCreateDirectInfo& info)
 	// allocate a device memory backing for this
 	uint32_t alignedSize;
 	uint32_t flags = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT;
-	flags |= info.sync == CoreGraphics::GpuBufferTypes::SyncingCoherent ? VK_MEMORY_PROPERTY_HOST_COHERENT_BIT : 0;
+	flags |= info.sync == CoreGraphics::GpuBufferTypes::SyncingAutomatic ? VK_MEMORY_PROPERTY_HOST_COHERENT_BIT : 0;
 	VkUtilities::AllocateBufferMemory(loadInfo.dev, runtimeInfo.buf, loadInfo.mem, VkMemoryPropertyFlagBits(flags), alignedSize);
 
 	// now bind memory to buffer
@@ -181,7 +181,7 @@ CreateVertexBuffer(const VertexBufferCreateDirectInfo& info)
 	ret.id24 = id;
 
 #if NEBULA_GRAPHICS_DEBUG
-	ObjectSetName(ret, info.name.AsString());
+	ObjectSetName(ret, info.name.Value());
 #endif
 
 	return ret;
@@ -199,8 +199,10 @@ DestroyVertexBuffer(const VertexBufferId id)
 	uint32_t& mapCount = vboAllocator.Get<2>(id.id24);
 
 	n_assert(mapCount == 0);
-	vkFreeMemory(loadInfo.dev, loadInfo.mem, nullptr);
-	vkDestroyBuffer(loadInfo.dev, runtimeInfo.buf, nullptr);
+	Vulkan::DelayedDeleteMemory(loadInfo.mem);
+	Vulkan::DelayedDeleteBuffer(runtimeInfo.buf);
+	//vkFreeMemory(loadInfo.dev, loadInfo.mem, nullptr);
+	//vkDestroyBuffer(loadInfo.dev, runtimeInfo.buf, nullptr);
 }
 
 //------------------------------------------------------------------------------

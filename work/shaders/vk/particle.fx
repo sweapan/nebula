@@ -12,24 +12,24 @@
 
 #include "lib/materialparams.fxh"
 
-float LightMapIntensity;
+group(BATCH_GROUP) shared varblock Particle[string Visibility = "PS"; ]
+{
+	textureHandle Layer1;
+	textureHandle Layer2;
+	textureHandle Layer3;
+	textureHandle Layer4;
 
-textureHandle Layer1;
-textureHandle Layer2;
-textureHandle Layer3;
-textureHandle Layer4;
-
-float2 UVAnim1;
-float2 UVAnim2;
-float2 UVAnim3;
-float2 UVAnim4;
-
-
+	float2 UVAnim1;
+	float2 UVAnim2;
+	float2 UVAnim3;
+	float2 UVAnim4;
+	float LightMapIntensity;
+};
 
 // samplers
 samplerstate ParticleSampler
 {
-//	Samplers = { SpecularMap, EmissiveMap, NormalMap, AlbedoMap, DisplacementMap, RoughnessMap, Layer1, Layer2, Layer3, Layer4 };
+//	Samplers = { ParameterMap, EmissiveMap, NormalMap, AlbedoMap, DisplacementMap, RoughnessMap, Layer1, Layer2, Layer3, Layer4 };
 	Filter = MinMagMipLinear;
 	AddressU = Wrap;
 	AddressV = Wrap;
@@ -187,13 +187,12 @@ psUnlit(in vec4 ViewSpacePosition,
 	//sampler2D db = sampler2D(Textures2D[DepthBuffer], ParticleSampler);
 	//vec2 pixelSize = GetPixelSize(sampler2D(Textures2D[DepthBuffer], ParticleSampler));
 	vec2 pixelSize = RenderTargetDimensions[0].zw;
-	vec2 screenUV = psComputeScreenCoord(gl_FragCoord.xy, pixelSize.xy);
+	vec2 screenUV = PixelToNormalized(gl_FragCoord.xy, pixelSize.xy);
 	vec4 diffColor = sample2D(AlbedoMap, ParticleSampler, UV);
 	
 	vec4 color = diffColor * vec4(Color.rgb, 0);
-	float depth = sample2DLod(DepthBuffer, ParticleSampler, screenUV, 0).r;
-	float particleDepth = length(ViewSpacePosition);
-	float AlphaMod = saturate(abs(depth - particleDepth));
+	float depth = sample2DLod(DepthBufferCopy, ParticleSampler, screenUV, 0).r;
+	float AlphaMod = saturate(abs(depth - gl_FragCoord.z) * (FocalLengthNearFar.w - FocalLengthNearFar.z));
 	color.a = diffColor.a * Color.a * AlphaMod;
 	FinalColor = color;
 }
@@ -211,14 +210,13 @@ psUnlit2Layers(in vec4 ViewSpacePosition,
 	//sampler2D db = ;
 	//vec2 pixelSize = GetPixelSize(sampler2D(Textures2D[DepthBuffer], ParticleSampler));
 	vec2 pixelSize = RenderTargetDimensions[0].zw;
-	vec2 screenUV = psComputeScreenCoord(gl_FragCoord.xy, pixelSize.xy);
+	vec2 screenUV = PixelToNormalized(gl_FragCoord.xy, pixelSize.xy);
 	vec4 layer1 = sample2D(Layer1, LayerSampler, UV + UVAnim1 * TimeAndRandom.x);
 	vec4 layer2 = sample2D(Layer2, LayerSampler, UV + UVAnim2 * TimeAndRandom.x);
 	
 	vec4 color = layer1 * layer2 * 2;
-	float depth = sample2DLod(DepthBuffer, ParticleSampler, screenUV, 0).r;
-	float particleDepth = length(ViewSpacePosition);
-	float AlphaMod = saturate(abs(depth - particleDepth));
+	float depth = sample2DLod(DepthBufferCopy, ParticleSampler, screenUV, 0).r;
+	float AlphaMod = saturate(abs(depth - gl_FragCoord.z) * (FocalLengthNearFar.w - FocalLengthNearFar.z));
 	color.a = saturate(color.a);
 	color.rgb += Color.rgb * color.a;
 	color *= Color.a * AlphaMod;
@@ -238,15 +236,14 @@ psUnlit3Layers(in vec4 ViewSpacePosition,
 	//sampler2D db = sampler2D(Textures2D[DepthBuffer], ParticleSampler);
 	//vec2 pixelSize = GetPixelSize(sampler2D(Textures2D[DepthBuffer], ParticleSampler));
 	vec2 pixelSize = RenderTargetDimensions[0].zw;
-	vec2 screenUV = psComputeScreenCoord(gl_FragCoord.xy, pixelSize.xy);
+	vec2 screenUV = PixelToNormalized(gl_FragCoord.xy, pixelSize.xy);
 	vec4 layer1 = sample2D(Layer1, LayerSampler, UV + UVAnim1 * TimeAndRandom.x);
 	vec4 layer2 = sample2D(Layer2, LayerSampler, UV + UVAnim2 * TimeAndRandom.x);
 	vec4 layer3 = sample2D(Layer3, LayerSampler, UV + UVAnim3 * TimeAndRandom.x);
 	
 	vec4 color = ((layer1 * layer2 * 2) * layer3 * 2);
-	float depth = sample2DLod(DepthBuffer, ParticleSampler, screenUV, 0).r;
-	float particleDepth = length(ViewSpacePosition);
-	float AlphaMod = saturate(abs(depth - particleDepth));
+	float depth = sample2DLod(DepthBufferCopy, ParticleSampler, screenUV, 0).r;
+	float AlphaMod = saturate(abs(depth - gl_FragCoord.z) * (FocalLengthNearFar.w - FocalLengthNearFar.z));
 	color.a = saturate(color.a);
 	color.rgb += Color.rgb * color.a;
 	color *= Color.a * AlphaMod;
@@ -268,16 +265,15 @@ psUnlit4Layers(in vec4 ViewSpacePosition,
 	//int levels = textureQueryLevels(Textures2D[DepthBuffer]);
 	//vec2 test = textureSize(Textures2D[
 	vec2 pixelSize = RenderTargetDimensions[0].zw;
-	vec2 screenUV = psComputeScreenCoord(gl_FragCoord.xy, pixelSize.xy);
+	vec2 screenUV = PixelToNormalized(gl_FragCoord.xy, pixelSize.xy);
 	vec4 layer1 = sample2D(Layer1, LayerSampler, UV + UVAnim1 * TimeAndRandom.x);
 	vec4 layer2 = sample2D(Layer2, LayerSampler, UV + UVAnim2 * TimeAndRandom.x);
 	vec4 layer3 = sample2D(Layer3, LayerSampler, UV + UVAnim3 * TimeAndRandom.x);
 	vec4 layer4 = sample2D(Layer4, LayerSampler, UV + UVAnim4 * TimeAndRandom.x);
 	
 	vec4 color = ((layer1 * layer2 * 2) * layer3 * 2) * layer4;
-	float depth = sample2DLod(DepthBuffer, ParticleSampler, screenUV, 0).r;
-	float particleDepth = length(ViewSpacePosition);
-	float AlphaMod = saturate(abs(depth - particleDepth));
+	float depth = sample2DLod(DepthBufferCopy, ParticleSampler, screenUV, 0).r;
+	float AlphaMod = saturate(abs(depth - gl_FragCoord.z) * (FocalLengthNearFar.w - FocalLengthNearFar.z));
 	color.a = saturate(color.a);
 	color.rgb += Color.rgb * color.a;
 	color *= Color.a * AlphaMod;
@@ -301,29 +297,33 @@ psLit(in vec4 ViewSpacePosition,
 	[color0] out vec4 Albedo,
 	[color1] out vec4 Normals,
 	[color2] out float Depth,
-	[color3] out vec4 Specular) 
+	[color3] out vec4 Material) 
 {	
-	vec4 diffColor = 	sample2D(AlbedoMap, ParticleSampler, UV);
-	vec4 emsvColor =	sample2D(EmissiveMap, ParticleSampler, UV);
-	vec4 specColor = 	sample2D(SpecularMap, ParticleSampler, UV);
-	float roughness = 	sample2D(RoughnessMap, ParticleSampler, UV).r;
+	vec4 albedo = 		sample2D(AlbedoMap, ParticleSampler, UV);
+	vec4 material = 	sample2D(ParameterMap, ParticleSampler, UV);
 	
-	Specular = vec4(specColor.rgb * MatSpecularIntensity.rgb, roughness);
-	Albedo = diffColor + vec4(Color.rgb, 0);
-	
-	Depth = length(ViewSpacePosition.xyz);
+	const float depth = length(ViewSpacePosition.xyz);
+
 	mat3 tangentViewMatrix = mat3(normalize(Tangent.xyz), normalize(Binormal.xyz), normalize(Normal.xyz));        
 	vec3 tNormal = vec3(0,0,0);
 	tNormal.xy = (sample2D(NormalMap, ParticleSampler, UV).ag * 2.0) - 1.0;
 	tNormal.z = saturate(sqrt(1.0 - dot(tNormal.xy, tNormal.xy)));
 	
-	if (!gl_FrontFacing) tNormal = -tNormal;
-	Normals = PackViewSpaceNormal((tangentViewMatrix * tNormal).xyz);
+	if (!gl_FrontFacing)
+	{
+		tNormal = -tNormal;
+	}
 	
-	float depth = Depth;
+	Normals = PackViewSpaceNormal((tangentViewMatrix * tNormal).xyz);
+
+	Material = material;
+	Depth = depth;
+
+	Albedo = albedo + vec4(Color.rgb, 0);
+	
 	float particleDepth = length(ViewSpacePosition);
 	float alphaMod = saturate(abs(depth - particleDepth));
-	Albedo.a = diffColor.a * Color.a;
+	Albedo.a = albedo.a * Color.a;
 }
 
 //------------------------------------------------------------------------------

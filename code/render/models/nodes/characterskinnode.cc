@@ -72,11 +72,11 @@ void
 CharacterSkinNode::OnFinishedLoading()
 {
 	PrimitiveNode::OnFinishedLoading();
-	this->cboSkin = CoreGraphics::GetGraphicsConstantBuffer(CoreGraphics::GlobalConstantBufferType::VisibilityThreadConstantBuffer);
-	this->cboSkinIndex = CoreGraphics::ShaderGetResourceSlot(this->sharedShader, "JointBlock");
-	CoreGraphics::ResourceTableSetConstantBuffer(this->resourceTable, { this->cboSkin, this->cboSkinIndex, 0, true, false, (SizeT)(sizeof(Math::matrix44) * this->skinFragments[0].jointPalette.Size()), 0 });
+	CoreGraphics::ShaderId shader = CoreGraphics::ShaderServer::Instance()->GetShader("shd:shared.fxb"_atm);
+	CoreGraphics::ConstantBufferId cbo = CoreGraphics::GetGraphicsConstantBuffer(CoreGraphics::GlobalConstantBufferType::VisibilityThreadConstantBuffer);
+	IndexT index = CoreGraphics::ShaderGetResourceSlot(shader, "JointBlock");
+	CoreGraphics::ResourceTableSetConstantBuffer(this->resourceTable, { cbo, index, 0, true, false, (SizeT)(sizeof(Math::matrix44) * this->skinFragments[0].jointPalette.Size()), 0 });
 	CoreGraphics::ResourceTableCommitChanges(this->resourceTable);
-	this->skinningPaletteVar = CoreGraphics::ShaderGetConstantBinding(this->sharedShader, "JointPalette");
 }
 
 //------------------------------------------------------------------------------
@@ -118,6 +118,11 @@ void
 CharacterSkinNode::Instance::Update()
 {
 	const CharacterNode::Instance* cparent = static_cast<const CharacterNode::Instance*>(this->parent);
+	if (!this->dirty)
+		return;
+
+	// apply original state
+	PrimitiveNode::Instance::Update();
 
 	// if parent doesn't have joints, don't continue
 	CharacterSkinNode* sparent = static_cast<CharacterSkinNode*>(this->node);
@@ -144,10 +149,7 @@ CharacterSkinNode::Instance::Update()
 
 	// update skinning palette
 	uint offset = CoreGraphics::SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType::VisibilityThreadConstantBuffer, usedMatrices.Begin(), usedMatrices.Size());
-	this->offsets[Skinning] = offset;
-
-	// apply original state
-	PrimitiveNode::Instance::Update();
+	this->offsets[this->skinningTransformsIndex] = offset;
 }
 
 } // namespace Characters

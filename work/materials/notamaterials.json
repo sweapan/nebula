@@ -33,7 +33,17 @@
                   {
                      "name": "TeamColorMask",
                      "type": "textureHandle",
-                     "defaultValue": "tex:system/black.dds"
+                     "defaultValue": "tex:system/black"
+                  },
+                  {
+                     "name": "SpecularMap",
+                     "type": "textureHandle",
+                     "defaultValue": "tex:system/black"
+                  },
+                  {
+                     "name": "RoughnessMap",
+                     "type": "textureHandle",
+                     "defaultValue": "tex:system/white"
                   },
                   {
                      "name": "TeamColor",
@@ -80,7 +90,17 @@
                   {
                      "name": "TeamColorMask",
                      "type": "textureHandle",
-                     "defaultValue": "tex:system/black.dds"
+                     "defaultValue": "tex:system/black"
+                  },
+                  {
+                     "name": "SpecularMap",
+                     "type": "textureHandle",
+                     "defaultValue": "tex:system/black"
+                  },
+                  {
+                     "name": "RoughnessMap",
+                     "type": "textureHandle",
+                     "defaultValue": "tex:system/white"
                   },
                   {
                      "name": "TeamColor",

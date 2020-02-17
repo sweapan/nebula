@@ -367,6 +367,8 @@ InternalSetupFunction(const WindowCreateInfo& info, const Util::Blob& windowData
 	*ptr = id;
 	if (embed)
 	{
+		n_error("FIXME, createwindowfromalien not implemented yet");
+#if 0
 		// create window using our Qt window as child
 		wnd = glfwCreateWindowFromAlien(windowData.GetPtr(), wnd);
 		glfwMakeContextCurrent(wnd);
@@ -381,6 +383,7 @@ InternalSetupFunction(const WindowCreateInfo& info, const Util::Blob& windowData
 		mode.SetAspectRatio(width / float(height));
 
 		glfwSetWindowUserPointer(wnd, ptr);
+#endif
 	}
 	else
 	{
@@ -782,14 +785,26 @@ SetupVulkanSwapchain(const CoreGraphics::WindowId& id, const CoreGraphics::Displ
 	VkPresentModeKHR swapchainPresentMode = VK_PRESENT_MODE_FIFO_KHR;
 	for (i = 0; i < numPresentModes; i++)
 	{
-		if (presentModes[i] == VK_PRESENT_MODE_MAILBOX_KHR)
+		switch (presentModes[i])
 		{
-			swapchainPresentMode = VK_PRESENT_MODE_MAILBOX_KHR;
+		case VK_PRESENT_MODE_MAILBOX_KHR:
+			swapchainPresentMode = presentModes[i];
+			numPresentModes = 0;
 			break;
-		}
-		if ((swapchainPresentMode != VK_PRESENT_MODE_MAILBOX_KHR) && (presentModes[i] == VK_PRESENT_MODE_IMMEDIATE_KHR))
-		{
-			swapchainPresentMode = VK_PRESENT_MODE_IMMEDIATE_KHR;
+		case VK_PRESENT_MODE_FIFO_RELAXED_KHR:
+			if (!CoreGraphics::DisplayDevice::Instance()->IsVerticalSyncEnabled())
+			{
+				swapchainPresentMode = presentModes[i];
+				numPresentModes = 0;
+			}				
+			break;
+		case VK_PRESENT_MODE_IMMEDIATE_KHR:
+			if (!CoreGraphics::DisplayDevice::Instance()->IsVerticalSyncEnabled())
+			{
+				swapchainPresentMode = presentModes[i];
+				numPresentModes = 0;
+			}
+			break;
 		}
 	}
 

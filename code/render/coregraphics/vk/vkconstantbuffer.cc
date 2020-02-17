@@ -117,7 +117,7 @@ CreateConstantBuffer(const ConstantBufferCreateInfo& info)
 	ret.id8 = ConstantBufferIdType;
 
 #if NEBULA_GRAPHICS_DEBUG
-	ObjectSetName(ret, info.name.AsString());
+	ObjectSetName(ret, info.name.Value());
 #endif
 
 	return ret;
@@ -137,8 +137,10 @@ DestroyConstantBuffer(const ConstantBufferId id)
 	if (map.data != nullptr)
 		vkUnmapMemory(setup.dev, setup.mem);
 
-	vkFreeMemory(setup.dev, setup.mem, nullptr);
-	vkDestroyBuffer(setup.dev, runtime.buf, nullptr);
+	Vulkan::DelayedDeleteMemory(setup.mem);
+	Vulkan::DelayedDeleteBuffer(runtime.buf);
+	//vkFreeMemory(setup.dev, setup.mem, nullptr);
+	//vkDestroyBuffer(setup.dev, runtime.buf, nullptr);
 }
 
 //------------------------------------------------------------------------------

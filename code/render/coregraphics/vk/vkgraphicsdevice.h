@@ -65,11 +65,6 @@ void InsertBarrier(
 	VkImageMemoryBarrier* imageBarriers,
 	const CoreGraphics::QueueType queue);
 
-/// do actual copy (see coregraphics namespace for helper functions)
-void Copy(const VkImage from, Math::rectangle<SizeT> fromRegion, const VkImage to, Math::rectangle<SizeT> toRegion);
-/// perform actual blit (see coregraphics namespace for helper functions)
-void Blit(const VkImage from, Math::rectangle<SizeT> fromRegion, IndexT fromMip, const VkImage to, Math::rectangle<SizeT> toRegion, IndexT toMip);
-
 /// update descriptors
 void BindDescriptorsGraphics(const VkDescriptorSet* descriptors, uint32_t baseSet, uint32_t setCount, const uint32_t* offsets, uint32_t offsetCount, bool shared = false);
 /// update descriptors
@@ -110,4 +105,28 @@ void CommandBufferBeginMarker(VkCommandBuffer buf, const Math::float4& color, co
 /// end command buffer marker (directly on vkcommandbuffer)
 void CommandBufferEndMarker(VkCommandBuffer buf);
 
+/// add buffer for delayed delete
+void DelayedDeleteBuffer(const VkBuffer buf);
+/// add image for delayed delete
+void DelayedDeleteImage(const VkImage img);
+/// add image view for delayed delete
+void DelayedDeleteImageView(const VkImageView view);
+/// add memory for delayed delete
+void DelayedDeleteMemory(const VkDeviceMemory mem);
+
+/// handle queries at beginning of frame
+void _ProcessQueriesBeginFrame();
+/// handle queries on ending the frame
+void _ProcessQueriesEndFrame();
+
+#if NEBULA_ENABLE_PROFILING
+/// insert timestamp, returns handle to timestamp, which can be retreived on the next N'th frame where N is the number of buffered frames
+void __Timestamp(CoreGraphics::CommandBufferId buf, CoreGraphics::QueueType queue, const CoreGraphics::BarrierStage stage, const char* name);
+#endif
+
 } // namespace Vulkan
+
+namespace CoreGraphics
+{
+
+} // namespace CoreGraphics

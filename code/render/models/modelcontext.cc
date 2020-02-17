@@ -9,6 +9,7 @@
 #include "streammodelpool.h"
 #include "graphics/graphicsserver.h"
 #include "visibility/visibilitycontext.h"
+#include "profiling/profiling.h"
 
 #ifndef PUBLIC_BUILD
 #include "dynui/im3d/im3dcontext.h"
@@ -186,7 +187,7 @@ ModelContext::GetTransform(const Graphics::GraphicsEntityId id)
 Math::matrix44
 ModelContext::GetTransform(const Graphics::ContextEntityId id)
 {
-	ModelInstanceId& inst = modelContextAllocator.Get<1>(id.id);
+	ModelInstanceId& inst = modelContextAllocator.Get<Model_InstanceId>(id.id);
 	return modelContextAllocator.Get<2>(id.id);
 }
 
@@ -197,8 +198,8 @@ Math::bbox
 ModelContext::GetBoundingBox(const Graphics::GraphicsEntityId id)
 {
 	const ContextEntityId cid = GetContextId(id);
-	ModelInstanceId& inst = modelContextAllocator.Get<1>(cid.id);
-	return Models::modelPool->modelInstanceAllocator.Get<4>(inst.instance);
+	ModelInstanceId& inst = modelContextAllocator.Get<Model_InstanceId>(cid.id);
+	return Models::modelPool->modelInstanceAllocator.Get<StreamModelPool::InstanceBoundingBox>(inst.instance);
 }
 
 //------------------------------------------------------------------------------
@@ -208,8 +209,8 @@ const Util::Array<Models::ModelNode::Instance*>&
 ModelContext::GetModelNodeInstances(const Graphics::GraphicsEntityId id)
 {
 	const ContextEntityId cid = GetContextId(id);
-	ModelInstanceId& inst = modelContextAllocator.Get<1>(cid.id);
-	return Models::modelPool->modelInstanceAllocator.Get<0>(inst.instance);
+	ModelInstanceId& inst = modelContextAllocator.Get<Model_InstanceId>(cid.id);
+	return Models::modelPool->modelInstanceAllocator.Get<StreamModelPool::ModelNodeInstances>(inst.instance);
 }
 
 //------------------------------------------------------------------------------
@@ -219,8 +220,8 @@ const Util::Array<Models::NodeType>&
 ModelContext::GetModelNodeTypes(const Graphics::GraphicsEntityId id)
 {
 	const ContextEntityId cid = GetContextId(id);
-	ModelInstanceId& inst = modelContextAllocator.Get<1>(cid.id);
-	return Models::modelPool->modelInstanceAllocator.Get<1>(inst.instance);
+	ModelInstanceId& inst = modelContextAllocator.Get<Model_InstanceId>(cid.id);
+	return Models::modelPool->modelInstanceAllocator.Get<StreamModelPool::ModelNodeTypes>(inst.instance);
 }
 
 //------------------------------------------------------------------------------
@@ -229,7 +230,7 @@ ModelContext::GetModelNodeTypes(const Graphics::GraphicsEntityId id)
 const Util::Array<Models::ModelNode::Instance*>&
 ModelContext::GetModelNodeInstances(const Graphics::ContextEntityId id)
 {
-	ModelInstanceId& inst = modelContextAllocator.Get<1>(id.id);
+	ModelInstanceId& inst = modelContextAllocator.Get<Model_InstanceId>(id.id);
 	return Models::modelPool->modelInstanceAllocator.Get<0>(inst.instance);
 }
 
@@ -250,30 +251,29 @@ ModelContext::GetModelNodeTypes(const Graphics::ContextEntityId id)
 void
 ModelContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
 {
-	const Util::Array<ModelInstanceId>& instances = modelContextAllocator.GetArray<1>();
+	N_SCOPE(ModelBeforeFrame, Models);
+	const Util::Array<ModelInstanceId>& instances = modelContextAllocator.GetArray<Model_InstanceId>();
 	const Util::Array<Math::matrix44>& transforms = Models::modelPool->modelInstanceAllocator.GetArray<StreamModelPool::InstanceTransform>();
-	const Util::Array<Math::bbox>& modelBoxes = Models::modelPool->modelAllocator.GetArray<0>();
+	const Util::Array<Math::bbox>& modelBoxes = Models::modelPool->modelAllocator.GetArray<Models::StreamModelPool::ModelBoundingBox>();
 	Util::Array<Math::bbox>& instanceBoxes = Models::modelPool->modelInstanceAllocator.GetArray<StreamModelPool::InstanceBoundingBox>();
-	Util::Array<Math::matrix44>& pending = modelContextAllocator.GetArray<2>();
-	Util::Array<bool>& hasPending = modelContextAllocator.GetArray<3>();
+	Util::Array<Math::matrix44>& pending = modelContextAllocator.GetArray<Model_Transform>();
+	Util::Array<bool>& hasPending = modelContextAllocator.GetArray<Model_Dirty>();
 	
 	SizeT i;
 	for (i = 0; i < instances.Size(); i++)
 	{
 		const ModelInstanceId& instance = instances[i];
-		if (instance == ModelInstanceId::Invalid()) continue; // hmm, bad, should reorder and keep a 'last valid index'
+		if (instance == ModelInstanceId::Invalid()) 
+			continue; // hmm, bad, should reorder and keep a 'last valid index'
 
-		// get reference so we can include it in the pending
-		Math::matrix44 transform = transforms[instance.instance];
-		
-		uint objectId = Models::modelPool->modelInstanceAllocator.Get<StreamModelPool::ObjectId>(instance.instance);
-		Util::Array<Models::ModelNode::Instance*>& nodes = Models::modelPool->modelInstanceAllocator.Get<0>(instance.instance);
-		Util::Array<Models::NodeType>& types = Models::modelPool->modelInstanceAllocator.Get<1>(instance.instance);
-
-		// if we have a pending transform, apply it and transform bounding box
+		Util::Array<Models::ModelNode::Instance*>& nodes = Models::modelPool->modelInstanceAllocator.Get<Models::StreamModelPool::ModelNodeInstances>(instance.instance);
+		Util::Array<Models::NodeType>& types = Models::modelPool->modelInstanceAllocator.Get<Models::StreamModelPool::ModelNodeTypes>(instance.instance);
 		if (hasPending[i])
 		{
-			transform = pending[i];
+			uint objectId = Models::modelPool->modelInstanceAllocator.Get<StreamModelPool::ObjectId>(instance.instance);
+
+			// copy matrix pending matrix
+			Math::matrix44 transform = pending[i];
 			hasPending[i] = false;
 
 			// transform the box
@@ -292,7 +292,7 @@ ModelContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
 				//if (!node->active)
 				//	continue;
 
-				Math::matrix44& parentTransform = transform;
+				Math::matrix44 parentTransform = transform;
 				if (node->parent != nullptr && node->parent->node->type >= NodeHasTransform)
 					parentTransform = reinterpret_cast<const TransformNode::Instance*>(node->parent)->modelTransform;
 
@@ -302,23 +302,21 @@ ModelContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
 					tnode->modelTransform = Math::matrix44::multiply(tnode->transform.getmatrix(), parentTransform);
 					parentTransform = tnode->modelTransform;
 					tnode->objectId = objectId;
+
 				}
-				
+				if (types[j] >= NodeHasShaderState)
+				{
+					ShaderStateNode::Instance* snode = reinterpret_cast<ShaderStateNode::Instance*>(node);
+
+					// copy bounding box from parent, then transform
+					snode->boundingBox = node->node->boundingBox;
+					snode->boundingBox.affine_transform(snode->modelTransform);
+				}
+				transform = parentTransform;
 			}
 		}
 
-		// walk through nodes with shader states and update them
-		SizeT j;
-		for (j = 0; j < nodes.Size(); j++)
-		{
-			Models::ModelNode::Instance* node = nodes[j];
 
-			if (types[j] >= NodeHasShaderState)
-			{
-				ShaderStateNode::Instance* snode = reinterpret_cast<ShaderStateNode::Instance*>(node);
-				snode->Update();
-			}
-		}
 	}
 }
 
@@ -340,8 +338,11 @@ ModelContext::OnRenderDebug(uint32_t flags)
     {
         const ModelInstanceId& instance = instances[i];
         if (instance == ModelInstanceId::Invalid()) continue;
-        Im3d::Im3dContext::DrawBox(instanceBoxes[instance.instance], white, Im3d::CheckDepth|Im3d::Wireframe);
-        Im3d::Im3dContext::DrawOrientedBox(transforms[instance.instance], modelBoxes[instance.model], gray, Im3d::CheckDepth);
+		CoreGraphics::RenderShape shape;
+		shape.SetupSimpleShape(Threading::Thread::GetMyThreadId(), CoreGraphics::RenderShape::Box, CoreGraphics::RenderShape::RenderFlag(CoreGraphics::RenderShape::CheckDepth | CoreGraphics::RenderShape::Wireframe), transforms[instance.instance], white);
+		CoreGraphics::ShapeRenderer::Instance()->AddShape(shape);
+        //Im3d::Im3dContext::DrawBox(instanceBoxes[instance.instance], white, Im3d::CheckDepth|Im3d::Wireframe);
+        //Im3d::Im3dContext::DrawOrientedBox(transforms[instance.instance], modelBoxes[instance.model], gray, Im3d::CheckDepth);
     }
 }
 

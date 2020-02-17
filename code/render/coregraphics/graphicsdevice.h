@@ -17,6 +17,8 @@
 #include "debug/debugcounter.h"
 #include "coregraphics/rendereventhandler.h"
 #include "coregraphics/submissioncontext.h"
+#include "timing/timer.h"
+#include "util/stack.h"
 
 namespace CoreGraphics
 {
@@ -41,11 +43,29 @@ SizeT GetNumBufferedFrames();
 /// get current frame index, which is between 0 and GetNumBufferedFrames
 IndexT GetBufferedFrameIndex();
 
+#ifdef NEBULA_ENABLE_PROFILING
+struct FrameProfilingMarker
+{
+    CoreGraphics::QueueType queue;
+    Math::float4 color;
+    const char* name;
+	IndexT gpuBegin;
+	IndexT gpuEnd;
+	uint64_t start;
+	uint64_t duration;
+	Util::Array<FrameProfilingMarker> children;
+};
+#endif
+
+struct Query
+{
+	CoreGraphics::QueryType type;
+	IndexT idx;
+};
 
 struct GraphicsDeviceState
 {
 	Util::Array<CoreGraphics::TextureId> backBuffers;
-
 	Util::Dictionary<Util::StringAtom, CoreGraphics::TextureId> textures;
 
 	CoreGraphics::SubmissionContextId resourceSubmissionContext;
@@ -57,6 +77,12 @@ struct GraphicsDeviceState
 	CoreGraphics::SubmissionContextId setupSubmissionContext;
 	CoreGraphics::CommandBufferId setupSubmissionCmdBuffer;
 	bool setupSubmissionActive;
+
+	CoreGraphics::SubmissionContextId queryGraphicsSubmissionContext;
+	CoreGraphics::CommandBufferId queryGraphicsSubmissionCmdBuffer;
+
+	CoreGraphics::SubmissionContextId queryComputeSubmissionContext;
+	CoreGraphics::CommandBufferId queryComputeSubmissionCmdBuffer;
 
 	CoreGraphics::SubmissionContextId gfxSubmission;
 	CoreGraphics::CommandBufferId gfxCmdBuffer;
@@ -95,16 +121,31 @@ struct GraphicsDeviceState
 	bool inBeginBatch : 1;
 	bool inBeginCompute : 1;
 	bool inBeginAsyncCompute : 1;
+	bool inBeginGraphicsSubmission : 1;
+	bool inBeginComputeSubmission : 1;
 	bool renderWireframe : 1;
 	bool visualizeMipMaps : 1;
 	bool usePatches : 1;
 	bool enableValidation : 1;
+	bool buildThreadBuffers : 1;
 	IndexT currentFrameIndex;
 
-	_declare_counter(RenderDeviceNumComputes);
-	_declare_counter(RenderDeviceNumPrimitives);
-	_declare_counter(RenderDeviceNumDrawCalls);
+	_declare_counter(NumImageBytesAllocated);
+	_declare_counter(NumBufferBytesAllocated);
+	_declare_counter(NumBytesAllocated);
+	_declare_counter(GraphicsDeviceNumComputes);
+	_declare_counter(GraphicsDeviceNumPrimitives);
+	_declare_counter(GraphicsDeviceNumDrawCalls);
+
+#ifdef NEBULA_ENABLE_PROFILING
+    Util::Stack<FrameProfilingMarker> profilingMarkerStack[NumQueueTypes];
+    Util::FixedArray<Util::Array<FrameProfilingMarker>> profilingMarkersPerFrame;
+	Util::Array<FrameProfilingMarker> frameProfilingMarkers;
+#endif NEBULA_ENABLE_PROFILING
 };
+
+/// retrieve the current graphics device state
+GraphicsDeviceState const* const GetGraphicsDeviceState();
 
 /// attach a render event handler
 void AttachEventHandler(const Ptr<CoreGraphics::RenderEventHandler>& h);
@@ -138,8 +179,6 @@ void SetStreamVertexBuffer(IndexT streamIndex, const CoreGraphics::VertexBufferI
 void SetVertexLayout(const CoreGraphics::VertexLayoutId& vl);
 /// set current index buffer
 void SetIndexBuffer(const CoreGraphics::IndexBufferId& ib, IndexT offsetIndex);
-/// set current index buffer with index type override
-void SetIndexBuffer(const CoreGraphics::IndexBufferId& ib, IndexT offsetIndex, CoreGraphics::IndexType::Code type);
 /// set the type of topology used
 void SetPrimitiveTopology(const CoreGraphics::PrimitiveTopology::Code topo);
 /// get the type of topology used
@@ -164,21 +203,21 @@ void PushConstants(ShaderPipeline pipeline, uint offset, uint size, byte* data);
 template<class TYPE> uint SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType type, const TYPE& data);
 /// allocate range of graphics memory and set data as an array of elements, return offset
 template<class TYPE> uint SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType type, const TYPE* data, SizeT elements);
+/// set graphics constants based on pre-allocated memory
+template<class TYPE> void SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType type, uint offset, const TYPE& data);
 /// allocate range of compute memory and set data, return offset
 template<class TYPE> uint SetComputeConstants(CoreGraphics::GlobalConstantBufferType type, const TYPE& data);
 /// allocate range of graphics memory and set data as an array of elements, return offset
 template<class TYPE> uint SetComputeConstants(CoreGraphics::GlobalConstantBufferType type, const TYPE* data, SizeT elements);
 /// set graphics constants based on pre-allocated memory
-template<class TYPE> void SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType type, uint offset, const TYPE& data);
-/// set graphics constants based on pre-allocated memory
 template<class TYPE> void SetComputeConstants(CoreGraphics::GlobalConstantBufferType type, uint offset, const TYPE& data);
 
 /// allocate range of graphics memory and set data, return offset
 uint SetGraphicsConstantsInternal(CoreGraphics::GlobalConstantBufferType type, const void* data, SizeT size);
-/// allocate range of compute memory and set data, return offset
-uint SetComputeConstantsInternal(CoreGraphics::GlobalConstantBufferType type, const void* data, SizeT size);
 /// use pre-allocated range of memory to update graphics constants
 void SetGraphicsConstantsInternal(CoreGraphics::GlobalConstantBufferType type, uint offset, const void* data, SizeT size);
+/// allocate range of compute memory and set data, return offset
+uint SetComputeConstantsInternal(CoreGraphics::GlobalConstantBufferType type, const void* data, SizeT size);
 /// use pre-allocated range of memory to update compute constants
 void SetComputeConstantsInternal(CoreGraphics::GlobalConstantBufferType type, uint offset, const void* data, SizeT size);
 
@@ -248,7 +287,6 @@ void WaitForQueue(CoreGraphics::QueueType queue);
 /// wait for all queues to finish
 void WaitForAllQueues();
 
-
 /// save a screenshot to the provided stream
 CoreGraphics::ImageFileFormat::Code SaveScreenshot(CoreGraphics::ImageFileFormat::Code fmt, const Ptr<IO::Stream>& outStream);
 /// save a region of the screen to the provided stream
@@ -262,12 +300,19 @@ bool GetRenderWireframe();
 /// set the render as wireframe flag
 void SetRenderWireframe(bool b);
 
+#if NEBULA_ENABLE_PROFILING
 /// insert timestamp, returns handle to timestamp, which can be retreived on the next N'th frame where N is the number of buffered frames
-IndexT Timestamp(CoreGraphics::QueueType queue, const CoreGraphics::BarrierStage stage);
+IndexT Timestamp(CoreGraphics::QueueType queue, const CoreGraphics::BarrierStage stage, const char* name);
+/// get cpu profiling markers
+const Util::Array<FrameProfilingMarker>& GetProfilingMarkers();
+/// get number of draw calls this frame
+SizeT GetNumDrawCalls();
+#endif
+
 /// start query
 IndexT BeginQuery(CoreGraphics::QueueType queue, CoreGraphics::QueryType type);
 /// end query
-void EndQuery(CoreGraphics::QueueType queue, CoreGraphics::QueryType type, IndexT query);
+void EndQuery(CoreGraphics::QueueType queue, CoreGraphics::QueryType type);
 
 /// copy data between textures
 void Copy(const CoreGraphics::TextureId from, Math::rectangle<SizeT> fromRegion, const CoreGraphics::TextureId to, Math::rectangle<SizeT> toRegion);
@@ -295,19 +340,19 @@ const CoreGraphics::TextureId GetTexture(const Util::StringAtom& name);
 
 #if NEBULA_GRAPHICS_DEBUG
 /// set debug name for object
-template<typename OBJECT_ID_TYPE> void ObjectSetName(const OBJECT_ID_TYPE id, const Util::String& name);
+template<typename OBJECT_ID_TYPE> void ObjectSetName(const OBJECT_ID_TYPE id, const char* name);
 /// begin debug marker region
-void QueueBeginMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const Util::String& name);
+void QueueBeginMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const char* name);
 /// end debug marker region
 void QueueEndMarker(const CoreGraphics::QueueType queue);
 /// insert marker
-void QueueInsertMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const Util::String& name);
+void QueueInsertMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const char* name);
 /// begin debug marker region
-void CommandBufferBeginMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const Util::String& name);
+void CommandBufferBeginMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const char* name);
 /// end debug marker region
 void CommandBufferEndMarker(const CoreGraphics::QueueType queue);
 /// insert marker
-void CommandBufferInsertMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const Util::String& name);
+void CommandBufferInsertMarker(const CoreGraphics::QueueType queue, const Math::float4& color, const char* name);
 #endif
 
 //------------------------------------------------------------------------------
@@ -334,6 +379,16 @@ SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType type, const TYPE* da
 /**
 */
 template<class TYPE>
+inline void
+SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType type, uint offset, const TYPE& data)
+{
+	return SetGraphicsConstantsInternal(type, offset, &data, sizeof(TYPE));
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+template<class TYPE>
 inline uint
 SetComputeConstants(CoreGraphics::GlobalConstantBufferType type, const TYPE& data)
 {
@@ -350,15 +405,6 @@ SetComputeConstants(CoreGraphics::GlobalConstantBufferType type, const TYPE* dat
 	return SetComputeConstantsInternal(type, data, sizeof(TYPE) * elements);
 }
 
-//------------------------------------------------------------------------------
-/**
-*/
-template<class TYPE>
-inline void 
-SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType type, uint offset, const TYPE& data)
-{
-	return SetGraphicsConstantsInternal(type, offset, &data, sizeof(TYPE));
-}
 
 //------------------------------------------------------------------------------
 /**

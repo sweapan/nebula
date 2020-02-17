@@ -294,6 +294,8 @@ nebula_begin_module(foundation)
 		)
 		fips_dir(threading)
 		fips_files(
+			assertingmutex.cc
+			assertingmutex.h
 			barrier.h
 			criticalsection.h
 			event.h
@@ -345,6 +347,11 @@ nebula_begin_module(foundation)
 			tcp/stdtcpclientconnection.h
 			tcp/stdtcpserver.cc
 			tcp/stdtcpserver.h
+		)
+		fips_dir(profiling)
+		fips_files(
+			profiling.cc
+			profiling.h
 		)
 		fips_dir(system)
 		fips_files(

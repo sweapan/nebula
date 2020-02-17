@@ -12,7 +12,7 @@
 #include "coregraphics/vk/vkgraphicsdevice.h"
 
 #if NEBULA_GRAPHICS_DEBUG
-	#define NEBULA_BARRIER_INSERT_MARKER 1 // enable or disable to remove barrier markers
+	#define NEBULA_BARRIER_INSERT_MARKER 0 // enable or disable to remove barrier markers
 #else
 	#define NEBULA_BARRIER_INSERT_MARKER 0
 #endif
@@ -124,7 +124,7 @@ BarrierInsert(const BarrierId id, const CoreGraphics::QueueType queue)
 {
 #if NEBULA_BARRIER_INSERT_MARKER
 	const Util::StringAtom& name = barrierAllocator.Get<0>(id.id24).name;
-	CommandBufferBeginMarker(queue, NEBULA_MARKER_GRAY, name.AsString());
+	CommandBufferBeginMarker(queue, NEBULA_MARKER_GRAY, name.Value());
 #endif
 	CoreGraphics::InsertBarrier(id, queue);
 
@@ -177,16 +177,9 @@ BarrierInsert(
 		vkBar.dstAccessMask = VkTypes::AsVkResourceAccessFlags(nebBar.toAccess);
 		vkBar.sType = VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER;
 		vkBar.pNext = nullptr;
-		if (nebBar.size == -1)
-		{
-			vkBar.offset = 0;
-			vkBar.size = VK_WHOLE_SIZE;
-		}
-		else
-		{
-			vkBar.offset = nebBar.offset;
-			vkBar.size = nebBar.size;
-		}
+
+		vkBar.offset = nebBar.offset;
+		vkBar.size = (nebBar.size == -1) ? VK_WHOLE_SIZE : nebBar.size;
 		
 		vkBar.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
 		vkBar.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;

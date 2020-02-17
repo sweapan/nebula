@@ -7,9 +7,10 @@
 #include "lib/util.fxh"
 #include "lib/techniques.fxh"
 #include "lib/shared.fxh"
+#include "lib/pbr.fxh"
 
 sampler2D NormalMap;
-sampler2D SpecularMap;
+sampler2D ParameterMap;
 sampler2D AlbedoMap;
 sampler2D DepthMap;
 readwrite r16f image2D DistanceFieldWeightMap;
@@ -31,7 +32,7 @@ samplerCube LocalIrradianceMap;
 
 samplerstate GeometrySampler
 {
-	Samplers = { NormalMap, DepthMap, SpecularMap, AlbedoMap };
+	Samplers = { NormalMap, DepthMap, ParameterMap, AlbedoMap };
 	//Filter = Point;
 	AddressU = Wrap;
 	AddressV = Wrap;
@@ -137,7 +138,7 @@ psMain(in vec3 viewSpacePosition,
 	[color0] out vec4 Color)
 {	
 	vec2 pixelSize = GetPixelSize(DepthMap);
-	vec2 screenUV = psComputeScreenCoord(gl_FragCoord.xy, pixelSize.xy);
+	vec2 screenUV = PixelToNormalized(gl_FragCoord.xy, pixelSize.xy);
 	float depth = textureLod(DepthMap, screenUV, 0).r;
 		
 	// get view space position
@@ -162,7 +163,7 @@ psMain(in vec3 viewSpacePosition,
 	
 		// sample normal and specular, do some pseudo-PBR energy balance between albedo and spec
 		vec3 viewSpaceNormal = UnpackViewSpaceNormal(textureLod(NormalMap, screenUV, 0));
-		vec4 spec = textureLod(SpecularMap, screenUV, 0);
+		vec4 spec = textureLod(ParameterMap, screenUV, 0);
 		vec4 oneMinusSpec = 1 - spec;
 		vec3 albedo = textureLod(AlbedoMap, screenUV, 0).rgb * oneMinusSpec.rgb;
 	

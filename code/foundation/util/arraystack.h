@@ -53,6 +53,8 @@ public:
 
     /// append element to end of array
     void Append(const TYPE& elm);
+    /// append an element which is being forwarded
+    void Append(TYPE&& elm);
     /// append the contents of an array to this array
     void AppendArray(const ArrayStack<TYPE, STACK_SIZE>& rhs);
     /// increase capacity to fit N more elements into the array
@@ -101,6 +103,8 @@ public:
     Iterator Find(const TYPE& elm) const;
     /// find identical element in array, return index, InvalidIndex if not found
     IndexT FindIndex(const TYPE& elm) const;
+    /// find identical element using a specific key type
+    template <typename KEYTYPE> IndexT FindIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const;
     /// fill array range with element
     void Fill(IndexT first, SizeT num, const TYPE& elm);
     /// clear contents and preallocate with new attributes
@@ -114,7 +118,7 @@ public:
     /// do a binary search, requires a sorted array
     IndexT BinarySearchIndex(const TYPE& elm) const;
 	/// do binary search with explicit typed element
-	template <typename KEYTYPE> IndexT BinarySearchIndex(const KEYTYPE& elm) const;
+	template <typename KEYTYPE> IndexT BinarySearchIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const;
 
 	/// returns true if the stack is used
 	const bool IsStackUsed() const;
@@ -278,11 +282,8 @@ inline ArrayStack<TYPE, STACK_SIZE>::ArrayStack(ArrayStack<TYPE, STACK_SIZE>&& r
 	this->capacity = rhs.capacity;
 	this->count = rhs.count;
 	this->grow = rhs.grow;
-	if (this->capacity > STACK_SIZE)
-	{
-		this->elements = rhs.elements;
-	}
-	else
+	
+    if (this->capacity <= STACK_SIZE)
 	{
 		for (IndexT i = 0; i < rhs.count; ++i)
 		{
@@ -291,6 +292,9 @@ inline ArrayStack<TYPE, STACK_SIZE>::ArrayStack(ArrayStack<TYPE, STACK_SIZE>&& r
 
 		this->elements = this->smallVector;
 	}
+    else
+        this->elements = rhs.elements;
+
 	rhs.count = 0;
 	rhs.capacity = 0;
 	rhs.elements = nullptr;
@@ -308,7 +312,7 @@ ArrayStack<TYPE, STACK_SIZE>::Copy(const ArrayStack<TYPE, STACK_SIZE>& src)
     #endif
 
     this->grow = src.grow;
-    this->capacity = src.capacity;
+    this->capacity = src.count; // don't copy capacity, make this new copy smaller
     this->count = src.count;
     if (this->capacity > 0)
     {
@@ -428,14 +432,21 @@ inline void ArrayStack<TYPE, STACK_SIZE>::operator=(ArrayStack<TYPE, STACK_SIZE>
 	this->capacity = rhs.capacity;
 	this->count = rhs.count;
 	this->grow = rhs.grow;
-	if (this->capacity > STACK_SIZE)
-	{
-		this->elements = rhs.elements;
-	}
-	else
-	{
-		memcpy(this->smallVector, rhs.smallVector, sizeof(TYPE) * rhs.count);
-	}
+    if (this->elements && this->capacity > STACK_SIZE)
+        n_delete_array(this->elements);
+    
+    if (this->capacity <= STACK_SIZE)
+    {
+        for (IndexT i = 0; i < rhs.count; ++i)
+        {
+            this->smallVector[i] = rhs.smallVector[i];
+        }
+
+        this->elements = this->smallVector;
+    }
+    else
+        this->elements = rhs.elements;
+
 	rhs.count = 0;
 	rhs.capacity = 0;
 	rhs.elements = nullptr;
@@ -580,6 +591,23 @@ ArrayStack<TYPE, STACK_SIZE>::Append(const TYPE& elm)
     n_assert(this->elements);
     #endif
     this->elements[this->count++] = elm;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+template<class TYPE, int STACK_SIZE> inline void 
+ArrayStack<TYPE, STACK_SIZE>::Append(TYPE&& elm)
+{
+    // grow allocated space if exhausted
+    if (this->count == this->capacity)
+    {
+        this->Grow();
+    }
+#if NEBULA_BOUNDSCHECKS
+    n_assert(this->elements);
+#endif
+    this->elements[this->count++] = std::forward<TYPE>(elm);
 }
 
 //------------------------------------------------------------------------------
@@ -757,9 +785,11 @@ ArrayStack<TYPE, STACK_SIZE>::EraseIndexSwap(IndexT index)
     IndexT lastElementIndex = this->count - 1;
     if (index < lastElementIndex)
     {
-        this->elements[index] = this->elements[lastElementIndex];
+        if constexpr (!std::is_trivially_move_assignable<TYPE>::value)
+            this->elements[index] = std::move(this->elements[lastElementIndex]);
+        else
+            this->elements[index] = this->elements[lastElementIndex];
     }
-    this->Destroy(&(this->elements[lastElementIndex]));
     this->count--;
 }
 
@@ -933,6 +963,37 @@ ArrayStack<TYPE, STACK_SIZE>::FindIndex(const TYPE& elm) const
 
 //------------------------------------------------------------------------------
 /**
+	Find element in array, return element index, or InvalidIndex if element not
+	found.
+
+    Template type is used to force a specific type comparison. This might mitigate
+    some expensive implicit constructions to TYPE.
+
+    This templated method requires a explicit template type, which is enforced
+    by using typename to put the template type in a non-deducable context.
+    The enable_if does nothing except allow us to use typename.
+
+	@param  elm     element to find
+	@return         index to element, or InvalidIndex if not found
+*/
+template<class TYPE, int STACK_SIZE>
+template<typename KEYTYPE> inline IndexT
+ArrayStack<TYPE, STACK_SIZE>::FindIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const
+{
+	IndexT index;
+	for (index = 0; index < this->count; index++)
+	{
+		if (this->elements[index] == elm)
+		{
+			return index;
+		}
+	}
+	return InvalidIndex;
+}
+
+//------------------------------------------------------------------------------
+/**
+
     Fills an array range with the given element value. Will grow the
     array if necessary
 
@@ -1053,10 +1114,16 @@ ArrayStack<TYPE, STACK_SIZE>::BinarySearchIndex(const TYPE& elm) const
 
 //------------------------------------------------------------------------------
 /**
+    Template type is used to force a specific type comparison. This might mitigate
+    some expensive implicit constructions to TYPE.
+
+    This templated method requires a explicit template type, which is enforced
+    by using typename to put the template type in a non-deducable context.
+    The enable_if does nothing except allow us to use typename.
 */
 template<class TYPE, int STACK_SIZE>
 template<typename KEYTYPE> inline IndexT
-ArrayStack<TYPE, STACK_SIZE>::BinarySearchIndex(const KEYTYPE& elm) const
+ArrayStack<TYPE, STACK_SIZE>::BinarySearchIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const
 {
 	SizeT num = this->Size();
 	if (num > 0)

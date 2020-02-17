@@ -11,14 +11,16 @@
 namespace Materials
 {
 
+IndexT MaterialType::MaterialTypeUniqueIdCounter = 0;
 //------------------------------------------------------------------------------
 /**
 */
 MaterialType::MaterialType() 
 	: currentBatch(CoreGraphics::BatchGroup::InvalidBatchGroup)
-	, currentSurfaceBatchIndex(InvalidIndex)
+	, currentBatchIndex(InvalidIndex)
 	, vertexType(-1)
 	, isVirtual(false)
+	, uniqueId(MaterialTypeUniqueIdCounter++)
 {
 }
 
@@ -261,6 +263,10 @@ MaterialType::CreateSurfaceInstance(const SurfaceId id)
 		// get instance level stuff
 		Util::FixedArray<SurfaceInstanceConstant>& surfaceInstanceConstants = this->surfaceInstanceAllocator.Get<SurfaceInstanceConstants>(inst)[*batchIt.val];
 
+		const Util::Array<std::tuple<IndexT, void*, SizeT>>& buffers = this->surfaceAllocator.Get<InstanceBuffers>(id.id)[*batchIt.val];
+		SizeT numBuffers = buffers.Size();
+		this->surfaceInstanceAllocator.Get<SurfaceInstanceOffsets>(inst).Resize(numBuffers);
+
 		// resize 
 		surfaceInstanceConstants.Resize(constants.Size());
 		for (IndexT i = 0; i < constants.Size(); i++)
@@ -394,27 +400,14 @@ MaterialType::SetSurfaceInstanceConstant(const SurfaceInstanceId sur, const Inde
 bool
 MaterialType::BeginBatch(CoreGraphics::BatchGroup::Code batch)
 {
+	n_assert(this->currentBatch == CoreGraphics::BatchGroup::InvalidBatchGroup);
+	n_assert(this->currentBatchIndex == InvalidIndex);
 	IndexT idx = this->batchToIndexMap[batch];
 	if (idx != InvalidIndex)
 	{
 		CoreGraphics::SetShaderProgram(this->programs[idx]);
-		this->currentBatch = idx;
-		return true;
-	}
-	return false;
-}
-
-//------------------------------------------------------------------------------
-/**
-*/
-bool
-MaterialType::BeginSurface(const SurfaceId id)
-{
-	n_assert(this->currentBatch != CoreGraphics::BatchGroup::InvalidBatchGroup);
-	if (this->currentBatch != InvalidIndex)
-	{
-		this->currentSurfaceBatchIndex = this->currentBatch;
-		CoreGraphics::SetResourceTable(this->surfaceAllocator.Get<SurfaceTable>(id.id)[this->currentBatch], NEBULA_BATCH_GROUP, CoreGraphics::GraphicsPipeline, nullptr);
+		this->currentBatch = batch;
+		this->currentBatchIndex = idx;
 		return true;
 	}
 	return false;
@@ -424,16 +417,27 @@ MaterialType::BeginSurface(const SurfaceId id)
 /**
 */
 void
+MaterialType::ApplySurface(const SurfaceId id)
+{
+	n_assert(this->currentBatch != CoreGraphics::BatchGroup::InvalidBatchGroup);
+	n_assert(this->currentBatchIndex != InvalidIndex);
+	CoreGraphics::SetResourceTable(this->surfaceAllocator.Get<SurfaceTable>(id.id)[this->currentBatchIndex], NEBULA_BATCH_GROUP, CoreGraphics::GraphicsPipeline, nullptr);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void
 MaterialType::ApplyInstance(const SurfaceInstanceId id)
 {
 	n_assert(this->currentBatch != CoreGraphics::BatchGroup::InvalidBatchGroup);
-	n_assert(this->currentSurfaceBatchIndex != InvalidIndex);
-	const CoreGraphics::ResourceTableId table = this->surfaceAllocator.Get<InstanceTable>(id.surface)[this->currentSurfaceBatchIndex];
+	n_assert(this->currentBatchIndex != InvalidIndex);
+	const CoreGraphics::ResourceTableId table = this->surfaceAllocator.Get<InstanceTable>(id.surface)[this->currentBatchIndex];
 	if (table != CoreGraphics::ResourceTableId::Invalid())
 	{
 		// update global buffer, save new offsets, and apply table
-		const Util::Array<std::tuple<IndexT, void*, SizeT>>& buffers = this->surfaceAllocator.Get<InstanceBuffers>(id.surface)[this->currentSurfaceBatchIndex];
-		Util::FixedArray<uint> offsets(buffers.Size());
+		const Util::Array<std::tuple<IndexT, void*, SizeT>>& buffers = this->surfaceAllocator.Get<InstanceBuffers>(id.surface)[this->currentBatchIndex];
+		Util::FixedArray<uint>& offsets = this->surfaceInstanceAllocator.Get<SurfaceInstanceOffsets>(id.instance);
 		for (IndexT i = 0; i < buffers.Size(); i++)
 		{
 			offsets[i] = CoreGraphics::SetGraphicsConstants(CoreGraphics::MainThreadConstantBuffer, (byte*)std::get<1>(buffers[i]), std::get<2>(buffers[i]));
@@ -445,18 +449,10 @@ MaterialType::ApplyInstance(const SurfaceInstanceId id)
 //------------------------------------------------------------------------------
 /**
 */
-void 
-MaterialType::EndSurface()
-{
-	this->currentSurfaceBatchIndex = InvalidIndex;
-}
-
-//------------------------------------------------------------------------------
-/**
-*/
 void
 MaterialType::EndBatch()
 {
+	this->currentBatchIndex = InvalidIndex;
 	this->currentBatch = CoreGraphics::BatchGroup::InvalidBatchGroup;
 }
 

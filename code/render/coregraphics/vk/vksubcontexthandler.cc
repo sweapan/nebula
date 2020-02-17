@@ -81,11 +81,11 @@ VkSubContextHandler::Setup(VkDevice dev, const Util::FixedArray<uint> indexMap, 
 	this->timelineSubmissions.Resize(CoreGraphics::NumQueueTypes);
 	for (IndexT i = 0; i < CoreGraphics::NumQueueTypes; i++)
 	{
-		VkSemaphoreTypeCreateInfoKHR ext =
+		VkSemaphoreTypeCreateInfo ext =
 		{
-			VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO_KHR,
+			VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO,
 			nullptr,
-			VkSemaphoreTypeKHR::VK_SEMAPHORE_TYPE_TIMELINE_KHR,
+			VkSemaphoreType::VK_SEMAPHORE_TYPE_TIMELINE,
 			0
 		};
 		VkSemaphoreCreateInfo inf =
@@ -154,7 +154,7 @@ VkSubContextHandler::SetToNextContext(const CoreGraphics::QueueType type)
 /**
 */
 void 
-VkSubContextHandler::AppendSubmissionTimeline(CoreGraphics::QueueType type, VkCommandBuffer cmds)
+VkSubContextHandler::AppendSubmissionTimeline(CoreGraphics::QueueType type, VkCommandBuffer cmds, bool semaphore)
 {
 	n_assert(cmds != VK_NULL_HANDLE);
 	Util::Array<TimelineSubmission>& submissions = this->timelineSubmissions[type];
@@ -165,10 +165,14 @@ VkSubContextHandler::AppendSubmissionTimeline(CoreGraphics::QueueType type, VkCo
 	// if command buffer is present, add to 
 	sub.buffers.Append(cmds);
 
-	// add signal
-	sub.signalSemaphores.Append(this->semaphores[type]);
-	this->semaphoreSubmissionIds[type]++;
-	sub.signalIndices.Append(this->semaphoreSubmissionIds[type]);
+	if (semaphore)
+	{
+		// add signal
+		sub.signalSemaphores.Append(this->semaphores[type]);
+		this->semaphoreSubmissionIds[type]++;
+		sub.signalIndices.Append(this->semaphoreSubmissionIds[type]);
+	}
+	
 	this->queueEmpty[type] = false;
 }
 
@@ -181,23 +185,13 @@ VkSubContextHandler::AppendWaitTimeline(CoreGraphics::QueueType type, VkPipeline
 	TimelineSubmission& sub = this->timelineSubmissions[type].Back();
 
 	n_assert(waitQueue != CoreGraphics::InvalidQueueType);
-	sub.waitIndices.Append(this->semaphoreSubmissionIds[waitQueue]);
-	sub.waitSemaphores.Append(this->semaphores[waitQueue]);
-	sub.waitFlags.Append(waitFlags);
-}
-
-//------------------------------------------------------------------------------
-/**
-*/
-void 
-VkSubContextHandler::AppendWaitTimeline(CoreGraphics::QueueType type, VkPipelineStageFlags waitFlags, CoreGraphics::QueueType waitQueue, const uint64 index)
-{
-	TimelineSubmission& sub = this->timelineSubmissions[type].Back();
-
-	n_assert(waitQueue != CoreGraphics::InvalidQueueType);
-	sub.waitIndices.Append(index);
-	sub.waitSemaphores.Append(this->semaphores[waitQueue]);
-	sub.waitFlags.Append(waitFlags);
+	uint payload = this->semaphoreSubmissionIds[waitQueue];
+	if (payload > 0)
+	{
+		sub.waitIndices.Append(payload);
+		sub.waitSemaphores.Append(this->semaphores[waitQueue]);
+		sub.waitFlags.Append(waitFlags);
+	}	
 }
 
 //------------------------------------------------------------------------------
@@ -239,7 +233,7 @@ VkSubContextHandler::FlushSubmissionsTimeline(CoreGraphics::QueueType type, VkFe
 		return ret;
 
 	Util::FixedArray<VkSubmitInfo> submitInfos(submissions.Size());
-	Util::FixedArray<VkTimelineSemaphoreSubmitInfoKHR> extensions(submissions.Size());
+	Util::FixedArray<VkTimelineSemaphoreSubmitInfo> extensions(submissions.Size());
 	for (IndexT i = 0; i < submissions.Size(); i++)
 	{
 		TimelineSubmission& sub = submissions[i];
@@ -249,10 +243,12 @@ VkSubContextHandler::FlushSubmissionsTimeline(CoreGraphics::QueueType type, VkFe
 			continue;
 
 		// save last signal index for return
-		ret = sub.signalIndices.Back();
-		VkTimelineSemaphoreSubmitInfoKHR ext =
+		if (sub.signalIndices.Size())
+			ret = sub.signalIndices.Back();
+
+		VkTimelineSemaphoreSubmitInfo ext =
 		{
-			VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO_KHR,
+			VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO,
 			nullptr,
 			sub.waitIndices.Size(),
 			sub.waitIndices.Size() > 0 ? sub.waitIndices.Begin() : nullptr,

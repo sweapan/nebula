@@ -77,6 +77,8 @@ public:
 
     /// append element to end of array
     void Append(const TYPE& elm);
+    /// append an element which is being forwarded
+    void Append(TYPE&& elm);
     /// append the contents of an array to this array
     void AppendArray(const Array<TYPE>& rhs);
     /// increase capacity to fit N more elements into the array.
@@ -99,6 +101,8 @@ public:
     void EraseIndexSwap(IndexT index);
     /// erase element at iterator, fill gap by swapping in last element, destroys sorting!
     Iterator EraseSwap(Iterator iter);
+    /// erase range
+    void EraseRange(IndexT start, SizeT end);
 	/// erase back
 	void EraseBack();
 	/// erase front
@@ -125,6 +129,8 @@ public:
     Iterator Find(const TYPE& elm) const;
     /// find identical element in array, return index, InvalidIndex if not found
     IndexT FindIndex(const TYPE& elm) const;
+	/// find identical element using a specific key type
+	template <typename KEYTYPE> IndexT FindIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const;
     /// fill array range with element
     void Fill(IndexT first, SizeT num, const TYPE& elm);
     /// clear contents and preallocate with new attributes
@@ -138,7 +144,7 @@ public:
     /// do a binary search, requires a sorted array
     IndexT BinarySearchIndex(const TYPE& elm) const;
 	/// do a binary search using a specific key type
-	template <typename KEYTYPE> IndexT BinarySearchIndex(const KEYTYPE& elm) const;
+	template <typename KEYTYPE> IndexT BinarySearchIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const;
 	
 	/// Set size. Grows array if num is greater than capacity. Calls destroy on all objects at index > num!
 	void SetSize(SizeT num);
@@ -444,6 +450,8 @@ Array<TYPE>::operator=(Array<TYPE>&& rhs)
 {
     if (this != &rhs)
     {
+        if (this->elements)
+            n_delete_array(this->elements);
         this->elements = rhs.elements;
         this->grow = rhs.grow;
         this->count = rhs.count;
@@ -552,7 +560,7 @@ Array<TYPE>::Move(IndexT fromIndex, IndexT toIndex)
         this->DestroyRange(fromIndex, toIndex);
     }
 
-    // adjust array _size
+    // adjust array size
     this->count = toIndex + num;
 }
 
@@ -608,7 +616,7 @@ inline void
 Array<TYPE>::MoveRange(TYPE* to, TYPE* from, SizeT num)
 {
 	// copy over contents
-	if constexpr (!std::is_trivially_copyable<TYPE>::value)
+	if constexpr (!std::is_trivially_move_assignable<TYPE>::value)
 	{
 		IndexT i;
 		for (i = 0; i < num; i++)
@@ -637,6 +645,23 @@ Array<TYPE>::Append(const TYPE& elm)
     n_assert(this->elements);
     #endif
     this->elements[this->count++] = elm;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+template<class TYPE> inline void 
+Array<TYPE>::Append(TYPE&& elm)
+{
+    // grow allocated space if exhausted
+    if (this->count == this->capacity)
+    {
+        this->Grow();
+    }
+#if NEBULA_BOUNDSCHECKS
+    n_assert(this->elements);
+#endif
+    this->elements[this->count++] = std::forward<TYPE>(elm);
 }
 
 //------------------------------------------------------------------------------
@@ -829,10 +854,11 @@ Array<TYPE>::EraseIndexSwap(IndexT index)
     IndexT lastElementIndex = this->count - 1;
     if (index < lastElementIndex)
     {
-        this->elements[index] = this->elements[lastElementIndex];
+        if constexpr (!std::is_trivially_move_assignable<TYPE>::value)
+            this->elements[index] = std::move(this->elements[lastElementIndex]);
+        else
+            this->elements[index] = this->elements[lastElementIndex];
     }
-	if constexpr (!std::is_trivially_destructible<TYPE>::value)
-		this->Destroy(&(this->elements[lastElementIndex]));
     this->count--;
 }
 
@@ -861,6 +887,27 @@ Array<TYPE>::EraseSwap(typename Array<TYPE>::Iterator iter)
     #endif
 	this->EraseIndexSwap(IndexT(iter - this->elements));
     return iter;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+template<class TYPE> void 
+Array<TYPE>::EraseRange(IndexT start, SizeT end)
+{
+    n_assert(end >= start);
+    n_assert(end < this->count);
+    if (start == end)
+        this->EraseIndex(start);
+    else
+    {
+        // add 1 to end to remove and move including that element
+        end += 1;
+        this->DestroyRange(start, end);
+        SizeT numMove = this->count - end;
+        this->MoveRange(&this->elements[start], &this->elements[end], numMove);
+        this->count -= end - start;
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -1003,6 +1050,36 @@ Array<TYPE>::FindIndex(const TYPE& elm) const
 
 //------------------------------------------------------------------------------
 /**
+	Find element in array, return element index, or InvalidIndex if element not
+	found.
+
+    Template type is used to force a specific type comparison. This might mitigate
+    some expensive implicit constructions to TYPE.
+
+    This templated method requires a explicit template type, which is enforced
+    by using typename to put the template type in a non-deducable context.
+    The enable_if does nothing except allow us to use typename.
+
+	@param  elm     element to find
+	@return         index to element, or InvalidIndex if not found
+*/
+template<class TYPE>
+template<typename KEYTYPE> inline IndexT
+Array<TYPE>::FindIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const
+{
+	IndexT index;
+	for (index = 0; index < this->count; index++)
+	{
+		if (this->elements[index] == elm)
+		{
+			return index;
+		}
+	}
+	return InvalidIndex;
+}
+
+//------------------------------------------------------------------------------
+/**
     Fills an array range with the given element value. Will grow the
     array if necessary
 
@@ -1123,10 +1200,16 @@ Array<TYPE>::BinarySearchIndex(const TYPE& elm) const
 
 //------------------------------------------------------------------------------
 /**
+    Template type is used to force a specific type comparison. This might mitigate
+    some expensive implicit constructions to TYPE.
+
+    This templated method requires a explicit template type, which is enforced
+    by using typename to put the template type in a non-deducable context.
+    The enable_if does nothing except allow us to use typename.
 */
 template<class TYPE>
 template<typename KEYTYPE> inline IndexT 
-Array<TYPE>::BinarySearchIndex(const KEYTYPE& elm) const
+Array<TYPE>::BinarySearchIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const
 {
 	SizeT num = this->Size();
 	if (num > 0)

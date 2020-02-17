@@ -37,6 +37,8 @@ LightContext::GenericLightAllocator LightContext::genericLightAllocator;
 LightContext::PointLightAllocator LightContext::pointLightAllocator;
 LightContext::SpotLightAllocator LightContext::spotLightAllocator;
 LightContext::GlobalLightAllocator LightContext::globalLightAllocator;
+LightContext::ShadowCasterAllocator LightContext::shadowCasterAllocator;
+Util::HashTable<Graphics::GraphicsEntityId, Graphics::ContextEntityId, 6, 1> LightContext::shadowCasterSliceMap;
 _ImplementContext(LightContext, LightContext::genericLightAllocator);
 
 struct ShadowCasterState
@@ -176,7 +178,7 @@ LightContext::Create()
 			// run the script
 			lightServerState.shadowMappingFrameScript->Run(frame);
 #ifndef PUBLIC_BUILD
-			//Debug::FrameScriptInspector::Run(lightServerState.shadowMappingFrameScript);
+			Debug::FrameScriptInspector::Run(lightServerState.shadowMappingFrameScript);
 #endif
 		});
 
@@ -197,8 +199,15 @@ LightContext::Create()
 		{
 			if (lightServerState.globalLightEntity != Graphics::GraphicsEntityId::Invalid())
 			{
-				// draw it!
-				Frame::FrameSubpassBatch::DrawBatch(lightServerState.globalLightsBatchCode, lightServerState.globalLightEntity, 4);
+				// get cameras associated with sun
+				Graphics::ContextEntityId ctxId = GetContextId(lightServerState.globalLightEntity);
+				Ids::Id32 typedId = genericLightAllocator.Get<TypedLightId>(ctxId.id);
+				const Util::Array<Graphics::GraphicsEntityId>& observers = globalLightAllocator.Get<GlobalLight_CascadeObservers>(typedId);
+				for (IndexT i = 0; i < observers.Size(); i++)
+				{
+					// draw it!
+					Frame::FrameSubpassBatch::DrawBatch(lightServerState.globalLightsBatchCode, observers[i], 1, i);
+				}				
 			}
 		});
 	Frame::FramePlugin::AddCallback("LightContext - Sun Blur", [](IndexT frame) // compute
@@ -372,13 +381,14 @@ LightContext::SetupGlobalLight(const Graphics::GraphicsEntityId id, const Math::
 	n_assert(id != Graphics::GraphicsEntityId::Invalid());
 	n_assert(lightServerState.globalLightEntity == Graphics::GraphicsEntityId::Invalid());
 
+	auto lid = globalLightAllocator.Alloc();
+
 	const Graphics::ContextEntityId cid = GetContextId(id);
 	genericLightAllocator.Get<Type>(cid.id) = GlobalLightType;
 	genericLightAllocator.Get<Color>(cid.id) = color;
 	genericLightAllocator.Get<Intensity>(cid.id) = intensity;
 	genericLightAllocator.Get<ShadowCaster>(cid.id) = castShadows;
-
-	auto lid = globalLightAllocator.Alloc();
+	genericLightAllocator.Get<TypedLightId>(cid.id) = lid;
 
 	Math::matrix44 mat = Math::matrix44::lookatrh(Math::point(0.0f), -direction, Math::vector::upvec());
 	
@@ -389,12 +399,26 @@ LightContext::SetupGlobalLight(const Graphics::GraphicsEntityId id, const Math::
 
 	if (castShadows)
 	{
-		// register observer as a light
-		Visibility::ObserverContext::RegisterEntity(id);
-		Visibility::ObserverContext::Setup(id, Visibility::VisibilityEntityType::Light);
+		// create new graphics entity for each view
+		for (IndexT i = 0; i < CSMUtil::NumCascades; i++)
+		{
+			Graphics::GraphicsEntityId shadowId = Graphics::CreateEntity();
+			Visibility::ObserverContext::RegisterEntity(shadowId);
+			Visibility::ObserverContext::Setup(shadowId, Visibility::VisibilityEntityType::Light);
+
+			// allocate shadow caster slice
+			Ids::Id32 casterId = shadowCasterAllocator.Alloc();
+			shadowCasterSliceMap.Add(shadowId, casterId);
+
+			// if there is a previous light, setup a dependency
+			//if (!globalLightAllocator.Get<GlobalLight_CascadeObservers>(lid).IsEmpty())
+			//	Visibility::ObserverContext::MakeDependency(globalLightAllocator.Get<GlobalLight_CascadeObservers>(lid).Back(), shadowId, Visibility::DependencyMode_Masked);
+
+			// store entity id for cleanup later
+			globalLightAllocator.Get<GlobalLight_CascadeObservers>(lid).Append(shadowId);
+		}
 	}
 
-	genericLightAllocator.Get<TypedLightId>(cid.id) = lid;
 	lightServerState.globalLightEntity = id;
 }
 
@@ -461,10 +485,8 @@ LightContext::SetupSpotLight(const Graphics::GraphicsEntityId id,
 	SetSpotLightTransform(cid, transform);
 
 	std::array<float, 2> angles = { innerConeAngle, outerConeAngle };
-	if (innerConeAngle >= outerConeAngle)
-		angles[1] = innerConeAngle + N_TINY;
-	else if (outerConeAngle <= innerConeAngle)
-		angles[0] = outerConeAngle - N_TINY;
+    if (innerConeAngle >= outerConeAngle)
+		angles[0] = outerConeAngle - Math::n_deg2rad(0.1f);
 	// set initial state
 	spotLightAllocator.Get<SpotLight_DynamicOffsets>(sli)[0] = 0;
 	spotLightAllocator.Get<SpotLight_DynamicOffsets>(sli)[1] = 0;
@@ -480,6 +502,16 @@ LightContext::SetColor(const Graphics::GraphicsEntityId id, const Math::float4& 
 {
 	const Graphics::ContextEntityId cid = GetContextId(id);
 	genericLightAllocator.Get<Color>(cid.id) = color;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void
+LightContext::SetRange(const Graphics::GraphicsEntityId id, const float range)
+{
+    const Graphics::ContextEntityId cid = GetContextId(id);
+    genericLightAllocator.Get<Range>(cid.id) = range;
 }
 
 //------------------------------------------------------------------------------
@@ -548,27 +580,10 @@ LightContext::SetTransform(const Graphics::GraphicsEntityId id, const Math::matr
 /**
 */
 const Math::matrix44 
-LightContext::GetViewProjTransform(const Graphics::GraphicsEntityId id)
+LightContext::GetObserverTransform(const Graphics::GraphicsEntityId id)
 {
-	const Graphics::ContextEntityId cid = GetContextId(id);
-	LightType type = genericLightAllocator.Get<Type>(cid.id);
-	Ids::Id32 lightId = genericLightAllocator.Get<TypedLightId>(cid.id);
-
-	switch (type)
-	{
-	case GlobalLightType:
-		return globalLightAllocator.Get<GlobalLight_ViewProjTransform>(lightId);
-		break;
-	case SpotLightType:
-		return spotLightAllocator.Get<SpotLight_Transform>(lightId);
-		break;
-	case PointLightType:
-		return pointLightAllocator.Get<PointLight_Transform>(lightId);
-		break;
-	default:
-		return Math::matrix44::identity();
-		break;
-	}
+	const Graphics::ContextEntityId cid = shadowCasterSliceMap[id.id];
+	return shadowCasterAllocator.Get<ShadowCaster_Transform>(cid.id);
 }
 
 //------------------------------------------------------------------------------
@@ -606,9 +621,7 @@ LightContext::SetInnerOuterAngle(const Graphics::GraphicsEntityId id, float inne
 	n_assert(type == SpotLightType);
 	Ids::Id32 lightId = genericLightAllocator.Get<TypedLightId>(cid.id);
 	if (inner >= outer)
-		outer = inner + N_TINY;
-	else if (outer <= inner)
-		inner = outer - N_TINY;
+		inner = outer - Math::n_deg2rad(0.1f);
 	spotLightAllocator.Get<SpotLight_ConeAngles>(lightId)[0] = inner;
 	spotLightAllocator.Get<SpotLight_ConeAngles>(lightId)[1] = outer;
 }
@@ -628,8 +641,15 @@ LightContext::OnPrepareView(const Ptr<Graphics::View>& view, const Graphics::Fra
 		lightServerState.csmUtil.SetGlobalLight(lightServerState.globalLightEntity);
 		lightServerState.csmUtil.SetShadowBox(Math::bbox(Math::point(0), Math::vector(500)));
 		lightServerState.csmUtil.Compute(view->GetCamera(), lightServerState.globalLightEntity);
-		//SetGlobalLightViewProjTransform(cid, lightServerState.csmUtil.GetCascadeViewProjection(CSMUtil::NumCascades - 1));
-		SetGlobalLightViewProjTransform(cid, lightServerState.csmUtil.GetCascadeViewProjection(CSMUtil::NumCascades - 1));
+
+		auto lid = genericLightAllocator.Get<TypedLightId>(cid.id);
+		const Util::Array<Graphics::GraphicsEntityId>& observers = globalLightAllocator.Get<GlobalLight_CascadeObservers>(lid);
+		for (IndexT i = 0; i < observers.Size(); i++)
+		{
+			// do reverse lookup to find shadow caster
+			Graphics::ContextEntityId ctxId = shadowCasterSliceMap[observers[i]];
+			shadowCasterAllocator.Get<ShadowCaster_Transform>(ctxId.id) = lightServerState.csmUtil.GetCascadeViewProjection(i);
+		}
 	}
 }
 
@@ -856,8 +876,8 @@ LightContext::OnBeforeView(const Ptr<Graphics::View>& view, const Graphics::Fram
 				Math::float4::store3u(color[i] * intensity[i], spotLight.color);
 				
 				// calculate sine and cosine
-				spotLight.angleSinCos[0] = Math::n_sin(1.0f - angles[0] * N_PI_HALF * 0.5f);
-				spotLight.angleSinCos[1] = Math::n_cos(1.0f - angles[0] * N_PI_HALF * 0.5f);
+				spotLight.angleSinCos[0] = Math::n_sin(angles[1] * 0.5f);
+				spotLight.angleSinCos[1] = Math::n_cos(angles[1] * 0.5f);
 				spotLight.flags = flags;
 				numSpotLights++;
 			}
@@ -1178,6 +1198,32 @@ LightContext::Alloc()
 void
 LightContext::Dealloc(Graphics::ContextEntityId id)
 {
+	LightType type = genericLightAllocator.Get<Type>(id.id);
+	Ids::Id32 lightId = genericLightAllocator.Get<TypedLightId>(id.id);
+
+	switch (type)
+	{
+	case GlobalLightType:
+	{
+		// dealloc observers
+		Util::Array<Graphics::GraphicsEntityId>& observers = globalLightAllocator.Get<GlobalLight_CascadeObservers>(lightId);
+		for (IndexT i = 0; i < observers.Size(); i++)
+		{
+			Visibility::ObserverContext::DeregisterEntity(observers[i]);
+			Graphics::DestroyEntity(observers[i]);
+		}
+
+		globalLightAllocator.Dealloc(lightId);
+		break;
+	}
+	case SpotLightType:
+		spotLightAllocator.Dealloc(lightId);
+		break;
+	case PointLightType:
+		spotLightAllocator.Dealloc(lightId);
+		break;
+	}
+
 	genericLightAllocator.Dealloc(id.id);
 }
 
@@ -1191,9 +1237,9 @@ LightContext::OnRenderDebug(uint32_t flags)
     auto const& colours = genericLightAllocator.GetArray<Color>();
     auto const& ids = genericLightAllocator.GetArray<TypedLightId>();
     auto const& pointTrans = pointLightAllocator.GetArray<PointLight_Transform>();
-    auto const& spotTrans = spotLightAllocator.GetArray< SpotLight_Transform>();
-    auto const& spotProj = spotLightAllocator.GetArray< SpotLight_Projection>();
-    auto const& spotInvProj = spotLightAllocator.GetArray< SpotLight_InvViewProjection>();
+    auto const& spotTrans = spotLightAllocator.GetArray<SpotLight_Transform>();
+    auto const& spotProj = spotLightAllocator.GetArray<SpotLight_Projection>();
+    auto const& spotInvProj = spotLightAllocator.GetArray<SpotLight_InvViewProjection>();
     for (int i = 0, n = types.Size(); i < n; ++i)
     {
         switch(types[i])
@@ -1201,13 +1247,16 @@ LightContext::OnRenderDebug(uint32_t flags)
         case PointLightType:
         {
             Math::matrix44 const& trans = pointTrans[ids[i]];
-            Math::float4 col = colours[i];            
-            Im3d::Im3dContext::DrawSphere(trans, col, Im3d::CheckDepth|Im3d::Wireframe);
-            //FIXME define debug flags somewhere
+            Math::float4 col = colours[i];
+			CoreGraphics::RenderShape shape;
+			shape.SetupSimpleShape(Threading::Thread::GetMyThreadId(), CoreGraphics::RenderShape::Sphere, CoreGraphics::RenderShape::RenderFlag(CoreGraphics::RenderShape::CheckDepth|CoreGraphics::RenderShape::Wireframe), trans, col);
+			CoreGraphics::ShapeRenderer::Instance()->AddShape(shape);
+			//Im3d::Im3dContext::DrawSphere(trans, col, Im3d::CheckDepth | Im3d::Wireframe);
+			//FIXME define debug flags somewhere
             if (flags & Im3d::Solid)
             {
                 col.w() = 0.5f;
-                Im3d::Im3dContext::DrawSphere(trans, col, Im3d::CheckDepth | Im3d::Solid);
+                //Im3d::Im3dContext::DrawSphere(trans, col, Im3d::CheckDepth | Im3d::Solid);
             }            
         }
         break;
@@ -1220,7 +1269,12 @@ LightContext::OnRenderDebug(uint32_t flags)
             unscaledTransform.set_zaxis(Math::float4::normalize(unscaledTransform.get_zaxis()));
             Math::matrix44 frustum = Math::matrix44::multiply(spotInvProj[ids[i]], unscaledTransform);
             Math::float4 col = colours[i];
-            Im3d::Im3dContext::DrawBox(frustum, col);
+
+			CoreGraphics::RenderShape shape;
+			shape.SetupSimpleShape(Threading::Thread::GetMyThreadId(), CoreGraphics::RenderShape::Box, CoreGraphics::RenderShape::RenderFlag(CoreGraphics::RenderShape::CheckDepth | CoreGraphics::RenderShape::Wireframe), frustum, col);
+			CoreGraphics::ShapeRenderer::Instance()->AddShape(shape);
+			//Im3d::Im3dContext::DrawSphere(trans, col, Im3d::CheckDepth | Im3d::Wireframe);
+			//Im3d::Im3dContext::DrawBox(frustum, col);
         }
         break;
 		case GlobalLightType:

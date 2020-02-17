@@ -99,6 +99,7 @@ VkShaderSetup(
 		if (AnyFX::HasFlags(block->qualifiers, AnyFX::Qualifiers::Push))
 		{
 			n_assert(block->alignedSize <= maxConstantBytes);
+			n_assert(block->alignedSize <= props.limits.maxPushConstantsSize);
 			maxConstantBytes -= block->alignedSize;
 			CoreGraphics::ResourcePipelinePushConstantRange range;
 			range.offset = pushRangeOffset;
@@ -350,7 +351,7 @@ VkShaderSetup(
 	pipelineLayout = CreateResourcePipeline(piInfo);
 
 #if NEBULA_GRAPHICS_DEBUG
-	ObjectSetName(pipelineLayout, Util::String::Sprintf("%s - Resource Pipeline", name.Value()));
+	ObjectSetName(pipelineLayout, Util::String::Sprintf("%s - Resource Pipeline", name.Value()).AsCharPtr());
 #endif
 }
 

@@ -92,8 +92,38 @@ VkMemoryTexturePool::LoadFromMemory(const Resources::ResourceId id, const void* 
     	return ResourcePool::Success;
     }
 
-    return ResourcePool::Failed;
-    
+    return ResourcePool::Failed;   
+}
+
+
+//------------------------------------------------------------------------------
+/**
+*/
+void
+VkMemoryTexturePool::Unload(const Resources::ResourceId id)
+{
+	this->EnterGet();
+	VkTextureLoadInfo& loadInfo = this->Get<Texture_LoadInfo>(id);
+	VkTextureRuntimeInfo& runtimeInfo = this->Get<Texture_RuntimeInfo>(id);
+	VkTextureWindowInfo& windowInfo = this->Get<Texture_WindowInfo>(id);
+
+	// only free memory if texture is not aliased!
+	if (loadInfo.alias == CoreGraphics::TextureId::Invalid() && loadInfo.mem != VK_NULL_HANDLE)
+		Vulkan::DelayedDeleteMemory(loadInfo.mem);
+	//vkFreeMemory(loadInfo.dev, loadInfo.mem, nullptr);
+
+// only unload a texture which isn't a window texture, since their textures come from the swap chain
+	if (!loadInfo.windowTexture)
+	{
+		Vulkan::DelayedDeleteImage(loadInfo.img);
+		Vulkan::DelayedDeleteImageView(runtimeInfo.view);
+		//vkDestroyImage(loadInfo.dev, loadInfo.img, nullptr);
+		//vkDestroyImageView(loadInfo.dev, runtimeInfo.view, nullptr);
+		VkShaderServer::Instance()->UnregisterTexture(runtimeInfo.bind, runtimeInfo.type);
+	}
+
+	this->states[id.poolId] = Resources::Resource::State::Unloaded;
+	this->LeaveGet();
 }
 
 //------------------------------------------------------------------------------
@@ -820,7 +850,7 @@ VkMemoryTexturePool::Setup(const Resources::ResourceId id)
                 clearRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT;
                 VkUtilities::ImageBarrier(SubmissionContextGetCmdBuffer(sub), CoreGraphics::BarrierStage::Host, CoreGraphics::BarrierStage::Transfer, VkUtilities::ImageMemoryBarrier(loadInfo.img, clearRange, VK_ACCESS_HOST_WRITE_BIT, VK_ACCESS_TRANSFER_WRITE_BIT, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL));
                 VkUtilities::ImageDepthStencilClear(SubmissionContextGetCmdBuffer(sub), loadInfo.img, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, clear, clearRange);
-                VkUtilities::ImageBarrier(SubmissionContextGetCmdBuffer(sub), CoreGraphics::BarrierStage::Transfer, CoreGraphics::BarrierStage::PassOutput, VkUtilities::ImageMemoryBarrier(loadInfo.img, clearRange, VK_ACCESS_TRANSFER_WRITE_BIT, VK_ACCESS_COLOR_ATTACHMENT_READ_BIT, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL));
+                VkUtilities::ImageBarrier(SubmissionContextGetCmdBuffer(sub), CoreGraphics::BarrierStage::Transfer, CoreGraphics::BarrierStage::LateDepth, VkUtilities::ImageMemoryBarrier(loadInfo.img, clearRange, VK_ACCESS_TRANSFER_WRITE_BIT, VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL));
             }
         }
         else if (loadInfo.texUsage & TextureUsage::ReadWriteUsage)

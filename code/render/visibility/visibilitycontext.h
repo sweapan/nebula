@@ -15,32 +15,47 @@
 #include "materials/surfacepool.h"
 #include "materials/materialtype.h"
 #include "memory/arenaallocator.h"
+#include "math/clipstatus.h"
 namespace Visibility
 {
 
-enum ObserverAllocatorMembers
+enum
 {
-	ObserverMatrix,
-	ObserverEntityId,
-	ObserverEntityType,
-	ObserverResultAllocator,
-	ObserverResults,
-	ObserverDrawList,
-	ObserverDrawListAllocator
+	Observer_Matrix,
+	Observer_EntityId,
+	Observer_EntityType,
+	Observer_ResultAllocator,
+	Observer_Results,
+	Observer_Dependency,
+	Observer_DependencyMode,
+	Observer_DrawList,
+	Observer_DrawListAllocator
 };
 
-enum VisibilityResultAllocatorMembers
+enum
 {
-	VisibilityResultFlag,
-	VisibilityResultCtxId
+	VisibilityResult_Flag,
+	VisibilityResult_CtxId
 };
 
-// enum for the ObserveeAllocator
-enum ObserveeAllocatorMembers
+enum
 {
-	ObservableTransform,
-	ObservableEntityId,
-	ObservableEntityType
+	ObservableAtom_Transform,
+	ObservableAtom_Node,
+	ObservableAtom_ContextEntity
+};
+
+enum
+{
+	Observable_EntityId,
+	Observable_EntityType,
+	Observable_Atoms
+};
+
+enum DependencyMode
+{
+	DependencyMode_Total,		// if B depends on A, and A doesn't see B, B sees nothing either
+	DependencyMode_Masked		// visibility of B is dependent on A for each result
 };
 
 class ObserverContext : public Graphics::GraphicsContext
@@ -50,6 +65,8 @@ public:
 
 	/// setup entity
 	static void Setup(const Graphics::GraphicsEntityId id, VisibilityEntityType entityType);
+	/// setup a dependency between observers
+	static void MakeDependency(const Graphics::GraphicsEntityId a, const Graphics::GraphicsEntityId b, const DependencyMode mode);
 
 	/// runs before frame is updated
 	static void OnBeforeFrame(const Graphics::FrameContext& ctx);
@@ -89,6 +106,7 @@ public:
 
 	static Jobs::JobPortId jobPort;
 	static Jobs::JobSyncId jobInternalSync;
+	static Jobs::JobSyncId jobInternalSync2;
 	static Jobs::JobSyncId jobHostSync;
 	static Util::Queue<Jobs::JobId> runningJobs;
 
@@ -97,7 +115,7 @@ private:
 	friend class ObservableContext;
 
 	typedef Ids::IdAllocator<
-		bool,                               // visibility result
+		Math::ClipStatus::Type,             // visibility result
 		Graphics::ContextEntityId			// model context id
 	> VisibilityResultAllocator;
 
@@ -106,7 +124,9 @@ private:
 		Graphics::GraphicsEntityId, 		// entity id
 		VisibilityEntityType,				// type of object so we know how to get the transform
 		VisibilityResultAllocator,			// visibility lookup table
-		bool*,
+		Math::ClipStatus::Type*,			// array holding the visbility results array
+		Graphics::GraphicsEntityId,			// dependency
+		DependencyMode,						// dependency mode
 		VisibilityDrawList,					// draw list
 		Memory::ArenaAllocator<1024>		// memory allocator for draw commands
 	> ObserverAllocator;
@@ -134,17 +154,24 @@ public:
 private:
 
 	friend class ObserverContext;
-	friend class VisibilityContex;
     friend class Models::ModelContext;
 
-
+	// atom corresponds to a single visibility entry
 	typedef Ids::IdAllocator<
-		Math::matrix44,					// transform
-		Graphics::GraphicsEntityId,		// entity id
-		VisibilityEntityType			// type of object so we know how to get the transform
-	> ObserveeAllocator;
+		Math::matrix44,
+		Models::ModelNode::Instance*,
+		Graphics::ContextEntityId
+	> ObservableAtomAllocator;
+	static ObservableAtomAllocator observableAtomAllocator;
 
-	static ObserveeAllocator observeeAllocator;
+	// observable corresponds to a single entity
+	typedef Ids::IdAllocator<
+		Graphics::GraphicsEntityId,		// entity id
+		VisibilityEntityType,			// type of object so we know how to get the transform
+		Util::ArrayStack<Ids::Id32, 1>	// keep track of atoms
+	> ObservableAllocator;
+
+	static ObservableAllocator observableAllocator;
 
 	/// allocate a new slice for this context
 	static Graphics::ContextEntityId Alloc();

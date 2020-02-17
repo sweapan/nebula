@@ -24,7 +24,6 @@
 #include "graphicsentity.h"
 #include "coregraphics/window.h"
 
-
 #define _DeclarePluginContext() \
 private:\
 	static Graphics::GraphicsContextState __state;\
@@ -35,6 +34,7 @@ public:\
 	static bool IsEntityRegistered(const Graphics::GraphicsEntityId id);\
 	static void Destroy(); \
 	static Graphics::ContextEntityId GetContextId(const Graphics::GraphicsEntityId id); \
+	static const Graphics::ContextEntityId& GetContextIdRef(const Graphics::GraphicsEntityId id); \
 	static void BeginBulkRegister(); \
 	static void EndBulkRegister(); \
 private:
@@ -92,6 +92,12 @@ Graphics::ContextEntityId ctx::GetContextId(const Graphics::GraphicsEntityId id)
 	if (idx == InvalidIndex) return Graphics::ContextEntityId::Invalid(); \
 	else return __state.entitySliceMap.ValueAtIndex(id, idx); \
 }\
+const Graphics::ContextEntityId& ctx::GetContextIdRef(const Graphics::GraphicsEntityId id)\
+{\
+	IndexT idx = __state.entitySliceMap.FindIndex(id); \
+	n_assert(idx != InvalidIndex); \
+	return __state.entitySliceMap.ValueAtIndex(id, idx); \
+}\
 void ctx::BeginBulkRegister()\
 {\
 	__state.entitySliceMap.BeginBulkAdd();\
@@ -120,8 +126,10 @@ void ctx::Defragment()\
 		if (index >= dataSize) { continue; }\
 		oldIndex = dataSize - 1;\
 		lastId = __state.entities[oldIndex].id;\
-		idAllocator.EraseIndexSwap(index);\
-		__state.entities.EraseIndexSwap(index);\
+        if (__state.OnInstanceMoved != nullptr) \
+            __state.OnInstanceMoved(index, oldIndex);\
+		idAllocator.EraseIndexSwap(index); \
+		__state.entities.EraseIndexSwap(index); \
 		mapIndex = __state.entitySliceMap.FindIndex(lastId);\
 		if (mapIndex != InvalidIndex)\
 		{\
@@ -132,10 +140,6 @@ void ctx::Defragment()\
 			freeIds.Append(index);\
 			i++;\
 		}\
-        if (__state.OnInstanceMoved != nullptr) \
-        {\
-            __state.OnInstanceMoved(index, oldIndex);\
-        }\
 	}\
 	freeIds.Clear();\
 }
@@ -158,21 +162,23 @@ struct FrameContext;
 
 enum StageBits
 {
-	NoStage,
-	OnPrepareViewStage,
-	OnBeforeFrameStage,
-	OnWaitForWorkStage,
-	OnBeforeViewStage,
-	OnAfterViewStage,
-	OnAfterFrameStage,
+	NoStage             = 1 << 0,
+	OnBeginStage		= 1 << 1,
+	OnPrepareViewStage  = 1 << 2,
+	OnBeforeFrameStage  = 1 << 3,
+	OnWaitForWorkStage  = 1 << 4,
+	OnBeforeViewStage   = 1 << 5,
+	OnAfterViewStage    = 1 << 6,
+	OnAfterFrameStage   = 1 << 7,
 
-	AllStages = OnPrepareViewStage | OnBeforeFrameStage | OnWaitForWorkStage | OnBeforeViewStage | OnAfterViewStage | OnAfterFrameStage
+	AllStages = OnBeginStage | OnPrepareViewStage | OnBeforeFrameStage | OnWaitForWorkStage | OnBeforeViewStage | OnAfterViewStage | OnAfterFrameStage
 };
 __ImplementEnumBitOperators(StageBits);
 
 struct GraphicsContextFunctionBundle
 {
 	// frame stages
+	void(*OnBegin)(const Graphics::FrameContext& ctx);
 	void(*OnPrepareView)(const Ptr<Graphics::View>& view, const Graphics::FrameContext& ctx);
 	void(*OnBeforeFrame)(const Graphics::FrameContext& ctx);
 	void(*OnWaitForWork)(const Graphics::FrameContext& ctx);
@@ -193,7 +199,7 @@ struct GraphicsContextFunctionBundle
     void(*OnWindowResized)(const CoreGraphics::WindowId windowId, SizeT width, SizeT height);
 
 	StageBits* StageBits;
-	GraphicsContextFunctionBundle() : OnPrepareView(nullptr), OnBeforeFrame(nullptr), OnWaitForWork(nullptr), OnBeforeView(nullptr), OnAfterView(nullptr), OnAfterFrame(nullptr),
+	GraphicsContextFunctionBundle() : OnBegin(nullptr), OnPrepareView(nullptr), OnBeforeFrame(nullptr), OnWaitForWork(nullptr), OnBeforeView(nullptr), OnAfterView(nullptr), OnAfterFrame(nullptr),
         OnStageCreated(nullptr), OnDiscardStage(nullptr), OnViewCreated(nullptr), OnDiscardView(nullptr), OnAttachEntity(nullptr), OnRemoveEntity(nullptr), OnWindowResized(nullptr),
 		StageBits(nullptr), OnRenderDebug(nullptr)
 	{
@@ -215,6 +221,8 @@ struct GraphicsContextState
 	void(*Defragment)();
     /// called after a context entity has moved index
     void(*OnInstanceMoved)(uint32_t toIndex, uint32_t fromIndex);
+	/// called to manually handle fragmentation
+	void(*OnDefragment)(uint32_t toIndex, uint32_t fromIndex);
 
     void CleanupDelayedRemoveQueue()
     {

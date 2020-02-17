@@ -7,6 +7,7 @@
 #include "visibilitycontext.h"
 #include "models/modelcontext.h"
 #include "models/nodes/shaderstatenode.h"
+#include "profiling/profiling.h"
 namespace Visibility
 {
 
@@ -16,36 +17,53 @@ namespace Visibility
 void
 VisibilitySortJob(const Jobs::JobFuncContext& ctx)
 {
-	ObserverContext::VisibilityDrawList* buckets = (ObserverContext::VisibilityDrawList*)ctx.outputs[0];
+	N_SCOPE(VisibilitySortJob, Visibility);
 	Memory::ArenaAllocator<1024>* packetAllocator = (Memory::ArenaAllocator<1024>*)ctx.uniforms[0];
+	packetAllocator->Release();
 
-	bool* results = (bool*)ctx.inputs[0];
-	Graphics::ContextEntityId* entities = (Graphics::ContextEntityId*)ctx.inputs[1];
+	for (ptrdiff sliceIdx = 0; sliceIdx < ctx.numSlices; sliceIdx++)
+	{ 
+		Math::ClipStatus::Type* results = (Math::ClipStatus::Type*)N_JOB_INPUT(ctx, sliceIdx, 0);
+		Models::ModelNode::Instance** const nodes = (Models::ModelNode::Instance**)N_JOB_INPUT(ctx, sliceIdx, 1);
+		ObserverContext::VisibilityDrawList* buckets = (ObserverContext::VisibilityDrawList*)N_JOB_OUTPUT(ctx, sliceIdx, 0);
 
-	// begin adding buckets
-	buckets->BeginBulkAdd();
-
-	// calculate amount of models
-	uint32 numModels = ctx.inputSizes[0] / sizeof(bool);
-	uint32 i;
-	for (i = 0; i < numModels; i++)
-	{	
-		// get model instance
-		const Models::ModelId model = Models::ModelContext::GetModel(entities[i]);
-		const Util::Array<Models::ModelNode::Instance*>& nodes = Models::ModelContext::GetModelNodeInstances(entities[i]);
-		const Util::Array<Models::NodeType>& types = Models::ModelContext::GetModelNodeTypes(entities[i]);
-		bool result = results[i];
-
-		IndexT j;
-		if (result) for (j = 0; j < nodes.Size(); j++)
+		// clear draw lists
+		auto it1 = buckets->Begin();
+		while (it1 != buckets->End())
 		{
-			Models::ModelNode::Instance* const inst = nodes[j];
+			auto it2 = it1.val->Begin();
+			while (it2 != it1.val->End())
+			{
+				for (IndexT i = 0; i < it2.val->Size(); i++)
+					reinterpret_cast<Models::ShaderStateNode::Instance*>((*it2.val)[i]->node)->SetDirty(true);
+				it2.val->Reset();
+				it2++;
+			}
+			it1.val->Reset();
+			it1++;
+		}
+		buckets->Reset();
+
+		// begin adding buckets
+		buckets->BeginBulkAdd();
+
+		// calculate amount of models
+		uint32 numNodes = ctx.inputSizes[0] / sizeof(Math::ClipStatus::Type);
+		uint32 i;
+		for (i = 0; i < numNodes; i++)
+		{
+			Models::ModelNode::Instance* const inst = nodes[i];
+			Models::NodeType type = inst->node->GetType();
 
 			// only treat renderable nodes
-			if (types[j] >= Models::NodeHasShaderState)
+			if (type >= Models::NodeHasShaderState)
 			{
+				if (results[i] == Math::ClipStatus::Outside)
+					continue;
 				Models::ShaderStateNode::Instance* const shdNodeInst = reinterpret_cast<Models::ShaderStateNode::Instance*>(inst);
 				Models::ShaderStateNode* const shdNode = reinterpret_cast<Models::ShaderStateNode*>(inst->node);
+				n_assert(type == shdNode->GetType());
+
 				auto& bucket = buckets->AddUnique(shdNode->materialType);
 				if (!bucket.IsBulkAdd())
 					bucket.BeginBulkAdd();
@@ -53,27 +71,31 @@ VisibilitySortJob(const Jobs::JobFuncContext& ctx)
 				// add an array if non existant, or return reference to one if it exists
 				auto& draw = bucket.AddUnique(inst->node);
 
+
 				// allocate memory for draw packet
 				void* mem = packetAllocator->Alloc(shdNodeInst->GetDrawPacketSize());
+
+				// update constants
+				shdNodeInst->Update();
 
 				// update packet and add to list
 				Models::ModelNode::DrawPacket* packet = shdNodeInst->UpdateDrawPacket(mem);
 				draw.Append(packet);
 			}
 		}
-	}
 
-	// end adding inner buckets
-	auto it = buckets->Begin();
-	while (it != buckets->End())
-	{
-		if (it.val->IsBulkAdd())
-			it.val->EndBulkAdd();
-		it++;
-	}
+		// end adding inner buckets
+		auto it = buckets->Begin();
+		while (it != buckets->End())
+		{
+			if (it.val->IsBulkAdd())
+				it.val->EndBulkAdd();
+			it++;
+		}
 
-	// end adding buckets
-	buckets->EndBulkAdd();
+		// end adding buckets
+		buckets->EndBulkAdd();
+	}
 }
 
 } // namespace Visibility

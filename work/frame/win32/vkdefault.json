@@ -126,7 +126,7 @@
 			},
 			{
 				name: "LightBuffer",
-				format: "R11G11B10F",
+				format: "R16G16B16A16F",
 				relative: true,
 				usage: "ReadWrite|Copy",
 				width: 1.0,
@@ -142,16 +142,16 @@
 				height: 1.0,
 				type: "Texture2D"
 			},
-      {
-        name: "SSRTraceBuffer",
-        format: "R16G16F",
-        relative: true,
-        usage: "ReadWrite",
-        width: 0.5,
-        height: 0.5,
-        type: "Texture2D"
-      },
-      {
+			{
+				name: "SSRTraceBuffer",
+				format: "R16G16B16A16F",
+				relative: true,
+				usage: "ReadWrite",
+				width: 0.5,
+				height: 0.5,
+				type: "Texture2D"
+			},
+			{
 				name: "ReflectionBuffer",
 				format: "R16G16B16A16F",
 				relative: true,
@@ -164,7 +164,17 @@
 				name: "ZBuffer",
 				format: "D32S8",
 				relative: true,
-				usage: "Render",
+				usage: "Render|Copy",
+				width: 1.0,
+				height: 1.0,
+				type: "Texture2D"
+			},
+			{
+				name: "ZBufferCopy",
+				format: "D32S8",
+				relative: true,
+				usage: "Render|Copy",
+				mips: "auto",
 				width: 1.0,
 				height: 1.0,
 				type: "Texture2D"
@@ -222,7 +232,7 @@
 						name: "SSRTraceBuffer",
 						texture: "SSRTraceBuffer"
 					},
-          {
+					{
 						name: "ReflectionBuffer",
 						texture: "ReflectionBuffer"
 					},
@@ -232,6 +242,10 @@
 
 		plugin: {
 			name: "HBAO-Prepare"
+		}
+
+    	plugin: {
+			name: "SSR-Prepare"
 		}
 
 		begin_submission: {
@@ -307,6 +321,12 @@
 			},
 		}
 
+		copy: {
+			name: "Copy Depth"
+			from: "ZBuffer",
+			to: "ZBufferCopy"
+		},
+
 		end_submission: {
 			queue: "Graphics",
 		}
@@ -324,10 +344,9 @@
 			inputs: [
 				{
 					name: "ZBuffer",
-					access: "DepthAttachmentRead",
+					access: "ShaderRead",
 					layout: "DepthStencilRead",
-					stage: "ComputeShader",
-					aspect: "Depth"
+					stage: "ComputeShader"
 				}
 			],
 			outputs: [
@@ -335,8 +354,7 @@
 					name: "SSAOBuffer",
 					access: "ShaderWrite",
 					layout: "General",
-					stage: "ComputeShader",
-					aspect: "Color"
+					stage: "ComputeShader"
 				}
 			]
 		},
@@ -347,24 +365,21 @@
 			inputs: [
 				{
 					name: "ZBuffer",
-					access: "DepthAttachmentRead",
+					access: "ShaderRead",
 					layout: "DepthStencilRead",
-					stage: "ComputeShader",
-					aspect: "Color"
+					stage: "ComputeShader"
 				},
 				{
 					name: "NormalBuffer",
 					access: "ShaderRead",
 					layout: "ShaderRead",
-					stage: "ComputeShader",
-					aspect: "Color"
+					stage: "ComputeShader"
 				},
 				{
 					name: "SpecularBuffer",
 					access: "ShaderRead",
 					layout: "ShaderRead",
-					stage: "ComputeShader",
-					aspect: "Color"
+					stage: "ComputeShader"
 				}
 			],
 			outputs: [
@@ -372,69 +387,100 @@
 					name: "SSRTraceBuffer",
 					access: "ShaderWrite",
 					layout: "ShaderRead",
-					stage: "ComputeShader",
-					aspect: "Color"
+					stage: "ComputeShader"
 				}
 			]
 		},
 
 		_comment: "------------ CLUSTERING DEFERRED ------------",
-    plugin: {
-      name: "LightContext - Deferred Cluster",
-      inputs: [
-        {
-          name: "AlbedoBuffer",
-          access: "ShaderRead",
-          layout: "ShaderRead",
-          stage: "ComputeShader",
-          aspect: "Color"
-        },
-        {
-          name: "NormalBuffer",
-          access: "ShaderRead",
-          layout: "ShaderRead",
-          stage: "ComputeShader",
-          aspect: "Color"
-        },
-        {
-          name: "SpecularBuffer",
-          access: "ShaderRead",
-          layout: "ShaderRead",
-          stage: "ComputeShader",
-          aspect: "Color"
-        },
-        {
-          name: "ZBuffer",
-          access: "ShaderRead",
-          layout: "DepthStencilRead",
-          stage: "ComputeShader",
-          aspect: "Depth|Stencil"
-        },
-        {
-          name: "SSAOBuffer",
-          access: "ShaderRead",
-          layout: "ShaderRead",
-          stage: "ComputeShader",
-          aspect: "Color"
-        },
-        {
-          name: "ReflectionBuffer",
-          access: "ShaderRead",
-          layout: "ShaderRead",
-          stage: "PixelShader",
-          aspect: "Color"
-        },
-      ]
-      outputs: [
-        {
-          name: "LightBuffer",
-          access: "ShaderWrite",
-          layout: "General",
-          stage: "ComputeShader",
-          aspect: "Color"
-        }
-      ]
-    }
+		plugin: {
+			name: "LightContext - Deferred Cluster",
+			inputs: [
+				{
+					name: "AlbedoBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "NormalBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "SpecularBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "ZBuffer",
+					access: "ShaderRead",
+					layout: "DepthStencilRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "SSAOBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "ReflectionBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "PixelShader"
+				},
+			]
+			outputs: [
+				{
+					name: "LightBuffer",
+					access: "ShaderWrite",
+					layout: "General",
+					stage: "ComputeShader"
+				}
+			]
+		}
+
+		_comment: "------------ Screen-Space Raytracing Color Resolve ------------",
+		plugin: {
+			name: "SSR-Resolve",
+			inputs: [
+				{
+					name: "SSRTraceBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "LightBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "AlbedoBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				},
+				{
+					name: "SpecularBuffer",
+					access: "ShaderRead",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				}
+			],
+			outputs: [
+				{
+					name: "ReflectionBuffer",
+					access: "ShaderWrite",
+					layout: "ShaderRead",
+					stage: "ComputeShader"
+				}
+			]
+		},
 
 		_comment: "------------ BLOOM ------------",
 		pass: {
@@ -455,15 +501,13 @@
 						name: "LightBuffer",
 						access: "ShaderRead",
 						layout: "ShaderRead",
-						stage: "PixelShader",
-						aspect: "Color"
+						stage: "PixelShader"
 					},
 					{
 						name: "AverageLumBuffer",
 						access: "ShaderRead",
 						layout: "ShaderRead",
-						stage: "PixelShader",
-						aspect: "Color"
+						stage: "PixelShader"
 					},
 				]
 				plugin: {
@@ -473,7 +517,6 @@
 		},
 
 		_comment: "------------ BLOOM BLUR ------------",
-
 		blit: {
 			name: "Bloom Downsample"
 			from: "BloomBuffer",
@@ -487,8 +530,7 @@
 					name: "BloomBufferBlurred",
 					access: "ShaderRead",
 					layout: "ShaderRead",
-					stage: "ComputeShader",
-					aspect: "Color"
+					stage: "ComputeShader"
 				}
 			]
 		},
@@ -500,8 +542,7 @@
 					name: "LightBuffer",
 					access: "TransferRead",
 					layout: "TransferSource",
-					stage: "Transfer",
-					aspect: "Color"
+					stage: "Transfer"
 				}
 			]
 		},
@@ -542,7 +583,7 @@
 
 			depth_stencil: {
 				name: "ZBuffer",
-				store: true,
+				store: false,
 				load: true
 			},
 
@@ -557,8 +598,7 @@
 						name: "BloomBufferBlurred",
 						access: "ShaderRead",
 						layout: "ShaderRead",
-						stage: "PixelShader",
-						aspect: "Color"
+						stage: "PixelShader"
 					}
 				],
 
@@ -596,7 +636,21 @@
 				depth: true,
 				attachments: [ "ColorBuffer" ],
 
+				resources: [
+					{
+						name: "ZBufferCopy",
+						access: "ShaderRead",
+						layout: "DepthStencilRead",
+						stage: "PixelShader",
+					}
+				]
+
 				batch: "DirectToColor",
+				batch: "ParticleUnlit",
+				batch: "ParticleLit",
+				plugin: {
+					name: "Debug Shapes",
+				},
 				plugin: {
 					name: "Im3D",
 				},
@@ -615,7 +669,6 @@
 					access: "TransferRead",
 					layout: "TransferSource",
 					stage: "Transfer",
-					aspect: "Color"
 				}
 			]
 		}
@@ -634,7 +687,6 @@
 					access: "TransferRead",
 					layout: "Present",
 					stage: "Transfer",
-					aspect: "Color"
 				}
 			]
 		}
