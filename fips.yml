@@ -32,7 +32,7 @@ imports:
         rev: 89693c8
     fips-imgui:
         git: https://github.com/gscept/fips-imgui.git
-        rev: 8c3bdef
+        rev: d496f45
     fips-pybind11:
         git: https://github.com/gscept/fips-pybind11.git
         rev: 49487ea
