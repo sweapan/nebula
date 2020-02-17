@@ -178,7 +178,7 @@ LightContext::Create()
 			// run the script
 			lightServerState.shadowMappingFrameScript->Run(frame);
 #ifndef PUBLIC_BUILD
-			Debug::FrameScriptInspector::Run(lightServerState.shadowMappingFrameScript);
+			//Debug::FrameScriptInspector::Run(lightServerState.shadowMappingFrameScript);
 #endif
 		});
 
