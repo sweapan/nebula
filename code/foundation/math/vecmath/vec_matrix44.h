@@ -345,12 +345,36 @@ matrix44::store(scalar* ptr) const
 /**
 */
 __forceinline void
+matrix44::store(const matrix44& mat, scalar* ptr)
+{
+	_mm_store_ps(ptr,mat.mat.r[0].vec);
+	_mm_store_ps((ptr + 4), mat.mat.r[1].vec);
+	_mm_store_ps((ptr + 8), mat.mat.r[2].vec);
+	_mm_store_ps((ptr + 12), mat.mat.r[3].vec);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline void
 matrix44::storeu(scalar* ptr) const
 {
 	_mm_storeu_ps(ptr,this->mat.r[0].vec);
 	_mm_storeu_ps((ptr + 4), this->mat.r[1].vec);
 	_mm_storeu_ps((ptr + 8), this->mat.r[2].vec);
 	_mm_storeu_ps((ptr + 12), this->mat.r[3].vec);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline void
+matrix44::storeu(const matrix44& mat, scalar* ptr)
+{
+	_mm_storeu_ps(ptr,mat.mat.r[0].vec);
+	_mm_storeu_ps((ptr + 4), mat.mat.r[1].vec);
+	_mm_storeu_ps((ptr + 8), mat.mat.r[2].vec);
+	_mm_storeu_ps((ptr + 12), mat.mat.r[3].vec);
 }
 
 //------------------------------------------------------------------------------
@@ -1419,6 +1443,60 @@ plane
 matrix44::transform(const plane &p, const matrix44& m)
 {
 	return matrix44::transform(p.vec,m);    
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline
+float4
+matrix44::transform3(const float4& v, const matrix44& m)
+{
+    __m128 m1 = _mm_shuffle_ps(v.vec, v.vec, _MM_SHUFFLE(0,0,0,0));
+    m1 = _mm_mul_ps(m1, m.mat.r[0]);
+    __m128 m2 = _mm_shuffle_ps(v.vec, v.vec, _MM_SHUFFLE(1,1,1,1));
+    m2 = _mm_mul_ps(m2, m.mat.r[1]);
+    m1 = _mm_add_ps(m1, m2);
+    m2 = _mm_shuffle_ps(v.vec, v.vec, _MM_SHUFFLE(2,2,2,2));
+    m2 = _mm_mul_ps(m2, m.mat.r[2]);
+    m1 = _mm_add_ps(m1, m2);
+    m1 = _mm_add_ps(m1, m.mat.r[3]);
+    return m1;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline 
+float4 
+matrix44::transform3(const point& p, const matrix44& m)
+{
+    float4 z = float4::splat_z(p);
+    float4 y = float4::splat_y(p);
+    float4 x = float4::splat_x(p);
+    
+    __m128 mul = _mm_add_ps(_mm_mul_ps(z.vec, m.mat.r[2]), m.mat.r[3]);
+    mul = _mm_add_ps(_mm_mul_ps(y.vec, m.mat.r[1]), mul);
+    mul = _mm_add_ps(_mm_mul_ps(x.vec, m.mat.r[0]), mul);
+        
+    float4 w = float4::splat_w(mul);
+    return _mm_div_ps(mul, w.vec);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline
+float4
+matrix44::transform3(const vector& v, const matrix44& m)
+{
+	__m128 m1 = _mm_shuffle_ps(v.vec, v.vec, _MM_SHUFFLE(0,0,0,0));
+    m1 = _mm_mul_ps(m1, m.mat.r[0]);
+    __m128 m2 = _mm_shuffle_ps(v.vec, v.vec, _MM_SHUFFLE(1,1,1,1));
+    m2 = _mm_mul_ps(m2, m.mat.r[1]);
+    m1 = _mm_add_ps(m1, m2);
+    return m1;
+
 }
 
 } // namespace Math

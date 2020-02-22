@@ -621,17 +621,17 @@ VkMemoryTexturePool::Setup(const Resources::ResourceId id)
     VkImageUsageFlags usage = VK_IMAGE_USAGE_SAMPLED_BIT;
     if (loadInfo.texUsage & TextureUsage::ImmutableUsage)
     {
-        n_assert_fmt(loadInfo.texUsage == TextureUsage::ImmutableUsage, "Texture with immutable usage may not use any other flags");
+        n_assert2(loadInfo.texUsage == TextureUsage::ImmutableUsage, "Texture with immutable usage may not use any other flags");
         usage |= VK_IMAGE_USAGE_TRANSFER_DST_BIT;
     }
     if (loadInfo.texUsage & TextureUsage::RenderUsage)
     {
-        n_assert_fmt((loadInfo.texUsage & TextureUsage::ReadWriteUsage) == 0, "Texture may not be used for render and readwrite at the same time, create alias to support it");
+        n_assert2((loadInfo.texUsage & TextureUsage::ReadWriteUsage) == 0, "Texture may not be used for render and readwrite at the same time, create alias to support it");
         usage |= VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT | (isDepthFormat ? VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT : VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT) | VK_IMAGE_USAGE_TRANSFER_DST_BIT;
     }
     if (loadInfo.texUsage & TextureUsage::ReadWriteUsage)
     {
-        n_assert_fmt((loadInfo.texUsage & TextureUsage::RenderUsage) == 0, "Texture may not be used for render and readwrite at the same time, create alias to support it");
+        n_assert2((loadInfo.texUsage & TextureUsage::RenderUsage) == 0, "Texture may not be used for render and readwrite at the same time, create alias to support it");
         usage |= VK_IMAGE_USAGE_STORAGE_BIT;
     }
     if (loadInfo.texUsage & TextureUsage::CopyUsage)
@@ -727,7 +727,7 @@ VkMemoryTexturePool::Setup(const Resources::ResourceId id)
             VK_IMAGE_TILING_OPTIMAL,
             usage,
             sharingMode,
-            sharingMode == VK_SHARING_MODE_CONCURRENT ? queues.Size() : 0,
+            sharingMode == VK_SHARING_MODE_CONCURRENT ? (uint32_t)queues.Size() : 0,
             sharingMode == VK_SHARING_MODE_CONCURRENT ? queues.KeysAsArray().Begin() : nullptr,
             VK_IMAGE_LAYOUT_UNDEFINED
         };

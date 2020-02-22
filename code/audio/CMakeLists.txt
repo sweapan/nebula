@@ -17,5 +17,5 @@ nebula_begin_module(audio)
 
 nebula_end_module()
 
-target_link_options(audio PUBLIC "/WHOLEARCHIVE:audio")
+target_link_options(audio PUBLIC $<$<CXX_COMPILER_ID:MSVC>:"/WHOLEARCHIVE:audio">)
 target_include_directories(audio PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

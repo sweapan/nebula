@@ -1215,14 +1215,18 @@ void Vector<T>::swap(Vector<T>& _a_, Vector<T>& _b_)
 	_b_.m_capacity = capacity;
 	_b_.m_size     = size;
 }
+namespace Im3d
+{
+	template class Vector<bool>;
+	template class Vector<char>;
+	template class Vector<float>;
+	template class Vector<Id>;
+	template class Vector<Mat4>;
+	template class Vector<Color>;
+	template class Vector<DrawList>;	
+} 
 
-template class Vector<bool>;
-template class Vector<char>;
-template class Vector<float>;
-template class Vector<Id>;
-template class Vector<Mat4>;
-template class Vector<Color>;
-template class Vector<DrawList>;
+
 
 /*******************************************************************************
 

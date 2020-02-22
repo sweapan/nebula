@@ -52,7 +52,7 @@ public:
     /// move operator
     void operator=(Delegate<RETTYPE(ARGTYPES...)>&& rhs);
 	/// check if null
-	bool operator==(nullptr_t);
+	bool operator==(std::nullptr_t);
 	/// check if null
 	bool operator!();
 
@@ -187,7 +187,7 @@ Delegate<RETTYPE(ARGTYPES...)>::operator=(LAMBDA const& instance)
 */
 template<typename RETTYPE, typename ... ARGTYPES>
 bool
-Delegate<RETTYPE(ARGTYPES...)>::operator==(nullptr_t)
+Delegate<RETTYPE(ARGTYPES...)>::operator==(std::nullptr_t)
 {	
 	return this->stubPtr == nullptr;
 }

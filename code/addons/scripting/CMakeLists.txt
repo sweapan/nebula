@@ -20,9 +20,12 @@ nebula_end_module()
 
 get_filename_component(PY_DBG_PATH ${Python_LIBRARY_DEBUG} DIRECTORY)
 get_filename_component(PY_OPT_PATH ${Python_LIBRARY_RELEASE} DIRECTORY)
-target_link_options(scripting PUBLIC "/WHOLEARCHIVE:scripting")
+target_link_options(scripting PUBLIC $<$<CXX_COMPILER_ID:MSVC>:"/WHOLEARCHIVE:audio">)
 target_include_directories(scripting PUBLIC ${CMAKE_BINARY_DIR}/nidl/application)
 target_link_directories(scripting PUBLIC ${PY_DBG_PATH} ${PY_OPT_PATH})
+if(FIPS_LINUX)
+    target_link_libraries(scripting PUBLIC ${Python_LIBRARY_RELEASE})
+endif()    
 
 if (CMAKE_VERSION VERSION_EQUAL 3.16 OR 
     CMAKE_VERSION VERSION_GREATER 3.16)

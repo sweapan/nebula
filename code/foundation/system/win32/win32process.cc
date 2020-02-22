@@ -25,7 +25,7 @@ Win32Process::Win32Process() :
 /**
 */
 bool
-Win32Process::LaunchWait() const
+Win32Process::LaunchWait()
 {
     n_assert(this->exePath.IsValid());
 

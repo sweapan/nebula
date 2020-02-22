@@ -27,7 +27,7 @@ PosixProcess::PosixProcess() :
 /**
 */
 bool
-PosixProcess::LaunchWait() const
+PosixProcess::LaunchWait() 
 {
     if(this->Launch())
     {
@@ -142,11 +142,11 @@ PosixProcess::Launch()
             // convert arg string to array of char*
             Array<String> strargs = this->args.Tokenize(" ",'\"');
             char ** argv = new char*[strargs.Size() + 2];
-            argv[0] = this->exePath.LocalPath().AsCharPtr();
+            argv[0] = (char*)this->exePath.LocalPath().AsCharPtr();
             int i;
             for(i = 0 ; i<strargs.Size() ; i++)
             {
-                argv[i+1] = strargs[i].AsCharPtr();
+                argv[i+1] = (char*)strargs[i].AsCharPtr();
             }
             argv[i+1] = NULL;
 

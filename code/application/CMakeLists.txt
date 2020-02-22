@@ -131,5 +131,5 @@ nebula_begin_module(application)
 	fips_dir(.)
 nebula_end_module()
 
-target_link_options(application PUBLIC "/WHOLEARCHIVE:application")
+target_link_options(application PUBLIC $<$<CXX_COMPILER_ID:MSVC>:"/WHOLEARCHIVE:audio">)
 target_include_directories(application PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

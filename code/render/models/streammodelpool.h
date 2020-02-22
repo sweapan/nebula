@@ -27,7 +27,7 @@ struct FrameContext;
 }
 namespace Models
 {
-
+class ModelContext;
 class ModelNode;
 class StreamModelPool : public Resources::ResourceStreamPool
 {

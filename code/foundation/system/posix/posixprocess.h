@@ -23,7 +23,7 @@ public:
     PosixProcess();
 
     /// launch application and wait for its termination
-    bool LaunchWait() const;
+    bool LaunchWait();
     /// launch application (returns immediately)
     bool Launch();
     /// Gets the state of application. Call this per frame.
@@ -32,7 +32,7 @@ public:
     void UpdateStdoutStream();
     /// Detect if an instance of the process is already running
     bool CheckIfExists();
-        /// Detect if an instance of a given process is running
+    /// Detect if an instance of a given process is running
     static bool CheckIfExists(const IO::URI & program);
 
 private:

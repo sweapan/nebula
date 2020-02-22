@@ -456,6 +456,58 @@ float4::storeu(scalar* ptr) const
 /**
 */
 __forceinline void
+float4::storeu(const float4& vec, scalar* dst)
+{
+    _mm_storeu_ps(dst, vec.vec);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline void
+float4::store3(const float4& vec, scalar* dst)
+{
+    __m128 m = _mm_shuffle_ps(vec.vec,vec.vec, _MM_SHUFFLE(2,2,2,2));
+    _mm_storel_epi64( reinterpret_cast<__m128i*>(dst), _mm_castps_si128(vec.vec));
+    _mm_store_ss( &dst[2], m);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline void
+float4::store3u(const float4& vec, scalar* dst)
+{
+    __m128 m1 = _mm_shuffle_ps(vec.vec,vec.vec, _MM_SHUFFLE(1,1,1,1));
+    __m128 m2 = _mm_shuffle_ps(vec.vec,vec.vec, _MM_SHUFFLE(2,2,2,2));
+    _mm_store_ss(dst, vec.vec);
+    _mm_store_ss(&dst[1], m1);
+    _mm_store_ss(&dst[2], m2);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline void 
+float4::storeui(uint* ptr) const
+{
+    //FIXME this does not handle over/underflow and other errors as the dx version does
+    _mm_storeu_si128(reinterpret_cast<__m128i*>(ptr), _mm_cvttps_epi32(this->vec.vec));
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline void
+float4::storesi(int* ptr) const
+{
+	_mm_storeu_si128(reinterpret_cast<__m128i*>(ptr), _mm_cvttps_epi32(this->vec.vec));
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline void
 float4::stream(scalar* ptr) const
 {
     this->store(ptr);
@@ -1409,6 +1461,15 @@ float4::zerovector()
 	return float4(0, 0, 0, 0);
 }
 
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline float4 
+float4::sum(const float4 & v)
+{
+	__m128 v0 = _mm_hadd_ps(v.vec, v.vec);
+	return _mm_hadd_ps(v0, v0);
+}
 } // namespace Math
 //------------------------------------------------------------------------------
 

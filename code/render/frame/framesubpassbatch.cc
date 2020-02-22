@@ -91,7 +91,7 @@ FrameSubpassBatch::DrawBatch(CoreGraphics::BatchGroup::Code batch, const Graphic
 			if (Materials::MaterialBeginBatch(materialType, batch))
 			{
 				auto& model = drawList->ValueAtIndex(materialType, idx);
-                auto& it = model.Begin();
+                auto it = model.Begin();
 				const auto& end = model.End();
 
 				while (it != end)
@@ -182,7 +182,7 @@ FrameSubpassBatch::DrawBatch(CoreGraphics::BatchGroup::Code batch, const Graphic
 			if (Materials::MaterialBeginBatch(materialType, batch))
 			{
 				auto& model = drawList->ValueAtIndex(materialType, idx);
-				auto& it = model.Begin();
+				auto it = model.Begin();
 				const auto& end = model.End();
 				while (it != end)
 				{
