@@ -254,9 +254,9 @@ VkSubContextHandler::FlushSubmissionsTimeline(CoreGraphics::QueueType type, VkFe
 		{
 			VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO_KHR,
 			nullptr,
-			sub.waitIndices.Size(),
+			(uint32_t)sub.waitIndices.Size(),
 			sub.waitIndices.Size() > 0 ? sub.waitIndices.Begin() : nullptr,
-			sub.signalIndices.Size(),
+			(uint32_t)sub.signalIndices.Size(),
 			sub.signalIndices.Size() > 0 ? sub.signalIndices.Begin() : nullptr
 		};
 		extensions[i] = ext;
@@ -265,12 +265,12 @@ VkSubContextHandler::FlushSubmissionsTimeline(CoreGraphics::QueueType type, VkFe
 		{
 			VK_STRUCTURE_TYPE_SUBMIT_INFO,
 			&extensions[i],
-			sub.waitSemaphores.Size(),
+			(uint32_t)sub.waitSemaphores.Size(),
 			sub.waitSemaphores.Size() > 0 ? sub.waitSemaphores.Begin() : nullptr,
 			sub.waitFlags.Size() > 0 ? sub.waitFlags.Begin() : nullptr,
-			sub.buffers.Size(),
+			(uint32_t)sub.buffers.Size(),
 			sub.buffers.Size() > 0 ? sub.buffers.Begin() : nullptr,
-			sub.signalSemaphores.Size(),								// if we have a finish semaphore, add it on the submit
+			(uint32_t)sub.signalSemaphores.Size(),								// if we have a finish semaphore, add it on the submit
 			sub.signalSemaphores.Size() > 0 ? sub.signalSemaphores.Begin() : nullptr
 		};
 		submitInfos[i] = info;
@@ -381,12 +381,12 @@ VkSubContextHandler::FlushSubmissions(CoreGraphics::QueueType type, VkFence fenc
 			{
 				VK_STRUCTURE_TYPE_SUBMIT_INFO,
 				nullptr,
-				submissions[i].waitSemaphores.Size(),
+				(uint32_t)submissions[i].waitSemaphores.Size(),
 				submissions[i].waitSemaphores.Size() > 0 ? submissions[i].waitSemaphores.Begin() : nullptr,
 				submissions[i].waitFlags.Size() > 0 ? submissions[i].waitFlags.Begin() : nullptr,
-				submissions[i].buffers.Size(),
+				(uint32_t)submissions[i].buffers.Size(),
 				submissions[i].buffers.Size() > 0 ? submissions[i].buffers.Begin() : nullptr,
-				submissions[i].signalSemaphores.Size(),
+				(uint32_t)submissions[i].signalSemaphores.Size(),
 				submissions[i].signalSemaphores.Size() > 0 ? submissions[i].signalSemaphores.Begin() : nullptr
 			};
 			submitInfos[i] = info;

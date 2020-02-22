@@ -1,6 +1,6 @@
 """Module to parse SJSON files."""
 # coding=utf8
-# @author: MatthÃ¤us G. Chajdas
+# @author: Matthus G. Chajdas
 # @license: 3-clause BSD
 
 import collections.abc

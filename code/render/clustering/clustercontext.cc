@@ -14,7 +14,7 @@
 namespace Clustering
 {
 
-struct
+struct ClusterState
 {
 	CoreGraphics::ShaderId clusterShader;
 	CoreGraphics::ShaderProgramId clusterGenerateProgram;
@@ -92,7 +92,7 @@ ClusterContext::Create(float ZNear, float ZFar, const CoreGraphics::WindowId win
 	ShaderRWBufferCreateInfo rwb3Info =
 	{
 		"ClusterAABBBuffer",
-		state.clusterDimensions[0] * state.clusterDimensions[1] * state.clusterDimensions[2] * sizeof(ClusterGenerate::ClusterAABB),
+		state.clusterDimensions[0] * state.clusterDimensions[1] * state.clusterDimensions[2] * (SizeT)sizeof(ClusterGenerate::ClusterAABB),
 		1,
 		false
 	};

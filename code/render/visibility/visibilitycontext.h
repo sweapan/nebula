@@ -15,6 +15,12 @@
 #include "materials/surfacepool.h"
 #include "materials/materialtype.h"
 #include "memory/arenaallocator.h"
+
+namespace Models
+{
+	class ModelContext;
+}
+
 namespace Visibility
 {
 

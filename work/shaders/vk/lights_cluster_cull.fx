@@ -9,7 +9,7 @@
 #include "lib/clustering.fxh"
 #include "lib/lights_clustered.fxh"
 #include "lib/CSM.fxh"
-#include "lib/Preetham.fxh"
+#include "lib/preetham.fxh"
 
 // increase if we need more lights in close proximity, for now, 128 is more than enough
 #define MAX_LIGHTS_PER_CLUSTER 128

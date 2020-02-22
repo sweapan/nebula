@@ -36,6 +36,19 @@ IoServer::IoServer() :
 {
     __ConstructSingleton;
 
+    // the first IoServer sets up the global scheme registry
+    this->schemeCriticalSection.Enter();
+    if (!SchemeRegistry::HasInstance())
+    {
+        this->schemeRegistry = SchemeRegistry::Create();
+        this->schemeRegistry->Setup();
+    }
+    else
+    {
+        this->schemeRegistry = SchemeRegistry::Instance();
+    }    
+    this->schemeCriticalSection.Leave();
+
     // the first IoServer created sets up the global assign registry
     this->assignCriticalSection.Enter();
     if (!AssignRegistry::HasInstance())
@@ -49,19 +62,6 @@ IoServer::IoServer() :
         this->assignRegistry = AssignRegistry::Instance();
     }
     this->assignCriticalSection.Leave();
-
-    // the first IoServer sets up the global scheme registry
-    this->schemeCriticalSection.Enter();
-    if (!SchemeRegistry::HasInstance())
-    {
-        this->schemeRegistry = SchemeRegistry::Create();
-        this->schemeRegistry->Setup();
-    }
-    else
-    {
-        this->schemeRegistry = SchemeRegistry::Instance();
-    }    
-    this->schemeCriticalSection.Leave();
 
     this->archiveCriticalSection.Enter();
     if (!ArchiveFileSystem::HasInstance())

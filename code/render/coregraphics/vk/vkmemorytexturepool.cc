@@ -166,13 +166,13 @@ VkMemoryTexturePool::LoadFromMemory(const Resources::ResourceId id, const void* 
 			type,
 			vkformat,
 			extents,
-			adjustedInfo.mips,
-			adjustedInfo.layers,
+			(uint32_t)adjustedInfo.mips,
+			(uint32_t)adjustedInfo.layers,
 			samples,
 			VK_IMAGE_TILING_OPTIMAL,
 			usage,
 			sharingMode,
-			sharingMode == VK_SHARING_MODE_CONCURRENT ? queues.Size() : 0,
+			sharingMode == VK_SHARING_MODE_CONCURRENT ? (uint32_t)queues.Size() : 0,
 			sharingMode == VK_SHARING_MODE_CONCURRENT ? queues.KeysAsArray().Begin() : nullptr,
 			VK_IMAGE_LAYOUT_UNDEFINED
 		};

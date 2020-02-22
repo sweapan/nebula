@@ -93,7 +93,7 @@ ShaderServerBase::Open()
         this->LoadShader(resId);
     }
 #endif
-
+#ifndef __linux__
 	// create file watcher
     if (IO::IoServer::Instance()->DirectoryExists("home:work/shaders/vk"))
     {
@@ -149,6 +149,7 @@ ShaderServerBase::Open()
             }
         });
     }
+#endif
     // create standard shader for access to shared variables
     if (this->shaders.Contains(ResourceName("shd:shared.fxb")))
     {

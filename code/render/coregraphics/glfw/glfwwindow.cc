@@ -367,6 +367,7 @@ InternalSetupFunction(const WindowCreateInfo& info, const Util::Blob& windowData
 	*ptr = id;
 	if (embed)
 	{
+		/*
 		// create window using our Qt window as child
 		wnd = glfwCreateWindowFromAlien(windowData.GetPtr(), wnd);
 		glfwMakeContextCurrent(wnd);
@@ -381,6 +382,7 @@ InternalSetupFunction(const WindowCreateInfo& info, const Util::Blob& windowData
 		mode.SetAspectRatio(width / float(height));
 
 		glfwSetWindowUserPointer(wnd, ptr);
+		*/
 	}
 	else
 	{

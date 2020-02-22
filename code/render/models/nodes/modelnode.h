@@ -22,6 +22,7 @@
 #include "memory/arenaallocator.h"
 #include "models/model.h"
 #include "materials/material.h"
+#include "coregraphics/shader.h"
 
 
 #define ModelNodeInstanceCreator(type) \
@@ -46,7 +47,6 @@ class ParticleContext;
 namespace CoreGraphics
 {
 struct ResourceTableId;
-enum ShaderPipeline;
 }
 
 namespace Models

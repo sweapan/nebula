@@ -1,3 +1,8 @@
+//------------------------------------------------------------------------------
+//  win32filewatcher.cc
+//  (C) 2019-2020 Individual contributors, see AUTHORS file
+//---------------------------------------------------------------------------
+
 #include "foundation/stdneb.h"
 #include "io/filewatcher.h"
 #include "io/assignregistry.h"

@@ -236,11 +236,13 @@ private:
 
 	/// Get attribute value expansion method
 	template<std::size_t n>
-	constexpr Util::Variant GetAttributeValueDynamic(InstanceId instance, IndexT attributeIndex);
+	//constexpr 
+	Util::Variant GetAttributeValueDynamic(InstanceId instance, IndexT attributeIndex);
 	
 	/// Get attribute value expansion method
 	template<std::size_t n>
-	constexpr Util::Variant GetAttributeValueDynamic(InstanceId instance, Util::FourCC attribute);
+	//constexpr 
+	Util::Variant GetAttributeValueDynamic(InstanceId instance, Util::FourCC attribute);
 
 	/// Set attribute value expansion method
 	template<std::size_t n>
@@ -385,13 +387,13 @@ void Component<TYPES...>::Allocate(uint num, std::index_sequence<Is...>)
 {
 	SizeT first = this->data.Size();
 	this->data.Reserve(first + num);
-	this->data.GetArray<0>().SetSize(first + num);
+	this->data.template GetArray<0>().SetSize(first + num);
 	using expander = int[];
 	(void)expander
 	{
 		0, (
-		this->data.GetArray<Is + 1>().SetSize(first + num),
-		this->data.GetArray<Is + 1>().Fill(first, num, TYPES::DefaultValue()),
+		this->data.template GetArray<Is + 1>().SetSize(first + num),
+		this->data.template GetArray<Is + 1>().Fill(first, num, TYPES::DefaultValue()),
 		0)...
 	};
 
@@ -450,7 +452,7 @@ Component<TYPES ...>::RegisterInstance(Entity e, InstanceId index)
 
     this->idMap.Add(e.id, index);
 
-    if (this->events.IsSet<ComponentEvent::OnActivate>())
+    if (this->events.template IsSet<ComponentEvent::OnActivate>())
     {
         this->functions.OnActivate(index);
     }
@@ -472,7 +474,7 @@ Component<TYPES ...>::DeregisterEntity(Entity e)
 	if (index == InvalidIndex)
 		return;
 
-	if (this->events.IsSet<ComponentEvent::OnDeactivate>())
+	if (this->events.template IsSet<ComponentEvent::OnDeactivate>())
 	{
 		this->functions.OnDeactivate(index);
 	}
@@ -496,7 +498,7 @@ Component<TYPES ...>::OnEntityDeleted(Game::Entity entity)
 	InstanceId index = this->GetInstance(entity);
 	if (index != InvalidIndex)
 	{
-		if (this->events.IsSet<ComponentEvent::OnDeactivate>())
+		if (this->events.template IsSet<ComponentEvent::OnDeactivate>())
 		{
 			this->functions.OnDeactivate(index);
 		}
@@ -571,7 +573,9 @@ Component<TYPES ...>::Optimize()
 		}
 
 		oldIndex = --dataSize;
-		lastId = this->data.Get<0>(oldIndex).id;
+		//FIXME
+		//lastId = this->data.Get<0>(oldIndex).id;
+		assert(false);
 		this->data.EraseIndexSwap(index);
 		++numErased;
 
@@ -668,7 +672,8 @@ Component<TYPES...>::GetAttributeValue(InstanceId instance, Util::FourCC attribu
 */
 template <class ... TYPES>
 template <std::size_t n>
-constexpr Util::Variant
+//constexpr
+ Util::Variant
 Component<TYPES...>::GetAttributeValueDynamic(InstanceId instance, IndexT attributeIndex)
 {
 	if (attributeIndex == n)
@@ -682,7 +687,8 @@ Component<TYPES...>::GetAttributeValueDynamic(InstanceId instance, IndexT attrib
 */
 template <class ... TYPES>
 template <std::size_t n>
-constexpr Util::Variant
+//constexpr 
+Util::Variant
 Component<TYPES...>::GetAttributeValueDynamic(InstanceId instance, Util::FourCC attribute)
 {
 	using T = typename std::tuple_element<n, std::tuple<Game::Entity, TYPES...> >::type;
@@ -898,7 +904,7 @@ template <class ... TYPES>
 inline Util::Array<Game::Entity> const&
 Component<TYPES...>::GetOwners() const
 {
-    return this->data.GetArray<0>();
+    return this->data.template GetArray<0>();
 }
 
 //------------------------------------------------------------------------------
@@ -908,7 +914,7 @@ template <class ... TYPES>
 inline void
 Component<TYPES...>::SetOwners(uint offset, Util::Array<Game::Entity> const& newOwners)
 {
-    auto& owners = this->data.GetArray<0>();
+    auto& owners = this->data.template GetArray<0>();
     n_assert(owners.Size() + offset >= newOwners.Size());
     Memory::Copy((void*)newOwners.Begin(), (void*)(owners.Begin() + offset), newOwners.Size() * sizeof(Game::Entity));
 }
@@ -920,7 +926,7 @@ template <class ... TYPES>
 inline void
 Component<TYPES...>::SerializeOwners(const Ptr<IO::BinaryWriter>& writer) const
 {
-	Game::Serialize(writer, this->data.GetArray<0>());
+	Game::Serialize(writer, this->data.template GetArray<0>());
 }
 
 //------------------------------------------------------------------------------
@@ -930,7 +936,7 @@ template <class ... TYPES>
 inline void
 Component<TYPES...>::DeserializeOwners(const Ptr<IO::BinaryReader>& reader, uint offset, uint numInstances)
 {
-	Game::Deserialize(reader, this->data.GetArray<0>(), offset, numInstances);
+	Game::Deserialize(reader, this->data.template GetArray<0>(), offset, numInstances);
 }
 
 //------------------------------------------------------------------------------

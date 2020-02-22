@@ -182,7 +182,7 @@ void WriteDataSequenced(const Util::ArrayAllocator<Game::Entity, Ts...>& data, c
 	(void)expander
 	{
 		0, (
-		Serialize<Ts>(writer, data.GetArray<Is + 1>()), 0)...
+		Serialize<Ts>(writer, data.template GetArray<Is + 1>()), 0)...
 	};
 }
 
@@ -193,8 +193,8 @@ void ReadDataSequenced(Util::ArrayAllocator<Game::Entity, Ts...>& data, const Pt
 	(void)expander
 	{
 		0, (
-		data.GetArray<Is + 1>().SetSize(offset + numInstances),
-		Deserialize<Ts>(reader, data.GetArray<Is + 1>(), offset, numInstances), 0)...
+		data.template GetArray<Is + 1>().SetSize(offset + numInstances),
+		Deserialize<Ts>(reader, data.template GetArray<Is + 1>(), offset, numInstances), 0)...
 	};
 }
 

@@ -1005,7 +1005,7 @@ CreateGraphicsDevice(const GraphicsDeviceCreateInfo& info)
 	}
 
 	const char* layers[] = { "VK_LAYER_KHRONOS_validation" };
-	int numLayers = 0;
+	uint32_t numLayers = 0;
 	const char** usedLayers = nullptr;
 
 #if NEBULA_GRAPHICS_DEBUG
@@ -1337,11 +1337,11 @@ CreateGraphicsDevice(const GraphicsDeviceCreateInfo& info)
 		// create VBO
 		CoreGraphics::VertexBufferCreateDirectInfo vboInfo =
 		{
-			Util::String::Sprintf("%s Global Vertex Buffer %d", threadName[i], i),
+			Util::String::Sprintf("%s Global Vertex Buffer %d", threadName[i].AsCharPtr(), i),
 			CoreGraphics::GpuBufferTypes::AccessWrite,
 			CoreGraphics::GpuBufferTypes::UsageDynamic,
 			CoreGraphics::GpuBufferTypes::SyncingCoherent | CoreGraphics::GpuBufferTypes::SyncingPersistent,
-			info.globalVertexBufferMemorySize[i] * info.numBufferedFrames, // memory size should be divided by 4
+			(SizeT)info.globalVertexBufferMemorySize[i] * info.numBufferedFrames, // memory size should be divided by 4
 		};
 		state.globalVertexBufferMaxValue[i] = info.globalVertexBufferMemorySize[i];
 		if (state.globalVertexBufferMaxValue[i] > 0)
@@ -1353,13 +1353,13 @@ CreateGraphicsDevice(const GraphicsDeviceCreateInfo& info)
 		// create IBO
 		CoreGraphics::IndexBufferCreateDirectInfo iboInfo =
 		{
-			Util::String::Sprintf("%s Global Index Buffer %d", threadName[i], i),
+			Util::String::Sprintf("%s Global Index Buffer %d", threadName[i].AsCharPtr(), i),
 			"system",
 			CoreGraphics::GpuBufferTypes::AccessWrite,
 			CoreGraphics::GpuBufferTypes::UsageDynamic,
 			CoreGraphics::GpuBufferTypes::SyncingCoherent | CoreGraphics::GpuBufferTypes::SyncingPersistent,
 			IndexType::Index32,
-			info.globalIndexBufferMemorySize[i] * info.numBufferedFrames / 4,
+			(SizeT)info.globalIndexBufferMemorySize[i] * info.numBufferedFrames / 4,
 		};
 		state.globalIndexBufferMaxValue[i] = info.globalIndexBufferMemorySize[i];
 		if (state.globalIndexBufferMaxValue[i])

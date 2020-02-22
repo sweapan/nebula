@@ -294,7 +294,7 @@ LightContext::Create()
 	ShaderRWBufferCreateInfo rwbInfo =
 	{
 		"SpotLightClusterIndexBuffer",
-		Clustering::ClusterContext::GetNumClusters() * sizeof(LightsClusterCull::LightTileList),
+		Clustering::ClusterContext::GetNumClusters() * (SizeT)sizeof(LightsClusterCull::LightTileList),
 		1,
 		false
 	};

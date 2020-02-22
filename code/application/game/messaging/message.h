@@ -98,8 +98,8 @@ public:
 	/// Deregister a listener
 	static void Deregister(MessageListener listener)
 	{
-		n_assert2(listener.fourcc == Instance()->fourcc, "MessageListener does not belong to this message!");
-		n_assert2(listener.listenerId == validId, "MessageListener is not valid. It might already have been deregistered!");
+		n_assert2(listener.messageId == Instance()->fourcc, "MessageListener does not belong to this message!");
+		n_assert2(listener.listenerId == Instance()->validId, "MessageListener is not valid. It might already have been deregistered!");
 		Instance()->callback = nullptr;
 		Instance()->validId++;
 	}

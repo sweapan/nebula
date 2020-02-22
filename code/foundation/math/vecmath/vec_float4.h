@@ -114,8 +114,29 @@ public:
     void store(scalar* ptr) const;
     /// write content to unaligned memory through the write cache
     void storeu(scalar* ptr) const;
+    /// write content to 16 byte aligned unsigned integer pointer
+	void storeui(uint* ptr) const;
+	/// write content to 16 byte aligned integer pointer
+	void storesi(int* ptr) const;
     /// stream content to 16-byte-aligned memory circumventing the write-cache
     void stream(scalar* ptr) const;
+    /// write content to 16-byte-aligned memory through the write cache
+	void store3(scalar* ptr) const;
+	/// write content to unaligned memory through the write cache
+	void storeu3(scalar* ptr) const;
+
+	/// store vector to pointer
+	static void store(const float4& vec, scalar* dst);
+	/// store vector to unaligned pointer
+	static void storeu(const float4& vec, scalar* dst);
+	/// store 3 components of vector to pointer
+	static void store3(const float4& vec, scalar* dst);
+	/// store 3 components of vector to unaligned pointer
+	static void store3u(const float4& vec, scalar* dst);
+	/// store vector as uint to pointer
+	static void storeui(const float4& vec, uint* dst);
+	/// store vector as sint to pointer
+	static void storesi(const float4& vec, int* dst);
 
     /// load 3 floats into x,y,z from unaligned memory
     void load_float3(const void* ptr, float w);
@@ -212,6 +233,8 @@ public:
     static float4 zerovector();
     /// return vector divided by w
     static float4 perspective_div(const float4& v);
+    /// returns sum of vector components
+	static float4 sum(const float4& v);
 
     /// return true if any XYZ component is less-then
     static bool less3_any(const float4 &v0, const float4 &v1);

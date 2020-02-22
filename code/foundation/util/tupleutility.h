@@ -86,7 +86,7 @@ clear_for_each_in_tuple(std::tuple<Ts...>& tuple)
 template <class...Ts, std::size_t...Is> void
 move_for_each_in_tuple(std::tuple<Ts...>& tuple, uint32_t to, uint32_t from, std::index_sequence<Is...>)
 {
-	(std::get<Is>(tuple)[to] = std::get<Is>(tuple)[from], ...);
+	((std::get<Is>(tuple)[to] = std::get<Is>(tuple)[from]), ...);
 }
 
 //------------------------------------------------------------------------------

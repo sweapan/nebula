@@ -48,6 +48,7 @@ enum ValueType
 	BlobArrayType = Util::Variant::BlobArray,
 	GuidArrayType = Util::Variant::GuidArray,
 	EntityType = Util::Variant::NumTypes + 1,
+	NONE // used in error handling
 };
 
 // these class definitions are just for template specializations later on,
