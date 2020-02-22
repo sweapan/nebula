@@ -135,7 +135,7 @@ template<typename RETTYPE, typename ... ARGTYPES>
 template <typename LAMBDA>
 Delegate<RETTYPE(ARGTYPES...)>::Delegate(LAMBDA const& lambda)
 {
-    static_assert(sizeof(LAMBDA) == 1Ui64, "Util::Delegate does accept lambdas carrying capture variables! Read the description of at the top of util/delegate.h");
+    static_assert(sizeof(LAMBDA) == 1ULL, "Util::Delegate does accept lambdas carrying capture variables! Read the description of at the top of util/delegate.h");
 	Assign((void*)(&lambda), LambdaStub<LAMBDA>);
 }
 
@@ -177,7 +177,7 @@ template <typename LAMBDA>
 Delegate<RETTYPE(ARGTYPES...)>&
 Delegate<RETTYPE(ARGTYPES...)>::operator=(LAMBDA const& instance)
 {
-    static_assert(sizeof(LAMBDA) == 1Ui64, "Util::Delegate does accept lambdas carrying capture variables! Read the description of at the top of util/delegate.h");
+    static_assert(sizeof(LAMBDA) == 1ULL, "Util::Delegate does accept lambdas carrying capture variables! Read the description of at the top of util/delegate.h");
 	Assign((void*)(&instance), LambdaStub<LAMBDA>);
 	return *this;
 }
@@ -247,7 +247,7 @@ template<typename LAMBDA>
 Delegate<RETTYPE(ARGTYPES...)>
 Delegate<RETTYPE(ARGTYPES...)>::FromLambda(const LAMBDA & instance)
 {
-    static_assert(sizeof(LAMBDA) == 1Ui64, "Util::Delegate does accept lambdas carrying capture variables! Read the description of at the top of util/delegate.h");
+    static_assert(sizeof(LAMBDA) == 1ULL, "Util::Delegate does accept lambdas carrying capture variables! Read the description of at the top of util/delegate.h");
 	return ((void*)(&instance), LambdaStub<LAMBDA>);
 }
 

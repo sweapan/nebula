@@ -131,7 +131,7 @@ VkStreamTexturePool::LoadFromStream(const Resources::ResourceId res, const Util:
 	{
 		VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,
 		NULL,
-		cube ? VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT : 0,
+		cube ? VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT : (VkImageCreateFlagBits)0,
 		depth > 1 ? VK_IMAGE_TYPE_3D : (height > 1 ? VK_IMAGE_TYPE_2D : VK_IMAGE_TYPE_1D),
 		vkformat,
 		extents,

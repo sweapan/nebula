@@ -81,6 +81,11 @@ public:
     /// stream content to 16-byte-aligned memory circumventing the write-cache
     void stream(scalar* ptr) const;
 
+    /// write to pointer
+	static void store(const matrix44& mat, scalar* ptr);
+	/// write to unaligned pointer
+	static void storeu(const matrix44& mat, scalar* ptr);
+
     /// set content
     void set(float4 const &row0, float4 const &row1, float4 const &row2, float4 const &row3);
     /// write access to x component
@@ -207,6 +212,12 @@ public:
     static quaternion rotationmatrix(const matrix44& m);
     /// transform a plane with a matrix
     static plane transform(const plane& p, const matrix44& m);
+    /// transform a point as if this were a 3x3 matrix and the float4 is 3d
+	static float4 transform3(const float4& v, const matrix44& m);
+	/// transform a point as if this were a 3x3 matrix and the point is 3d
+	static float4 transform3(const point& p, const matrix44& m);
+	/// transform a vector as if it were a 3x3 matrix and the vector is 3d
+	static float4 transform3(const vector& v, const matrix44& m);
     /// check if point lies inside matrix frustum
     static bool ispointinside(const float4& p, const matrix44& m);
     /// convert to any type
@@ -602,7 +613,7 @@ matrix44::scale(float4 const &s)
 {
     // need to make sure that last column isn't erased
     float4 scl = s;
-    scl.w = 1.0f;
+    scl.w() = 1.0f;
 
     this->mat.r[0] = float4::multiply(this->mat.r[0], scl).vec;
     this->mat.r[1] = float4::multiply(this->mat.r[1], scl).vec;

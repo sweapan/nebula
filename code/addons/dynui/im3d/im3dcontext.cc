@@ -408,7 +408,7 @@ Im3dContext::Render(const IndexT frameIndex)
         Im3d::SetSize(1.0f);
         Im3d::PushLayerId(imState.depthLayerId);            
         Im3d::BeginLines();
-        Im3d::Color col = imState.gridColor;
+        Im3d::Color col(imState.gridColor.x(), imState.gridColor.y(),imState.gridColor.z(),imState.gridColor.w());
         for (int x = -gridSize; x <= gridSize; ++x) {
             Im3d::Vertex(-gridSize * cellSize, 0.0f, (float)x * cellSize, col);
             Im3d::Vertex(gridSize * cellSize, 0.0f, (float)x * cellSize, col);

@@ -30,6 +30,11 @@
 #endif
 #endif // NEBULA_DEBUG
 
+namespace Core 
+{
+	class RefCounted;
+}
+
 //------------------------------------------------------------------------------
 template<class TYPE>
 class Ptr

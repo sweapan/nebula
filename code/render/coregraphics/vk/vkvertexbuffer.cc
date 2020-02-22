@@ -149,7 +149,7 @@ CreateVertexBuffer(const VertexBufferCreateDirectInfo& info)
 		VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
 		NULL,
 		0,					// use for sparse buffers
-		info.size,
+		(VkDeviceSize)info.size,
 		VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
 		VK_SHARING_MODE_EXCLUSIVE,						// can only be accessed from the creator queue,
 		0,												// number of queues in family

@@ -91,7 +91,7 @@ ResourceTableLayoutNewPool(const CoreGraphics::ResourceTableLayoutId& id)
 		nullptr,
 		VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT,
 		grow,
-		poolSizes.Size(),
+		(uint32_t)poolSizes.Size(),
 		poolSizes.Size() > 0 ? poolSizes.Begin() : nullptr
 	};
 
@@ -709,7 +709,7 @@ CreateResourceTableLayout(const ResourceTableLayoutCreateInfo& info)
 			VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO,
 			nullptr,
 			0,																// USE vkCmdPushDescriptorSetKHR IN THE FUTURE!
-			bindings.Size(),
+			(uint32_t)bindings.Size(),
 			bindings.Begin()
 		};
 		VkResult res = vkCreateDescriptorSetLayout(dev, &dslInfo, nullptr, &layout);
@@ -786,9 +786,9 @@ CreateResourcePipeline(const ResourcePipelineCreateInfo& info)
 		VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO,
 		nullptr,
 		0,
-		layouts.Size(),
+		(uint32_t)layouts.Size(),
 		layouts.Begin(),
-		push.size > 0 ? 1 : 0,
+		(uint32_t)(push.size > 0 ? 1 : 0),
 		&push
 	};
 	VkResult res = vkCreatePipelineLayout(dev, &crInfo, nullptr, &layout);
