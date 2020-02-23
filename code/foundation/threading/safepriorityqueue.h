@@ -132,7 +132,7 @@ template<class PRITYPE, class TYPE> void
 SafePriorityQueue<PRITYPE,TYPE>::EraseMatchingElements(const TYPE& e)
 {
     this->criticalSection.Enter();
-    Util::Array<Util::KeyValuePair<PRITYPE,TYPE> >::Iterator iter; 
+    typename Util::Array<Util::KeyValuePair<PRITYPE,TYPE>>::Iterator iter; 
     for (iter = this->queueArray.Begin(); iter != this->queueArray.End();)
     {
         if ((*iter).Value() == e)
