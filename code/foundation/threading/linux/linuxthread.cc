@@ -149,6 +149,7 @@ LinuxThread::EmitWakeupSignal()
 void
 LinuxThread::Stop()
 {
+    n_dbgout("LinuxThread::Stop(): stopping thread %s\n", this->GetMyThreadName());
     n_assert(this->IsRunning());
 
     // signal the thread to stop
@@ -172,8 +173,7 @@ LinuxThread::Stop()
 void *
 LinuxThread::ThreadProc(void *self)
 {
-    n_assert(0 != self);
-    n_dbgout("LinuxThread::ThreadProc(): thread started!\n");
+    n_assert(0 != self);   
 
     #if NEBULA_ENABLE_THREADLOCAL_STRINGATOM_TABLES
     // setup thread-local string atom table (will be discarded when thread terminates)
@@ -182,10 +182,10 @@ LinuxThread::ThreadProc(void *self)
 
     LinuxThread* threadObj = static_cast<LinuxThread*>(self);
     LinuxThread::SetMyThreadName(threadObj->GetName());
+    n_dbgout("LinuxThread::ThreadProc(): thread %s started!\n", threadObj->GetMyThreadName());
     threadObj->threadState = Running;
     threadObj->threadStartedEvent.Signal();
     threadObj->DoWork();
-    threadObj->threadState = Stopped;
     // discard local string atom table
     #if NEBULA_ENABLE_THREADLOCAL_STRINGATOM_TABLES
     n_delete(localStringAtomTable);

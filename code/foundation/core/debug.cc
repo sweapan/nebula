@@ -152,7 +152,15 @@ n_printf(const char *msg, ...)
 {
     va_list argList;
     va_start(argList, msg);
-    IO::Console::Instance()->Print(msg, argList);
+    if (IO::Console::HasInstance())
+    {
+        IO::Console::Instance()->Print(msg, argList);
+    }
+    else
+    {
+        // stderr fallback
+        fprintf(stderr, msg, argList);
+    }    
     va_end(argList);
 }
 
@@ -167,7 +175,15 @@ n_dbgout(const char *msg, ...)
 {
     va_list argList;
     va_start(argList,msg);
-    IO::Console::Instance()->DebugOut(msg, argList);
+    if (IO::Console::HasInstance())
+    {
+        IO::Console::Instance()->DebugOut(msg, argList);
+    }
+    else
+    {
+        // stderr fallback
+        fprintf(stderr, msg, argList);
+    }
     va_end(argList);
 }
 
