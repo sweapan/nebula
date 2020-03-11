@@ -429,11 +429,12 @@ ArrayStack<TYPE, STACK_SIZE>::operator=(const ArrayStack<TYPE, STACK_SIZE>& rhs)
 template<class TYPE, int STACK_SIZE>
 inline void ArrayStack<TYPE, STACK_SIZE>::operator=(ArrayStack<TYPE, STACK_SIZE>&& rhs)
 {
-	this->capacity = rhs.capacity;
-	this->count = rhs.count;
-	this->grow = rhs.grow;
     if (this->elements && this->capacity > STACK_SIZE)
         n_delete_array(this->elements);
+	
+    this->capacity = rhs.capacity;
+    this->count = rhs.count;
+    this->grow = rhs.grow;
     
     if (this->capacity <= STACK_SIZE)
     {
