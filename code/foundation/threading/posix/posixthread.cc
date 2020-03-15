@@ -3,7 +3,7 @@
 //  (C) 2006 Radon Labs GmbH
 //  (C) 2013-2018 Individual contributors, see AUTHORS file
 //------------------------------------------------------------------------------
-#include "stdneb.h"
+#include "foundation/stdneb.h"
 #include "threading/posix/posixthread.h"
 #include <limits.h>
 
@@ -22,8 +22,8 @@ PosixThread::PosixThread() :
     threadHandle(0),
     running(false),
     priority(Normal),
-    stackSize(4096),
-    coreId(System::Cpu::Core0)
+    stackSize(4096)
+    //,coreId(System::Cpu::Core0)
 {
 	// empty
 }
@@ -191,9 +191,10 @@ Posix::PosixThread::YieldThread()
 void
 PosixThread::SetThreadAffinity(uint mask)
 {
+    return;
 	n_assert(this->threadHandle != 0);
 	CPU_SET(mask, &this->affinity);
-	pthread_set_affinity_np(this->threadHandle, sizeof(cpu_set_t), &this->affinity);
+	pthread_setaffinity_np(this->threadHandle, sizeof(cpu_set_t), &this->affinity);
 }
 	
 };

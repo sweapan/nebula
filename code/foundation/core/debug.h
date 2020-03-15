@@ -50,4 +50,17 @@ void n_break();
 #endif
 #endif
 
+
+class ScopedTrace
+{
+public:
+    ScopedTrace(const char* name);
+    ~ScopedTrace();
+    
+private:
+    const char* sname;
+};
+
+#define N_SCOPETRACE() ScopedTrace __foo(__func__)
+
 //------------------------------------------------------------------------------

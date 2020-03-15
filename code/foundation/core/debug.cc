@@ -9,6 +9,7 @@
 #include "io/console.h"
 #include "util/string.h"
 #include "debugbreak.h"
+#include "threading/thread.h"
 
 //------------------------------------------------------------------------------
 /**
@@ -206,4 +207,21 @@ void
 n_break()
 {
     debug_break();
+}
+
+
+//------------------------------------------------------------------------------
+/**
+*/
+ScopedTrace::ScopedTrace(const char* name):sname(name)
+{
+    n_dbgout(">>> [%s] Scope Enter: %s\n", Threading::Thread::GetMyThreadName(), sname);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+ScopedTrace::~ScopedTrace()
+{
+    n_dbgout("<<< [%s] Scope Leave: %s\n", Threading::Thread::GetMyThreadName(), sname);
 }

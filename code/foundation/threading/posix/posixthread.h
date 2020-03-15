@@ -64,6 +64,18 @@ public:
      /// get the thread ID of this thread
     static Threading::ThreadId GetMyThreadId();
 
+     #if NEBULA_DEBUG
+    struct ThreadDebugInfo
+    {
+        Util::String threadName;
+        PosixThread::Priority threadPriority;
+        System::Cpu::CoreId threadCoreId;
+        SizeT threadStackSize;
+    };
+    /// query thread stats (debug mode only)
+    static Util::Array<ThreadDebugInfo> GetRunningThreadDebugInfos();
+    #endif
+
 protected:
     /// override this method if your thread loop needs a wakeup call before stopping
     virtual void EmitWakeupSignal();
