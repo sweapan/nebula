@@ -21,6 +21,10 @@
 #include "coregraphics/texture.h"
 #include "coregraphics/shaderrwbuffer.h"
 #include <functional>
+namespace Graphics
+{
+	class View;
+}
 namespace Frame
 {
 class FramePlugin
@@ -42,6 +46,11 @@ public:
 	virtual void Setup();
 	/// discard operation
 	virtual void Discard();
+
+	/// update resources
+	virtual void UpdateResources(const IndexT frameIndex);
+	/// update view dependent resources
+	virtual void UpdateViewDependentResources(const Ptr<Graphics::View>& view, const IndexT frameIndex);
 	/// handle window resizing
 	virtual void Resize();
 

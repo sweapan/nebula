@@ -83,6 +83,9 @@ public:
     void AppendArray(const Array<TYPE>& rhs);
     /// increase capacity to fit N more elements into the array.
     void Reserve(SizeT num);
+    
+    /// set number of elements (clears existing content)
+    void SetSize(SizeT s);
     /// get number of elements in array
     SizeT Size() const;
     /// get overall allocated size of array in number of elements
@@ -147,7 +150,7 @@ public:
 	template <typename KEYTYPE> IndexT BinarySearchIndex(typename std::enable_if<true, const KEYTYPE&>::type elm) const;
 	
 	/// Set size. Grows array if num is greater than capacity. Calls destroy on all objects at index > num!
-	void SetSize(SizeT num);
+	void Resize(SizeT num);
 
 	/// Return the byte size of the array.
 	/// Note that this is not the entire size of this object, only the size (not capacity) of the elements buffer in bytes
@@ -195,7 +198,7 @@ protected:
 */
 template<class TYPE>
 Array<TYPE>::Array() :
-    grow(8),
+    grow(MinGrowSize),
     capacity(0),
     count(0),
     elements(0)
@@ -616,7 +619,7 @@ inline void
 Array<TYPE>::MoveRange(TYPE* to, TYPE* from, SizeT num)
 {
 	// copy over contents
-	if constexpr (!std::is_trivially_move_assignable<TYPE>::value)
+	if constexpr (!std::is_trivially_move_assignable<TYPE>::value && std::is_move_assignable<TYPE>::value)
 	{
 		IndexT i;
 		for (i = 0; i < num; i++)
@@ -1262,7 +1265,7 @@ Array<TYPE>::BinarySearchIndex(typename std::enable_if<true, const KEYTYPE&>::ty
 /**
 */
 template<class TYPE> void
-Array<TYPE>::SetSize(SizeT num)
+Array<TYPE>::Resize(SizeT num)
 {
 	if (num < this->count)
 	{
@@ -1274,6 +1277,15 @@ Array<TYPE>::SetSize(SizeT num)
 	}
 
 	this->count = num;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+template<class TYPE> void
+Array<TYPE>::SetSize(SizeT s)
+{
+    this->Realloc(s, 8);
 }
 
 //------------------------------------------------------------------------------

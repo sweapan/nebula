@@ -36,7 +36,7 @@ CameraContext::Create()
 {
 	_CreateContext();
 
-	__bundle.OnBeforeFrame = CameraContext::OnBeforeFrame;
+	__bundle.OnBegin = CameraContext::UpdateCameras;
 	__bundle.OnWindowResized = CameraContext::OnWindowResized;
 	Graphics::GraphicsServer::Instance()->RegisterGraphicsContext(&__bundle, &__state);
 }
@@ -45,7 +45,7 @@ CameraContext::Create()
 /**
 */
 void
-CameraContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
+CameraContext::UpdateCameras(const Graphics::FrameContext& ctx)
 {
 	const Util::Array<Math::matrix44>& proj = cameraAllocator.GetArray<Camera_Projection>();
 	const Util::Array<Math::matrix44>& views = cameraAllocator.GetArray<Camera_View>();
@@ -89,7 +89,7 @@ void
 CameraContext::SetTransform(const Graphics::GraphicsEntityId id, const Math::matrix44& mat)
 {
 	const ContextEntityId cid = GetContextId(id);
-	cameraAllocator.Get<Camera_View>(cid.id) = mat;
+	cameraAllocator.Set<Camera_View>(cid.id, mat);
 }
 
 //------------------------------------------------------------------------------

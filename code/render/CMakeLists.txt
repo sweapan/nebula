@@ -132,6 +132,8 @@ ENDIF()
 				displayeventhandler.cc
 				displayeventhandler.h
 				displaymode.h
+                drawthread.cc
+                drawthread.h
 				event.h
                 fence.h
 				graphicsdevice.h
@@ -621,6 +623,7 @@ ENDIF()
 				visibilitycontext.cc
 				visibilitycontext.h
                 visibilitydependencyjob.cc
+                visibilitydrawlistupdatejob.cc
 				visibilitysortjob.cc
 			)
 		fips_dir(visibility/systems)

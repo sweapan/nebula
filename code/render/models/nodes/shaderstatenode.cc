@@ -7,7 +7,7 @@
 #include "transformnode.h"
 #include "coregraphics/shaderserver.h"
 #include "coregraphics/transformdevice.h"
-#include "resources/resourcemanager.h"
+#include "resources/resourceserver.h"
 
 #include "shared.h"
 
@@ -211,7 +211,7 @@ ShaderStateNode::Instance::Update()
 
 	Shared::ObjectBlock block;
 	Math::matrix44::storeu(this->modelTransform, block.Model);
-	Math::matrix44::storeu(Math::matrix44::inverse(this->modelTransform), block.InvModel);
+	Math::matrix44::storeu(this->invModelTransform, block.InvModel);
 	uint offset = CoreGraphics::SetGraphicsConstants(CoreGraphics::GlobalConstantBufferType::VisibilityThreadConstantBuffer, block);
 	this->offsets[this->objectTransformsIndex] = offset;
 	this->dirty = false;

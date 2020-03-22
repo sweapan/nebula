@@ -213,8 +213,18 @@ n_break()
 //------------------------------------------------------------------------------
 /**
 */
-ScopedTrace::ScopedTrace(const char* name):sname(name)
+ScopedTrace::ScopedTrace(const char* name)
 {
+    strncpy(this->sname, name, 64);
+    n_dbgout(">>> [%s] Scope Enter: %s\n", Threading::Thread::GetMyThreadName(), sname);
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+ScopedTrace::ScopedTrace(void* Ptr, const char* name)
+{
+    snprintf(sname, 64, "%s/%x", name, Ptr);
     n_dbgout(">>> [%s] Scope Enter: %s\n", Threading::Thread::GetMyThreadName(), sname);
 }
 

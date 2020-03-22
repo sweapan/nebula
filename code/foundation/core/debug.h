@@ -55,12 +55,15 @@ class ScopedTrace
 {
 public:
     ScopedTrace(const char* name);
+    ScopedTrace(void* Ptr, const char* name);
     ~ScopedTrace();
     
 private:
-    const char* sname;
+    char sname[64];
 };
 
 #define N_SCOPETRACE() ScopedTrace __foo(__func__)
+#define N_SCOPETRACE_THIS() ScopedTrace __foo((void*)this, __func__)
+#define N_SCOPETRACE_VAR(var) ScopedTrace __foo((void*)var, __func__)
 
 //------------------------------------------------------------------------------

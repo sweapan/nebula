@@ -12,7 +12,7 @@
 #include "util/string.h"
 #include "core/rttimacros.h"
 
-
+#define NEBULA_ENABLE_MT_DRAW 1
 namespace CoreGraphics
 {
 
@@ -30,6 +30,7 @@ enum IdType
 	ShaderInstanceIdType,
 	ShaderConstantIdType,
 	CommandBufferIdType,
+	CommandBufferPoolIdType,
 	MeshIdType,
 	EventIdType,
 	BarrierIdType,
@@ -126,6 +127,12 @@ enum QueryType
 	QueryComputeMax = PipelineStatisticsComputeQuery,
 	
 	NumQueryTypes
+};
+
+enum BufferUpdateMode
+{
+	HostWriteable,              // host can write to the buffer
+	DeviceWriteable             // only device can write to the buffer
 };
 
 //------------------------------------------------------------------------------

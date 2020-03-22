@@ -76,14 +76,6 @@ ParticleContext::Create()
 
 	ParticleContext::__state.allowedRemoveStages = Graphics::OnBeforeFrameStage;
 	Graphics::GraphicsServer::Instance()->RegisterGraphicsContext(&__bundle, &__state);
-
-	Jobs::CreateJobPortInfo info =
-	{
-		"ParticleJobPort",
-		2,
-		System::Cpu::Core1 | System::Cpu::Core2,
-		UINT_MAX
-	};
 	ParticleContext::jobPort = Graphics::GraphicsServer::renderSystemsJobPort;
 
 	Jobs::CreateJobSyncInfo sinfo =
@@ -403,7 +395,8 @@ ParticleContext::UpdateParticles(const Graphics::FrameContext& ctx)
 	}
 
 	// issue sync
-	Jobs::JobSyncSignal(jobSync, ParticleContext::jobPort);
+	if (runtimes.Size() > 0)
+		Jobs::JobSyncSignal(jobSync, ParticleContext::jobPort);
 }
 
 //------------------------------------------------------------------------------

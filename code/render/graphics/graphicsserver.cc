@@ -7,7 +7,7 @@
 #include "graphicscontext.h"
 #include "view.h"
 #include "stage.h"
-#include "resources/resourcemanager.h"
+#include "resources/resourceserver.h"
 #include "coregraphics/vertexsignaturepool.h"
 #include "coregraphics/streamtexturepool.h"
 #include "coregraphics/memorytexturepool.h"
@@ -56,11 +56,11 @@ GraphicsServer::Open()
 	this->displayDevice->Open();
 
 	CoreGraphics::GraphicsDeviceCreateInfo gfxInfo{ 
-		{ 1_MB, 15_MB },		// Graphics - main threads get 1 MB of constant memory, visibility thread (objects) gets 50
+		{ 1_MB, 30_MB },		// Graphics - main threads get 1 MB of constant memory, visibility thread (objects) gets 50
 		{ 1_MB, 0_MB },			// Compute - main threads get 1 MB of constant memory, visibility thread (objects) gets 0
 		{ 10_MB, 1_MB },        // Vertex memory - main thread gets 10 MB for UI, Text etc, visibility thread (objects doing soft cloths and such) get 1 MB
 		{ 5_MB, 1_MB },         // Index memory - main thread gets 5 MB for UI, Text etc, visibility thread (objects doing soft cloths and such) get 1 MB
-		2,						// Number of simultaneous frames (N buffering)
+		3,						// Number of simultaneous frames (N buffering)
 		false }; // validation
 	this->graphicsDevice = CoreGraphics::CreateGraphicsDevice(gfxInfo);
 
@@ -76,17 +76,17 @@ GraphicsServer::Open()
 	{
 
 		// register graphics context pools
-		Resources::ResourceManager::Instance()->RegisterMemoryPool(CoreGraphics::VertexSignaturePool::RTTI);
-		Resources::ResourceManager::Instance()->RegisterMemoryPool(CoreGraphics::MemoryTexturePool::RTTI);
-		Resources::ResourceManager::Instance()->RegisterMemoryPool(CoreGraphics::MemoryMeshPool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterMemoryPool(CoreGraphics::VertexSignaturePool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterMemoryPool(CoreGraphics::MemoryTexturePool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterMemoryPool(CoreGraphics::MemoryMeshPool::RTTI);
 
-		Resources::ResourceManager::Instance()->RegisterStreamPool("dds", CoreGraphics::StreamTexturePool::RTTI);
-		Resources::ResourceManager::Instance()->RegisterStreamPool("fxb", CoreGraphics::ShaderPool::RTTI);
-		Resources::ResourceManager::Instance()->RegisterStreamPool("nax3", CoreAnimation::StreamAnimationPool::RTTI);
-		Resources::ResourceManager::Instance()->RegisterStreamPool("nsk3", Characters::StreamSkeletonPool::RTTI); 
-		Resources::ResourceManager::Instance()->RegisterStreamPool("nvx2", CoreGraphics::StreamMeshPool::RTTI);
-		Resources::ResourceManager::Instance()->RegisterStreamPool("sur", Materials::SurfacePool::RTTI);
-		Resources::ResourceManager::Instance()->RegisterStreamPool("n3", Models::StreamModelPool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterStreamPool("dds", CoreGraphics::StreamTexturePool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterStreamPool("fxb", CoreGraphics::ShaderPool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterStreamPool("nax3", CoreAnimation::StreamAnimationPool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterStreamPool("nsk3", Characters::StreamSkeletonPool::RTTI); 
+		Resources::ResourceServer::Instance()->RegisterStreamPool("nvx2", CoreGraphics::StreamMeshPool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterStreamPool("sur", Materials::SurfacePool::RTTI);
+		Resources::ResourceServer::Instance()->RegisterStreamPool("n3", Models::StreamModelPool::RTTI);
 
 		// setup internal pool pointers for convenient access (note, will also assert if texture, shader, model or mesh pools is not registered yet!)
 		CoreGraphics::layoutPool = Resources::GetMemoryPool<CoreGraphics::VertexSignaturePool>();
@@ -170,7 +170,7 @@ GraphicsServer::Open()
 		this->timer->StartTime();
 
 		// tell the resource manager to load default resources once we are done setting everything up
-		Resources::ResourceManager::Instance()->LoadDefaultResources();
+		Resources::ResourceServer::Instance()->LoadDefaultResources();
 	}
 	else
 	{
@@ -316,6 +316,7 @@ GraphicsServer::DiscardStage(const Ptr<Stage>& stage)
 void
 GraphicsServer::BeginFrame()
 {
+	N_SCOPE(BeginFrame, Graphics);
 	this->timer->UpdateTimePolling();
 	
 	this->frameContext.frameIndex = this->timer->GetFrameIndex();
@@ -338,6 +339,7 @@ GraphicsServer::BeginFrame()
 			state->Defragment();
 	}
 
+	N_MARKER_BEGIN(ContextBegin, Graphics);
 	for (i = 0; i < this->contexts.Size(); i++)
 	{
 		if (this->contexts[i]->StageBits)
@@ -345,8 +347,10 @@ GraphicsServer::BeginFrame()
 		if (this->contexts[i]->OnBegin != nullptr)
 			this->contexts[i]->OnBegin(this->frameContext);
 	}
+	N_MARKER_END();
 
 	// go through views and call prepare view
+	N_MARKER_BEGIN(ContextPrepareView, Graphics);
 	for (i = 0; i < this->views.Size(); i++)
 	{
 		const Ptr<View>& view = this->views[i];
@@ -360,18 +364,61 @@ GraphicsServer::BeginFrame()
 				this->contexts[j]->OnPrepareView(view, this->frameContext);
 		}		
 	}
+	N_MARKER_END();
 
 	// begin frame
 	CoreGraphics::BeginFrame(this->frameContext.frameIndex);
 
+	N_MARKER_BEGIN(ContextBeforeFrame, Graphics);
 	for (i = 0; i < this->contexts.Size(); i++)
 	{
 		if (this->contexts[i]->StageBits)
 			*this->contexts[i]->StageBits = Graphics::OnBeforeFrameStage;
-
 		if (this->contexts[i]->OnBeforeFrame != nullptr)
 			this->contexts[i]->OnBeforeFrame(this->frameContext);
 	}
+	N_MARKER_END();
+
+	// consider this whole block of code viable for updating resource tables
+	CoreGraphics::ResourceTableBlock(false);
+
+	N_MARKER_BEGIN(ContextUpdateResources, Graphics);
+	for (i = 0; i < this->contexts.Size(); i++)
+	{
+		if (this->contexts[i]->StageBits)
+			*this->contexts[i]->StageBits = Graphics::OnUpdateResourcesStage;
+		if (this->contexts[i]->OnUpdateResources != nullptr)
+			this->contexts[i]->OnUpdateResources(this->frameContext);
+	}
+	N_MARKER_END();
+
+	// update shader server resources (textures and tick params)
+	this->shaderServer->UpdateResources();
+
+	// go through views and call prepare view
+	N_MARKER_BEGIN(ContextUpdateViewResources, Graphics);
+	for (i = 0; i < this->views.Size(); i++)
+	{
+		const Ptr<View>& view = this->views[i];
+
+		// update view resources (camera)
+		view->UpdateResources(this->frameContext.frameIndex);
+
+		IndexT j;
+		for (j = 0; j < this->contexts.Size(); j++)
+		{
+			if (this->contexts[j]->StageBits)
+				*this->contexts[j]->StageBits = Graphics::OnUpdateViewResourcesStage;
+			if (this->contexts[j]->OnUpdateViewResources != nullptr)
+				this->contexts[j]->OnUpdateViewResources(view, this->frameContext);
+		}
+	}
+	N_MARKER_END();
+
+	this->currentView = nullptr;
+
+	// finish resource updates
+	CoreGraphics::ResourceTableBlock(true);
 }
 
 //------------------------------------------------------------------------------
@@ -380,7 +427,10 @@ GraphicsServer::BeginFrame()
 void 
 GraphicsServer::BeforeViews()
 {
+	N_SCOPE(BeforeViews, Graphics);
+
 	// wait for visibility
+	N_MARKER_BEGIN(ContextWaitForWork, Graphics);
 	IndexT i;
 	for (i = 0; i < this->contexts.Size(); i++)
 	{
@@ -389,6 +439,17 @@ GraphicsServer::BeforeViews()
 		if (this->contexts[i]->OnWaitForWork != nullptr)
 			this->contexts[i]->OnWaitForWork(this->frameContext);
 	}
+	N_MARKER_END();
+
+	N_MARKER_BEGIN(ContextWorkFinished, Graphics);
+	for (i = 0; i < this->contexts.Size(); i++)
+	{
+		if (this->contexts[i]->StageBits)
+			*this->contexts[i]->StageBits = Graphics::OnWorkFinishedStage;
+		if (this->contexts[i]->OnWorkFinished != nullptr)
+			this->contexts[i]->OnWorkFinished(this->frameContext);
+	}
+	N_MARKER_END();
 
 	// go through views and call before view
 	for (i = 0; i < this->views.Size(); i++)
@@ -398,12 +459,11 @@ GraphicsServer::BeforeViews()
 		if (!view->enabled)
 			continue;
 
+		// begin frame on view, this will construct view build jobs
 		this->currentView = view;
-
-		// begin frame
 		this->currentView->BeginFrame(this->frameContext.frameIndex, this->frameContext.time);
-		this->shaderServer->BeforeView();
 
+		N_MARKER_BEGIN(ContextBeforeView, Graphics);
 		IndexT j;
 		for (j = 0; j < this->contexts.Size(); j++)
 		{
@@ -412,6 +472,7 @@ GraphicsServer::BeforeViews()
 			if (this->contexts[j]->OnBeforeView != nullptr)
 				this->contexts[j]->OnBeforeView(view, this->frameContext);
 		}
+		N_MARKER_END();
 	}
 }
 
@@ -421,7 +482,9 @@ GraphicsServer::BeforeViews()
 void
 GraphicsServer::RenderViews()
 {
+	N_SCOPE(RenderViews, Graphics);
 	IndexT i;
+
 	// go through views and call before view
 	for (i = 0; i < this->views.Size(); i++)
 	{
@@ -440,6 +503,8 @@ GraphicsServer::RenderViews()
 void 
 GraphicsServer::EndViews()
 {
+	N_SCOPE(EndViews, Graphics);
+
 	// go through views and call before view
 	IndexT i;
 	for (i = 0; i < this->views.Size(); i++)
@@ -451,7 +516,8 @@ GraphicsServer::EndViews()
 
 		this->shaderServer->AfterView();
 		this->currentView->EndFrame(this->frameContext.frameIndex, this->frameContext.time);
-
+		
+		N_MARKER_BEGIN(ContextAfterView, Graphics);
 		IndexT j;
 		for (j = 0; j < this->contexts.Size(); j++)
 		{
@@ -460,6 +526,7 @@ GraphicsServer::EndViews()
 			if (this->contexts[j]->OnAfterView != nullptr)
 				this->contexts[j]->OnAfterView(view, this->frameContext);
 		}
+		N_MARKER_END();
 	}
 
 	this->currentView = nullptr;
@@ -471,11 +538,13 @@ GraphicsServer::EndViews()
 void 
 GraphicsServer::EndFrame()
 {
+	N_SCOPE(EndFrame, Graphics);
 
 	// stop the graphics side frame
 	CoreGraphics::EndFrame(this->frameContext.frameIndex);
 
 	// finish frame and prepare for the next one
+	N_MARKER_BEGIN(ContextAfterFrame, Graphics);
 	IndexT i;
 	for (i = 0; i < this->contexts.Size(); i++)
 	{
@@ -484,6 +553,7 @@ GraphicsServer::EndFrame()
 		if (this->contexts[i]->OnAfterFrame != nullptr)
 			this->contexts[i]->OnAfterFrame(this->frameContext);
 	}
+	N_MARKER_END();
 }
 
 //------------------------------------------------------------------------------

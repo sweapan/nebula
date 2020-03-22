@@ -44,6 +44,33 @@ View::~View()
 /**
 */
 void 
+View::UpdateResources(const IndexT frameIndex)
+{
+	if (this->camera != GraphicsEntityId::Invalid())
+	{
+		// update camera
+		TransformDevice* transDev = TransformDevice::Instance();
+		auto settings = CameraContext::GetSettings(this->camera);
+		transDev->SetViewTransform(CameraContext::GetTransform(this->camera));
+		transDev->SetProjTransform(CameraContext::GetProjection(this->camera));
+		transDev->SetFocalLength(settings.GetFocalLength());
+		transDev->SetNearFarPlane(Math::float2(settings.GetZNear(), settings.GetZFar()));
+
+		// fixme! view should hold its own resource tables and send them to ApplyViewSettings!
+		transDev->ApplyViewSettings();
+	}	
+
+	if (this->script)
+	{
+		this->script->UpdateResources(frameIndex);
+		this->script->UpdateViewDependentResources(this, frameIndex);
+	}
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void 
 View::BeginFrame(const IndexT frameIndex, const Timing::Time time)
 {
 	n_assert(!inBeginFrame);
@@ -52,6 +79,13 @@ View::BeginFrame(const IndexT frameIndex, const Timing::Time time)
 	{
 		//n_assert(this->stage.isvalid()); // hmm, we never use stages
 		inBeginFrame = true;
+	}
+
+	// run script asynchronous jobs
+	if (this->script != nullptr)
+	{
+		N_SCOPE(ViewRecord, Render);
+		this->script->RunJobs(frameIndex);
 	}
 }
 
@@ -63,18 +97,10 @@ View::Render(const IndexT frameIndex, const Timing::Time time)
 {
 	n_assert(inBeginFrame);
 
-	// update camera
-	TransformDevice* transDev = TransformDevice::Instance();
-	auto settings = CameraContext::GetSettings(this->camera);
-	transDev->SetViewTransform(CameraContext::GetTransform(this->camera));
-	transDev->SetProjTransform(CameraContext::GetProjection(this->camera));
-	transDev->SetFocalLength(settings.GetFocalLength());
-	transDev->SetNearFarPlane(Math::float2(settings.GetZNear(), settings.GetZFar()));
-	transDev->ApplyViewSettings();
-
 	// run the actual script
 	if (this->script != nullptr)
 	{
+		N_SCOPE(ViewExecute, Render);
 		this->script->Run(frameIndex);
 	}
 }

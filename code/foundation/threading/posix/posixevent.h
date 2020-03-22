@@ -46,7 +46,10 @@ PosixEvent::PosixEvent(bool manualReset) :
     semaphore(0)
 {
     this->semaphore = new sem_t;
-    sem_init(this->semaphore, 0, 0);
+    int res = sem_init(this->semaphore, 0, 0);
+    int currentVal;
+    res = sem_getvalue(this->semaphore, &currentVal);
+    n_printf("Starting %x\n", this->semaphore);
 }
 
 //------------------------------------------------------------------------------
@@ -67,6 +70,9 @@ inline void
 PosixEvent::Signal()
 {
     sem_post(this->semaphore);
+    int currentVal;
+    int res = sem_getvalue(this->semaphore, &currentVal);
+    n_printf("after %x signal value %d\n", this->semaphore, currentVal);
 }
 
 //------------------------------------------------------------------------------
@@ -76,6 +82,7 @@ inline void
 PosixEvent::Reset()
 {
     // do nothing, not required for POSIX events
+    n_printf("Reset %x\n", this->semaphore);
 }
 
 //------------------------------------------------------------------------------
@@ -84,39 +91,44 @@ PosixEvent::Reset()
 inline void
 PosixEvent::Wait() const
 {
-    sem_wait(this->semaphore);
+    n_printf("Wait start %x\n", this->semaphore);
+    sem_wait(this->semaphore);    
+    n_printf("Wait done %x\n", this->semaphore);
 }
 
 //------------------------------------------------------------------------------
 /**
     Waits for the event to become signaled with a specified timeout
     in milli seconds. If the method times out it will return false,
-    if the event becomes signalled within the timeout it will return 
+    if the event becomes signaled within the timeout it will return 
     true.
 */
 inline bool
 PosixEvent::WaitTimeout(int timeoutInMilliSec) const
 {
-    while (timeoutInMilliSec > 0)
-    {
-        if (0 == sem_trywait(this->semaphore))
-        {
-            return true;
-        }
-        usleep(1000);
-        timeoutInMilliSec -= 1;
-    }
-    return false;
+    timespec now;
+    int res = clock_gettime(CLOCK_REALTIME, &now);
+    n_assert(res != -1);
+    time_t sec = timeoutInMilliSec / 1000;
+    now.tv_sec += sec;
+    now.tv_nsec += (timeoutInMilliSec - sec*1000) * 1000000;
+    bool waited = 0 == sem_timedwait(this->semaphore, &now);
+    n_printf("WaitTimeout %x, %d\n", this->semaphore, waited);
+    return waited;
 }
 
 //------------------------------------------------------------------------------
 /**
-    This checks if the event is signalled and returnes immediately.
+    This checks if the event is signaled and returnes immediately.
 */
 inline bool
 PosixEvent::Peek() const
 {
-    return 0 == sem_trywait(this->semaphore);
+    int currentVal;
+    int res = sem_getvalue(this->semaphore, &currentVal);
+    n_assert(res == 0);
+    n_printf("Peek: %x, value: %d\n", this->semaphore, currentVal);
+    return currentVal > 0;
 }
 
 }; // namespace Posix

@@ -36,12 +36,10 @@ VkPipelineCache GetPipelineCache();
 VkPhysicalDeviceMemoryProperties GetMemoryProperties();
 /// get main command buffer
 VkCommandBuffer GetMainBuffer(const CoreGraphics::QueueType queue);
-/// get final graphics semaphore
-VkSemaphore GetPresentSemaphore();
 /// get final rendering semaphore
 VkSemaphore GetRenderingSemaphore();
-/// set to wait for present semaphore this submission
-void WaitForPresent(VkSemaphore sem);
+/// get the present fence
+VkFence GetPresentFence();
 
 /// get queue families
 const Util::Set<uint32_t>& GetQueueFamilies();
@@ -70,7 +68,7 @@ void BindDescriptorsGraphics(const VkDescriptorSet* descriptors, uint32_t baseSe
 /// update descriptors
 void BindDescriptorsCompute(const VkDescriptorSet* descriptors, uint32_t baseSet, uint32_t setCount, const uint32_t* offsets, uint32_t offsetCount, const CoreGraphics::QueueType queue);
 /// update push ranges
-void UpdatePushRanges(const VkShaderStageFlags& stages, const VkPipelineLayout& layout, uint32_t offset, uint32_t size, void* data);
+void UpdatePushRanges(const VkShaderStageFlags& stages, const VkPipelineLayout& layout, uint32_t offset, uint32_t size, const byte* data);
 
 /// sets the current shader pipeline information
 void BindGraphicsPipelineInfo(const VkGraphicsPipelineCreateInfo& shader, const uint32_t programId);
@@ -90,15 +88,6 @@ void UnbindPipeline();
 void SetVkViewports(VkViewport* viewports, SizeT num);
 /// set array of scissors directly
 void SetVkScissorRects(VkRect2D* scissors, SizeT num);
-
-/// start up new draw thread
-void BeginDrawThread();
-/// finish current draw threads
-void EndDrawThreads();
-/// add command to thread
-void PushToThread(const VkCommandBufferThread::Command& cmd, const IndexT& index, bool allowStaging = true);
-/// flush remaining staging thread commands
-void FlushToThread(const IndexT& index);
 
 /// begin command buffer marker (directly on vkcommandbuffer)
 void CommandBufferBeginMarker(VkCommandBuffer buf, const Math::float4& color, const char* name);

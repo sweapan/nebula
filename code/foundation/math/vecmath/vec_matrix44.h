@@ -172,6 +172,8 @@ public:
     static matrix44 perspfovlh(scalar fovy, scalar aspect, scalar zn, scalar zf);
     /// build right-handed perspective projection matrix based on field-of-view
     static matrix44 perspfovrh(scalar fovy, scalar aspect, scalar zn, scalar zf);
+    /// build perspective projection matrix based on field-of-view
+    static matrix44 perspfov(scalar fovy, scalar aspect, scalar zn, scalar zf);
     /// build left-handed perspective projection matrix
     static matrix44 persplh(scalar w, scalar h, scalar zn, scalar zf);
     /// build right-handed perspective projection matrix
@@ -1119,6 +1121,19 @@ matrix44::perspfovrh(scalar fovy, scalar aspect, scalar zn, scalar zf)
 	m.setrow3(float4(0.0f, 0.0f, dist * zn, 0.0f));
 
 	return m;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+__forceinline matrix44
+matrix44::perspfov(scalar fovy, scalar aspect, scalar zn, scalar zf)
+{
+#if PROJECTION_HANDEDNESS_LH
+    return matrix44::perspfovlh(fovy, aspect, zn, zf);
+#else
+    return matrix44::perspfovrh(fovy, aspect, zn, zf);
+#endif
 }
 
 //------------------------------------------------------------------------------

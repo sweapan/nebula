@@ -56,25 +56,14 @@ CharacterContext::Create()
 {
 	_CreateContext();
 
-	__bundle.OnBeforeFrame = CharacterContext::OnBeforeFrame;
-	__bundle.OnWaitForWork = nullptr;
-	__bundle.OnBeforeView = nullptr;
-	__bundle.OnAfterView = nullptr;
-	__bundle.OnAfterFrame = CharacterContext::OnAfterFrame;
+	__bundle.OnBegin = CharacterContext::UpdateAnimations;
+	__bundle.OnBeforeFrame = CharacterContext::OnAfterFrame;
 	__bundle.StageBits = &CharacterContext::__state.currentStage;
 #ifndef PUBLIC_BUILD
 	__bundle.OnRenderDebug = CharacterContext::OnRenderDebug;
 #endif
 	CharacterContext::__state.allowedRemoveStages = Graphics::OnBeforeFrameStage;
 	Graphics::GraphicsServer::Instance()->RegisterGraphicsContext(&__bundle, &__state);
-
-	Jobs::CreateJobPortInfo info =
-	{
-		"CharacterJobPort",
-		2,
-		System::Cpu::Core3 | System::Cpu::Core4,
-		UINT_MAX
-	};
 	CharacterContext::jobPort = Graphics::GraphicsServer::renderSystemsJobPort;
 
 	Jobs::CreateJobSyncInfo sinfo =
@@ -468,7 +457,7 @@ GetAbsoluteStopTime(const CharacterContext::AnimationRuntime& runtime)
 /**
 */
 void 
-CharacterContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
+CharacterContext::UpdateAnimations(const Graphics::FrameContext& ctx)
 {
 	N_SCOPE(CharacterBeforeFrame, Character);
 	using namespace CoreAnimation;

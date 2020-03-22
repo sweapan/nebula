@@ -15,23 +15,21 @@
 // increase if we need more lights in close proximity, for now, 128 is more than enough
 #define MAX_LIGHTS_PER_CLUSTER 128
 
-group(BATCH_GROUP) varblock LightConstants
+group(BATCH_GROUP) varbuffer LightLists [ string Visibility = "CS"; ]
+{
+	SpotLight SpotLights[1024];
+	SpotLightProjectionExtension SpotLightProjection[256];
+	SpotLightShadowExtension SpotLightShadow[16];
+	PointLight PointLights[1024];
+};
+
+group(BATCH_GROUP) varblock LightConstants [ string Visibility = "CS"; ]
 {
 	textureHandle SSAOBuffer;
 };
 
-group(BATCH_GROUP) varblock SpotLightList
-{
-	SpotLight SpotLights[1024];
-};
-
-group(BATCH_GROUP) varblock PointLightList
-{
-	PointLight PointLights[1024];
-};
-
 // this is used to keep track of how many lights we have active
-group(BATCH_GROUP) varblock LightCullUniforms
+group(BATCH_GROUP) varblock LightCullUniforms [string Visibility = "CS"; ]
 {
 	uint NumPointLights;
 	uint NumSpotLights;
@@ -39,29 +37,12 @@ group(BATCH_GROUP) varblock LightCullUniforms
 };
 
 // contains amount of lights, and the index of the light (pointing to the indices in PointLightList and SpotLightList), to output
-struct LightTileList
+group(BATCH_GROUP) varbuffer LightIndexLists [ string Visibility = "CS"; ]
 {
-	uint lightIndex[MAX_LIGHTS_PER_CLUSTER];
-};
-
-group(BATCH_GROUP) varbuffer PointLightIndexLists
-{
-	uint PointLightIndexList[];
-};
-
-group(BATCH_GROUP) varbuffer PointLightCountLists
-{
-	uint PointLightCountList[];
-};
-
-group(BATCH_GROUP) varbuffer SpotLightIndexLists
-{
-	uint SpotLightIndexList[];
-};
-
-group(BATCH_GROUP) varbuffer SpotLightCountLists
-{
-	uint SpotLightCountList[];
+	uint PointLightCountList[16384];
+	uint PointLightIndexList[16384 * MAX_LIGHTS_PER_CLUSTER];
+	uint SpotLightCountList[16384];
+	uint SpotLightIndexList[16384 * MAX_LIGHTS_PER_CLUSTER];
 };
 
 write r11g11b10f image2D Lighting;
@@ -260,7 +241,15 @@ GlobalLight(vec4 worldPos, vec3 viewVec, vec3 normal, float depth, vec4 material
 /**
 */
 vec3 
-LocalLights(uint idx, vec4 viewPos, vec3 viewVec, vec3 normal, float depth, vec4 material, vec4 albedo)
+LocalLights(
+	uint idx, 
+	vec4 worldPos,
+	vec4 viewPos, 
+	vec3 viewVec, 
+	vec3 normal, 
+	float depth, 
+	vec4 material, 
+	vec4 albedo)
 {
 	vec3 light = vec3(0, 0, 0);
 	uint flag = AABBs[idx].featureFlags;
@@ -294,10 +283,18 @@ LocalLights(uint idx, vec4 viewPos, vec3 viewVec, vec3 normal, float depth, vec4
 		{
 			uint lidx = SpotLightIndexList[idx * MAX_LIGHTS_PER_CLUSTER + i];
 			SpotLight li = SpotLights[lidx];
+
+			// if we have extensions, load them from their respective buffers
+			if (li.shadowExtension != -1)
+				shadowExt = SpotLightShadow[li.shadowExtension];
+			if (li.projectionExtension != -1)
+				projExt = SpotLightProjection[li.projectionExtension];
+
 			light += CalculateSpotLight(
 				li,
 				projExt,
 				shadowExt,
+				worldPos.xyz,
 				viewPos.xyz,
 				viewVec,
 				normal,
@@ -349,7 +346,7 @@ void csLighting()
 
 		// render local lights
 		// TODO: new material model for local lights
-		light += LocalLights(idx, viewPos, viewVec, viewNormal, depth, material, albedo);
+		light += LocalLights(idx, worldPos, viewPos, viewVec, viewNormal, depth, material, albedo);
 
 		// reflections and irradiance
 		vec3 F0 = vec3(0.04);

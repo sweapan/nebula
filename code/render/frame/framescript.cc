@@ -6,6 +6,9 @@
 #include "framescript.h"
 #include "frameserver.h"
 #include "coregraphics/displaydevice.h"
+#include "coregraphics/drawthread.h"
+#include "coregraphics/graphicsdevice.h"
+#include "profiling/profiling.h"
 
 namespace Frame
 {
@@ -27,7 +30,6 @@ FrameScript::FrameScript() :
 */
 FrameScript::~FrameScript()
 {
-	// empty
 }
 
 //------------------------------------------------------------------------------
@@ -78,10 +80,25 @@ FrameScript::AddOp(Frame::FrameOp* op)
 //------------------------------------------------------------------------------
 /**
 */
-void
+void 
 FrameScript::Setup()
 {
-	// empty
+#if NEBULA_ENABLE_MT_DRAW
+	this->drawThread = CoreGraphics::CreateDrawThread();
+	Util::String scriptName = this->resId.Value();
+	scriptName.StripFileExtension();
+	Util::String threadName = Util::String::Sprintf("FrameScript %s Draw Thread", scriptName.AsCharPtr());
+	this->drawThread->SetName(threadName);
+	this->drawThread->SetThreadAffinity(System::Cpu::Core5);
+	this->drawThread->Start();
+	CoreGraphics::CommandBufferPoolCreateInfo poolInfo =
+	{
+		CoreGraphics::GraphicsQueueType,
+		true,
+		true
+	};
+	this->drawThreadCommandPool = CoreGraphics::CreateCommandBufferPool(poolInfo);
+#endif
 }
 
 //------------------------------------------------------------------------------
@@ -93,12 +110,10 @@ FrameScript::Discard()
 	// unload ourselves, this is only for convenience
 	FrameServer::Instance()->UnloadFrameScript(this->resId);
 
-	IndexT i;
-	for (i = 0; i < this->ops.Size(); i++)
-	{
-		this->ops[i]->Discard();
-		this->ops[i]->~FrameOp();
-	}
+#if NEBULA_ENABLE_MT_DRAW
+	this->drawThread->Stop();
+	CoreGraphics::DestroyCommandBufferPool(this->drawThreadCommandPool);
+#endif
 
 	this->buildAllocator.Release();
 	this->allocator.Release();
@@ -107,9 +122,68 @@ FrameScript::Discard()
 //------------------------------------------------------------------------------
 /**
 */
+void 
+FrameScript::UpdateResources(const IndexT frameIndex)
+{
+	IndexT i;
+	for (i = 0; i < this->plugins.Size(); i++)
+	{
+		this->plugins[i]->UpdateResources(frameIndex);
+	}
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void 
+FrameScript::UpdateViewDependentResources(const Ptr<Graphics::View>& view, const IndexT frameIndex)
+{
+	IndexT i;
+	for (i = 0; i < this->plugins.Size(); i++)
+	{
+		this->plugins[i]->UpdateViewDependentResources(view, frameIndex);
+	}
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void 
+FrameScript::RunJobs(const IndexT frameIndex)
+{
+#if NEBULA_ENABLE_MT_DRAW
+	// tell graphics to start using our draw thread
+	CoreGraphics::SetDrawThread(this->drawThread);
+
+	IndexT i;
+	for (i = 0; i < this->compiled.Size(); i++)
+	{
+		this->compiled[i]->RunJobs(frameIndex);
+	}
+
+	// tell graphics to stop using our thread
+	CoreGraphics::SetDrawThread(nullptr);
+
+	// make sure to add a sync at the end
+	this->drawThread->Signal(&this->drawThreadEvent);
+#endif
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
 void
 FrameScript::Run(const IndexT frameIndex)
 {
+#if NEBULA_ENABLE_MT_DRAW
+	N_MARKER_BEGIN(WaitForRecord, Render);
+
+	// wait for draw thread to finish before executing buffers
+	this->drawThreadEvent.Wait();
+
+	N_MARKER_END();
+#endif
+
 	IndexT i;
 	for (i = 0; i < this->compiled.Size(); i++)
 	{
@@ -173,10 +247,38 @@ FrameScript::Build()
 		arr.Append(FrameOp::TextureDependency{ nullptr, CoreGraphics::QueueType::GraphicsQueueType, layout, CoreGraphics::BarrierStage::AllGraphicsShaders | CoreGraphics::BarrierStage::ComputeShader, CoreGraphics::BarrierAccess::ShaderRead, DependencyIntent::Read, InvalidIndex, subres });
 	}
 
+	// build ops
 	for (i = 0; i < this->ops.Size(); i++)
 	{
 		this->ops[i]->Build(this->buildAllocator, this->compiled, this->events, this->barriers, rwBuffers, textures);
 	}
+
+	// go through ops and construct subpass buffers for each frame index
+#if NEBULA_ENABLE_MT_DRAW
+	for (i = 0; i < this->compiled.Size(); i++)
+	{
+		if (FramePass::CompiledImpl* pass = dynamic_cast<FramePass::CompiledImpl*>(this->compiled[i]))
+		{
+			pass->subpassBuffers.Resize(pass->subpasses.Size());
+			for (IndexT j = 0; j < pass->subpasses.Size(); j++)
+			{
+				CoreGraphics::CommandBufferCreateInfo cmdInfo =
+				{
+					true,
+					this->drawThreadCommandPool
+				};
+
+				// allocate a subpass buffer for each buffered frame
+				SizeT numBufferedFrames = CoreGraphics::GetNumBufferedFrames();
+				pass->subpassBuffers[j].Resize(numBufferedFrames);
+				for (IndexT k = 0; k < numBufferedFrames; k++)
+				{
+					pass->subpassBuffers[j][k] = CoreGraphics::CreateCommandBuffer(cmdInfo);
+				}
+			}
+		}
+	}
+#endif
 
 	// setup a post-frame barrier to reset the resource state of all resources back to their created original (ShaderRead for RenderTexture, General for RWTexture
 	Util::Array<CoreGraphics::TextureBarrier> texturesBarr;

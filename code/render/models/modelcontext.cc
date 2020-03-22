@@ -4,7 +4,7 @@
 //------------------------------------------------------------------------------
 #include "render/stdneb.h"
 #include "modelcontext.h"
-#include "resources/resourcemanager.h"
+#include "resources/resourceserver.h"
 #include "nodes/modelnode.h"
 #include "streammodelpool.h"
 #include "graphics/graphicsserver.h"
@@ -47,7 +47,7 @@ ModelContext::Create()
 {
 	_CreateContext();
 
-	__bundle.OnBeforeFrame = ModelContext::OnBeforeFrame;
+	__bundle.OnBegin = ModelContext::UpdateTransforms;
 	__bundle.StageBits = &ModelContext::__state.currentStage;
 #ifndef PUBLIC_BUILD
     __bundle.OnRenderDebug = ModelContext::OnRenderDebug;
@@ -249,9 +249,9 @@ ModelContext::GetModelNodeTypes(const Graphics::ContextEntityId id)
 	Go through all models and apply their transforms
 */
 void
-ModelContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
+ModelContext::UpdateTransforms(const Graphics::FrameContext& ctx)
 {
-	N_SCOPE(ModelBeforeFrame, Models);
+	N_SCOPE(UpdateTransforms, Models);
 	const Util::Array<ModelInstanceId>& instances = modelContextAllocator.GetArray<Model_InstanceId>();
 	const Util::Array<Math::matrix44>& transforms = Models::modelPool->modelInstanceAllocator.GetArray<StreamModelPool::InstanceTransform>();
 	const Util::Array<Math::bbox>& modelBoxes = Models::modelPool->modelAllocator.GetArray<Models::StreamModelPool::ModelBoundingBox>();
@@ -300,6 +300,7 @@ ModelContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
 				{
 					TransformNode::Instance* tnode = reinterpret_cast<TransformNode::Instance*>(node);
 					tnode->modelTransform = Math::matrix44::multiply(tnode->transform.getmatrix(), parentTransform);
+					tnode->invModelTransform = Math::matrix44::inverse(tnode->modelTransform);
 					parentTransform = tnode->modelTransform;
 					tnode->objectId = objectId;
 
@@ -315,9 +316,20 @@ ModelContext::OnBeforeFrame(const Graphics::FrameContext& ctx)
 				transform = parentTransform;
 			}
 		}
-
+		// nodes are allocated breadth first, so just going through the list will guarantee the hierarchy is traversed in proper order
+		SizeT j;
+		for (j = 0; j < nodes.Size(); j++)
+		{
+			Models::ModelNode::Instance* node = nodes[j];
+			if (types[j] >= NodeHasShaderState)
+			{
+				ShaderStateNode::Instance* snode = reinterpret_cast<ShaderStateNode::Instance*>(node);
+				snode->SetDirty(true);
+			}
+		}
 
 	}
+
 }
 
 //------------------------------------------------------------------------------

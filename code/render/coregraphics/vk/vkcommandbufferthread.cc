@@ -7,6 +7,19 @@
 #include "threading/event.h"
 #include "coregraphics/vk/vkgraphicsdevice.h"
 
+namespace CoreGraphics
+{
+
+//------------------------------------------------------------------------------
+/**
+*/
+DrawThread* CreateDrawThread()
+{
+	return Vulkan::VkCommandBufferThread::Create();
+}
+
+}
+
 namespace Vulkan
 {
 
@@ -14,11 +27,13 @@ extern PFN_vkCmdBeginDebugUtilsLabelEXT VkCmdDebugMarkerBegin;
 extern PFN_vkCmdEndDebugUtilsLabelEXT VkCmdDebugMarkerEnd;
 extern PFN_vkCmdInsertDebugUtilsLabelEXT VkCmdDebugMarkerInsert;
 
+
 __ImplementClass(Vulkan::VkCommandBufferThread, 'VCBT', Threading::Thread);
 //------------------------------------------------------------------------------
 /**
 */
-VkCommandBufferThread::VkCommandBufferThread()
+VkCommandBufferThread::VkCommandBufferThread() 
+	: vkCommandBuffer(VK_NULL_HANDLE)
 {
 	// empty
 }
@@ -35,166 +50,276 @@ VkCommandBufferThread::~VkCommandBufferThread()
 /**
 */
 void
-VkCommandBufferThread::EmitWakeupSignal()
-{
-	this->commands.Signal();
-}
-
-//------------------------------------------------------------------------------
-/**
-*/
-void
 VkCommandBufferThread::DoWork()
 {
-	Util::Array<Command> curCommands;
-	curCommands.Reserve(1000);
+#if NEBULA_ENABLE_PROFILING
+	Profiling::ProfilingRegisterThread();
+#endif	
+
+	Util::Array<DrawThread::Command> curCommands;
+	byte* curCommandBuffer = nullptr;
+	size_t curCommandBufferSize = 0;
 	while (!this->ThreadStopRequested())
 	{
-		// dequeue all commands, this ensures we don't gain any new commands this thread loop
-		this->commands.DequeueAll(curCommands);
+		// lock our resources, which hinders the main thread from pushing more data
+		N_MARKER_BEGIN(RecordCopyData, Render);
+		this->lock.Enter();
 
+		if (this->commands.Size() > 0)
+		{
+			// copy command structs from main thread
+			curCommands = this->commands;
+			this->commands.Reset();
+
+			// if the command buffer is not big enough, resize it
+			if (this->commandBuffer.size > curCommandBufferSize)
+			{
+				n_delete_array(curCommandBuffer);
+				curCommandBuffer = n_new_array(byte, this->commandBuffer.size);
+				curCommandBufferSize = this->commandBuffer.size;
+			}
+			memcpy(curCommandBuffer, this->commandBuffer.buffer, this->commandBuffer.size);
+			this->commandBuffer.Reset();
+		}
+
+		// leave lock, this allows the main thread to issue more commands
+		this->lock.Leave();
+		N_MARKER_END();
+
+		N_MARKER_BEGIN(Record, Render);
+
+		byte* commandBuf = curCommandBuffer;
 		IndexT i;
 		for (i = 0; i < curCommands.Size(); i++)
 		{
-			const Command& cmd = curCommands[i];
+			const DrawThread::Command& cmd = curCommands[i];
 
 			// use the data in the command dependent on what type we have
 			switch (cmd.type)
 			{
 			case BeginCommand:
-				this->commandBuffer = cmd.bgCmd.buf;
-#if NEBULA_GRAPHICS_DEBUG
-				{
-					Util::String name = Util::String::Sprintf("%s Generate draws", this->GetMyThreadName());
-					Vulkan::CommandBufferBeginMarker(this->commandBuffer, Math::float4(0.8f, 0.6f, 0.6f, 1.0f), name.AsCharPtr());
-				}
-#endif
-				n_assert(vkBeginCommandBuffer(this->commandBuffer, &cmd.bgCmd.info) == VK_SUCCESS);
+			{
+				VkCommandBufferBeginCommand* vkcmd = reinterpret_cast<VkCommandBufferBeginCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer == nullptr);
+				this->vkCommandBuffer = vkcmd->buf;
+
+				vkcmd->info.pInheritanceInfo = &vkcmd->inheritInfo;
+				VkResult res = vkBeginCommandBuffer(this->vkCommandBuffer, &vkcmd->info);
+				n_assert(res == VK_SUCCESS);
+
 				break;
-			case ResetCommands:
-				n_assert(vkResetCommandBuffer(this->commandBuffer, 0) == VK_SUCCESS);
+			}				
+			case ResetCommand:
+				n_assert(vkResetCommandBuffer(this->vkCommandBuffer, 0) == VK_SUCCESS);
 				break;
 			case EndCommand:
-				n_assert(vkEndCommandBuffer(this->commandBuffer) == VK_SUCCESS);
+			{
+				n_assert(this->vkCommandBuffer != nullptr);
 
-#if NEBULA_GRAPHICS_DEBUG
-				Vulkan::CommandBufferEndMarker(this->commandBuffer);
-#endif
-				this->commandBuffer = VK_NULL_HANDLE;
-				this->pipelineLayout = VK_NULL_HANDLE;
+				VkResult res = vkEndCommandBuffer(this->vkCommandBuffer);
+				n_assert(res == VK_SUCCESS);
+				this->vkCommandBuffer = VK_NULL_HANDLE;
+				this->vkPipelineLayout = VK_NULL_HANDLE;
 				break;
+			}
 			case GraphicsPipeline:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				this->pipelineLayout = cmd.pipe.layout;
-				vkCmdBindPipeline(this->commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, cmd.pipe.pipeline);
+			{
+				VkGfxPipelineBindCommand* vkcmd = reinterpret_cast<VkGfxPipelineBindCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				this->vkPipelineLayout = vkcmd->layout;
+				vkCmdBindPipeline(this->vkCommandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, vkcmd->pipeline);
 				break;
+			}				
 			case ComputePipeline:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				this->pipelineLayout = cmd.pipe.layout;
-				vkCmdBindPipeline(this->commandBuffer, VK_PIPELINE_BIND_POINT_COMPUTE, cmd.pipe.pipeline);
+			{
+				VkComputePipelineBindCommand* vkcmd = reinterpret_cast<VkComputePipelineBindCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				this->vkPipelineLayout = vkcmd->layout;
+				vkCmdBindPipeline(this->vkCommandBuffer, VK_PIPELINE_BIND_POINT_COMPUTE, vkcmd->pipeline);
 				break;
+			}				
 			case InputAssemblyVertex:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdBindVertexBuffers(this->commandBuffer, cmd.vbo.index, 1, &cmd.vbo.buffer, &cmd.vbo.offset);
+			{
+				VkVertexBufferCommand* vkcmd = reinterpret_cast<VkVertexBufferCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdBindVertexBuffers(this->vkCommandBuffer, vkcmd->index, 1, &vkcmd->buffer, &vkcmd->offset);
 				break;
+			}
 			case InputAssemblyIndex:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdBindIndexBuffer(this->commandBuffer, cmd.ibo.buffer, cmd.ibo.offset, cmd.ibo.indexType);
+			{
+				VkIndexBufferCommand* vkcmd = reinterpret_cast<VkIndexBufferCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdBindIndexBuffer(this->vkCommandBuffer, vkcmd->buffer, vkcmd->offset, vkcmd->indexType);
 				break;
+			}				
 			case Draw:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				if (cmd.draw.numIndices > 0)	vkCmdDrawIndexed(this->commandBuffer, cmd.draw.numIndices, cmd.draw.numInstances, cmd.draw.baseIndex, cmd.draw.baseVertex, cmd.draw.baseInstance);
-				else							vkCmdDraw(this->commandBuffer, cmd.draw.numVerts, cmd.draw.numInstances, cmd.draw.baseVertex, cmd.draw.baseInstance);
+			{
+				VkDrawCommand* vkcmd = reinterpret_cast<VkDrawCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				if (vkcmd->numIndices > 0)	vkCmdDrawIndexed(this->vkCommandBuffer, vkcmd->numIndices, vkcmd->numInstances, vkcmd->baseIndex, vkcmd->baseVertex, vkcmd->baseInstance);
+				else						vkCmdDraw(this->vkCommandBuffer, vkcmd->numVerts, vkcmd->numInstances, vkcmd->baseVertex, vkcmd->baseInstance);
 				break;
+			}
 			case Dispatch:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdDispatch(this->commandBuffer, cmd.dispatch.numGroupsX, cmd.dispatch.numGroupsY, cmd.dispatch.numGroupsZ);
+			{
+				VkDispatchCommand* vkcmd = reinterpret_cast<VkDispatchCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdDispatch(this->vkCommandBuffer, vkcmd->numGroupsX, vkcmd->numGroupsY, vkcmd->numGroupsZ);
 				break;
+			}
 			case BindDescriptors:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				n_assert(this->pipelineLayout != VK_NULL_HANDLE);
-				vkCmdBindDescriptorSets(this->commandBuffer, cmd.descriptor.type, this->pipelineLayout, cmd.descriptor.baseSet, cmd.descriptor.numSets, cmd.descriptor.sets, cmd.descriptor.numOffsets, cmd.descriptor.offsets);
+			{
+				VkDescriptorsCommand* vkcmd = reinterpret_cast<VkDescriptorsCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				n_assert(this->vkPipelineLayout != VK_NULL_HANDLE);
+				vkCmdBindDescriptorSets(this->vkCommandBuffer, vkcmd->type, this->vkPipelineLayout, vkcmd->baseSet, vkcmd->numSets, vkcmd->sets, vkcmd->numOffsets, vkcmd->offsets);
 				break;
+			}				
 			case PushRange:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				n_assert(this->pipelineLayout != VK_NULL_HANDLE);
-				vkCmdPushConstants(this->commandBuffer, this->pipelineLayout, cmd.pushranges.stages, cmd.pushranges.offset, cmd.pushranges.size, cmd.pushranges.data);
-				Memory::Free(Memory::ScratchHeap, cmd.pushranges.data);
+			{
+				VkPushConstantsCommand* vkcmd = reinterpret_cast<VkPushConstantsCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				n_assert(this->vkPipelineLayout != VK_NULL_HANDLE);
+				vkCmdPushConstants(this->vkCommandBuffer, this->vkPipelineLayout, vkcmd->stages, vkcmd->offset, vkcmd->size, vkcmd->data);
 				break;
+			}				
 			case Viewport:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdSetViewport(this->commandBuffer, cmd.viewport.index, 1, &cmd.viewport.vp);
+			{
+				VkViewportCommand* vkcmd = reinterpret_cast<VkViewportCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdSetViewport(this->vkCommandBuffer, vkcmd->index, 1, &vkcmd->vp);
 				break;
+			}				
 			case ViewportArray:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdSetViewport(this->commandBuffer, cmd.viewportArray.first, cmd.viewportArray.num, cmd.viewportArray.vps);
+			{
+				VkViewportArrayCommand* vkcmd = reinterpret_cast<VkViewportArrayCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdSetViewport(this->vkCommandBuffer, vkcmd->first, vkcmd->num, vkcmd->vps);
 				break;
+			}				
 			case ScissorRect:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdSetScissor(this->commandBuffer, cmd.scissorRect.index, 1, &cmd.scissorRect.sc);
+			{
+				VkScissorRectCommand* vkcmd = reinterpret_cast<VkScissorRectCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdSetScissor(this->vkCommandBuffer, vkcmd->index, 1, &vkcmd->sc);
 				break;
+			}				
 			case ScissorRectArray:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdSetScissor(this->commandBuffer, cmd.scissorRectArray.first, cmd.scissorRectArray.num, cmd.scissorRectArray.scs);
+			{
+				VkScissorRectArrayCommand* vkcmd = reinterpret_cast<VkScissorRectArrayCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdSetScissor(this->vkCommandBuffer, vkcmd->first, vkcmd->num, vkcmd->scs);
 				break;
+			}				
 			case UpdateBuffer:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdUpdateBuffer(this->commandBuffer, cmd.updBuffer.buf, cmd.updBuffer.offset, cmd.updBuffer.size, cmd.updBuffer.data);
+			{
+				VkUpdateBufferCommand* vkcmd = reinterpret_cast<VkUpdateBufferCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdUpdateBuffer(this->vkCommandBuffer, vkcmd->buf, vkcmd->offset, vkcmd->size, vkcmd->data);
 				break;
+			}				
 			case SetEvent:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdSetEvent(this->commandBuffer, cmd.setEvent.event, cmd.setEvent.stages);
+			{
+				VkSetEventCommand* vkcmd = reinterpret_cast<VkSetEventCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdSetEvent(this->vkCommandBuffer, vkcmd->event, vkcmd->stages);
 				break;
+			}				
 			case ResetEvent:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdResetEvent(this->commandBuffer, cmd.resetEvent.event, cmd.resetEvent.stages);
+			{
+				VkResetEventCommand* vkcmd = reinterpret_cast<VkResetEventCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdResetEvent(this->vkCommandBuffer, vkcmd->event, vkcmd->stages);
 				break;
+			}				
 			case WaitForEvent:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdWaitEvents(this->commandBuffer, cmd.waitEvent.numEvents, cmd.waitEvent.events, cmd.waitEvent.waitingStage, cmd.waitEvent.signalingStage, cmd.waitEvent.memoryBarrierCount, cmd.waitEvent.memoryBarriers, cmd.waitEvent.bufferBarrierCount, cmd.waitEvent.bufferBarriers, cmd.waitEvent.imageBarrierCount, cmd.waitEvent.imageBarriers);
+			{
+				VkWaitForEventCommand* vkcmd = reinterpret_cast<VkWaitForEventCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdWaitEvents(this->vkCommandBuffer, 1, &vkcmd->event, vkcmd->waitingStage, vkcmd->signalingStage, vkcmd->memoryBarrierCount, vkcmd->memoryBarriers, vkcmd->bufferBarrierCount, vkcmd->bufferBarriers, vkcmd->imageBarrierCount, vkcmd->imageBarriers);
 				break;
+			}				
 			case Barrier:
-				n_assert(this->commandBuffer != VK_NULL_HANDLE);
-				vkCmdPipelineBarrier(this->commandBuffer, cmd.barrier.srcMask, cmd.barrier.dstMask, cmd.barrier.dep, cmd.barrier.memoryBarrierCount, cmd.barrier.memoryBarriers, cmd.barrier.bufferBarrierCount, cmd.barrier.bufferBarriers, cmd.barrier.imageBarrierCount, cmd.barrier.imageBarriers);
+			{
+				VkBarrierCommand* vkcmd = reinterpret_cast<VkBarrierCommand*>(commandBuf);
+				n_assert(this->vkCommandBuffer != VK_NULL_HANDLE);
+				vkCmdPipelineBarrier(this->vkCommandBuffer, vkcmd->srcMask, vkcmd->dstMask, vkcmd->dep, vkcmd->memoryBarrierCount, vkcmd->memoryBarriers, vkcmd->bufferBarrierCount, vkcmd->bufferBarriers, vkcmd->imageBarrierCount, vkcmd->imageBarriers);
 				break;
-			case Sync:
-				cmd.syncEvent->Signal();
+			}			
+			case Timestamp:
+			{
+				VkWriteTimestampCommand* vkcmd = reinterpret_cast<VkWriteTimestampCommand*>(commandBuf);
+				vkCmdWriteTimestamp(this->vkCommandBuffer, (VkPipelineStageFlagBits)vkcmd->flags, vkcmd->pool, vkcmd->index);
 				break;
+			}
+			case BeginQuery:
+			{
+				VkBeginQueryCommand* vkcmd = reinterpret_cast<VkBeginQueryCommand*>(commandBuf);
+				vkCmdBeginQuery(this->vkCommandBuffer, vkcmd->pool, vkcmd->index, vkcmd->flags);
+				break;
+			}
+			case EndQuery:
+			{
+				VkEndQueryCommand* vkcmd = reinterpret_cast<VkEndQueryCommand*>(commandBuf);
+				vkCmdEndQuery(this->vkCommandBuffer, vkcmd->pool, vkcmd->index);
+				break;
+			}
 			case BeginMarker:
 			{
+				VkBeginMarkerCommand* vkcmd = reinterpret_cast<VkBeginMarkerCommand*>(commandBuf);
 				VkDebugUtilsLabelEXT info =
 				{
 					VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT,
 					nullptr,
-					cmd.marker.text,
-					{ cmd.marker.values[0], cmd.marker.values[1], cmd.marker.values[2], cmd.marker.values[3] }
+					vkcmd->text,
+					{ vkcmd->values[0], vkcmd->values[1], vkcmd->values[2], vkcmd->values[3] }
 				};
-				VkCmdDebugMarkerBegin(this->commandBuffer, &info);
+				VkCmdDebugMarkerBegin(this->vkCommandBuffer, &info);
 				break;
 			}
 			case EndMarker:
-				VkCmdDebugMarkerEnd(this->commandBuffer);
+				VkCmdDebugMarkerEnd(this->vkCommandBuffer);
 				break;
 			case InsertMarker:
 			{
+				VkInsertMarkerCommand* vkcmd = reinterpret_cast<VkInsertMarkerCommand*>(commandBuf);
 				VkDebugUtilsLabelEXT info =
 				{
 					VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT,
 					nullptr,
-					cmd.marker.text,
-					{ cmd.marker.values[0], cmd.marker.values[1], cmd.marker.values[2], cmd.marker.values[3] }
+					vkcmd->text,
+					{ vkcmd->values[0], vkcmd->values[1], vkcmd->values[2], vkcmd->values[3] }
 				};
-				VkCmdDebugMarkerInsert(this->commandBuffer, &info);
+				VkCmdDebugMarkerInsert(this->vkCommandBuffer, &info);
 				break;
 			}
-				
+
+			case Sync:
+			{
+				SyncCommand* vkcmd = reinterpret_cast<SyncCommand*>(commandBuf);
+				vkcmd->event->Signal();
+				break;
 			}
+
+			}
+
+			commandBuf += cmd.size;
 		}
 
-		// reset commands, but don't destroy them
-		curCommands.Reset();
-		this->commands.Wait();
+		N_MARKER_END();
+
+		// clear up commands
+		if (!curCommands.IsEmpty())
+			curCommands.Reset();
+
+		N_SCOPE(RecordIdle, Render);
+
+		// wait for more data
+		this->signalEvent.Wait();
 	}
+
+	if (curCommandBuffer != nullptr)
+		n_delete_array(curCommandBuffer);
 }
 
 } // namespace Vulkan

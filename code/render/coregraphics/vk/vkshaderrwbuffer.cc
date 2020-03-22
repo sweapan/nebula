@@ -42,17 +42,22 @@ CreateShaderRWBuffer(const ShaderRWBufferCreateInfo& info)
 
 	VkPhysicalDeviceProperties props = Vulkan::GetCurrentProperties();
 	setupInfo.dev = Vulkan::GetCurrentDevice();
-	setupInfo.numBuffers = info.numBackingBuffers;
 	SizeT size = info.size;
 
 	const Util::Set<uint32_t>& queues = Vulkan::GetQueueFamilies();
+
+	VkBufferUsageFlags usageFlags = 0;
+	if (info.mode == HostWriteable)
+		usageFlags = VK_BUFFER_USAGE_STORAGE_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_SRC_BIT;
+	else if (info.mode == DeviceWriteable)
+		usageFlags = VK_BUFFER_USAGE_STORAGE_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT;
 	setupInfo.info =
 	{
 		VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
 		nullptr,
 		0,
-		(VkDeviceSize)(size * setupInfo.numBuffers),
-		VK_BUFFER_USAGE_STORAGE_BUFFER_BIT,
+		(VkDeviceSize)(size),
+		usageFlags,
 		VK_SHARING_MODE_CONCURRENT,
 		(uint32_t)queues.Size(),
 		queues.KeysAsArray().Begin()
@@ -61,7 +66,12 @@ CreateShaderRWBuffer(const ShaderRWBufferCreateInfo& info)
 	n_assert(res == VK_SUCCESS);
 
 	uint32_t alignedSize;
-	VkUtilities::AllocateBufferMemory(setupInfo.dev, runtimeInfo.buf, setupInfo.mem, VkMemoryPropertyFlagBits(VK_MEMORY_PROPERTY_HOST_COHERENT_BIT | VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT), alignedSize);
+	VkMemoryPropertyFlagBits flags = VkMemoryPropertyFlagBits(0);
+	if (info.mode == HostWriteable)
+		flags = VkMemoryPropertyFlagBits(VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+	else if (info.mode == DeviceWriteable)
+		flags = VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT;
+	VkUtilities::AllocateBufferMemory(setupInfo.dev, runtimeInfo.buf, setupInfo.mem, flags, alignedSize);
 
 	// bind to buffer
 	res = vkBindBufferMemory(setupInfo.dev, runtimeInfo.buf, setupInfo.mem, 0);
@@ -69,15 +79,18 @@ CreateShaderRWBuffer(const ShaderRWBufferCreateInfo& info)
 
 	// size and stride for a single buffer are equal
 	setupInfo.size = alignedSize;
-	setupInfo.stride = alignedSize / setupInfo.numBuffers;
 
 	ShaderRWBufferId ret;
 	ret.id24 = id;
 	ret.id8 = ShaderRWBufferIdType;
 
-	// map memory so we can use it later
-	res = vkMapMemory(setupInfo.dev, setupInfo.mem, 0, alignedSize, 0, &mapInfo.data);
-	n_assert(res == VK_SUCCESS);
+	if (info.mode == HostWriteable)
+	{
+		// map memory so we can use it later
+		res = vkMapMemory(setupInfo.dev, setupInfo.mem, 0, alignedSize, 0, &mapInfo.data);
+		n_assert(res == VK_SUCCESS);
+	}
+	
 
 #if NEBULA_GRAPHICS_DEBUG
 	ObjectSetName(ret, info.name.Value());
@@ -99,8 +112,6 @@ DestroyShaderRWBuffer(const ShaderRWBufferId id)
 
 	Vulkan::DelayedDeleteBuffer(runtimeInfo.buf);
 	Vulkan::DelayedDeleteMemory(setupInfo.mem);
-	//vkDestroyBuffer(setupInfo.dev, runtimeInfo.buf, nullptr);
-	//vkFreeMemory(setupInfo.dev, setupInfo.mem, nullptr);
 
 	shaderRWBufferAllocator.Dealloc(id.id24);
 }

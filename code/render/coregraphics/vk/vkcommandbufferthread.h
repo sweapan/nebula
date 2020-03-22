@@ -7,6 +7,7 @@
 */
 //------------------------------------------------------------------------------
 #include <vulkan/vulkan.h>
+#include "coregraphics/drawthread.h"
 #include "coregraphics/config.h"
 #include "threading/thread.h"
 #include "threading/safequeue.h"
@@ -15,205 +16,231 @@
 #include "math/rectangle.h"
 #include "coregraphics/indextype.h"
 
-namespace CoreGraphics
-{
-	struct VertexBufferId;
-	struct IndexBufferId;
-	struct EventId;
-	struct BarrierId;
-	enum class BarrierStage;
-
-}
 namespace Vulkan
 {
-class VkCommandBufferThread : public Threading::Thread
+class VkCommandBufferThread : public CoreGraphics::DrawThread
 {
 	__DeclareClass(VkCommandBufferThread);
 
 public:
 
-	enum CommandType
+	struct VkCommandBufferBeginCommand
 	{
-		BeginCommand,
-		ResetCommands,
-		EndCommand,
-		GraphicsPipeline,
-		ComputePipeline,
-		InputAssemblyVertex,
-		InputAssemblyIndex,
-		Draw,
-		Dispatch,
-		BindDescriptors,
-		PushRange,
-		Viewport,
-		ViewportArray,
-		ScissorRect,
-		ScissorRectArray,
-		UpdateBuffer,
-		SetEvent,					// sets event to flagged
-		ResetEvent,					// resets event to unflagged
-		WaitForEvent,
-		Barrier,
-		Sync,
-		BeginMarker,
-		EndMarker,
-		InsertMarker
+		static const CommandType Type = BeginCommand;
+		VkCommandBufferBeginInfo info;
+		VkCommandBufferInheritanceInfo inheritInfo;
+		VkCommandBuffer buf;
 	};
 
-	struct Command
+	struct VkCommandBufferResetCommand
 	{
-		CommandType type;
+		static const CommandType Type = ResetCommand;
+	};
 
-		union
-		{
-			
-			struct // Pipeline bind
-			{
-				VkPipeline pipeline;
-				VkPipelineLayout layout;
+	struct VkCommandBufferEndCommand
+	{
+		static const CommandType Type = EndCommand;
+	};
+
+	struct VkGfxPipelineBindCommand
+	{
+		static const CommandType Type = GraphicsPipeline;
+		VkPipeline pipeline;
+		VkPipelineLayout layout;
 #if NEBULA_GRAPHICS_DEBUG
-				const char* name;
+		const char* name;
 #endif
-			} pipe;
+	};
 
-			struct // BeginCmd
-			{
-				VkCommandBufferBeginInfo info;
-				VkCommandBuffer buf;
-			} bgCmd;
+	struct VkComputePipelineBindCommand
+	{
+		static const CommandType Type = ComputePipeline;
+		VkPipeline pipeline;
+		VkPipelineLayout layout;
+#if NEBULA_GRAPHICS_DEBUG
+		const char* name;
+#endif
+	};
 
-			struct // VBO
-			{
-				VkBuffer buffer;
-				IndexT index;
-				VkDeviceSize offset;
-			} vbo;
+	struct VkVertexBufferCommand
+	{
+		static const CommandType Type = InputAssemblyVertex;
+		VkBuffer buffer;
+		IndexT index;
+		VkDeviceSize offset;
+	};
 
-			struct // IBO
-			{
-				VkBuffer buffer;
-				VkDeviceSize offset;
-				VkIndexType indexType;
-			} ibo;
+	struct VkIndexBufferCommand
+	{
+		static const CommandType Type = InputAssemblyIndex;
+		VkBuffer buffer;
+		VkDeviceSize offset;
+		VkIndexType indexType;
+	};
 
-			struct // Draw
-			{
-				uint32_t baseIndex;
-				uint32_t baseVertex;
-				uint32_t numIndices;
-				uint32_t numVerts;
-				uint32_t baseInstance;
-				uint32_t numInstances;
-			} draw;
+	struct VkDrawCommand
+	{
+		static const CommandType Type = Draw;
+		uint32_t baseIndex;
+		uint32_t baseVertex;
+		uint32_t numIndices;
+		uint32_t numVerts;
+		uint32_t baseInstance;
+		uint32_t numInstances;
+	};
 
-			struct // Dispatch
-			{
-				uint32_t numGroupsX;
-				uint32_t numGroupsY;
-				uint32_t numGroupsZ;
-			} dispatch;
+	struct VkDispatchCommand
+	{
+		static const CommandType Type = Dispatch;
+		uint32_t numGroupsX;
+		uint32_t numGroupsY;
+		uint32_t numGroupsZ;
+	};
 
-			struct // Descriptors
-			{
-				VkPipelineBindPoint type;
-				uint32_t baseSet;
-				uint32_t numSets;
-				const VkDescriptorSet* sets;
-				uint32_t numOffsets;
-				const uint32_t* offsets;
-			} descriptor;
+	struct VkDescriptorsCommand
+	{
+		static const CommandType Type = BindDescriptors;
+		VkPipelineBindPoint type;
+		uint32_t baseSet;
+		uint32_t numSets;
+		const VkDescriptorSet* sets;
+		uint32_t numOffsets;
+		const uint32_t* offsets;
+	};
 
-			struct // UpdateBuffer
-			{
-				bool deleteWhenDone;
-				VkBuffer buf;
-				VkDeviceSize offset;
-				VkDeviceSize size;
-				uint32_t* data;
-			} updBuffer;
+	struct VkPushConstantsCommand
+	{
+		static const CommandType Type = PushRange;
+		VkShaderStageFlags stages;
+		VkPipelineLayout layout;
+		uint32_t offset;
+		uint32_t size;
+		byte data[512];
+	};
 
-			struct // PushConstants
-			{
-				VkShaderStageFlags stages;
-				VkPipelineLayout layout;
-				uint32_t offset;
-				uint32_t size;
-				void* data;
-			} pushranges;
+	struct VkViewportCommand
+	{
+		static const CommandType Type = Viewport;
+		VkViewport vp;
+		uint32_t index;
+	};
 
-			struct // Viewport
-			{
-				VkViewport vp;
-				uint32_t index;
-			} viewport;
+	struct VkViewportArrayCommand
+	{
+		static const CommandType Type = ViewportArray;
+		VkViewport* vps;
+		uint32_t first;
+		uint32_t num;
+	};
 
-			struct // ViewportArray
-			{
-				VkViewport* vps;
-				uint32_t first;
-				uint32_t num;
-			} viewportArray;
+	struct VkScissorRectCommand
+	{
+		static const CommandType Type = ScissorRect;
+		VkRect2D sc;
+		uint32_t index;
+	};
 
-			struct // ScissorRect
-			{
-				VkRect2D sc;
-				uint32_t index;
-			} scissorRect;
+	struct VkScissorRectArrayCommand
+	{
+		static const CommandType Type = ScissorRectArray;
+		VkRect2D* scs;
+		uint32_t first;
+		uint32_t num;
+	};
 
-			struct // ScissorRectArray
-			{
-				VkRect2D* scs;
-				uint32_t first;
-				uint32_t num;
-			} scissorRectArray;
+	struct VkUpdateBufferCommand
+	{
+		static const CommandType Type = UpdateBuffer;
+		bool deleteWhenDone;
+		VkBuffer buf;
+		VkDeviceSize offset;
+		VkDeviceSize size;
+		uint32_t* data;
+	};
 
-			struct // SetEvent
-			{
-				VkEvent event;
-				VkPipelineStageFlags stages;
-			} setEvent;
+	struct VkSetEventCommand
+	{
+		static const CommandType Type = SetEvent;
+		VkEvent event;
+		VkPipelineStageFlags stages;
+	};
 
-			struct // ResetEvent
-			{
-				VkEvent event;
-				VkPipelineStageFlags stages;
-			} resetEvent;
+	struct VkResetEventCommand
+	{
+		static const CommandType Type = ResetEvent;
+		VkEvent event;
+		VkPipelineStageFlags stages;
+	};
 
-			struct // WaitForEvents
-			{
-				VkEvent* events;
-				uint32_t numEvents;
-				VkPipelineStageFlags signalingStage;
-				VkPipelineStageFlags waitingStage;
-				uint32_t memoryBarrierCount;
-				VkMemoryBarrier* memoryBarriers;
-				uint32_t bufferBarrierCount;
-				VkBufferMemoryBarrier* bufferBarriers;
-				uint32_t imageBarrierCount;
-				VkImageMemoryBarrier* imageBarriers;
-			} waitEvent;
+	struct VkWaitForEventCommand
+	{
+		static const CommandType Type = WaitForEvent;
+		VkEvent event;
+		uint32_t numEvents;
+		VkPipelineStageFlags signalingStage;
+		VkPipelineStageFlags waitingStage;
+		uint32_t memoryBarrierCount;
+		VkMemoryBarrier* memoryBarriers;
+		uint32_t bufferBarrierCount;
+		VkBufferMemoryBarrier* bufferBarriers;
+		uint32_t imageBarrierCount;
+		VkImageMemoryBarrier* imageBarriers;
+	};
 
-			struct // Barrier
-			{
-				VkPipelineStageFlags srcMask;
-				VkPipelineStageFlags dstMask;
-				VkDependencyFlags dep;
-				uint32_t memoryBarrierCount;
-				VkMemoryBarrier* memoryBarriers;
-				uint32_t bufferBarrierCount;
-				VkBufferMemoryBarrier* bufferBarriers;
-				uint32_t imageBarrierCount;
-				VkImageMemoryBarrier* imageBarriers;
-			} barrier;
+	struct VkBarrierCommand
+	{
+		static const CommandType Type = Barrier;
+		VkPipelineStageFlags srcMask;
+		VkPipelineStageFlags dstMask;
+		VkDependencyFlags dep;
+		uint32_t memoryBarrierCount;
+		VkMemoryBarrier* memoryBarriers;
+		uint32_t bufferBarrierCount;
+		VkBufferMemoryBarrier* bufferBarriers;
+		uint32_t imageBarrierCount;
+		VkImageMemoryBarrier* imageBarriers;
+	};
 
-			struct // marker
-			{
-				const char* text;
-				float values[4];
-			} marker;
+	struct VkWriteTimestampCommand
+	{
+		static const CommandType Type = Timestamp;
+		VkPipelineStageFlags flags;
+		VkQueryPool pool;
+		IndexT index;
+	};
 
-			Threading::Event* syncEvent;
-		};
+	struct VkBeginQueryCommand
+	{
+		static const CommandType Type = BeginQuery;
+		VkQueryControlFlags flags;
+		VkQueryPool pool;
+		IndexT index;
+	};
+
+	struct VkEndQueryCommand
+	{
+		static const CommandType Type = EndQuery;
+		VkQueryPool pool;
+		IndexT index;
+	};
+
+	struct VkBeginMarkerCommand
+	{
+		static const CommandType Type = BeginMarker;
+		const char* text;
+		float values[4];
+	};
+
+	struct VkEndMarkerCommand
+	{
+		static const CommandType Type = EndMarker;
+	};
+
+	struct VkInsertMarkerCommand
+	{
+		static const CommandType Type = InsertMarker;
+		const char* text;
+		float values[4];
 	};
 
 	/// constructor
@@ -221,54 +248,15 @@ public:
 	/// destructor
 	virtual ~VkCommandBufferThread();
 
-	/// called if thread needs a wakeup call before stopping
-	void EmitWakeupSignal() override;
 	/// this method runs in the thread context
 	void DoWork() override;
-	/// push command buffer work
-	void PushCommand(const Command& command);
-	/// push command buffer work
-	void PushCommands(const Util::Array<Command>& commands);
-	/// set command buffer
-	void SetCommandBuffer(const VkCommandBuffer& buffer);
 private:
-	friend struct GraphicsDeviceState;
+	VkCommandBuffer vkCommandBuffer;
+	VkPipelineLayout vkPipelineLayout;
 
-
-	VkCommandBuffer commandBuffer;
-	VkPipelineLayout pipelineLayout;
-	Threading::SafeQueue<Command> commands;
 #if NEBULA_ENABLE_PROFILING
 	_declare_timer(debugTimer);
 #endif
 };
-
-
-//------------------------------------------------------------------------------
-/**
-*/
-inline void
-VkCommandBufferThread::SetCommandBuffer(const VkCommandBuffer& buffer)
-{
-	this->commandBuffer = buffer;
-}
-
-//------------------------------------------------------------------------------
-/**
-*/
-inline void
-VkCommandBufferThread::PushCommand(const Command& command)
-{
-	this->commands.Enqueue(command);
-}
-
-//------------------------------------------------------------------------------
-/**
-*/
-inline void
-VkCommandBufferThread::PushCommands(const Util::Array<Command>& commands)
-{
-	this->commands.EnqueueArray(commands);
-}
 
 } // namespace Vulkan

@@ -91,13 +91,24 @@ ProfilingNewFrame()
 {
 	// get thread context
 	ProfilingContext& ctx = profilingContexts[ProfilingContextIndex];
-	n_assert(ctx.threadName == "MainThread");
+	//n_assert(ctx.threadName == "MainThread");
 
 	for (IndexT i = 0; i < profilingContexts.Size(); i++)
 	{
 		profilingContexts[i].topLevelScopes.Clear();
 		profilingContexts[i].timer.Reset();
 	}
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+Timing::Time 
+ProfilingGetTime()
+{
+	// get current context and return time
+	ProfilingContext& ctx = profilingContexts[ProfilingContextIndex];
+	return ctx.timer.GetTime();
 }
 
 //------------------------------------------------------------------------------

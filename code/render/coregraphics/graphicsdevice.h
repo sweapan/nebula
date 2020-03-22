@@ -7,6 +7,7 @@
 */
 //------------------------------------------------------------------------------
 #include "pass.h"
+#include "profiling/profiling.h"
 #include "frame/framescript.h"
 #include "primitivegroup.h"
 #include "vertexbuffer.h"
@@ -61,12 +62,23 @@ struct Query
 {
 	CoreGraphics::QueryType type;
 	IndexT idx;
+	Timing::Time cpuTime;
+};
+
+struct DrawThreadResult
+{
+	CoreGraphics::CommandBufferId buf;
+	Threading::Event* event;
 };
 
 struct GraphicsDeviceState
 {
 	Util::Array<CoreGraphics::TextureId> backBuffers;
 	Util::Dictionary<Util::StringAtom, CoreGraphics::TextureId> textures;
+
+	CoreGraphics::CommandBufferPoolId submissionGraphicsCmdPool;
+	CoreGraphics::CommandBufferPoolId submissionComputeCmdPool;
+	CoreGraphics::CommandBufferPoolId submissionTransferCmdPool;
 
 	CoreGraphics::SubmissionContextId resourceSubmissionContext;
 	CoreGraphics::CommandBufferId resourceSubmissionCmdBuffer;
@@ -88,7 +100,7 @@ struct GraphicsDeviceState
 	CoreGraphics::CommandBufferId gfxCmdBuffer;
 	CoreGraphics::FenceId gfxFence;
 
-	Util::FixedArray<CoreGraphics::SemaphoreId> presentSemaphores;
+	Util::FixedArray<CoreGraphics::FenceId> presentFences;
 	Util::FixedArray<CoreGraphics::SemaphoreId> renderingFinishedSemaphores;
 
 	CoreGraphics::SubmissionContextId computeSubmission;
@@ -110,6 +122,9 @@ struct GraphicsDeviceState
 	CoreGraphics::IndexBufferId globalIndexBuffer[NumVertexBufferMemoryTypes];
 	byte* mappedIndexBuffer[NumVertexBufferMemoryTypes];
 
+	CoreGraphics::DrawThread* drawThread;
+	Util::Stack<CoreGraphics::DrawThread*> drawThreads;
+
 	Util::Array<Ptr<CoreGraphics::RenderEventHandler> > eventHandlers;
 	CoreGraphics::PrimitiveTopology::Code primitiveTopology;
 	CoreGraphics::PrimitiveGroup primitiveGroup;
@@ -127,7 +142,6 @@ struct GraphicsDeviceState
 	bool visualizeMipMaps : 1;
 	bool usePatches : 1;
 	bool enableValidation : 1;
-	bool buildThreadBuffers : 1;
 	IndexT currentFrameIndex;
 
 	_declare_counter(NumImageBytesAllocated);
@@ -159,12 +173,18 @@ void AddBackBufferTexture(const CoreGraphics::TextureId tex);
 /// remove a render texture
 void RemoveBackBufferTexture(const CoreGraphics::TextureId tex);
 
+/// set draw thread to use for subsequent commands
+void SetDrawThread(CoreGraphics::DrawThread* thread);
+
 /// begin complete frame
 bool BeginFrame(IndexT frameIndex);
 /// start a new submission, with an optional argument for waiting for another queue
 void BeginSubmission(CoreGraphics::QueueType queue, CoreGraphics::QueueType waitQueue);
 /// begin a rendering pass
 void BeginPass(const CoreGraphics::PassId pass);
+
+/// start a new draw thread
+void BeginSubpassCommands(const CoreGraphics::CommandBufferId buf);
 /// progress to next subpass	
 void SetToNextSubpass();
 /// begin rendering a batch
@@ -272,6 +292,11 @@ void Draw();
 void DrawInstanced(SizeT numInstances, IndexT baseInstance);
 /// perform computation
 void Compute(int dimX, int dimY, int dimZ, const CoreGraphics::QueueType queue = GraphicsQueueType);
+
+/// start a new draw thread
+void EndSubpassCommands();
+/// execute thread buffer
+void ExecuteCommands(const CoreGraphics::CommandBufferId cmds);
 /// end current batch
 void EndBatch();
 /// end current pass
@@ -316,6 +341,8 @@ void EndQuery(CoreGraphics::QueueType queue, CoreGraphics::QueryType type);
 
 /// copy data between textures
 void Copy(const CoreGraphics::TextureId from, Math::rectangle<SizeT> fromRegion, const CoreGraphics::TextureId to, Math::rectangle<SizeT> toRegion);
+/// copy data between rw buffers
+void Copy(const CoreGraphics::QueueType queue, const CoreGraphics::ShaderRWBufferId from, IndexT fromOffset, const CoreGraphics::ShaderRWBufferId to, IndexT toOffset, SizeT size);
 /// blit between textures
 void Blit(const CoreGraphics::TextureId from, Math::rectangle<SizeT> fromRegion, IndexT fromMip, const CoreGraphics::TextureId to, Math::rectangle<SizeT> toRegion, IndexT toMip);
 
@@ -324,14 +351,10 @@ void SetUsePatches(bool state);
 /// gets whether or not the render device should tessellate
 bool GetUsePatches();
 
-/// adds a viewport
+/// sets a viewport for a certain index
 void SetViewport(const Math::rectangle<int>& rect, int index);
-/// adds a scissor rect
+/// sets a scissor rect for a certain index
 void SetScissorRect(const Math::rectangle<int>& rect, int index);
-/// set array of viewports directly
-void SetViewports(Math::rectangle<int>* viewports, SizeT num);
-/// set array of scissors directly
-void SetScissorRects(Math::rectangle<int>* scissors, SizeT num);
 
 /// register texture globally
 void RegisterTexture(const Util::StringAtom& name, const CoreGraphics::TextureId id);
