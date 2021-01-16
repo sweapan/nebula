@@ -1,0 +1,28 @@
+var foundation_2core_2config_8h =
+[
+    [ "__attribute__", "foundation_2core_2config_8h.html#a9d373a9b65ff25b2db84c07394e1c212", null ],
+    [ "__maxTextureBytes__", "foundation_2core_2config_8h.html#aaecaa3a35aa31034648964bdffe6e26a", null ],
+    [ "__NEBULA_HTTP__", "foundation_2core_2config_8h.html#a14e5d2dbf16e33db73dba08502afa44c", null ],
+    [ "__NEBULA_NO_ASSERT__", "foundation_2core_2config_8h.html#a5ce91c1e51a4bfc61da107722ee98425", null ],
+    [ "DEFAULT_IO_SCHEME", "foundation_2core_2config_8h.html#a8ed4aa062d73e41cc6acf931837a5982", null ],
+    [ "NEBULA_ANIMATIONSYSTEM_FRAMEDUMP", "foundation_2core_2config_8h.html#a8bc273daba6d643fdefb6de1eebc7e3d", null ],
+    [ "NEBULA_ANIMATIONSYSTEM_VERBOSELOG", "foundation_2core_2config_8h.html#ac346049e72a4e269711aca38e515626e", null ],
+    [ "NEBULA_BOUNDSCHECKS", "foundation_2core_2config_8h.html#a46b6a20b3610747e7206fd275a50fcaa", null ],
+    [ "NEBULA_CONSOLE_HISTORY_SIZE", "foundation_2core_2config_8h.html#a8b384038569c9eadc6379b9f722af7b7", null ],
+    [ "NEBULA_ENABLE_GLOBAL_STRINGBUFFER_GROWTH", "foundation_2core_2config_8h.html#a783c1dd4f4696fa415b85290a5710045", null ],
+    [ "NEBULA_ENABLE_MINIDUMPS", "foundation_2core_2config_8h.html#ae858ef85ec38c3a1cf04c142f3d69faa", null ],
+    [ "NEBULA_ENABLE_PROFILING", "foundation_2core_2config_8h.html#a61ac173881f4d50ba3bddaba6930caf0", null ],
+    [ "NEBULA_ENABLE_THREADLOCAL_STRINGATOM_TABLES", "foundation_2core_2config_8h.html#a5e078d9bd0a8ee252ad60b0866f3a015", null ],
+    [ "NEBULA_GLOBAL_STRINGBUFFER_CHUNKSIZE", "foundation_2core_2config_8h.html#ac99f6a9e58bf37b813935ecb77f4af2b", null ],
+    [ "NEBULA_LEGACY_SUPPORT", "foundation_2core_2config_8h.html#a1b19e87c5cf97fe178735085dbff70c4", null ],
+    [ "NEBULA_MAXPATH", "foundation_2core_2config_8h.html#aefb0fe438360f77458b3552fe73ada96", null ],
+    [ "NEBULA_MEMORY_ADVANCED_DEBUGGING", "foundation_2core_2config_8h.html#af20253585e50b0f4a1f07bc74a3cbf02", null ],
+    [ "NEBULA_MEMORY_STATS", "foundation_2core_2config_8h.html#a6e22d79a74d96ac7241dba37b04ea135", null ],
+    [ "NEBULA_NATIVE_ARCHIVE_SUPPORT", "foundation_2core_2config_8h.html#ac101ca4dd99122b04658bb0058e53b8b", null ],
+    [ "NEBULA_OBJECTS_USE_MEMORYPOOL", "foundation_2core_2config_8h.html#afe394df1c9b316965f38545d2e180dd3", null ],
+    [ "NEBULA_THREAD_DEFAULTSTACKSIZE", "foundation_2core_2config_8h.html#a73ece0d5c875ced0242b01c954ee5c9a", null ],
+    [ "NEBULA_WINDOW_CLASS", "foundation_2core_2config_8h.html#a2873dea712aa5b4beb580baee62b1463", null ],
+    [ "NEBULA_XMLREADER_LEGACY_VECTORS", "foundation_2core_2config_8h.html#aa2a8a1c7f1b9e7e9723fd7a574d6a396", null ],
+    [ "USE_CURL", "foundation_2core_2config_8h.html#a8749bd386a78899cb149dd6bf577e165", null ],
+    [ "JobMaxSliceSize", "foundation_2core_2config_8h.html#a0a2715aa3fccba315d60d8252f5d03ed", null ]
+];

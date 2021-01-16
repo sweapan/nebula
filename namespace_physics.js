@@ -1,0 +1,68 @@
+var namespace_physics =
+[
+    [ "ActorContext", "class_physics_1_1_actor_context.html", "class_physics_1_1_actor_context" ],
+    [ "Allocator", "class_physics_1_1_allocator.html", "class_physics_1_1_allocator" ],
+    [ "ErrorCallback", "class_physics_1_1_error_callback.html", "class_physics_1_1_error_callback" ],
+    [ "PhysxState", "class_physics_1_1_physx_state.html", "class_physics_1_1_physx_state" ],
+    [ "ActorInfo", "struct_physics_1_1_actor_info.html", "struct_physics_1_1_actor_info" ],
+    [ "StreamActorPool", "class_physics_1_1_stream_actor_pool.html", "class_physics_1_1_stream_actor_pool" ],
+    [ "ColliderInfo", "struct_physics_1_1_collider_info.html", "struct_physics_1_1_collider_info" ],
+    [ "StreamColliderPool", "class_physics_1_1_stream_collider_pool.html", "class_physics_1_1_stream_collider_pool" ],
+    [ "VisualDebugger", "class_physics_1_1_visual_debugger.html", "class_physics_1_1_visual_debugger" ],
+    [ "ActorResourceId", "struct_physics_1_1_actor_resource_id.html", null ],
+    [ "ColliderId", "struct_physics_1_1_collider_id.html", null ],
+    [ "Material", "struct_physics_1_1_material.html", "struct_physics_1_1_material" ],
+    [ "ActorId", "struct_physics_1_1_actor_id.html", "struct_physics_1_1_actor_id" ],
+    [ "Actor", "struct_physics_1_1_actor.html", "struct_physics_1_1_actor" ],
+    [ "Scene", "struct_physics_1_1_scene.html", "struct_physics_1_1_scene" ],
+    [ "ColliderType", "namespace_physics.html#ab314f5785bbdfd095bec6645da31053c", [
+      [ "ColliderSphere", "namespace_physics.html#ab314f5785bbdfd095bec6645da31053ca8a942729a433fe7225dae4971cdd2ed2", null ],
+      [ "ColliderCube", "namespace_physics.html#ab314f5785bbdfd095bec6645da31053ca90b5e59087a04e6266370f2bafa8e505", null ],
+      [ "ColliderCapsule", "namespace_physics.html#ab314f5785bbdfd095bec6645da31053ca942d34167f541200e84a42a628dd1fcb", null ],
+      [ "ColliderPlane", "namespace_physics.html#ab314f5785bbdfd095bec6645da31053ca7e81b759b806a657f8c99d33945218f1", null ],
+      [ "ColliderMesh", "namespace_physics.html#ab314f5785bbdfd095bec6645da31053cad597f515adbc974c103076f29f2853cd", null ]
+    ] ],
+    [ "CollsionGroups", "namespace_physics.html#a1e9a434f6e49131173bd01944ff4d64b", [
+      [ "Default", "namespace_physics.html#a1e9a434f6e49131173bd01944ff4d64ba414e8a1709eb2cb9c9ae7fe0a752d74c", null ],
+      [ "Static", "namespace_physics.html#a1e9a434f6e49131173bd01944ff4d64ba02e521a19b147e35cf3f7d189a5b02fc", null ],
+      [ "Kinematic", "namespace_physics.html#a1e9a434f6e49131173bd01944ff4d64ba1fc607d02b98e98a8447e620d7d4e6a5", null ],
+      [ "Debris", "namespace_physics.html#a1e9a434f6e49131173bd01944ff4d64baad8a022a340874923bcfdc5efaaee147", null ],
+      [ "SensorTrigger", "namespace_physics.html#a1e9a434f6e49131173bd01944ff4d64ba28933acf8233f5986f038d3b2cf78161", null ],
+      [ "Characters", "namespace_physics.html#a1e9a434f6e49131173bd01944ff4d64ba1c8deac9117c112577c1be288b656fe4", null ]
+    ] ],
+    [ "MeshTopologyType", "namespace_physics.html#ad0791d702e1e021959c9af906b492bff", [
+      [ "Convex", "namespace_physics.html#ad0791d702e1e021959c9af906b492bffa254186107fd13d5592dec3949dbcd905", null ],
+      [ "ConvexHull", "namespace_physics.html#ad0791d702e1e021959c9af906b492bffa6c5fccbde6f7689fba28226ffb4a963c", null ],
+      [ "Triangles", "namespace_physics.html#ad0791d702e1e021959c9af906b492bffa9df17b0c490894d67632f049c6122e06", null ],
+      [ "HeightField", "namespace_physics.html#ad0791d702e1e021959c9af906b492bffad349afc4ab06f20fb69205346863c555", null ]
+    ] ],
+    [ "PhysicsIdType", "namespace_physics.html#a84683982878b1fb79fdf30ea55833d3c", [
+      [ "ActorIdType", "namespace_physics.html#a84683982878b1fb79fdf30ea55833d3ca4d3aa4c4cd1766a1773ebde235478393", null ],
+      [ "ColliderIdType", "namespace_physics.html#a84683982878b1fb79fdf30ea55833d3cab4334c2aee6284fd8f53d0b5175b91bc", null ],
+      [ "MeshIdType", "namespace_physics.html#a84683982878b1fb79fdf30ea55833d3caf576a98f2daf26915c616e54e98750c2", null ]
+    ] ],
+    [ "__ImplementInterfaceSingleton", "namespace_physics.html#a0368af9719e96dbc887fb459c19be76b", null ],
+    [ "CreateActorInstance", "namespace_physics.html#afd6520d406771134a865d02206f3f0bb", null ],
+    [ "CreateMaterial", "namespace_physics.html#a3a827d90b7854e6db24dfed94d036609", null ],
+    [ "CreateMeshFromResource", "namespace_physics.html#ae265583c83772de449325aa336952257", null ],
+    [ "CreateScene", "namespace_physics.html#ae73f5a76a7de9f0607733be67e604fe8", null ],
+    [ "DestroyActorInstance", "namespace_physics.html#ab23ccb60b91a7e41592288f856e68ef2", null ],
+    [ "GetMaterial", "namespace_physics.html#a7d4b133f6964b0e8a1d0f25e472ccb8a", null ],
+    [ "GetNrMaterials", "namespace_physics.html#a3b0738dc40f8ee43d14b350d394ba542", null ],
+    [ "GetScene", "namespace_physics.html#a06a97b72f4565260a296050f0559b9c2", null ],
+    [ "HandleCollisions", "namespace_physics.html#a1fd62c5ad29dab0fbfc5a00d3df0b718", null ],
+    [ "LoadMaterialTable", "namespace_physics.html#ac72fb302eae04436aba122d3735b12f7", null ],
+    [ "LookupMaterial", "namespace_physics.html#ae94c2d0fe8bca1aaa94b979253d03be2", null ],
+    [ "OpenNvx2", "namespace_physics.html#a93a76da104f843cb2620c3ca19e0410d", null ],
+    [ "RenderDebug", "namespace_physics.html#a325331d3ad9046ad39aefd9b16c88e9b", null ],
+    [ "RenderMaterialsUI", "namespace_physics.html#a65bfab3b3a913500b671e66bbc35affb", null ],
+    [ "RenderUI", "namespace_physics.html#a1d566277e1bc1471d4256f142e524f84", null ],
+    [ "SetOnSleepCallback", "namespace_physics.html#a9af299c4259dad92ae554d3a2c2a8b79", null ],
+    [ "SetOnWakeCallback", "namespace_physics.html#ac9faf5b2dec3610772037a5bff6b639f", null ],
+    [ "Setup", "namespace_physics.html#a940b47bed35103b34f9c3652b4c7c53a", null ],
+    [ "ShutDown", "namespace_physics.html#a53923e58ea149e8f8e4466431ff849e5", null ],
+    [ "Update", "namespace_physics.html#ad5748751ba9e48a61c03652dffa14298", null ],
+    [ "actorPool", "namespace_physics.html#a1c7349cf74a45ddd8711ccea28d9cc1a", null ],
+    [ "colliderPool", "namespace_physics.html#ad79a8ead12fdb26c40df96a57ee415fb", null ],
+    [ "state", "namespace_physics.html#a5d7e67f29d053fb99802313566779814", null ]
+];

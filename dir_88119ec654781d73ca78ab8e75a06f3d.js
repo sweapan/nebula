@@ -1,0 +1,35 @@
+var dir_88119ec654781d73ca78ab8e75a06f3d =
+[
+    [ "gltfdata.h", "gltfdata_8h.html", [
+      [ "GltfBase", "struct_gltf_1_1_gltf_base.html", "struct_gltf_1_1_gltf_base" ],
+      [ "Accessor", "struct_gltf_1_1_accessor.html", "struct_gltf_1_1_accessor" ],
+      [ "Sparse", "struct_gltf_1_1_accessor_1_1_sparse.html", "struct_gltf_1_1_accessor_1_1_sparse" ],
+      [ "Indices", "struct_gltf_1_1_accessor_1_1_sparse_1_1_indices.html", "struct_gltf_1_1_accessor_1_1_sparse_1_1_indices" ],
+      [ "Values", "struct_gltf_1_1_accessor_1_1_sparse_1_1_values.html", "struct_gltf_1_1_accessor_1_1_sparse_1_1_values" ],
+      [ "Animation", "struct_gltf_1_1_animation.html", "struct_gltf_1_1_animation" ],
+      [ "Channel", "struct_gltf_1_1_animation_1_1_channel.html", "struct_gltf_1_1_animation_1_1_channel" ],
+      [ "Target", "struct_gltf_1_1_animation_1_1_channel_1_1_target.html", "struct_gltf_1_1_animation_1_1_channel_1_1_target" ],
+      [ "Sampler", "struct_gltf_1_1_animation_1_1_sampler.html", "struct_gltf_1_1_animation_1_1_sampler" ],
+      [ "Buffer", "struct_gltf_1_1_buffer.html", "struct_gltf_1_1_buffer" ],
+      [ "BufferView", "struct_gltf_1_1_buffer_view.html", "struct_gltf_1_1_buffer_view" ],
+      [ "Camera", "struct_gltf_1_1_camera.html", "struct_gltf_1_1_camera" ],
+      [ "Orthographic", "struct_gltf_1_1_camera_1_1_orthographic.html", "struct_gltf_1_1_camera_1_1_orthographic" ],
+      [ "Perspective", "struct_gltf_1_1_camera_1_1_perspective.html", "struct_gltf_1_1_camera_1_1_perspective" ],
+      [ "Image", "struct_gltf_1_1_image.html", "struct_gltf_1_1_image" ],
+      [ "Material", "struct_gltf_1_1_material.html", "struct_gltf_1_1_material" ],
+      [ "Texture", "struct_gltf_1_1_material_1_1_texture.html", "struct_gltf_1_1_material_1_1_texture" ],
+      [ "NormalTexture", "struct_gltf_1_1_material_1_1_normal_texture.html", "struct_gltf_1_1_material_1_1_normal_texture" ],
+      [ "OcclusionTexture", "struct_gltf_1_1_material_1_1_occlusion_texture.html", "struct_gltf_1_1_material_1_1_occlusion_texture" ],
+      [ "PBRMetallicRoughness", "struct_gltf_1_1_material_1_1_p_b_r_metallic_roughness.html", "struct_gltf_1_1_material_1_1_p_b_r_metallic_roughness" ],
+      [ "Primitive", "struct_gltf_1_1_primitive.html", "struct_gltf_1_1_primitive" ],
+      [ "Mesh", "struct_gltf_1_1_mesh.html", "struct_gltf_1_1_mesh" ],
+      [ "Node", "struct_gltf_1_1_node.html", "struct_gltf_1_1_node" ],
+      [ "Sampler", "struct_gltf_1_1_sampler.html", "struct_gltf_1_1_sampler" ],
+      [ "Scene", "struct_gltf_1_1_scene.html", "struct_gltf_1_1_scene" ],
+      [ "Skin", "struct_gltf_1_1_skin.html", "struct_gltf_1_1_skin" ],
+      [ "Texture", "struct_gltf_1_1_texture.html", "struct_gltf_1_1_texture" ],
+      [ "Asset", "struct_gltf_1_1_asset.html", "struct_gltf_1_1_asset" ],
+      [ "Document", "struct_gltf_1_1_document.html", "struct_gltf_1_1_document" ]
+    ] ],
+    [ "gltfreader.cc", "gltfreader_8cc.html", "gltfreader_8cc" ]
+];

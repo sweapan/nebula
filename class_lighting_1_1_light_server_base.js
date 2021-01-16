@@ -1,0 +1,28 @@
+var class_lighting_1_1_light_server_base =
+[
+    [ "LightServerBase", "class_lighting_1_1_light_server_base.html#a77e5cad8c5c454e92c86537d471d4b1c", null ],
+    [ "~LightServerBase", "class_lighting_1_1_light_server_base.html#a9ed63142590b305901c518636f19cf5e", null ],
+    [ "__DeclareClass", "class_lighting_1_1_light_server_base.html#ab9b0c7c83fe0818131a6121a2eaac4b1", null ],
+    [ "__DeclareSingleton", "class_lighting_1_1_light_server_base.html#a579655c1481a9ff6f3b60633605b8814", null ],
+    [ "ApplyModelEntityLights", "class_lighting_1_1_light_server_base.html#a13f91f1e61f97d19fea8029cf2a89414", null ],
+    [ "AttachVisibleLight", "class_lighting_1_1_light_server_base.html#a4d57fdd73f221d53915fb828a9ddbecd", null ],
+    [ "AttachVisibleLightProbe", "class_lighting_1_1_light_server_base.html#ab9d7a75a6bf2db65e73120592edaf7c7", null ],
+    [ "BeginAttachVisibleLights", "class_lighting_1_1_light_server_base.html#abc41f9274f92b1cbdcdb4b9007b03d8e", null ],
+    [ "BeginFrame", "class_lighting_1_1_light_server_base.html#a26a88fe454d0d6972ee31fdfa03c4d30", null ],
+    [ "Close", "class_lighting_1_1_light_server_base.html#a307211a9c66c62e99d59e1e1a567b883", null ],
+    [ "EndAttachVisibleLights", "class_lighting_1_1_light_server_base.html#a1a828b6157b8f7367cf771487af98770", null ],
+    [ "EndFrame", "class_lighting_1_1_light_server_base.html#a21b0fda09a517ccff5890a450d73e65e", null ],
+    [ "GetGlobalLight", "class_lighting_1_1_light_server_base.html#a0e6cf6d37e80695bc3bde33387ec4f75", null ],
+    [ "IsOpen", "class_lighting_1_1_light_server_base.html#a2006b8fad72c58d09dad120d50f814c2", null ],
+    [ "NeedsLightModelLinking", "class_lighting_1_1_light_server_base.html#a02a170922ad0d28127b9116ad13f711f", null ],
+    [ "Open", "class_lighting_1_1_light_server_base.html#a07266388ea23a63f2f571bf65754f661", null ],
+    [ "RenderLightProbes", "class_lighting_1_1_light_server_base.html#ae3cf299ba62d00293da278f5f0b64c85", null ],
+    [ "RenderLights", "class_lighting_1_1_light_server_base.html#ad3ac9555517f3d82c1289f35ea58ceb3", null ],
+    [ "cameraEntity", "class_lighting_1_1_light_server_base.html#a8609d6d0ff6331a2302c9c0aa06df8ad", null ],
+    [ "globalLightEntity", "class_lighting_1_1_light_server_base.html#a17a7c67ceb1f24951e329de95bf8928d", null ],
+    [ "inBeginAttach", "class_lighting_1_1_light_server_base.html#a0797e212d913b907fdb79b83c23b9751", null ],
+    [ "inBeginFrame", "class_lighting_1_1_light_server_base.html#ad39472b28f6e64ee72f257ae00b8d07d", null ],
+    [ "isOpen", "class_lighting_1_1_light_server_base.html#a5a5808d325ef89dc36f6222feea98c54", null ],
+    [ "visibleLightEntities", "class_lighting_1_1_light_server_base.html#ab9b37b4636047bcde860d21dad109800", null ],
+    [ "visibleLightProbes", "class_lighting_1_1_light_server_base.html#a822b786295c070e235578330afc6d458", null ]
+];

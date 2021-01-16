@@ -1,0 +1,25 @@
+var debug_8h =
+[
+    [ "n_assert", "debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042", null ],
+    [ "n_assert2", "debug_8h.html#a2e45ccc969dc521c78c8bf7733aedcaa", null ],
+    [ "n_assert_fmt", "debug_8h.html#a4718e551050d6ae890018bcfc2fe6aaf", null ],
+    [ "n_crash", "debug_8h.html#a85120895df29b333216418d9a258b476", null ],
+    [ "n_message", "debug_8h.html#ade416bb3a573df6088951433c738bb83", null ],
+    [ "n_static_assert", "debug_8h.html#a55052fa5373831ff2e001b9a0bf97b9f", null ],
+    [ "n_warn", "debug_8h.html#a8f2561213bd73c61dc29f938b1eddcb6", null ],
+    [ "n_warn2", "debug_8h.html#ae31a71419d6741ccbf3311246c3a6db0", null ],
+    [ "n_warn_fmt", "debug_8h.html#aefd229c50d6344b032d0d61907224070", null ],
+    [ "n_barf", "debug_8h.html#aac70bd3e72e0d0ab3d8bae43935c2e38", null ],
+    [ "n_barf2", "debug_8h.html#ac54e6542a9cd982038d3dde3c87204a4", null ],
+    [ "n_barf_fmt", "debug_8h.html#af663a2658b4e47fb9a5777a7337cf100", null ],
+    [ "n_break", "debug_8h.html#adf05d36738de0f439ed12c5127a197dd", null ],
+    [ "n_confirm", "debug_8h.html#a0eae04d0c410c083cc161d5df1f547f7", null ],
+    [ "n_cough", "debug_8h.html#a1fe0f2d584e94d301bb05770db9ec822", null ],
+    [ "n_cough2", "debug_8h.html#aa22f13b2ed31989b1277064b8f2bf671", null ],
+    [ "n_cough_fmt", "debug_8h.html#abd1b84773a43abf8ab0033b72747f711", null ],
+    [ "n_dbgout", "debug_8h.html#a8ae2468af00e7e151bee4cc09f7b418f", null ],
+    [ "n_error", "debug_8h.html#abe694ba92d39c7e7450ceed6f6484fd8", null ],
+    [ "n_printf", "debug_8h.html#a68cbfb7bd2ffad6a6721573e1bc03bfd", null ],
+    [ "n_sleep", "debug_8h.html#a910175d106765e02ff3421bb3391a69a", null ],
+    [ "n_warning", "debug_8h.html#aeda0f0558df67142de1b80059f3a88cb", null ]
+];

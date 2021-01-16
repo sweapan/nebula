@@ -1,0 +1,48 @@
+var api_8h =
+[
+    [ "EntityMapping", "struct_game_1_1_entity_mapping.html", "struct_game_1_1_entity_mapping" ],
+    [ "Dataset", "struct_game_1_1_dataset.html", "struct_game_1_1_dataset" ],
+    [ "CategoryTableView", "struct_game_1_1_dataset_1_1_category_table_view.html", "struct_game_1_1_dataset_1_1_category_table_view" ],
+    [ "EntityCreateInfo", "struct_game_1_1_entity_create_info.html", "struct_game_1_1_entity_create_info" ],
+    [ "FilterCreateInfo", "struct_game_1_1_filter_create_info.html", "struct_game_1_1_filter_create_info" ],
+    [ "PropertyCreateInfo", "struct_game_1_1_property_create_info.html", "struct_game_1_1_property_create_info" ],
+    [ "ProcessorCreateInfo", "struct_game_1_1_processor_create_info.html", "struct_game_1_1_processor_create_info" ],
+    [ "RegisterProperty", "struct_game_1_1_op_1_1_register_property.html", "struct_game_1_1_op_1_1_register_property" ],
+    [ "DeregisterProperty", "struct_game_1_1_op_1_1_deregister_property.html", "struct_game_1_1_op_1_1_deregister_property" ],
+    [ "Filter", "api_8h.html#a1662e5ccb92417291ab5653883de7145", null ],
+    [ "OpBuffer", "api_8h.html#a3210076ff42bb92806741300ba14b265", null ],
+    [ "ProcessorFrameCallback", "api_8h.html#aefc68b296ae93d8ab498754f0de8468f", null ],
+    [ "ProcessorHandle", "api_8h.html#a74b0ad357b08d17f221b65b804193303", null ],
+    [ "AccessMode", "api_8h.html#a65d276183efa9f25a5dc430be10c207e", [
+      [ "READ", "api_8h.html#a65d276183efa9f25a5dc430be10c207ea6704fb1b598004ab7d168850fce107e1", null ],
+      [ "WRITE", "api_8h.html#a65d276183efa9f25a5dc430be10c207ea5bbb790a6f63af9f5f2d0e2a45984826", null ]
+    ] ],
+    [ "PropertyFlags", "api_8h.html#abf20a860953ef4305fa8a8cfa5faa3df", [
+      [ "PROPERTYFLAG_NONE", "api_8h.html#abf20a860953ef4305fa8a8cfa5faa3dfaa1b6ddf4460edce4ffd8da87ea38adf8", null ],
+      [ "PROPERTYFLAG_MANAGED", "api_8h.html#abf20a860953ef4305fa8a8cfa5faa3dfada21bd20ef273d1e375a623c03eaa482", null ]
+    ] ],
+    [ "AddOp", "api_8h.html#a647ec1069cfb3dd06b64fb2110d6447b", null ],
+    [ "AddOp", "api_8h.html#afbcecd0fe9398a2df42c1a25c140af00", null ],
+    [ "CreateFilter", "api_8h.html#a7c8329d15ec0b4722d67a768e27c1eb3", null ],
+    [ "CreateOpBuffer", "api_8h.html#ac3c61ad73f5a4382961bbad73c961182", null ],
+    [ "CreateProcessor", "api_8h.html#aa528c32078e33be9e4ffc55b09db6ba0", null ],
+    [ "CreateProperty", "api_8h.html#a707bbc5560935318f9169a72b88554ab", null ],
+    [ "DestroyFilter", "api_8h.html#ac95174757039aa417008ae3178a10be2", null ],
+    [ "Dispatch", "api_8h.html#a2b227a6da60a673d4c9be7762fafe730", null ],
+    [ "Execute", "api_8h.html#affb1a4aed8b1d583af989854ccbe7c34", null ],
+    [ "Execute", "api_8h.html#aafba9fda0870ad108c36f05af3a87f30", null ],
+    [ "GetBlueprintId", "api_8h.html#a6cbd796cb12f20c8b6bf6ad884b2b5c5", null ],
+    [ "GetEntityMapping", "api_8h.html#a27656295bd9a5afb4f479e546be221b9", null ],
+    [ "GetInstanceId", "api_8h.html#a97cbccee27feaa3184334d6f87d1c527", null ],
+    [ "GetNumEntities", "api_8h.html#a9cc56052d8a1720e8e10171f424da464", null ],
+    [ "GetNumInstances", "api_8h.html#adf922b452c99568c3a8666ffadc63714", null ],
+    [ "GetPropertyId", "api_8h.html#a0d564ec900b4c13289760ae37846cfb1", null ],
+    [ "GetTemplateId", "api_8h.html#ac40d0603244073898c48179e980cf72a", null ],
+    [ "HasProperty", "api_8h.html#a7853a8f0b5195ac97664e3d28527944e", null ],
+    [ "IsActive", "api_8h.html#aa377646c2f332c455402234639df830c", null ],
+    [ "IsValid", "api_8h.html#a7b437d7741af28ad333c13b367ff8ff6", null ],
+    [ "Query", "api_8h.html#a0f061e122abfb2b563a9f2cfc4d4373a", null ],
+    [ "ReleaseAllOps", "api_8h.html#ab5f29db9767cc5376d6a5a3c27fb277a", null ],
+    [ "ReleaseDatasets", "api_8h.html#afca219253f3d0b2360830d0f4c487625", null ],
+    [ "MAX_NUM_CATEGORIES", "api_8h.html#a22a044ba95689ee39c23bfd5aa643dbb", null ]
+];

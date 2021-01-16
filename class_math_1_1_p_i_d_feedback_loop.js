@@ -1,0 +1,28 @@
+var class_math_1_1_p_i_d_feedback_loop =
+[
+    [ "PIDFeedbackLoop", "class_math_1_1_p_i_d_feedback_loop.html#ad79488743cd46cea705e8c5aba6c3b94", null ],
+    [ "GetGoal", "class_math_1_1_p_i_d_feedback_loop.html#a8bcb1615c6207de98974ab17ebb938d0", null ],
+    [ "GetLastDelta", "class_math_1_1_p_i_d_feedback_loop.html#aa66da8bd1479546b539482cbc31a2511", null ],
+    [ "GetLastError", "class_math_1_1_p_i_d_feedback_loop.html#a5c8b5246544feb20fb3ea5eca569176c", null ],
+    [ "GetState", "class_math_1_1_p_i_d_feedback_loop.html#a530e133df1c90471fee1577ce1b137cf", null ],
+    [ "ResetError", "class_math_1_1_p_i_d_feedback_loop.html#a498ac747edd5322fe42a996bcf5d2ec5", null ],
+    [ "SetConstants", "class_math_1_1_p_i_d_feedback_loop.html#a643b57f70fed24b59ef1588016849fbb", null ],
+    [ "SetGoal", "class_math_1_1_p_i_d_feedback_loop.html#a9f7794cfcd5a83db63c36dca856961be", null ],
+    [ "SetIsAngularValue", "class_math_1_1_p_i_d_feedback_loop.html#a2962b5633342af4806360a9efc2965ab", null ],
+    [ "SetState", "class_math_1_1_p_i_d_feedback_loop.html#abfb521de13d1e26b66c2911e36ee89af", null ],
+    [ "Update", "class_math_1_1_p_i_d_feedback_loop.html#adce6dc34d4072c8bdc5c236bbc2e6a71", null ],
+    [ "dConst", "class_math_1_1_p_i_d_feedback_loop.html#a4d6d15c8e431ac4c1d1c7756781dfdc2", null ],
+    [ "goal", "class_math_1_1_p_i_d_feedback_loop.html#a0d8a5319ee249cfcd504d171df8efc0e", null ],
+    [ "iConst", "class_math_1_1_p_i_d_feedback_loop.html#a13b6cdf508f885ebc9d91caaea652e59", null ],
+    [ "isAngularValue", "class_math_1_1_p_i_d_feedback_loop.html#a8015af5d1258b30a872a736b6a27f60e", null ],
+    [ "lastDelta", "class_math_1_1_p_i_d_feedback_loop.html#a1640fb546e8034c1794f668cb1e1fa52", null ],
+    [ "lastDeltaTime", "class_math_1_1_p_i_d_feedback_loop.html#aaa06b35894682c37b15e1a5f4adddff6", null ],
+    [ "lastError", "class_math_1_1_p_i_d_feedback_loop.html#ae1c57d9e1701c6c776e7df137caae0b8", null ],
+    [ "lastTime", "class_math_1_1_p_i_d_feedback_loop.html#a5959231888bad8b5da27095085334c02", null ],
+    [ "maxAcceleration", "class_math_1_1_p_i_d_feedback_loop.html#a964113ddeee6faea38bbe88735f2ae34", null ],
+    [ "maxAllowableDeltaTime", "class_math_1_1_p_i_d_feedback_loop.html#a35e494698b142bae6cd06f052129c704", null ],
+    [ "pConst", "class_math_1_1_p_i_d_feedback_loop.html#a96fe43ff62f3da880124223fe8b217a4", null ],
+    [ "runningError", "class_math_1_1_p_i_d_feedback_loop.html#a65592bd5497f1c6c9f90e194e588b191", null ],
+    [ "validError", "class_math_1_1_p_i_d_feedback_loop.html#a2e63247344a50ba6d64ddd0f8dbe1814", null ],
+    [ "value", "class_math_1_1_p_i_d_feedback_loop.html#a37454483f1cb24136d0bf0331b7eb695", null ]
+];

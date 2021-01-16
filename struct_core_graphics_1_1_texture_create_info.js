@@ -1,0 +1,27 @@
+var struct_core_graphics_1_1_texture_create_info =
+[
+    [ "TextureCreateInfo", "struct_core_graphics_1_1_texture_create_info.html#a863c66f632998f3cfb8722e131fec377", null ],
+    [ "alias", "struct_core_graphics_1_1_texture_create_info.html#af7cc923b3f4c3ca767d64f2386d016e6", null ],
+    [ "bindless", "struct_core_graphics_1_1_texture_create_info.html#a78e58b07c181b16d2462f6ac420f129b", null ],
+    [ "buffer", "struct_core_graphics_1_1_texture_create_info.html#a4c9bac3899644711857690f29634b7bc", null ],
+    [ "clear", "struct_core_graphics_1_1_texture_create_info.html#a785951e9a8f347185dce0448b752ec2f", null ],
+    [ "clearColorF4", "struct_core_graphics_1_1_texture_create_info.html#a65e2dd7f8cb911777b2d8640ed35f1bd", null ],
+    [ "clearColorI4", "struct_core_graphics_1_1_texture_create_info.html#ac31952351b8341ffbe3b47f3e5008259", null ],
+    [ "clearColorU4", "struct_core_graphics_1_1_texture_create_info.html#a25e110b871031594cdd47e8ae37bc88b", null ],
+    [ "clearDepthStencil", "struct_core_graphics_1_1_texture_create_info.html#a642ebf73a61fac5094e938b618674795", null ],
+    [ "defaultLayout", "struct_core_graphics_1_1_texture_create_info.html#a8cfdb013e2d92f59b3ce72849b99cd25", null ],
+    [ "depth", "struct_core_graphics_1_1_texture_create_info.html#aca0ef718f7cfa8ceb2ed1e24cdd064ea", null ],
+    [ "format", "struct_core_graphics_1_1_texture_create_info.html#aac86f4df42cb0f9156a7e09bc4ec19e7", null ],
+    [ "height", "struct_core_graphics_1_1_texture_create_info.html#aeb9972ff2e181f5e4424bac285ed97bb", null ],
+    [ "layers", "struct_core_graphics_1_1_texture_create_info.html#a08fd40ebc53a962886efae7d1833ac34", null ],
+    [ "mips", "struct_core_graphics_1_1_texture_create_info.html#a51d7a3eeb2969f3ce0ecc5967d0296c5", null ],
+    [ "name", "struct_core_graphics_1_1_texture_create_info.html#ab9b94c66ec1ab9caafaeb279df28dd41", null ],
+    [ "samples", "struct_core_graphics_1_1_texture_create_info.html#a809640931b4ffc72df7a2954eb929b08", null ],
+    [ "sparse", "struct_core_graphics_1_1_texture_create_info.html#a5873a66bbc9b7ddb4621601fe5fe2a62", null ],
+    [ "tag", "struct_core_graphics_1_1_texture_create_info.html#a08b6d3528f6637e38cb521e58cd9c95d", null ],
+    [ "type", "struct_core_graphics_1_1_texture_create_info.html#a81f74559070f31f1477211c50f98a574", null ],
+    [ "usage", "struct_core_graphics_1_1_texture_create_info.html#a8cc4419808550f578095f4c39ecc176d", null ],
+    [ "width", "struct_core_graphics_1_1_texture_create_info.html#a07bb9bc8c609ce52e01bb7152e723c9a", null ],
+    [ "windowRelative", "struct_core_graphics_1_1_texture_create_info.html#a4bb880ba8263e14603f1314b0f97f995", null ],
+    [ "windowTexture", "struct_core_graphics_1_1_texture_create_info.html#a6a7ebb796b34276c00b5907dea38d729", null ]
+];

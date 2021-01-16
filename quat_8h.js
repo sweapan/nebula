@@ -1,0 +1,25 @@
+var quat_8h =
+[
+    [ "quat", "struct_math_1_1quat.html", "struct_math_1_1quat" ],
+    [ "barycentric", "quat_8h.html#a0db822f437a5f4e68e2a52a804a2faf5", null ],
+    [ "conjugate", "quat_8h.html#a3a66e5522b29475e8ec87bdfadcb93ab", null ],
+    [ "dot", "quat_8h.html#a1448640f34330f096cdda3089c9f3a7e", null ],
+    [ "identity", "quat_8h.html#a413b39910935d2d170d045506b79fe8a", null ],
+    [ "inverse", "quat_8h.html#a4dcd44627d84530288035a0c5c6bc1c9", null ],
+    [ "isidentity", "quat_8h.html#aa8fade730a82a342575de6a23910fc16", null ],
+    [ "length", "quat_8h.html#a4fcd87d43acafba4730bb160d8e17a99", null ],
+    [ "lengthsq", "quat_8h.html#a506c9bb2a5394d3898b7b3715ec103e9", null ],
+    [ "ln", "quat_8h.html#aecd49ae8998c700a0f0467848e65d937", null ],
+    [ "normalize", "quat_8h.html#a78f00aaec33550330dd4289d6d64e992", null ],
+    [ "operator*", "quat_8h.html#a663a2b669bea9f3ef64d28e2d9db4ae3", null ],
+    [ "quatExp", "quat_8h.html#a89b80ccc2b34aed195b390dfc96f40c3", null ],
+    [ "quatUndenormalize", "quat_8h.html#adb24b5f9c60ed4a3efd14e33726d6bad", null ],
+    [ "rotationmatrix", "quat_8h.html#a23276864c9df51a9a293c084e52a01a7", null ],
+    [ "rotationquataxis", "quat_8h.html#aefa31214f9bdbfa197f42f4c294635b4", null ],
+    [ "rotationquatyawpitchroll", "quat_8h.html#a86c019bbdbd00425162a1cbd6b36afa0", null ],
+    [ "slerp", "quat_8h.html#a4888e237383d5fa2f0c694ab75a8627f", null ],
+    [ "squad", "quat_8h.html#ac791b8654d951549b4b6b1224db23088", null ],
+    [ "squadsetup", "quat_8h.html#abc986d88c96e4e70751f86d7f1ecefb1", null ],
+    [ "to_axisangle", "quat_8h.html#a9a28e1644ab3b9db67daea0e48222913", null ],
+    [ "to_euler", "quat_8h.html#a6394052c4cb595eb81adb41e080bc537", null ]
+];

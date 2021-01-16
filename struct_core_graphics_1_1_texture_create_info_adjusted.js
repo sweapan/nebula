@@ -1,0 +1,28 @@
+var struct_core_graphics_1_1_texture_create_info_adjusted =
+[
+    [ "alias", "struct_core_graphics_1_1_texture_create_info_adjusted.html#abd93205b85e8f774cecc865e96d58286", null ],
+    [ "bindless", "struct_core_graphics_1_1_texture_create_info_adjusted.html#ace99b3fac69d1df8dc399a783761cade", null ],
+    [ "buffer", "struct_core_graphics_1_1_texture_create_info_adjusted.html#afaf4a6a5c4680b9ee1a14df40c19a20a", null ],
+    [ "clear", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a151318dcf681e5709aeda6fd2ddaa0fa", null ],
+    [ "clearColor", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a7acc3bad0ec102edd9db265468774b84", null ],
+    [ "clearDepthStencil", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a8c5fe23995f93bf86836addc8ce9d03e", null ],
+    [ "defaultLayout", "struct_core_graphics_1_1_texture_create_info_adjusted.html#aba0743cfcae63967eef7da9ee2d6df0d", null ],
+    [ "depth", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a3acf488ec8602d0c89172453d6e1bb62", null ],
+    [ "depthScale", "struct_core_graphics_1_1_texture_create_info_adjusted.html#ae82fb51a53b80757856415e386d80f19", null ],
+    [ "format", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a403303094a508cf2293b936b84e0ff25", null ],
+    [ "height", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a06dea615a63bab2363d9d57ef9f4e3e4", null ],
+    [ "heightScale", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a423c3bf64f47a31034bc865044f6fa2b", null ],
+    [ "layers", "struct_core_graphics_1_1_texture_create_info_adjusted.html#abfe4a3233b96ad95e528d65ff291602b", null ],
+    [ "mips", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a5f0f14cd3064c6261969c537a5ae264a", null ],
+    [ "name", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a6d9290e89b45731a1731accb4248119f", null ],
+    [ "samples", "struct_core_graphics_1_1_texture_create_info_adjusted.html#ac1bedd433521cf32e6870067c82a5b40", null ],
+    [ "sparse", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a41e9d3d49c632b7531efb6ebe1628e2b", null ],
+    [ "tag", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a392083b53ef40bd3d83e6ec791512e2a", null ],
+    [ "type", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a21dbd6b052759dd647d9bce8c4aca82d", null ],
+    [ "usage", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a889be66f5dd7ea90b5409a62fdcfd22c", null ],
+    [ "width", "struct_core_graphics_1_1_texture_create_info_adjusted.html#ad044d6bcfa62acd31faaaa3e8ca564a8", null ],
+    [ "widthScale", "struct_core_graphics_1_1_texture_create_info_adjusted.html#ac30f016de8a9ab6e2c6679ebed4c4d77", null ],
+    [ "window", "struct_core_graphics_1_1_texture_create_info_adjusted.html#aa2bebdfbd3687d639da63086c99cf847", null ],
+    [ "windowRelative", "struct_core_graphics_1_1_texture_create_info_adjusted.html#aa68768d1ee9e0ab5b8588c85c65cb9e6", null ],
+    [ "windowTexture", "struct_core_graphics_1_1_texture_create_info_adjusted.html#a335dd7a924a893c645241efd369dc1ff", null ]
+];

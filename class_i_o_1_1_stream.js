@@ -1,0 +1,58 @@
+var class_i_o_1_1_stream =
+[
+    [ "Offset", "class_i_o_1_1_stream.html#afae972c99743017844bca86c4bd85f18", null ],
+    [ "Position", "class_i_o_1_1_stream.html#a5f0ed31e47ffa399d3b98c8a50c294ac", null ],
+    [ "Size", "class_i_o_1_1_stream.html#a769f9b8e1ddb980e3b79b1f3502c7545", null ],
+    [ "AccessMode", "class_i_o_1_1_stream.html#abb8e00d30e5ca5b456466fdeb563e67e", [
+      [ "ReadAccess", "class_i_o_1_1_stream.html#abb8e00d30e5ca5b456466fdeb563e67ea7470fc81234309709e4d7b3e3fcc8359", null ],
+      [ "WriteAccess", "class_i_o_1_1_stream.html#abb8e00d30e5ca5b456466fdeb563e67ea425babb72c2efac8f5d6219c7b85335f", null ],
+      [ "AppendAccess", "class_i_o_1_1_stream.html#abb8e00d30e5ca5b456466fdeb563e67eaec696b4d8f69349ec0d4a3a2dd27fdfd", null ],
+      [ "ReadWriteAccess", "class_i_o_1_1_stream.html#abb8e00d30e5ca5b456466fdeb563e67ea773f84e62be00765fdca8ce08b68a822", null ]
+    ] ],
+    [ "AccessPattern", "class_i_o_1_1_stream.html#afb0d1bb71f98fc1811aefb25b6e09606", [
+      [ "Random", "class_i_o_1_1_stream.html#afb0d1bb71f98fc1811aefb25b6e09606a8bacf2a81794ef0dffb5063fe35f2dea", null ],
+      [ "Sequential", "class_i_o_1_1_stream.html#afb0d1bb71f98fc1811aefb25b6e09606a265ddee1834d0d7c8ac699abd76070aa", null ]
+    ] ],
+    [ "SeekOrigin", "class_i_o_1_1_stream.html#a0cb62c5f7ee6d4f0a39cbdd14a535f65", [
+      [ "Begin", "class_i_o_1_1_stream.html#a0cb62c5f7ee6d4f0a39cbdd14a535f65aca164a5bea23f3cb0ec4fde713fc75c8", null ],
+      [ "Current", "class_i_o_1_1_stream.html#a0cb62c5f7ee6d4f0a39cbdd14a535f65a2727e64264def42b636be9f97ea9c8d8", null ],
+      [ "End", "class_i_o_1_1_stream.html#a0cb62c5f7ee6d4f0a39cbdd14a535f65a69a3303a954dfca811b5ad3280b84a87", null ]
+    ] ],
+    [ "Stream", "class_i_o_1_1_stream.html#a5ce33628255ff12fd032c3fc2613f72c", null ],
+    [ "~Stream", "class_i_o_1_1_stream.html#affacc52dfc5bbe8a776e713108884e5e", null ],
+    [ "__DeclareClass", "class_i_o_1_1_stream.html#a449b1413fc84be54c248328ac654ee28", null ],
+    [ "CanBeMapped", "class_i_o_1_1_stream.html#abba3b47db03cdf979828baf20d0daeb9", null ],
+    [ "CanRead", "class_i_o_1_1_stream.html#a98378181bdd7126bc4190a8dcbb6b8af", null ],
+    [ "CanSeek", "class_i_o_1_1_stream.html#a3633ec333630a8d3599d22b9f88cfd6b", null ],
+    [ "CanWrite", "class_i_o_1_1_stream.html#a725045c4a8dc45c948b2fd832715e10b", null ],
+    [ "Close", "class_i_o_1_1_stream.html#af6e5312095bf0c11a4bc7a15a31fcec6", null ],
+    [ "Eof", "class_i_o_1_1_stream.html#accdc557f19dd98cb2036b788de582ddd", null ],
+    [ "Flush", "class_i_o_1_1_stream.html#a2c7531393a8f6225831af93e922e87fb", null ],
+    [ "GetAccessMode", "class_i_o_1_1_stream.html#a41a9de5975e318c3825d9016b868a66b", null ],
+    [ "GetAccessPattern", "class_i_o_1_1_stream.html#a713586e1d384e85e5659f9801f18569f", null ],
+    [ "GetMediaType", "class_i_o_1_1_stream.html#a2b293e694a5b5b2127fd82e922a8223a", null ],
+    [ "GetPosition", "class_i_o_1_1_stream.html#a1eff178deee6495f9ce253356750afc6", null ],
+    [ "GetSize", "class_i_o_1_1_stream.html#add3def72a82f0a28d861fca17f39bff1", null ],
+    [ "GetURI", "class_i_o_1_1_stream.html#ad36a0c934bed29d29fc7e5f10ed3ebf2", null ],
+    [ "IsMapped", "class_i_o_1_1_stream.html#a952a7649fcc803158ff7c64d76ba65c5", null ],
+    [ "IsOpen", "class_i_o_1_1_stream.html#a4b7c3bba2e45978ce0cfe592d00c0600", null ],
+    [ "Map", "class_i_o_1_1_stream.html#a2a1e1530032e4330e866bc0b15d9044f", null ],
+    [ "MemoryMap", "class_i_o_1_1_stream.html#a289acb91813356feadf52ca28725a994", null ],
+    [ "MemoryUnmap", "class_i_o_1_1_stream.html#a642bf2ef33c5d30dbfcfbd5bab2929ff", null ],
+    [ "Open", "class_i_o_1_1_stream.html#a8d73d7e10d8c7ecc9a42319aef0263ed", null ],
+    [ "Read", "class_i_o_1_1_stream.html#ab2792e4106da3f95f97a867c8760bd43", null ],
+    [ "Seek", "class_i_o_1_1_stream.html#a84a7a310fd698c5f40d00cfcd7c1f589", null ],
+    [ "SetAccessMode", "class_i_o_1_1_stream.html#a487c0f6d5577eb8c623f523796cb45d5", null ],
+    [ "SetAccessPattern", "class_i_o_1_1_stream.html#a6547cb3dbc285fdcc051594ebf614e92", null ],
+    [ "SetMediaType", "class_i_o_1_1_stream.html#a2701a695c7e0e78aa17ffe3ee8d8e5e3", null ],
+    [ "SetSize", "class_i_o_1_1_stream.html#a49f234c904da580db089e3cd1c9e1853", null ],
+    [ "SetURI", "class_i_o_1_1_stream.html#abb5c62f5e15cd729367789c61098a031", null ],
+    [ "Unmap", "class_i_o_1_1_stream.html#a4c5e872f086a586fe665a78fbdee3f0b", null ],
+    [ "Write", "class_i_o_1_1_stream.html#af9e66f2a17c6973e4be7f3f4830b810a", null ],
+    [ "accessMode", "class_i_o_1_1_stream.html#a9de7268497f11bcd1944224151f30e89", null ],
+    [ "accessPattern", "class_i_o_1_1_stream.html#a3cce55cad4cfd24c0f1a0ab85f4e6087", null ],
+    [ "isMapped", "class_i_o_1_1_stream.html#a3ca8c85ae739b18328100942d0419447", null ],
+    [ "isOpen", "class_i_o_1_1_stream.html#a530edc6cbf03c856c09410873e6e9d4d", null ],
+    [ "mediaType", "class_i_o_1_1_stream.html#a97ad06ae772df51e32dc77d663403e20", null ],
+    [ "uri", "class_i_o_1_1_stream.html#aa233f0ecc64354aed84bebd2efd5519e", null ]
+];

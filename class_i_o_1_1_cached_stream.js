@@ -1,0 +1,25 @@
+var class_i_o_1_1_cached_stream =
+[
+    [ "CachedStream", "class_i_o_1_1_cached_stream.html#aa8485fbab42570bfef7e51f23332817b", null ],
+    [ "~CachedStream", "class_i_o_1_1_cached_stream.html#ac72917a8e69a101d568f79c70a245e53", null ],
+    [ "CanBeMapped", "class_i_o_1_1_cached_stream.html#a936f04182930bdd4c008e46b57a2e0c8", null ],
+    [ "CanRead", "class_i_o_1_1_cached_stream.html#a7bcd9d423efc1450592b068893aaced5", null ],
+    [ "CanSeek", "class_i_o_1_1_cached_stream.html#a2a6dd761f555160a13804be1cb058989", null ],
+    [ "Close", "class_i_o_1_1_cached_stream.html#a5c4b29990739260bd7fa8ee8285ea1b7", null ],
+    [ "Eof", "class_i_o_1_1_cached_stream.html#a6bfed73ca91234df7f11e0f46338dd74", null ],
+    [ "GetParentRtti", "class_i_o_1_1_cached_stream.html#a84e1528a86f7ca88136f22c6d63a2f40", null ],
+    [ "GetPosition", "class_i_o_1_1_cached_stream.html#ae1bb3493c6d1e01a73f79bee24a0e858", null ],
+    [ "GetRawPointer", "class_i_o_1_1_cached_stream.html#a7bcd70eec9b9fc40af6c5abd492e116b", null ],
+    [ "GetSize", "class_i_o_1_1_cached_stream.html#a73c5f134a18838a0405d0d500bbab142", null ],
+    [ "Map", "class_i_o_1_1_cached_stream.html#a0617b3e5b6f0906d18f60fa923ee0c35", null ],
+    [ "MemoryMap", "class_i_o_1_1_cached_stream.html#a3f22791c03c049e23023eba8d6825d20", null ],
+    [ "Open", "class_i_o_1_1_cached_stream.html#ad9790ced50b4ffcccb237f044fa4806d", null ],
+    [ "Read", "class_i_o_1_1_cached_stream.html#a57987ce8a0c90f727640871646a7c26f", null ],
+    [ "Seek", "class_i_o_1_1_cached_stream.html#a630e53583e69b336b1a51885dad160d7", null ],
+    [ "Unmap", "class_i_o_1_1_cached_stream.html#a5630fd7bfe1d15c032f98f3c7035e3be", null ],
+    [ "IO::StreamCache", "class_i_o_1_1_cached_stream.html#adbe2ecd4f997d5900ae84376d669914d", null ],
+    [ "buffer", "class_i_o_1_1_cached_stream.html#ad264a2b634a80cb2bb5463d00c5a6e91", null ],
+    [ "parentStream", "class_i_o_1_1_cached_stream.html#a23c7a5857acce31c5e68ed76764d4cce", null ],
+    [ "position", "class_i_o_1_1_cached_stream.html#aeeee62b3cfb4479e8f2aed5bf0ff800d", null ],
+    [ "size", "class_i_o_1_1_cached_stream.html#a27a67096cfdd97394d26e8d1048cc715", null ]
+];
