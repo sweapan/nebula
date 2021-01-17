@@ -103,20 +103,21 @@ $(document).ready(function(){initNavTree('namespace_resources.html',''); initRes
 <p>A resource is a container for some type of file which is loaded.</p>
 <p>A submission context encapsulates a body of GPU submission related objects, such as command buffers and synchronization semaphores. It may also be used internally to keep track of, and release resources such as buffers, images and memory once the cycle submission is done.</p>
 <p>The SubmissionContext contains two methods, one for creating a new command buffer - semaphore pair, and one for cycling to the next 'frame' or however you want to see it. Cycling may incur a synchronization, and should only be done after the context has been submitted.</p>
-<p>(C) 2019-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2019-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p><a class="el" href="namespace_resources.html" title="@type CoreGraphics::SubmissionContext">Resources</a> can be loaded asynchronously, and through the ResourceContainer class, a resource can be used before it is loaded.</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>The first 32 bits of the resource id is used internally for the pool to relate the shared resource with the pool, since a pool can share allocator with another pool. The 24 following bytes is the actual resource handle, which can be used with the many different pools to fetch the data underlying that resource. The last 8 bits is the type of the loader, which makes it fast to lookup and delete said resource instance.</p>
 <p>24 bytes ------------&mdash;8 bytes ------------&mdash; 24 bytes -----------&mdash; 8 bytes Pool storage id Pool id Allocator id Allocator resource type</p>
 <p>The pool storage id is the resource level index, the pool id is the global id of the resource pool, allocator id is instance level id, and the allocator resource type is just a flag we can use to check the type of the id, in case we are confused.</p>
 <p>Example: If we allocate a texture and want to use TextureId, then we take the 24 bytes part (id.id24) and use it to construct a Texture id, but we still need the ResourceId if we want to deallocate that texture at some later point. To convert to such an id, use the SpecializedId.</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>This means, the <a class="el" href="class_resources_1_1_resource_memory_pool.html">ResourceMemoryPool</a> is immediate, and requires a previously created resource, using <a class="el" href="namespace_resources.html#a7eccf33f3cc168b58b4e30675edb022c" title="Reserve a resource for direct updating through a memory pool.">Resources::ReserveResource</a>, followed by the attachment of a loader, and then perform a load. Therefore, it requires no <a class="el" href="class_resources_1_1_resource_server.html">ResourceServer</a> <a class="el" href="namespace_physics.html#ad5748751ba9e48a61c03652dffa14298" title="perform simulation step(s)">Update()</a> to trigger.</p>
 <p>This type of loader exists to provide code-local data, like a const float* mesh, or texture, or for example font data loaded as a const char* from some foreign library.</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd>
+<dd>
+(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>It contains a set of convenience functions (which is just a proxy for the Singleton), and should be updated at least once per frame using <a class="el" href="namespace_physics.html#ad5748751ba9e48a61c03652dffa14298" title="perform simulation step(s)">Update()</a>.</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>Contains the names for the placeholder and failed-to-load resource names. When inheriting from this class, make sure to provide proper resource ids for:</p><ol type="1">
 <li>Placeholder resource</li>
 <li>Error resource</li>
@@ -126,7 +127,7 @@ $(document).ready(function(){initNavTree('namespace_resources.html',''); initRes
 <p>The pool associates a resource name (StringAtom) with an id, such that it can be quickly retrieved.</p>
 <p>When creating an instance of a resource, an ID is returned, this ID contains the following: 32 bits (resource instance id), 24 bits (resource id) and 8 bits (loader id). The instance id is a recyclable number which uniquely identifies a single allocation. The next 24 bits is the internal ID for the resource, which is only loaded once. The last 8 bits identifies which loader created the resource.</p>
 <p><a class="el" href="namespace_resources.html" title="@type CoreGraphics::SubmissionContext">Resources</a> created with tags must also be removed using the tag. A tagged resource can only be discarded by using that tag. If a resource is loaded with a tag, it will remain bound to that tag, no matter what consecutive loads say.</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -860,7 +861,7 @@ template&lt;class POOL_TYPE &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_resources.html">Resources</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:53 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

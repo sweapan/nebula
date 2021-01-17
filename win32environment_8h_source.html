@@ -88,24 +88,24 @@ $(document).ready(function(){initNavTree('win32environment_8h_source.html',''); 
 <div class="contents">
 <a href="win32environment_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">core/types.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8h.html">util/string.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_win32.html">Win32</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_win32_1_1_win32_environment.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_win32_1_1_win32_environment.html">Win32Environment</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_win32_1_1_win32_environment.html#ae3945c4e2a29cb7889358adba86a2507">Exists</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a>&amp; envVarName);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> <a class="code" href="class_win32_1_1_win32_environment.html#a23e98b9c333ebc5f1bf79e0d6bba88d7">Read</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a>&amp; envVarName);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">// namespace Win32</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:47</div></div>
-<div class="ttc" id="aclass_win32_1_1_win32_environment_html"><div class="ttname"><a href="class_win32_1_1_win32_environment.html">Win32::Win32Environment</a></div><div class="ttdoc">Provides read-access to environment variables.</div><div class="ttdef"><b>Definition:</b> win32environment.h:19</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">core/types.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8h.html">util/string.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_win32.html">Win32</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_win32_1_1_win32_environment.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_win32_1_1_win32_environment.html">Win32Environment</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_win32_1_1_win32_environment.html#ae3945c4e2a29cb7889358adba86a2507">Exists</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a>&amp; envVarName);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> <a class="code" href="class_win32_1_1_win32_environment.html#a23e98b9c333ebc5f1bf79e0d6bba88d7">Read</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a>&amp; envVarName);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <span class="comment">// namespace Win32</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
+<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:48</div></div>
+<div class="ttc" id="aclass_win32_1_1_win32_environment_html"><div class="ttname"><a href="class_win32_1_1_win32_environment.html">Win32::Win32Environment</a></div><div class="ttdoc">Provides read-access to environment variables.</div><div class="ttdef"><b>Definition:</b> win32environment.h:20</div></div>
 <div class="ttc" id="aclass_win32_1_1_win32_environment_html_a23e98b9c333ebc5f1bf79e0d6bba88d7"><div class="ttname"><a href="class_win32_1_1_win32_environment.html#a23e98b9c333ebc5f1bf79e0d6bba88d7">Win32::Win32Environment::Read</a></div><div class="ttdeci">static Util::String Read(const Util::String &amp;envVarName)</div><div class="ttdoc">get value of existing env-variable</div><div class="ttdef"><b>Definition:</b> win32environment.cc:32</div></div>
 <div class="ttc" id="aclass_win32_1_1_win32_environment_html_ae3945c4e2a29cb7889358adba86a2507"><div class="ttname"><a href="class_win32_1_1_win32_environment.html#ae3945c4e2a29cb7889358adba86a2507">Win32::Win32Environment::Exists</a></div><div class="ttdeci">static bool Exists(const Util::String &amp;envVarName)</div><div class="ttdoc">return true if env-variable exists</div><div class="ttdef"><b>Definition:</b> win32environment.cc:17</div></div>
 <div class="ttc" id="anamespace_win32_html"><div class="ttname"><a href="namespace_win32.html">Win32</a></div><div class="ttdoc">[TODO: Describe Win32 subsystem]</div></div>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('win32environment_8h_source.html',''); 
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_2f5206ca5ea509a602ff2b74633c1b63.html">system</a></li><li class="navelem"><a class="el" href="dir_d7f977d2158f551a1b7c0bb7343b8e06.html">win32</a></li><li class="navelem"><a class="el" href="win32environment_8h.html">win32environment.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:12 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:42 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

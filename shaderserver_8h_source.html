@@ -88,28 +88,28 @@ $(document).ready(function(){initNavTree('shaderserver_8h_source.html',''); init
 <div class="contents">
 <a href="shaderserver_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#if __VULKAN__</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vkshaderserver_8h.html">coregraphics/vk/vkshaderserver.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core_graphics.html">CoreGraphics</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a> : <span class="keyword">public</span> <a class="code" href="class_vulkan_1_1_vk_shader_server.html">Vulkan::VkShaderServer</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a>(<a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="osxsingleton_8h.html#a90622683d9e8c91682ba26b2fae8125f">__DeclareSingleton</a>(<a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#error &quot;ShaderServer class not implemented on this platform!&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span><span class="preprocessor">#if __VULKAN__</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vkshaderserver_8h.html">coregraphics/vk/vkshaderserver.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core_graphics.html">CoreGraphics</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a> : <span class="keyword">public</span> <a class="code" href="class_vulkan_1_1_vk_shader_server.html">Vulkan::VkShaderServer</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a>(<a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="osxsingleton_8h.html#a90622683d9e8c91682ba26b2fae8125f">__DeclareSingleton</a>(<a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_core_graphics_1_1_shader_server.html">ShaderServer</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#error &quot;ShaderServer class not implemented on this platform!&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="ttc" id="aclass_core_graphics_1_1_shader_server_html"><div class="ttname"><a href="class_core_graphics_1_1_shader_server.html">ShaderServer</a></div><div class="ttdoc">The ShaderServer object loads the available shaders and can instantiate shaders for usage.</div></div>
-<div class="ttc" id="aclass_vulkan_1_1_vk_shader_server_html"><div class="ttname"><a href="class_vulkan_1_1_vk_shader_server.html">Vulkan::VkShaderServer</a></div><div class="ttdef"><b>Definition:</b> vkshaderserver.h:46</div></div>
+<div class="ttc" id="aclass_vulkan_1_1_vk_shader_server_html"><div class="ttname"><a href="class_vulkan_1_1_vk_shader_server.html">Vulkan::VkShaderServer</a></div><div class="ttdef"><b>Definition:</b> vkshaderserver.h:47</div></div>
 <div class="ttc" id="anamespace_core_graphics_html"><div class="ttname"><a href="namespace_core_graphics.html">CoreGraphics</a></div><div class="ttdoc">A barrier is a memory barrier between two GPU operations, and thus allows for a guarantee of concurre...</div><div class="ttdef"><b>Definition:</b> adapter.cc:10</div></div>
 <div class="ttc" id="aosxsingleton_8h_html_a90622683d9e8c91682ba26b2fae8125f"><div class="ttname"><a href="osxsingleton_8h.html#a90622683d9e8c91682ba26b2fae8125f">__DeclareSingleton</a></div><div class="ttdeci">#define __DeclareSingleton(type)</div><div class="ttdef"><b>Definition:</b> osxsingleton.h:24</div></div>
-<div class="ttc" id="arttimacros_8h_html_ac4164ef10ce5c2eac425c3866991b464"><div class="ttname"><a href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a></div><div class="ttdeci">#define __DeclareClass(type)</div><div class="ttdoc">Declaration macro.</div><div class="ttdef"><b>Definition:</b> rttimacros.h:17</div></div>
+<div class="ttc" id="arttimacros_8h_html_ac4164ef10ce5c2eac425c3866991b464"><div class="ttname"><a href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a></div><div class="ttdeci">#define __DeclareClass(type)</div><div class="ttdoc">Declaration macro.</div><div class="ttdef"><b>Definition:</b> rttimacros.h:18</div></div>
 <div class="ttc" id="avkshaderserver_8h_html"><div class="ttname"><a href="vkshaderserver_8h.html">vkshaderserver.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('shaderserver_8h_source.html',''); init
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_933e88acd4f6f83648c4ee8940d06fa2.html">render</a></li><li class="navelem"><a class="el" href="dir_37551f33e300d96c62573a393f7afa02.html">coregraphics</a></li><li class="navelem"><a class="el" href="shaderserver_8h.html">shaderserver.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:26 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:58:46 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

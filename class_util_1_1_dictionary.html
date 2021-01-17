@@ -104,7 +104,7 @@ class Util::Dictionary&lt; KEYTYPE, VALUETYPE &gt;</h3>
 <p>Internally the dictionary is implemented as a sorted array.</p>
 <p>On insertion performance: Key/value pairs are inserted with the <a class="el" href="class_util_1_1_dictionary.html#a4f3c7f4034f9406496a0005c9c1ee769" title="add a key/value pair">Add()</a> method, which normally calls the <a class="el" href="class_util_1_1_array.html#ab811b272197591ae8a74cfa0560b3c16" title="insert element into sorted array, return index where element was included">Util::Array::InsertSorted()</a> method internally. If many insertions are performed at once, it may be beneficial to call <a class="el" href="class_util_1_1_dictionary.html#a05a6d0af0c52efc8481925b0ba70e50a" title="begin a bulk insert (array will be sorted at End)">BeginBulkAdd()</a> before, and <a class="el" href="class_util_1_1_dictionary.html#ab4d023d41920b80e6399fabf87eb9157" title="end a bulk insert (this will sort the internal array)">EndBulkAdd()</a> after adding the key/value pairs. Between <a class="el" href="class_util_1_1_dictionary.html#a05a6d0af0c52efc8481925b0ba70e50a" title="begin a bulk insert (array will be sorted at End)">BeginBulkAdd()</a> and <a class="el" href="class_util_1_1_dictionary.html#ab4d023d41920b80e6399fabf87eb9157" title="end a bulk insert (this will sort the internal array)">EndBulkAdd()</a>, the <a class="el" href="class_util_1_1_dictionary.html#a4f3c7f4034f9406496a0005c9c1ee769" title="add a key/value pair">Add()</a> method will just append the new elements to the internal array, and only call <a class="el" href="class_util_1_1_array.html#a15d42e760a285a0726a5d1005f010429" title="sort the array">Util::Array::Sort()</a> inside <a class="el" href="class_util_1_1_dictionary.html#ab4d023d41920b80e6399fabf87eb9157" title="end a bulk insert (this will sort the internal array)">EndBulkAdd()</a>.</p>
 <p>Any methods which require the internal array to be sorted will throw an assertion between <a class="el" href="class_util_1_1_dictionary.html#a05a6d0af0c52efc8481925b0ba70e50a" title="begin a bulk insert (array will be sorted at End)">BeginBulkAdd()</a> and <a class="el" href="class_util_1_1_dictionary.html#ab4d023d41920b80e6399fabf87eb9157" title="end a bulk insert (this will sort the internal array)">EndBulkAdd()</a>.</p>
-<p>(C) 2006 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2006 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -1285,7 +1285,7 @@ template&lt;class KEYTYPE , class VALUETYPE &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_util.html">Util</a></li><li class="navelem"><a class="el" href="class_util_1_1_dictionary.html">Dictionary</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:53 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:09 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

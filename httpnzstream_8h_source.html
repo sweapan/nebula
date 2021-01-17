@@ -88,31 +88,31 @@ $(document).ready(function(){initNavTree('httpnzstream_8h_source.html',''); init
 <div class="contents">
 <a href="httpnzstream_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorystream_8h.html">io/memorystream.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="httpclient_8h.html">http/httpclient.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_http.html">Http</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_http_1_1_http_nz_stream.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_http_1_1_http_nz_stream.html">HttpNzStream</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_http_1_1_http_nz_stream.html#a42cda116b38e2018a20d8f75e49c1ea5">   22</a></span>&#160;    <a class="code" href="class_http_1_1_http_nz_stream.html#a42cda116b38e2018a20d8f75e49c1ea5">__DeclareClass</a>(<a class="code" href="class_http_1_1_http_nz_stream.html">HttpNzStream</a>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_http_1_1_http_nz_stream.html#a1f8788b2fbd05f08314093b800d8ca75">HttpNzStream</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_http_1_1_http_nz_stream.html#a328292fee8e8c0209f410a7fbb907cfa">~HttpNzStream</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_http_1_1_http_nz_stream.html#ada26afb43a112719a83ac99b427c6776">Open</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace Http</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="ttc" id="aclass_http_1_1_http_nz_stream_html"><div class="ttname"><a href="class_http_1_1_http_nz_stream.html">Http::HttpNzStream</a></div><div class="ttdoc">A version of HttpStream which reads .nz compressed files as created by the Nebula archiver tool.</div><div class="ttdef"><b>Definition:</b> httpnzstream.h:21</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorystream_8h.html">io/memorystream.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="httpclient_8h.html">http/httpclient.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_http.html">Http</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_http_1_1_http_nz_stream.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_http_1_1_http_nz_stream.html">HttpNzStream</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_http_1_1_http_nz_stream.html#a42cda116b38e2018a20d8f75e49c1ea5">   23</a></span>&#160;    <a class="code" href="class_http_1_1_http_nz_stream.html#a42cda116b38e2018a20d8f75e49c1ea5">__DeclareClass</a>(<a class="code" href="class_http_1_1_http_nz_stream.html">HttpNzStream</a>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_http_1_1_http_nz_stream.html#a1f8788b2fbd05f08314093b800d8ca75">HttpNzStream</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_http_1_1_http_nz_stream.html#a328292fee8e8c0209f410a7fbb907cfa">~HttpNzStream</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_http_1_1_http_nz_stream.html#ada26afb43a112719a83ac99b427c6776">Open</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace Http</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="ttc" id="aclass_http_1_1_http_nz_stream_html"><div class="ttname"><a href="class_http_1_1_http_nz_stream.html">Http::HttpNzStream</a></div><div class="ttdoc">A version of HttpStream which reads .nz compressed files as created by the Nebula archiver tool.</div><div class="ttdef"><b>Definition:</b> httpnzstream.h:22</div></div>
 <div class="ttc" id="aclass_http_1_1_http_nz_stream_html_a1f8788b2fbd05f08314093b800d8ca75"><div class="ttname"><a href="class_http_1_1_http_nz_stream.html#a1f8788b2fbd05f08314093b800d8ca75">Http::HttpNzStream::HttpNzStream</a></div><div class="ttdeci">HttpNzStream()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> httpnzstream.cc:21</div></div>
 <div class="ttc" id="aclass_http_1_1_http_nz_stream_html_a328292fee8e8c0209f410a7fbb907cfa"><div class="ttname"><a href="class_http_1_1_http_nz_stream.html#a328292fee8e8c0209f410a7fbb907cfa">Http::HttpNzStream::~HttpNzStream</a></div><div class="ttdeci">virtual ~HttpNzStream()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> httpnzstream.cc:29</div></div>
 <div class="ttc" id="aclass_http_1_1_http_nz_stream_html_a42cda116b38e2018a20d8f75e49c1ea5"><div class="ttname"><a href="class_http_1_1_http_nz_stream.html#a42cda116b38e2018a20d8f75e49c1ea5">Http::HttpNzStream::__DeclareClass</a></div><div class="ttdeci">__DeclareClass(HttpNzStream)</div></div>
 <div class="ttc" id="aclass_http_1_1_http_nz_stream_html_ada26afb43a112719a83ac99b427c6776"><div class="ttname"><a href="class_http_1_1_http_nz_stream.html#ada26afb43a112719a83ac99b427c6776">Http::HttpNzStream::Open</a></div><div class="ttdeci">virtual bool Open()</div><div class="ttdoc">open the stream</div><div class="ttdef"><b>Definition:</b> httpnzstream.cc:41</div></div>
-<div class="ttc" id="aclass_i_o_1_1_memory_stream_html"><div class="ttname"><a href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div><div class="ttdoc">Implements a stream class which writes to and reads from system RAM.</div><div class="ttdef"><b>Definition:</b> memorystream.h:18</div></div>
+<div class="ttc" id="aclass_i_o_1_1_memory_stream_html"><div class="ttname"><a href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div><div class="ttdoc">Implements a stream class which writes to and reads from system RAM.</div><div class="ttdef"><b>Definition:</b> memorystream.h:19</div></div>
 <div class="ttc" id="afoundation_2core_2config_8h_html"><div class="ttname"><a href="foundation_2core_2config_8h.html">config.h</a></div><div class="ttdoc">Nebula compiler specific defines and configuration.</div></div>
 <div class="ttc" id="ahttpclient_8h_html"><div class="ttname"><a href="httpclient_8h.html">httpclient.h</a></div></div>
 <div class="ttc" id="amemorystream_8h_html"><div class="ttname"><a href="memorystream_8h.html">memorystream.h</a></div></div>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('httpnzstream_8h_source.html',''); init
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_890e2c3a9c3b155590221e5a959f1be1.html">http</a></li><li class="navelem"><a class="el" href="httpnzstream_8h.html">httpnzstream.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:41 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

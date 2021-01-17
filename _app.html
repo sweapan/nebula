@@ -113,9 +113,9 @@ The App Subsystem</h1>
 <div class="line">    }</div>
 <div class="line">    app.Exit();</div>
 <div class="line">}</div>
-<div class="ttc" id="aappentry_8h_html_a2961dd122007c1dfb0e3c097066c6079"><div class="ttname"><a href="appentry_8h.html#a2961dd122007c1dfb0e3c097066c6079">ImplementNebulaApplication</a></div><div class="ttdeci">#define ImplementNebulaApplication()</div><div class="ttdef"><b>Definition:</b> appentry.h:32</div></div>
+<div class="ttc" id="aappentry_8h_html_a2961dd122007c1dfb0e3c097066c6079"><div class="ttname"><a href="appentry_8h.html#a2961dd122007c1dfb0e3c097066c6079">ImplementNebulaApplication</a></div><div class="ttdeci">#define ImplementNebulaApplication()</div><div class="ttdef"><b>Definition:</b> appentry.h:33</div></div>
 <div class="ttc" id="anamespace_app_html"><div class="ttname"><a href="namespace_app.html">App</a></div><div class="ttdef"><b>Definition:</b> gameapplication.cc:19</div></div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:37</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 </div><!-- fragment --><p>The macro <a class="el" href="appentry_8h.html#a2961dd122007c1dfb0e3c097066c6079">ImplementNebulaApplication()</a> takes care about some platform-specifics (mainly how arguments are passed to a program) and then calls the NebulaMain() function, which receives a Util::CmdLineArgs object which contains the command line arguments. The MyApplication class is a user-derived class. The application object needs to be setup with a company name, an application name (these two uniquely identify the application and are for used to create a data directory under "My Files" which will contain application specific files (likes configuration settings or save game files). The Open() method will setup the application for use. If something goes wrong the method will return false. Run() should implement the actual application features, it may run in a loop until the user wants to exit, or it may return immediately. Close() will shutdown the application. Finally Exit() must be called to properly cleanup Nebula before exiting the application. This will shutdown any static objects, perform cleanup, a RefCounting leak and memory leak check and finally exit the application process. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
@@ -125,7 +125,7 @@ The App Subsystem</h1>
 			<ul>
 				<li class="navelem"><a class="el" href="foundation.html">Foundation Libraries</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:43 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

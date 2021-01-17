@@ -128,7 +128,7 @@ Implementing A New Nebula Class</h2>
 <div class="line">    ...</div>
 <div class="line">};</div>
 <div class="line">RegisterClass(MyClass);</div>
-<div class="ttc" id="aclass_core_1_1_ref_counted_html"><div class="ttname"><a href="class_core_1_1_ref_counted.html">Core::RefCounted</a></div><div class="ttdoc">The common base class of Nebula.</div><div class="ttdef"><b>Definition:</b> refcounted.h:37</div></div>
+<div class="ttc" id="aclass_core_1_1_ref_counted_html"><div class="ttname"><a href="class_core_1_1_ref_counted.html">Core::RefCounted</a></div><div class="ttdoc">The common base class of Nebula.</div><div class="ttdef"><b>Definition:</b> refcounted.h:38</div></div>
 </div><!-- fragment --><p>Notice the DeclareClass() macro, the default constructor and the virtual destructor and the RegisterClass() macro outside of the class declaration. The DeclareClass() macro adds some minimal Nebula-specific information to the class declaration for the RTTI and factory mechanism. The DeclareClass() macro generally hides the internals of the Nebula object model from the programmer, so that (hopefully), internals of the object model can be changed without affecting existing classes. The RegisterClass() macro is optional and registers the class with the central factory object. If you know that objects of this class will never be created by string class name or fourcc code, the RegisterClass() macro can be omitted.</p>
 <p>The .cc side of the class needs to contain the following Nebula specific information:</p>
 <div class="fragment"><div class="line"><span class="keyword">namespace </span>MyNamespace</div>
@@ -157,7 +157,7 @@ RefCounting And Smart Pointers</h2>
 Creating Nebula Objects</h2>
 <p>Nebula objects that are derived from <a class="el" href="class_core_1_1_ref_counted.html" title="The common base class of Nebula.">Core::RefCounted</a> can be created in 3 different ways:</p>
 <p>Directly through the static create method: </p><div class="fragment"><div class="line"><a class="code" href="class_ptr.html">Ptr&lt;MyClass&gt;</a> myObj = <a class="code" href="namespace_game_1_1_time_manager.html#a18c6aa9e2f022cec2293bc8ba843ac6f">MyClass::Create</a>();</div>
-<div class="ttc" id="aclass_ptr_html"><div class="ttname"><a href="class_ptr.html">Ptr</a></div><div class="ttdoc">Nebula's smart pointer class which manages the life time of RefCounted objects.</div><div class="ttdef"><b>Definition:</b> ptr.h:38</div></div>
+<div class="ttc" id="aclass_ptr_html"><div class="ttname"><a href="class_ptr.html">Ptr</a></div><div class="ttdoc">Nebula's smart pointer class which manages the life time of RefCounted objects.</div><div class="ttdef"><b>Definition:</b> ptr.h:39</div></div>
 <div class="ttc" id="anamespace_game_1_1_time_manager_html_a18c6aa9e2f022cec2293bc8ba843ac6f"><div class="ttname"><a href="namespace_game_1_1_time_manager.html#a18c6aa9e2f022cec2293bc8ba843ac6f">Game::TimeManager::Create</a></div><div class="ttdeci">Game::ManagerAPI Create()</div><div class="ttdoc">create the singleton</div><div class="ttdef"><b>Definition:</b> timemanager.cc:62</div></div>
 </div><!-- fragment --><p> The static <a class="el" href="namespace_game_1_1_time_manager.html#a18c6aa9e2f022cec2293bc8ba843ac6f" title="create the singleton">Create()</a> method is added to the class through the DeclareClass() macro described before. This is basically just syntactic sugar for the C++ operator::new(). In fact, the <a class="el" href="namespace_game_1_1_time_manager.html#a18c6aa9e2f022cec2293bc8ba843ac6f" title="create the singleton">Create()</a> method is nothing more then an inline method with a call to the new operator inside. Also note the correct use of a smart pointer to hold the new object.</p>
 <p>Another way to create a Nebula method is by class name: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_core.html">Core</a>;</div>
@@ -169,7 +169,7 @@ Creating Nebula Objects</h2>
 <p>A variation of the create-by-class-name method is to create the object by its class fourcc code: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_core.html">Core</a>;</div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_util.html">Util</a>;</div>
 <div class="line"><a class="code" href="class_ptr.html">Ptr&lt;MyClass&gt;</a> myObj = (MyClass*) <a class="code" href="class_core_1_1_factory.html#a7929efbcb2e9cb3d47dfa5d3122aa6d6">Factory::Instance</a>()-&gt;<a class="code" href="class_core_1_1_factory.html#af34d651240c89bcb55bd071a5822c806">Create</a>(FourCC(<span class="stringliteral">&#39;MYCL&#39;</span>));</div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:37</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 </div><!-- fragment --><p> This method looks less intuitive, but it is often faster as create-by-name and the fourcc class identifier uses less space (4 bytes) then the string class name, which may be of advantage when objects are encoded/decoded to and from binary streams.</p>
 <h2><a class="anchor" id="NebulaRTTI"></a>
 The Nebula Runtime Type Information System</h2>
@@ -271,7 +271,7 @@ Performance And Memory Footprint Considerations</h2>
 			<ul>
 				<li class="navelem"><a class="el" href="foundation.html">Foundation Libraries</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:43 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

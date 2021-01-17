@@ -88,41 +88,41 @@ $(document).ready(function(){initNavTree('physicsmanager_8h_source.html',''); in
 <div class="contents">
 <a href="physicsmanager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="refcounted_8h.html">core/refcounted.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="singleton_8h.html">core/singleton.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="manager_8h.html">game/manager.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="category_8h.html">game/category.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_physics_feature.html">PhysicsFeature</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_feature_1_1_physics_manager.html">PhysicsManager</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html#abdb165640bd9cfb8916b56974b9ea2d8">   19</a></span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_manager.html#abdb165640bd9cfb8916b56974b9ea2d8">__DeclareSingleton</a>(<a class="code" href="class_physics_feature_1_1_physics_manager.html">PhysicsManager</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <a class="code" href="struct_game_1_1_manager_a_p_i.html">Game::ManagerAPI</a> <a class="code" href="class_physics_feature_1_1_physics_manager.html#a11b13e913c4ea162e9f33fc0f491cd38">Create</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#aea8e84d65538f2d3b641857bd7c80dba">Destroy</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html">   27</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html">Pids</a></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html#ac83e49d56d5b802f0e6b0a75895a3137">   29</a></span>&#160;        <a class="code" href="struct_mem_db_1_1_property_id.html">Game::PropertyId</a> <a class="code" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html#ac83e49d56d5b802f0e6b0a75895a3137">physicsActor</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html#a4e9c1f5e6e77fc969e97c89e68d52c04">   30</a></span>&#160;    } <a class="code" href="class_physics_feature_1_1_physics_manager.html#a4e9c1f5e6e77fc969e97c89e68d52c04">pids</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html#a01d83593a4d741618d9c289f81bcda77">   33</a></span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_manager.html#a01d83593a4d741618d9c289f81bcda77">PhysicsManager</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_manager.html#a7135ab9456d9487511dfb27aa54fbd17">~PhysicsManager</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#af08943a886dae2180ad34eee6dce9f9b">InitCreateActorProcessor</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#af3b9af9b49f57fec16fee04b5437db98">InitDestroyActorProcessor</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#a90cefd32de7ce7dc58c8eba6292d31d1">InitPollTransformProcessor</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#a0a1dc39ebbc0ec88ffef9da63ca3b8ab">OnBeginFrame</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace PhysicsFeature</span></div>
-<div class="ttc" id="acategory_8h_html"><div class="ttname"><a href="category_8h.html">category.h</a></div><div class="ttdoc">(C) 2020 Individual contributors, see AUTHORS file</div></div>
-<div class="ttc" id="aclass_physics_feature_1_1_physics_manager_html"><div class="ttname"><a href="class_physics_feature_1_1_physics_manager.html">PhysicsFeature::PhysicsManager</a></div><div class="ttdoc">(C) 2020 Individual contributors, see AUTHORS file</div><div class="ttdef"><b>Definition:</b> physicsmanager.h:18</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="refcounted_8h.html">core/refcounted.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="singleton_8h.html">core/singleton.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="manager_8h.html">game/manager.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="category_8h.html">game/category.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_physics_feature.html">PhysicsFeature</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_feature_1_1_physics_manager.html">PhysicsManager</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html#abdb165640bd9cfb8916b56974b9ea2d8">   20</a></span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_manager.html#abdb165640bd9cfb8916b56974b9ea2d8">__DeclareSingleton</a>(<a class="code" href="class_physics_feature_1_1_physics_manager.html">PhysicsManager</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <a class="code" href="struct_game_1_1_manager_a_p_i.html">Game::ManagerAPI</a> <a class="code" href="class_physics_feature_1_1_physics_manager.html#a11b13e913c4ea162e9f33fc0f491cd38">Create</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#aea8e84d65538f2d3b641857bd7c80dba">Destroy</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html">   28</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html">Pids</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html#ac83e49d56d5b802f0e6b0a75895a3137">   30</a></span>&#160;        <a class="code" href="struct_mem_db_1_1_property_id.html">Game::PropertyId</a> <a class="code" href="struct_physics_feature_1_1_physics_manager_1_1_pids.html#ac83e49d56d5b802f0e6b0a75895a3137">physicsActor</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html#a4e9c1f5e6e77fc969e97c89e68d52c04">   31</a></span>&#160;    } <a class="code" href="class_physics_feature_1_1_physics_manager.html#a4e9c1f5e6e77fc969e97c89e68d52c04">pids</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_manager.html#a01d83593a4d741618d9c289f81bcda77">   34</a></span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_manager.html#a01d83593a4d741618d9c289f81bcda77">PhysicsManager</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_manager.html#a7135ab9456d9487511dfb27aa54fbd17">~PhysicsManager</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#af08943a886dae2180ad34eee6dce9f9b">InitCreateActorProcessor</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#af3b9af9b49f57fec16fee04b5437db98">InitDestroyActorProcessor</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#a90cefd32de7ce7dc58c8eba6292d31d1">InitPollTransformProcessor</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_manager.html#a0a1dc39ebbc0ec88ffef9da63ca3b8ab">OnBeginFrame</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace PhysicsFeature</span></div>
+<div class="ttc" id="acategory_8h_html"><div class="ttname"><a href="category_8h.html">category.h</a></div></div>
+<div class="ttc" id="aclass_physics_feature_1_1_physics_manager_html"><div class="ttname"><a href="class_physics_feature_1_1_physics_manager.html">PhysicsFeature::PhysicsManager</a></div><div class="ttdef"><b>Definition:</b> physicsmanager.h:19</div></div>
 <div class="ttc" id="aclass_physics_feature_1_1_physics_manager_html_a01d83593a4d741618d9c289f81bcda77"><div class="ttname"><a href="class_physics_feature_1_1_physics_manager.html#a01d83593a4d741618d9c289f81bcda77">PhysicsFeature::PhysicsManager::PhysicsManager</a></div><div class="ttdeci">PhysicsManager()</div><div class="ttdoc">constructor</div></div>
 <div class="ttc" id="aclass_physics_feature_1_1_physics_manager_html_a0a1dc39ebbc0ec88ffef9da63ca3b8ab"><div class="ttname"><a href="class_physics_feature_1_1_physics_manager.html#a0a1dc39ebbc0ec88ffef9da63ca3b8ab">PhysicsFeature::PhysicsManager::OnBeginFrame</a></div><div class="ttdeci">static void OnBeginFrame()</div><div class="ttdef"><b>Definition:</b> physicsmanager.cc:231</div></div>
 <div class="ttc" id="aclass_physics_feature_1_1_physics_manager_html_a11b13e913c4ea162e9f33fc0f491cd38"><div class="ttname"><a href="class_physics_feature_1_1_physics_manager.html#a11b13e913c4ea162e9f33fc0f491cd38">PhysicsFeature::PhysicsManager::Create</a></div><div class="ttdeci">static Game::ManagerAPI Create()</div><div class="ttdoc">retrieve the api</div><div class="ttdef"><b>Definition:</b> physicsmanager.cc:200</div></div>
@@ -137,10 +137,10 @@ $(document).ready(function(){initNavTree('physicsmanager_8h_source.html',''); in
 <div class="ttc" id="anamespace_physics_feature_html"><div class="ttname"><a href="namespace_physics_feature.html">PhysicsFeature</a></div><div class="ttdef"><b>Definition:</b> physicsmanager.cc:16</div></div>
 <div class="ttc" id="arefcounted_8h_html"><div class="ttname"><a href="refcounted_8h.html">refcounted.h</a></div></div>
 <div class="ttc" id="asingleton_8h_html"><div class="ttname"><a href="singleton_8h.html">singleton.h</a></div></div>
-<div class="ttc" id="astruct_game_1_1_manager_a_p_i_html"><div class="ttname"><a href="struct_game_1_1_manager_a_p_i.html">Game::ManagerAPI</a></div><div class="ttdef"><b>Definition:</b> manager.h:26</div></div>
-<div class="ttc" id="astruct_mem_db_1_1_property_id_html"><div class="ttname"><a href="struct_mem_db_1_1_property_id.html">MemDb::PropertyId</a></div><div class="ttdef"><b>Definition:</b> propertyid.h:16</div></div>
-<div class="ttc" id="astruct_physics_feature_1_1_physics_manager_1_1_pids_html"><div class="ttname"><a href="struct_physics_feature_1_1_physics_manager_1_1_pids.html">PhysicsFeature::PhysicsManager::Pids</a></div><div class="ttdef"><b>Definition:</b> physicsmanager.h:28</div></div>
-<div class="ttc" id="astruct_physics_feature_1_1_physics_manager_1_1_pids_html_ac83e49d56d5b802f0e6b0a75895a3137"><div class="ttname"><a href="struct_physics_feature_1_1_physics_manager_1_1_pids.html#ac83e49d56d5b802f0e6b0a75895a3137">PhysicsFeature::PhysicsManager::Pids::physicsActor</a></div><div class="ttdeci">Game::PropertyId physicsActor</div><div class="ttdef"><b>Definition:</b> physicsmanager.h:29</div></div>
+<div class="ttc" id="astruct_game_1_1_manager_a_p_i_html"><div class="ttname"><a href="struct_game_1_1_manager_a_p_i.html">Game::ManagerAPI</a></div><div class="ttdef"><b>Definition:</b> manager.h:27</div></div>
+<div class="ttc" id="astruct_mem_db_1_1_property_id_html"><div class="ttname"><a href="struct_mem_db_1_1_property_id.html">MemDb::PropertyId</a></div><div class="ttdef"><b>Definition:</b> propertyid.h:17</div></div>
+<div class="ttc" id="astruct_physics_feature_1_1_physics_manager_1_1_pids_html"><div class="ttname"><a href="struct_physics_feature_1_1_physics_manager_1_1_pids.html">PhysicsFeature::PhysicsManager::Pids</a></div><div class="ttdef"><b>Definition:</b> physicsmanager.h:29</div></div>
+<div class="ttc" id="astruct_physics_feature_1_1_physics_manager_1_1_pids_html_ac83e49d56d5b802f0e6b0a75895a3137"><div class="ttname"><a href="struct_physics_feature_1_1_physics_manager_1_1_pids.html#ac83e49d56d5b802f0e6b0a75895a3137">PhysicsFeature::PhysicsManager::Pids::physicsActor</a></div><div class="ttdeci">Game::PropertyId physicsActor</div><div class="ttdef"><b>Definition:</b> physicsmanager.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('physicsmanager_8h_source.html',''); in
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_b5156faf6c46139e7ab8a688bcfa1a4a.html">application</a></li><li class="navelem"><a class="el" href="dir_e98137800dbfe1643cdd5a99d688c99e.html">physicsfeature</a></li><li class="navelem"><a class="el" href="dir_b9f8c19b1b408404ff60e292849ac056.html">managers</a></li><li class="navelem"><a class="el" href="physicsmanager_8h.html">physicsmanager.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:40 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

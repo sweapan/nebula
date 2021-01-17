@@ -104,8 +104,9 @@ $(document).ready(function(){initNavTree('namespace_visibility.html',''); initRe
 <p>Brute force system.</p>
 <p>Box system.</p>
 <p>Implements a resource loader for models.</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
-<p>(C) 2018-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd>
+<dd>
+(C) 2018-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>This is coarse grained visibility, and does not account for any pixel-perfect techniques like occlusion culling.</p>
 <p>Some systems are procedural (Octree and Quadtree) while other systems require authoring.</p>
 <p>Different systems have different strenghts, as described here:</p>
@@ -114,11 +115,12 @@ $(document).ready(function(){initNavTree('namespace_visibility.html',''); initRe
 <p>Portal system: Produces frustums for 'portals', which in a linked-list manner resolves visibility only for things seen through said portals. Useful for indoor environments where there are many occluders.</p>
 <p>Quadtree system: Like Octree but 2D, meaning there is only a 2D grid. Useful for big worlds where there is no importance of visibility along one axis (isomorphic RPG, 2D scroller)</p>
 <p>Bruteforce system: Doesn't do anything but view frustum culling on everything in the scene.</p>
-<p>(C) 2018-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2018-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>The idea is to map the list of graphics entities registered with the GraphicsServer against a list of visibility results.</p>
 <p>TODO: But how does this map do any kind of sorting? If models are grouped by &lt;shader, material, mesh&gt; for example, how does an ordinary array account for that?</p>
 <p>SOLUTION: The array contains results for ALL entities, independent of observer mask, and the visibility status is in the same order as the &lt;shader, material, mesh&gt; grouping would be if it was deflated. The &lt;shader, material, model&gt; list is always static during the frame, since it contains ALL shader, material and mesh groupings. The difference with the old system is that now, the only thing that changes is the flipping of a boolean value, instead of having to reconstruct the triple tuple list every frame. It means however, that everytime a graphics entity is attached, the <a class="el" href="class_visibility_1_1_visibility_container.html">VisibilityContainer</a> MUST be notified so that it may change the size of the visibility array.</p>
-<p>(C)2017-2018 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd><br  />
+ (C) 2017-2018 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -732,7 +734,7 @@ Variables</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_visibility.html">Visibility</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:54 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:09 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

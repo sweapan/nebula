@@ -107,7 +107,7 @@ class Util::Array&lt; TYPE &gt;</h3>
 <p>The default constructor will not pre-allocate elements, so no space is wasted as long as no elements are added. As soon as the first element is added to the array, an initial buffer of 16 elements is created. Whenever the element buffer would overflow, a new buffer of twice the size of the previous buffer is created and the existing elements are then copied over to the new buffer. The element buffer will never shrink, the only way to reclaim unused memory is to copy the <a class="el" href="class_util_1_1_array.html" title="Nebula&#39;s dynamic array class.">Array</a> to a new <a class="el" href="class_util_1_1_array.html" title="Nebula&#39;s dynamic array class.">Array</a> object. This is usually not a problem since most arrays will oscillate around some specific size, so once the array has reached this specific size, no costly memory free or allocs will be performed.</p>
 <p>It is possible to sort the array using the <a class="el" href="class_util_1_1_array.html#a15d42e760a285a0726a5d1005f010429" title="sort the array">Sort()</a> method, this uses std::sort (one of the very few exceptions where the STL is used in Nebula).</p>
 <p>One should generally be careful with costly copy operators, the <a class="el" href="class_util_1_1_array.html" title="Nebula&#39;s dynamic array class.">Array</a> class (and the other container classes using <a class="el" href="class_util_1_1_array.html" title="Nebula&#39;s dynamic array class.">Array</a>) may do some heavy element shuffling in some situations (especially when sorting and erasing elements).</p>
-<p>(C) 2006 RadonLabs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2006 RadonLabs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div>
 <p>Inherited by <a class="el" href="class_util_1_1_trivial_array.html">Util::TrivialArray&lt; TYPE &gt;</a>.</p>
 <table class="memberdecls">
@@ -2316,7 +2316,7 @@ template&lt;class TYPE &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_util.html">Util</a></li><li class="navelem"><a class="el" href="class_util_1_1_array.html">Array</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:53 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:09 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

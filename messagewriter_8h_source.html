@@ -88,36 +88,36 @@ $(document).ready(function(){initNavTree('messagewriter_8h_source.html',''); ini
 <div class="contents">
 <a href="messagewriter_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="streamwriter_8h.html">io/streamwriter.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="binarywriter_8h.html">io/binarywriter.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_messaging.html">Messaging</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span>Message;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_messaging_1_1_message_writer.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_messaging_1_1_message_writer.html">MessageWriter</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_messaging_1_1_message_writer.html#a85ee3cb40c57e15cbf2b8b188fd09d31">   21</a></span>&#160;    <a class="code" href="class_messaging_1_1_message_writer.html#a85ee3cb40c57e15cbf2b8b188fd09d31">__DeclareClass</a>(<a class="code" href="class_messaging_1_1_message_writer.html">MessageWriter</a>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_messaging_1_1_message_writer.html#aab793f150cf1b2e19cdc678d9543646e">MessageWriter</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_messaging_1_1_message_writer.html#a48680a1c8ece263fec81bbd9461af967">SetStream</a>(<span class="keyword">const</span> <a class="code" href="class_ptr.html">Ptr&lt;IO::Stream&gt;</a>&amp; s);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_messaging_1_1_message_writer.html#ad19e094dd4d1ae7cc6f66e41b73b86f3">WriteMessage</a>(<span class="keyword">const</span> <a class="code" href="class_ptr.html">Ptr&lt;Message&gt;</a>&amp; msg);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_messaging_1_1_message_writer.html#af119cb45174c958b5c4f3de8718c32bc">   31</a></span>&#160;    <a class="code" href="class_ptr.html">Ptr&lt;IO::BinaryWriter&gt;</a> <a class="code" href="class_messaging_1_1_message_writer.html#af119cb45174c958b5c4f3de8718c32bc">binaryWriter</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace Messaging</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="streamwriter_8h.html">io/streamwriter.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="binarywriter_8h.html">io/binarywriter.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_messaging.html">Messaging</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span>Message;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_messaging_1_1_message_writer.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_messaging_1_1_message_writer.html">MessageWriter</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_messaging_1_1_message_writer.html#a85ee3cb40c57e15cbf2b8b188fd09d31">   22</a></span>&#160;    <a class="code" href="class_messaging_1_1_message_writer.html#a85ee3cb40c57e15cbf2b8b188fd09d31">__DeclareClass</a>(<a class="code" href="class_messaging_1_1_message_writer.html">MessageWriter</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_messaging_1_1_message_writer.html#aab793f150cf1b2e19cdc678d9543646e">MessageWriter</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_messaging_1_1_message_writer.html#a48680a1c8ece263fec81bbd9461af967">SetStream</a>(<span class="keyword">const</span> <a class="code" href="class_ptr.html">Ptr&lt;IO::Stream&gt;</a>&amp; s);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_messaging_1_1_message_writer.html#ad19e094dd4d1ae7cc6f66e41b73b86f3">WriteMessage</a>(<span class="keyword">const</span> <a class="code" href="class_ptr.html">Ptr&lt;Message&gt;</a>&amp; msg);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_messaging_1_1_message_writer.html#af119cb45174c958b5c4f3de8718c32bc">   32</a></span>&#160;    <a class="code" href="class_ptr.html">Ptr&lt;IO::BinaryWriter&gt;</a> <a class="code" href="class_messaging_1_1_message_writer.html#af119cb45174c958b5c4f3de8718c32bc">binaryWriter</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace Messaging</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="ttc" id="abinarywriter_8h_html"><div class="ttname"><a href="binarywriter_8h.html">binarywriter.h</a></div></div>
-<div class="ttc" id="aclass_i_o_1_1_stream_writer_html"><div class="ttname"><a href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div><div class="ttdoc">Stream writer classes provide a specialized write-interface for a stream.</div><div class="ttdef"><b>Definition:</b> streamwriter.h:21</div></div>
-<div class="ttc" id="aclass_messaging_1_1_message_writer_html"><div class="ttname"><a href="class_messaging_1_1_message_writer.html">Messaging::MessageWriter</a></div><div class="ttdoc">Implements a binary stream protocol for encoding messages into streams.</div><div class="ttdef"><b>Definition:</b> messagewriter.h:20</div></div>
+<div class="ttc" id="aclass_i_o_1_1_stream_writer_html"><div class="ttname"><a href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div><div class="ttdoc">Stream writer classes provide a specialized write-interface for a stream.</div><div class="ttdef"><b>Definition:</b> streamwriter.h:22</div></div>
+<div class="ttc" id="aclass_messaging_1_1_message_writer_html"><div class="ttname"><a href="class_messaging_1_1_message_writer.html">Messaging::MessageWriter</a></div><div class="ttdoc">Implements a binary stream protocol for encoding messages into streams.</div><div class="ttdef"><b>Definition:</b> messagewriter.h:21</div></div>
 <div class="ttc" id="aclass_messaging_1_1_message_writer_html_a48680a1c8ece263fec81bbd9461af967"><div class="ttname"><a href="class_messaging_1_1_message_writer.html#a48680a1c8ece263fec81bbd9461af967">Messaging::MessageWriter::SetStream</a></div><div class="ttdeci">virtual void SetStream(const Ptr&lt; IO::Stream &gt; &amp;s)</div><div class="ttdoc">set stream to write to</div><div class="ttdef"><b>Definition:</b> messagewriter.cc:30</div></div>
 <div class="ttc" id="aclass_messaging_1_1_message_writer_html_a85ee3cb40c57e15cbf2b8b188fd09d31"><div class="ttname"><a href="class_messaging_1_1_message_writer.html#a85ee3cb40c57e15cbf2b8b188fd09d31">Messaging::MessageWriter::__DeclareClass</a></div><div class="ttdeci">__DeclareClass(MessageWriter)</div></div>
 <div class="ttc" id="aclass_messaging_1_1_message_writer_html_aab793f150cf1b2e19cdc678d9543646e"><div class="ttname"><a href="class_messaging_1_1_message_writer.html#aab793f150cf1b2e19cdc678d9543646e">Messaging::MessageWriter::MessageWriter</a></div><div class="ttdeci">MessageWriter()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> messagewriter.cc:21</div></div>
 <div class="ttc" id="aclass_messaging_1_1_message_writer_html_ad19e094dd4d1ae7cc6f66e41b73b86f3"><div class="ttname"><a href="class_messaging_1_1_message_writer.html#ad19e094dd4d1ae7cc6f66e41b73b86f3">Messaging::MessageWriter::WriteMessage</a></div><div class="ttdeci">void WriteMessage(const Ptr&lt; Message &gt; &amp;msg)</div><div class="ttdoc">write a complete message to the stream</div><div class="ttdef"><b>Definition:</b> messagewriter.cc:44</div></div>
-<div class="ttc" id="aclass_messaging_1_1_message_writer_html_af119cb45174c958b5c4f3de8718c32bc"><div class="ttname"><a href="class_messaging_1_1_message_writer.html#af119cb45174c958b5c4f3de8718c32bc">Messaging::MessageWriter::binaryWriter</a></div><div class="ttdeci">Ptr&lt; IO::BinaryWriter &gt; binaryWriter</div><div class="ttdef"><b>Definition:</b> messagewriter.h:31</div></div>
+<div class="ttc" id="aclass_messaging_1_1_message_writer_html_af119cb45174c958b5c4f3de8718c32bc"><div class="ttname"><a href="class_messaging_1_1_message_writer.html#af119cb45174c958b5c4f3de8718c32bc">Messaging::MessageWriter::binaryWriter</a></div><div class="ttdeci">Ptr&lt; IO::BinaryWriter &gt; binaryWriter</div><div class="ttdef"><b>Definition:</b> messagewriter.h:32</div></div>
 <div class="ttc" id="aclass_ptr_html"><div class="ttname"><a href="class_ptr.html">Ptr&lt; IO::Stream &gt;</a></div></div>
 <div class="ttc" id="anamespace_messaging_html"><div class="ttname"><a href="namespace_messaging.html">Messaging</a></div><div class="ttdef"><b>Definition:</b> asyncport.cc:10</div></div>
 <div class="ttc" id="astreamwriter_8h_html"><div class="ttname"><a href="streamwriter_8h.html">streamwriter.h</a></div></div>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('messagewriter_8h_source.html',''); ini
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_7f9cd468c3e3826269016502d4c5ff4d.html">messaging</a></li><li class="navelem"><a class="el" href="messagewriter_8h.html">messagewriter.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:11 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:42 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

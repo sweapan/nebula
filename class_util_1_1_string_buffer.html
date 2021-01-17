@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('class_util_1_1_string_buffer.html','')
 <div class="textblock"><p>Global string buffer for the <a class="el" href="class_util_1_1_string_atom.html" title="A StringAtom.">StringAtom</a> system. </p>
 <p>This is where all raw strings for the <a class="el" href="class_util_1_1_string_atom.html" title="A StringAtom.">StringAtom</a> system are stored. If enabled, the <a class="el" href="class_util_1_1_string_buffer.html" title="Global string buffer for the StringAtom system.">StringBuffer</a> can grow, but it may never shrink. Once a string is in the string buffer, it cannot be removed. <a class="el" href="class_util_1_1_string.html" title="Nebula&#39;s universal string class.">String</a> data is simply appended to the last position, strings are separated by a 0-terminator-byte. A string is guaranteed never to move in memory. Several threads can have simultaneous read-access to the string buffer, even while an <a class="el" href="class_util_1_1_string_buffer.html#a6b82b95847d74e0ffd8c233f9c266ad0" title="add a string to the end of the string buffer, return pointer to string">AddString()</a> is in progress by another thread. Only if several threads attempt to call <a class="el" href="class_util_1_1_string_buffer.html#a6b82b95847d74e0ffd8c233f9c266ad0" title="add a string to the end of the string buffer, return pointer to string">AddString()</a> a lock must be taken.</p>
 <p>NOTE: NOT thread-safe! Usually, <a class="el" href="class_util_1_1_global_string_atom_table.html" title="Global string atom table.">GlobalStringAtomTable</a> cares about thread-safety for the global string buffer.</p>
-<p>(C) 2009 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2009 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -424,7 +424,7 @@ Private Attributes</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_util.html">Util</a></li><li class="navelem"><a class="el" href="class_util_1_1_string_buffer.html">StringBuffer</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:54 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:09 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

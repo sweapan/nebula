@@ -88,152 +88,152 @@ $(document).ready(function(){initNavTree('conversion_8h_source.html',''); initRe
 <div class="contents">
 <a href="conversion_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;pybind11/cast.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="variant_8h.html">util/variant.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quat_8h.html">math/quat.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform44_8h.html">math/transform44.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;pybind11/embed.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;pybind11/detail/class.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;pybind11/stl.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;pybind11/numpy.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mat4_8h.html">math/mat4.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vector_8h.html">math/vector.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="point_8h.html">math/point.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#pragma warning(push)</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma warning(disable: 4267)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_python.html">Python</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span>pybind11::handle <a class="code" href="namespace_python.html#a767c4099b2ad3fe5436263dd193c0051">VariantToPyType</a>(<a class="code" href="class_util_1_1_variant.html">Util::Variant</a> src, pybind11::return_value_policy policy = pybind11::return_value_policy::automatic, pybind11::handle parent = NULL);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace Python</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacepybind11.html">   34</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacepybind11.html">pybind11</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespacepybind11_1_1detail.html">   36</a></span>&#160;    <span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html">   38</a></span>&#160;        <span class="keyword">template</span> &lt;&gt; <span class="keyword">class </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::String&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a7b2e561fef625957ccd3710ddbd5d22e">   41</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a7b2e561fef625957ccd3710ddbd5d22e">load</a>(handle src, <span class="keywordtype">bool</span> convert)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                handle load_src = src;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">if</span> (!src)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!PyUnicode_Check(load_src.ptr()))</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="keywordflow">return</span> load_bytes(load_src);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordtype">object</span> utfNbytes = reinterpret_steal&lt;object&gt;(PyUnicode_AsEncodedString(load_src.ptr(), <span class="stringliteral">&quot;utf-8&quot;</span>, <span class="keyword">nullptr</span>));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">if</span> (!utfNbytes)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    PyErr_Clear();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">char</span> *buffer = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span> *<span class="keyword">&gt;</span>(PYBIND11_BYTES_AS_STRING(utfNbytes.ptr()));</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="namespace_math.html#a4fcd87d43acafba4730bb160d8e17a99">length</a> = (size_t)PYBIND11_BYTES_SIZE(utfNbytes.ptr());</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                value.Set(buffer, <a class="code" href="namespace_math.html#a4fcd87d43acafba4730bb160d8e17a99">length</a>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a544bffc9ad986ca9f0906865609b4fa3">   65</a></span>&#160;            <span class="keyword">static</span> handle <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a544bffc9ad986ca9f0906865609b4fa3">cast</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a>&amp; src, return_value_policy <span class="comment">/* policy */</span>, handle <span class="comment">/* parent */</span>) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">char</span> *buffer = src.<a class="code" href="class_util_1_1_string.html#aae44fd420cacbfa974b220218a3732c0">AsCharPtr</a>();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                ssize_t nbytes = ssize_t(src.<a class="code" href="class_util_1_1_string.html#a24154ffd2eb2d1e7dbe451e789a736b5">Length</a>());</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                handle s = PyUnicode_DecodeUTF8(buffer, nbytes, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a1a1b4e35e4d8810ff0dd41d747374475">   71</a></span>&#160;            <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a1a1b4e35e4d8810ff0dd41d747374475">PYBIND11_TYPE_CASTER</a>(<a class="code" href="class_util_1_1_string.html">Util::String</a>, _(PYBIND11_STRING_NAME));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a58c48208231fb9149b21c20ada24c2f5">   74</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a58c48208231fb9149b21c20ada24c2f5">load_bytes</a>(handle src)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">if</span> (PYBIND11_BYTES_CHECK(src.ptr()))</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="comment">// We were passed a Python 3 raw bytes; accept it into a std::string or char*</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <span class="comment">// without any encoding attempt.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span> *bytes = PYBIND11_BYTES_AS_STRING(src.ptr());</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keywordflow">if</span> (bytes)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        value.Set(bytes, (<span class="keywordtype">size_t</span>)PYBIND11_BYTES_SIZE(src.ptr()));</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        };</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html">   91</a></span>&#160;        <span class="keyword">template</span> &lt;&gt; <span class="keyword">class </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::Variant&gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#abbdfe4bfae79697352dc59d5061bb24c">   95</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#abbdfe4bfae79697352dc59d5061bb24c">try_load</a>(handle src, <span class="keywordtype">bool</span> convert) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keyword">auto</span> caster = make_caster&lt;T&gt;();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">if</span> (caster.load(src, convert)) {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    value = cast_op&lt;T&gt;(caster);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#a9aa4c0d97d3818a05b91561a6de72454">  104</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#a9aa4c0d97d3818a05b91561a6de72454">load</a>(handle src, <span class="keywordtype">bool</span> convert) {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keyword">auto</span> loaded = {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    <span class="keyword">false</span>,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    try_load&lt;int&gt;(src, convert),</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    try_load&lt;uint&gt;(src, convert),</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    try_load&lt;float&gt;(src, convert),</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    try_load&lt;Math::vec4&gt;(src, convert),</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    try_load&lt;Math::mat4&gt;(src, convert),</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    try_load&lt;Util::String&gt;(src, convert),</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    try_load&lt;Util::Guid&gt;(src, convert),</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    try_load&lt;Util::Array&lt;int&gt;&gt;(src, convert),</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    try_load&lt;<a class="code" href="class_util_1_1_array.html">Util::Array&lt;float&gt;</a>&gt;(src, convert),</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    try_load&lt;Util::Array&lt;Math::vec4&gt;&gt;(src, convert),</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    try_load&lt;<a class="code" href="class_util_1_1_array.html">Util::Array&lt;Math::mat4&gt;</a>&gt;(src, convert),</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    try_load&lt;Util::Array&lt;Util::String&gt;&gt;(src, convert),</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    try_load&lt;<a class="code" href="class_util_1_1_array.html">Util::Array&lt;Util::Guid&gt;</a>&gt;(src, convert)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                };</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">return</span> std::any_of(loaded.begin(), loaded.end(), [](<span class="keywordtype">bool</span> b) { return b; });</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#adb86ee5af2c1d9b7afb5857f51a45671">  124</a></span>&#160;            <span class="keyword">static</span> handle <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#adb86ee5af2c1d9b7afb5857f51a45671">cast</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_variant.html">Util::Variant</a>&amp; src, return_value_policy policy, handle parent) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespace_python.html#a767c4099b2ad3fe5436263dd193c0051">Python::VariantToPyType</a>(src, policy, parent);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            }</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#ab9341615f2d8fb5a1e2a1e5f145d909b">  127</a></span>&#160;            <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#ab9341615f2d8fb5a1e2a1e5f145d909b">PYBIND11_TYPE_CASTER</a>(<a class="code" href="class_util_1_1_variant.html">Util::Variant</a>, _(<span class="stringliteral">&quot;Variant&quot;</span>));</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        };</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="structpybind11_1_1detail_1_1type__caster_3_01_util_1_1_dictionary_3_01_key_00_01_value_01_4_01_4.html">  130</a></span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> Value&gt; <span class="keyword">struct </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::Dictionary&lt;Key, Value&gt;&gt;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            : map_caster&lt;Util::Dictionary&lt;Key, Value&gt;, Key, Value&gt; { };</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="structpybind11_1_1detail_1_1type__caster_3_01_util_1_1_array_3_01_type_01_4_01_4.html">  132</a></span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt; <span class="keyword">struct </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::Array&lt;Type&gt;&gt;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            : array_caster&lt;Util::Array&lt;Type&gt;, Type, true&gt; { };   </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#pragma warning(pop)</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;pybind11/cast.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="variant_8h.html">util/variant.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quat_8h.html">math/quat.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform44_8h.html">math/transform44.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;pybind11/embed.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;pybind11/detail/class.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;pybind11/stl.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;pybind11/numpy.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mat4_8h.html">math/mat4.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vector_8h.html">math/vector.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="point_8h.html">math/point.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma warning(push)</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#pragma warning(disable: 4267)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_python.html">Python</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span>pybind11::handle <a class="code" href="namespace_python.html#a767c4099b2ad3fe5436263dd193c0051">VariantToPyType</a>(<a class="code" href="class_util_1_1_variant.html">Util::Variant</a> src, pybind11::return_value_policy policy = pybind11::return_value_policy::automatic, pybind11::handle parent = NULL);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace Python</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacepybind11.html">   35</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacepybind11.html">pybind11</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacepybind11_1_1detail.html">   37</a></span>&#160;    <span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html">   39</a></span>&#160;        <span class="keyword">template</span> &lt;&gt; <span class="keyword">class </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::String&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a7b2e561fef625957ccd3710ddbd5d22e">   42</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a7b2e561fef625957ccd3710ddbd5d22e">load</a>(handle src, <span class="keywordtype">bool</span> convert)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                handle load_src = src;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">if</span> (!src)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!PyUnicode_Check(load_src.ptr()))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordflow">return</span> load_bytes(load_src);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordtype">object</span> utfNbytes = reinterpret_steal&lt;object&gt;(PyUnicode_AsEncodedString(load_src.ptr(), <span class="stringliteral">&quot;utf-8&quot;</span>, <span class="keyword">nullptr</span>));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">if</span> (!utfNbytes)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    PyErr_Clear();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">char</span> *buffer = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span> *<span class="keyword">&gt;</span>(PYBIND11_BYTES_AS_STRING(utfNbytes.ptr()));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="namespace_math.html#a4fcd87d43acafba4730bb160d8e17a99">length</a> = (size_t)PYBIND11_BYTES_SIZE(utfNbytes.ptr());</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                value.Set(buffer, <a class="code" href="namespace_math.html#a4fcd87d43acafba4730bb160d8e17a99">length</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a544bffc9ad986ca9f0906865609b4fa3">   66</a></span>&#160;            <span class="keyword">static</span> handle <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a544bffc9ad986ca9f0906865609b4fa3">cast</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a>&amp; src, return_value_policy <span class="comment">/* policy */</span>, handle <span class="comment">/* parent */</span>) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">char</span> *buffer = src.<a class="code" href="class_util_1_1_string.html#aae44fd420cacbfa974b220218a3732c0">AsCharPtr</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                ssize_t nbytes = ssize_t(src.<a class="code" href="class_util_1_1_string.html#a24154ffd2eb2d1e7dbe451e789a736b5">Length</a>());</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                handle s = PyUnicode_DecodeUTF8(buffer, nbytes, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a1a1b4e35e4d8810ff0dd41d747374475">   72</a></span>&#160;            <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a1a1b4e35e4d8810ff0dd41d747374475">PYBIND11_TYPE_CASTER</a>(<a class="code" href="class_util_1_1_string.html">Util::String</a>, _(PYBIND11_STRING_NAME));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a58c48208231fb9149b21c20ada24c2f5">   75</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a58c48208231fb9149b21c20ada24c2f5">load_bytes</a>(handle src)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">if</span> (PYBIND11_BYTES_CHECK(src.ptr()))</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <span class="comment">// We were passed a Python 3 raw bytes; accept it into a std::string or char*</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="comment">// without any encoding attempt.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span> *bytes = PYBIND11_BYTES_AS_STRING(src.ptr());</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keywordflow">if</span> (bytes)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        value.Set(bytes, (<span class="keywordtype">size_t</span>)PYBIND11_BYTES_SIZE(src.ptr()));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        };</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html">   92</a></span>&#160;        <span class="keyword">template</span> &lt;&gt; <span class="keyword">class </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::Variant&gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#abbdfe4bfae79697352dc59d5061bb24c">   96</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#abbdfe4bfae79697352dc59d5061bb24c">try_load</a>(handle src, <span class="keywordtype">bool</span> convert) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keyword">auto</span> caster = make_caster&lt;T&gt;();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">if</span> (caster.load(src, convert)) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    value = cast_op&lt;T&gt;(caster);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#a9aa4c0d97d3818a05b91561a6de72454">  105</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#a9aa4c0d97d3818a05b91561a6de72454">load</a>(handle src, <span class="keywordtype">bool</span> convert) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keyword">auto</span> loaded = {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    <span class="keyword">false</span>,</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    try_load&lt;int&gt;(src, convert),</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    try_load&lt;uint&gt;(src, convert),</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    try_load&lt;float&gt;(src, convert),</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    try_load&lt;Math::vec4&gt;(src, convert),</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    try_load&lt;Math::mat4&gt;(src, convert),</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    try_load&lt;Util::String&gt;(src, convert),</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    try_load&lt;Util::Guid&gt;(src, convert),</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    try_load&lt;Util::Array&lt;int&gt;&gt;(src, convert),</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    try_load&lt;<a class="code" href="class_util_1_1_array.html">Util::Array&lt;float&gt;</a>&gt;(src, convert),</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    try_load&lt;Util::Array&lt;Math::vec4&gt;&gt;(src, convert),</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    try_load&lt;<a class="code" href="class_util_1_1_array.html">Util::Array&lt;Math::mat4&gt;</a>&gt;(src, convert),</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    try_load&lt;Util::Array&lt;Util::String&gt;&gt;(src, convert),</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                    try_load&lt;<a class="code" href="class_util_1_1_array.html">Util::Array&lt;Util::Guid&gt;</a>&gt;(src, convert)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">return</span> std::any_of(loaded.begin(), loaded.end(), [](<span class="keywordtype">bool</span> b) { return b; });</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#adb86ee5af2c1d9b7afb5857f51a45671">  125</a></span>&#160;            <span class="keyword">static</span> handle <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#adb86ee5af2c1d9b7afb5857f51a45671">cast</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_variant.html">Util::Variant</a>&amp; src, return_value_policy policy, handle parent) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespace_python.html#a767c4099b2ad3fe5436263dd193c0051">Python::VariantToPyType</a>(src, policy, parent);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            }</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#ab9341615f2d8fb5a1e2a1e5f145d909b">  128</a></span>&#160;            <a class="code" href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#ab9341615f2d8fb5a1e2a1e5f145d909b">PYBIND11_TYPE_CASTER</a>(<a class="code" href="class_util_1_1_variant.html">Util::Variant</a>, _(<span class="stringliteral">&quot;Variant&quot;</span>));</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        };</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="structpybind11_1_1detail_1_1type__caster_3_01_util_1_1_dictionary_3_01_key_00_01_value_01_4_01_4.html">  131</a></span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> Value&gt; <span class="keyword">struct </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::Dictionary&lt;Key, Value&gt;&gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            : map_caster&lt;Util::Dictionary&lt;Key, Value&gt;, Key, Value&gt; { };</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="structpybind11_1_1detail_1_1type__caster_3_01_util_1_1_array_3_01_type_01_4_01_4.html">  133</a></span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt; <span class="keyword">struct </span>type_caster&lt;<a class="code" href="namespace_util.html">Util</a>::Array&lt;Type&gt;&gt;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            : array_caster&lt;Util::Array&lt;Type&gt;, Type, true&gt; { };   </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#pragma warning(pop)</span></div>
 <div class="ttc" id="aclass_util_1_1_array_html"><div class="ttname"><a href="class_util_1_1_array.html">Util::Array&lt; float &gt;</a></div></div>
-<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:47</div></div>
-<div class="ttc" id="aclass_util_1_1_string_html_a24154ffd2eb2d1e7dbe451e789a736b5"><div class="ttname"><a href="class_util_1_1_string.html#a24154ffd2eb2d1e7dbe451e789a736b5">Util::String::Length</a></div><div class="ttdeci">SizeT Length() const</div><div class="ttdoc">return length of string</div><div class="ttdef"><b>Definition:</b> string.h:898</div></div>
-<div class="ttc" id="aclass_util_1_1_string_html_aae44fd420cacbfa974b220218a3732c0"><div class="ttname"><a href="class_util_1_1_string.html#aae44fd420cacbfa974b220218a3732c0">Util::String::AsCharPtr</a></div><div class="ttdeci">const char * AsCharPtr() const</div><div class="ttdoc">return contents as character pointer</div><div class="ttdef"><b>Definition:</b> string.h:783</div></div>
-<div class="ttc" id="aclass_util_1_1_variant_html"><div class="ttname"><a href="class_util_1_1_variant.html">Util::Variant</a></div><div class="ttdoc">An &quot;any type&quot; variable.</div><div class="ttdef"><b>Definition:</b> variant.h:29</div></div>
+<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:48</div></div>
+<div class="ttc" id="aclass_util_1_1_string_html_a24154ffd2eb2d1e7dbe451e789a736b5"><div class="ttname"><a href="class_util_1_1_string.html#a24154ffd2eb2d1e7dbe451e789a736b5">Util::String::Length</a></div><div class="ttdeci">SizeT Length() const</div><div class="ttdoc">return length of string</div><div class="ttdef"><b>Definition:</b> string.h:899</div></div>
+<div class="ttc" id="aclass_util_1_1_string_html_aae44fd420cacbfa974b220218a3732c0"><div class="ttname"><a href="class_util_1_1_string.html#aae44fd420cacbfa974b220218a3732c0">Util::String::AsCharPtr</a></div><div class="ttdeci">const char * AsCharPtr() const</div><div class="ttdoc">return contents as character pointer</div><div class="ttdef"><b>Definition:</b> string.h:784</div></div>
+<div class="ttc" id="aclass_util_1_1_variant_html"><div class="ttname"><a href="class_util_1_1_variant.html">Util::Variant</a></div><div class="ttdoc">An &quot;any type&quot; variable.</div><div class="ttdef"><b>Definition:</b> variant.h:30</div></div>
 <div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4_html_a1a1b4e35e4d8810ff0dd41d747374475"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a1a1b4e35e4d8810ff0dd41d747374475">pybind11::detail::type_caster&lt; Util::String &gt;::PYBIND11_TYPE_CASTER</a></div><div class="ttdeci">PYBIND11_TYPE_CASTER(Util::String, _(PYBIND11_STRING_NAME))</div></div>
-<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4_html_a544bffc9ad986ca9f0906865609b4fa3"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a544bffc9ad986ca9f0906865609b4fa3">pybind11::detail::type_caster&lt; Util::String &gt;::cast</a></div><div class="ttdeci">static handle cast(const Util::String &amp;src, return_value_policy, handle)</div><div class="ttdef"><b>Definition:</b> conversion.h:65</div></div>
-<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4_html_a58c48208231fb9149b21c20ada24c2f5"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a58c48208231fb9149b21c20ada24c2f5">pybind11::detail::type_caster&lt; Util::String &gt;::load_bytes</a></div><div class="ttdeci">bool load_bytes(handle src)</div><div class="ttdef"><b>Definition:</b> conversion.h:74</div></div>
-<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4_html_a7b2e561fef625957ccd3710ddbd5d22e"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a7b2e561fef625957ccd3710ddbd5d22e">pybind11::detail::type_caster&lt; Util::String &gt;::load</a></div><div class="ttdeci">bool load(handle src, bool convert)</div><div class="ttdef"><b>Definition:</b> conversion.h:41</div></div>
-<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4_html_a9aa4c0d97d3818a05b91561a6de72454"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#a9aa4c0d97d3818a05b91561a6de72454">pybind11::detail::type_caster&lt; Util::Variant &gt;::load</a></div><div class="ttdeci">bool load(handle src, bool convert)</div><div class="ttdef"><b>Definition:</b> conversion.h:104</div></div>
+<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4_html_a544bffc9ad986ca9f0906865609b4fa3"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a544bffc9ad986ca9f0906865609b4fa3">pybind11::detail::type_caster&lt; Util::String &gt;::cast</a></div><div class="ttdeci">static handle cast(const Util::String &amp;src, return_value_policy, handle)</div><div class="ttdef"><b>Definition:</b> conversion.h:66</div></div>
+<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4_html_a58c48208231fb9149b21c20ada24c2f5"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a58c48208231fb9149b21c20ada24c2f5">pybind11::detail::type_caster&lt; Util::String &gt;::load_bytes</a></div><div class="ttdeci">bool load_bytes(handle src)</div><div class="ttdef"><b>Definition:</b> conversion.h:75</div></div>
+<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4_html_a7b2e561fef625957ccd3710ddbd5d22e"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_string_01_4.html#a7b2e561fef625957ccd3710ddbd5d22e">pybind11::detail::type_caster&lt; Util::String &gt;::load</a></div><div class="ttdeci">bool load(handle src, bool convert)</div><div class="ttdef"><b>Definition:</b> conversion.h:42</div></div>
+<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4_html_a9aa4c0d97d3818a05b91561a6de72454"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#a9aa4c0d97d3818a05b91561a6de72454">pybind11::detail::type_caster&lt; Util::Variant &gt;::load</a></div><div class="ttdeci">bool load(handle src, bool convert)</div><div class="ttdef"><b>Definition:</b> conversion.h:105</div></div>
 <div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4_html_ab9341615f2d8fb5a1e2a1e5f145d909b"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#ab9341615f2d8fb5a1e2a1e5f145d909b">pybind11::detail::type_caster&lt; Util::Variant &gt;::PYBIND11_TYPE_CASTER</a></div><div class="ttdeci">PYBIND11_TYPE_CASTER(Util::Variant, _(&quot;Variant&quot;))</div></div>
-<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4_html_abbdfe4bfae79697352dc59d5061bb24c"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#abbdfe4bfae79697352dc59d5061bb24c">pybind11::detail::type_caster&lt; Util::Variant &gt;::try_load</a></div><div class="ttdeci">bool try_load(handle src, bool convert)</div><div class="ttdef"><b>Definition:</b> conversion.h:95</div></div>
-<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4_html_adb86ee5af2c1d9b7afb5857f51a45671"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#adb86ee5af2c1d9b7afb5857f51a45671">pybind11::detail::type_caster&lt; Util::Variant &gt;::cast</a></div><div class="ttdeci">static handle cast(const Util::Variant &amp;src, return_value_policy policy, handle parent)</div><div class="ttdef"><b>Definition:</b> conversion.h:124</div></div>
+<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4_html_abbdfe4bfae79697352dc59d5061bb24c"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#abbdfe4bfae79697352dc59d5061bb24c">pybind11::detail::type_caster&lt; Util::Variant &gt;::try_load</a></div><div class="ttdeci">bool try_load(handle src, bool convert)</div><div class="ttdef"><b>Definition:</b> conversion.h:96</div></div>
+<div class="ttc" id="aclasspybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4_html_adb86ee5af2c1d9b7afb5857f51a45671"><div class="ttname"><a href="classpybind11_1_1detail_1_1type__caster_3_01_util_1_1_variant_01_4.html#adb86ee5af2c1d9b7afb5857f51a45671">pybind11::detail::type_caster&lt; Util::Variant &gt;::cast</a></div><div class="ttdeci">static handle cast(const Util::Variant &amp;src, return_value_policy policy, handle parent)</div><div class="ttdef"><b>Definition:</b> conversion.h:125</div></div>
 <div class="ttc" id="amat4_8h_html"><div class="ttname"><a href="mat4_8h.html">mat4.h</a></div></div>
-<div class="ttc" id="anamespace_math_html_a4fcd87d43acafba4730bb160d8e17a99"><div class="ttname"><a href="namespace_math.html#a4fcd87d43acafba4730bb160d8e17a99">Math::length</a></div><div class="ttdeci">__forceinline scalar length(const quat &amp;q)</div><div class="ttdef"><b>Definition:</b> quat.h:217</div></div>
+<div class="ttc" id="anamespace_math_html_a4fcd87d43acafba4730bb160d8e17a99"><div class="ttname"><a href="namespace_math.html#a4fcd87d43acafba4730bb160d8e17a99">Math::length</a></div><div class="ttdeci">__forceinline scalar length(const quat &amp;q)</div><div class="ttdef"><b>Definition:</b> quat.h:218</div></div>
 <div class="ttc" id="anamespace_python_html"><div class="ttname"><a href="namespace_python.html">Python</a></div><div class="ttdoc">Python conversion functions.</div><div class="ttdef"><b>Definition:</b> conversion.cc:13</div></div>
 <div class="ttc" id="anamespace_python_html_a767c4099b2ad3fe5436263dd193c0051"><div class="ttname"><a href="namespace_python.html#a767c4099b2ad3fe5436263dd193c0051">Python::VariantToPyType</a></div><div class="ttdeci">pybind11::handle VariantToPyType(Util::Variant src, pybind11::return_value_policy policy, pybind11::handle parent)</div><div class="ttdef"><b>Definition:</b> conversion.cc:398</div></div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:37</div></div>
-<div class="ttc" id="anamespacepybind11_html"><div class="ttname"><a href="namespacepybind11.html">pybind11</a></div><div class="ttdef"><b>Definition:</b> conversion.h:35</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
+<div class="ttc" id="anamespacepybind11_html"><div class="ttname"><a href="namespacepybind11.html">pybind11</a></div><div class="ttdef"><b>Definition:</b> conversion.h:36</div></div>
 <div class="ttc" id="apoint_8h_html"><div class="ttname"><a href="point_8h.html">point.h</a></div></div>
 <div class="ttc" id="aquat_8h_html"><div class="ttname"><a href="quat_8h.html">quat.h</a></div></div>
 <div class="ttc" id="atransform44_8h_html"><div class="ttname"><a href="transform44_8h.html">transform44.h</a></div></div>
@@ -246,7 +246,7 @@ $(document).ready(function(){initNavTree('conversion_8h_source.html',''); initRe
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_2d159f25e9659ae0b75ab38b7905759a.html">addons</a></li><li class="navelem"><a class="el" href="dir_ea92fcabcfb6efb91fcacee3784310e0.html">scripting</a></li><li class="navelem"><a class="el" href="dir_529a694dc39aa65383ab43894302ecce.html">python</a></li><li class="navelem"><a class="el" href="conversion_8h.html">conversion.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:07 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:38 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

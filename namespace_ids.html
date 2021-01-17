@@ -99,11 +99,11 @@ $(document).ready(function(){initNavTree('namespace_ids.html',''); initResizable
 <p>This simple <a class="el" href="struct_ids_1_1_id.html">Id</a> pool implements a set of free and used consecutive integers.</p>
 <p>There are two versions of this type, an unsafe and a safe one. Both are implemented in the same way, providing a variadic list of types which is to be contained in the allocator and fetching each value by providing the index into the list of types, which means the members are nameless.</p>
 <p>The thread safe allocator requires the Get-methods to be within an Enter/Leave lockstep phase.</p>
-<p>(C) 2017-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>The pool can be configured to only release new <a class="el" href="namespace_ids.html" title="An ID allocator associates an id with a slice in an N number of arrays.">Ids</a> up to a certain maximum, after which it asserts.</p>
 <p>Essentially, it allocates a certain amount of new <a class="el" href="namespace_ids.html" title="An ID allocator associates an id with a slice in an N number of arrays.">Ids</a> when needed (not following the Array method of doubling its size) and can recycle the indices for later. Unlike the <a class="el" href="class_ids_1_1_id_generation_pool.html" title="Provides a system for creating array friendly id numbers with reuse and generations.">IdGenerationPool</a>, this one does not keep track of how many times an id has been reused, so use this with caution!</p>
 <p>Maximum amount of bits produced by this system is 32.</p>
-<p>(C) 2017-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -432,7 +432,7 @@ Variables</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_ids.html">Ids</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:50 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:06 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

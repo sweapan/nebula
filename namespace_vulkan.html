@@ -130,38 +130,41 @@ $(document).ready(function(){initNavTree('namespace_vulkan.html',''); initResiza
 <p>This thread records commands to a <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a> Command Buffer in its own thread.</p>
 <p>Implements a <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a> command buffer.</p>
 <p><a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a> implementation of a GPU buffer.</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
-<p>(C) 2020 Individual contributors, see AUTHORS file</p>
-<p>(C) 2016-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd>
+<dd>
+(C) 2020 Individual contributors, see AUTHORS file</dd>
+<dd>
+(C) 2016-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>(C) 2016-2018 Individual contributors, see AUTHORS file</p>
-<p>(C) 2017-2020 Individual contributors, see AUTHORS file</p>
 <p>All functions in the <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a> namespace are internal helper functions specifically for <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a>, the other functions implement the abstraction layer.</p>
-<p>(C) 2018-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2018-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>TODO: Mapping creates a new buffer every time. This is broken, since mapping more than once should just return the same buffer.</p>
 <p>Implements a shared texture resource pool for both the memory and stream pool. It's thread safe, so unnecessary loads and maps might result in thread synchronizations.</p>
 <p>Mapping a <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a> buffer requires an explicit buffer backing, which is created when mapping. This buffer is then what you can read/write to, and when you unmap it the data will be flushed back, and the buffer deleted.</p>
 <p>Mapping is slow for this reason, so use with caution. We can not apply a persistently mapped buffer either, since texture data is non-linear and can have any type of implementation specific way of treating data as pixels.</p>
 <p>Also be careful when to call Unload, since we might have in-flight texture updates through Update, operating on a texture which may have been deleted.</p>
-<p>(C) 2016-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2016-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>Doubtful this is <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a> specific...</p>
 <p>(C) 2016-2018 Individual contributors, see AUTHORS file</p>
 <p>It works in a tree-like structure, where frequency of change dictates which level the state belongs to.</p>
 <p>It works by incrementally creating a DAG, which at the end points to a path used to create a graphics pipeline. If it has already been created, then the pipeline is simply returned, however, if a node is set to initial (which happens on construction, meaning all children are also initial), then a new graphics pipeline is created and gets associated with the DAG path.</p>
 <p>It can be slightly more efficient, currently, whenever a state is changed high up in the DAG, child nodes are created for the rest of the currently used state. This is somewhat unnecessary, instead, the nodes should be created when and if we actually do create a pipeline.</p>
-<p>(C) 2016-2020 Individual contributors, see AUTHORS file</p>
-<p>(C) 2018-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2016-2020 Individual contributors, see AUTHORS file</dd>
+<dd>
+(C) 2018-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>Calls to the scheduler will be executed dependent on the CommandPass, which denotes when the delayed command is supposed to be run. This is to make sure commands come in order on the command queue.</p>
 <p>For immediate calls to <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a>, look at <a class="el" href="class_vulkan_1_1_vk_utilities.html">VkUtilities</a></p>
 <p>(C)2017-2018 Individual contributors, see AUTHORS file</p>
 <p>Handles alloc/dealloc object creation through the memory texture pool</p>
-<p>(C) 2016-2020 Individual contributors, see AUTHORS file</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2016-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>In <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a>, this directly maps to the VkQueue, but also implicitly support semaphore synchronization of required.</p>
 <p>To more efficiently utilize the GPU, call SetToNextContext after a Submit if the subsequent Submits can run in parallel. If synchronization is a problem, defer from using SetToNextContext such that we can run all commands on a single submission.</p>
 <p>Submit also allows for waiting on the entire command buffer execution on the CPU. By either submitting true to the Submit function argument 'wait for fence', or chose where to wait for it in the main code. Avoid waiting as well if possible, since it will stall the CPU.</p>
 <p>It also supports inserting a dependency on different queues, wherein the depender is the queue depending on another to finish working, will wait for the other to signal.</p>
 <p>TODO: We should be able to use this handler across devices too...</p>
-<p>(C)2017-2020 Individual contributors, see AUTHORS file</p>
-<p>(C) 2019-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd>
+<dd>
+(C) 2019-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -4988,7 +4991,7 @@ Variables</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_vulkan.html">Vulkan</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:55 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

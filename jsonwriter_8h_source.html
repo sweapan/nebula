@@ -88,86 +88,86 @@ $(document).ready(function(){initNavTree('jsonwriter_8h_source.html',''); initRe
 <div class="contents">
 <a href="jsonwriter_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="streamwriter_8h.html">io/streamwriter.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8h.html">util/string.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stack_8h.html">util/stack.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacepjson.html">pjson</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">class </span>value_variant;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">class </span>document;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_i_o.html">IO</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_o_1_1_json_writer.html">JsonWriter</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#a15170b619b07af04f38a34ef050101c9">   25</a></span>&#160;    <a class="code" href="class_i_o_1_1_json_writer.html#a15170b619b07af04f38a34ef050101c9">__DeclareClass</a>(<a class="code" href="class_i_o_1_1_json_writer.html">JsonWriter</a>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_i_o_1_1_json_writer.html#a0ff52b499b34c978429c172a402712ef">JsonWriter</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_i_o_1_1_json_writer.html#a84acf6cecd6276b384163cb0ed53d304">~JsonWriter</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_i_o_1_1_json_writer.html#a1d259a698d50c536988ae546dd024ca1">Open</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a52547eb7ea271950ed2086d5da4439d2">Close</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#acb3a5eaa4264afbf717fdf166f986e38">BeginArray</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * nodeName = <span class="keyword">nullptr</span>);    </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a47257190dff3354f1f328f1981eeaada">BeginObject</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * nodeName = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a97bd4a6034a5d6172606eb45f0bc265a">End</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#a7f40a1f190bb824a4ce3640be2639931">   45</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a7f40a1f190bb824a4ce3640be2639931">Add</a>(<span class="keyword">const</span> T &amp; value, <span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> &amp; name = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a7f40a1f190bb824a4ce3640be2639931">Add</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * value, <span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> &amp; name = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//    template &lt;typename T&gt; void Add(const Util::String &amp; name, const T &amp; value);</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">    void AddString(const Util::String &amp; value);</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">    void AddBool(bool value);</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    void AddInt(int value);</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    void AddFloat(float value);</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    void AddFloat2(const Math::vec2 &amp; value);</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">    void AddVec4(const Math::vec4 &amp; value);</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">    void AddMatrix44(const Math::mat4 &amp; value);</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    void AddTransform44(const Math::transform44 &amp; value);</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">    void SetString(const Util::String&amp; name, const Util::String&amp; value);</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    void SetBool(const Util::String&amp; name, bool value);</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">    void SetInt(const Util::String&amp; name, int value);</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">    void SetFloat(const Util::String&amp; name, float value);      </span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">    void SetVec2(const Util::String&amp; name, const Math::vec2&amp; value);</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    void SetVec4(const Util::String&amp; name, const Math::vec4&amp; value);</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">    void SetMat4(const Util::String&amp; name, const Math::mat4&amp; value);</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">    void SetTransform44(const Util::String&amp; name, const Math::transform44&amp; value);    </span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">    template&lt;typename T&gt; void Set(const Util::String&amp; name, const T &amp;value);</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#a40cb4f13c867adca3531a25034ed0156">   91</a></span>&#160;    pjson::document * <a class="code" href="class_i_o_1_1_json_writer.html#a40cb4f13c867adca3531a25034ed0156">document</a>;    </div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#ab0dfa54318c50fb3e15a35ebd6cfb67e">   92</a></span>&#160;    <a class="code" href="class_util_1_1_stack.html">Util::Stack&lt;pjson::value_variant*&gt;</a> <a class="code" href="class_i_o_1_1_json_writer.html#ab0dfa54318c50fb3e15a35ebd6cfb67e">hierarchy</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#af09cb3728f524208e61e6874b2d014f9">   93</a></span>&#160;    <a class="code" href="class_util_1_1_stack.html">Util::Stack&lt;Util::String&gt;</a> <a class="code" href="class_i_o_1_1_json_writer.html#af09cb3728f524208e61e6874b2d014f9">nameHierarchy</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace IO</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="ttc" id="aclass_i_o_1_1_json_writer_html"><div class="ttname"><a href="class_i_o_1_1_json_writer.html">IO::JsonWriter</a></div><div class="ttdoc">Write Json-formatted data to a stream.</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:24</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="streamwriter_8h.html">io/streamwriter.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8h.html">util/string.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stack_8h.html">util/stack.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacepjson.html">pjson</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">class </span>value_variant;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">class </span>document;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_i_o.html">IO</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_o_1_1_json_writer.html">JsonWriter</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#a15170b619b07af04f38a34ef050101c9">   26</a></span>&#160;    <a class="code" href="class_i_o_1_1_json_writer.html#a15170b619b07af04f38a34ef050101c9">__DeclareClass</a>(<a class="code" href="class_i_o_1_1_json_writer.html">JsonWriter</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_i_o_1_1_json_writer.html#a0ff52b499b34c978429c172a402712ef">JsonWriter</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_i_o_1_1_json_writer.html#a84acf6cecd6276b384163cb0ed53d304">~JsonWriter</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_i_o_1_1_json_writer.html#a1d259a698d50c536988ae546dd024ca1">Open</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a52547eb7ea271950ed2086d5da4439d2">Close</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#acb3a5eaa4264afbf717fdf166f986e38">BeginArray</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * nodeName = <span class="keyword">nullptr</span>);    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a47257190dff3354f1f328f1981eeaada">BeginObject</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * nodeName = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a97bd4a6034a5d6172606eb45f0bc265a">End</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#a7f40a1f190bb824a4ce3640be2639931">   46</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a7f40a1f190bb824a4ce3640be2639931">Add</a>(<span class="keyword">const</span> T &amp; value, <span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> &amp; name = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_i_o_1_1_json_writer.html#a7f40a1f190bb824a4ce3640be2639931">Add</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * value, <span class="keyword">const</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> &amp; name = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//    template &lt;typename T&gt; void Add(const Util::String &amp; name, const T &amp; value);</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">    void AddString(const Util::String &amp; value);</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">    void AddBool(bool value);</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">    void AddInt(int value);</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    void AddFloat(float value);</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">    void AddFloat2(const Math::vec2 &amp; value);</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">    void AddVec4(const Math::vec4 &amp; value);</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    void AddMatrix44(const Math::mat4 &amp; value);</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">    void AddTransform44(const Math::transform44 &amp; value);</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">    void SetString(const Util::String&amp; name, const Util::String&amp; value);</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">    void SetBool(const Util::String&amp; name, bool value);</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">    void SetInt(const Util::String&amp; name, int value);</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">    void SetFloat(const Util::String&amp; name, float value);      </span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">    void SetVec2(const Util::String&amp; name, const Math::vec2&amp; value);</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">    void SetVec4(const Util::String&amp; name, const Math::vec4&amp; value);</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">    void SetMat4(const Util::String&amp; name, const Math::mat4&amp; value);</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">    void SetTransform44(const Util::String&amp; name, const Math::transform44&amp; value);    </span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">    template&lt;typename T&gt; void Set(const Util::String&amp; name, const T &amp;value);</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#a40cb4f13c867adca3531a25034ed0156">   92</a></span>&#160;    pjson::document * <a class="code" href="class_i_o_1_1_json_writer.html#a40cb4f13c867adca3531a25034ed0156">document</a>;    </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#ab0dfa54318c50fb3e15a35ebd6cfb67e">   93</a></span>&#160;    <a class="code" href="class_util_1_1_stack.html">Util::Stack&lt;pjson::value_variant*&gt;</a> <a class="code" href="class_i_o_1_1_json_writer.html#ab0dfa54318c50fb3e15a35ebd6cfb67e">hierarchy</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_i_o_1_1_json_writer.html#af09cb3728f524208e61e6874b2d014f9">   94</a></span>&#160;    <a class="code" href="class_util_1_1_stack.html">Util::Stack&lt;Util::String&gt;</a> <a class="code" href="class_i_o_1_1_json_writer.html#af09cb3728f524208e61e6874b2d014f9">nameHierarchy</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace IO</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="ttc" id="aclass_i_o_1_1_json_writer_html"><div class="ttname"><a href="class_i_o_1_1_json_writer.html">IO::JsonWriter</a></div><div class="ttdoc">Write Json-formatted data to a stream.</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:25</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a0ff52b499b34c978429c172a402712ef"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a0ff52b499b34c978429c172a402712ef">IO::JsonWriter::JsonWriter</a></div><div class="ttdeci">JsonWriter()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> jsonwriter.cc:26</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a15170b619b07af04f38a34ef050101c9"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a15170b619b07af04f38a34ef050101c9">IO::JsonWriter::__DeclareClass</a></div><div class="ttdeci">__DeclareClass(JsonWriter)</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a1d259a698d50c536988ae546dd024ca1"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a1d259a698d50c536988ae546dd024ca1">IO::JsonWriter::Open</a></div><div class="ttdeci">virtual bool Open()</div><div class="ttdoc">begin writing the stream</div><div class="ttdef"><b>Definition:</b> jsonwriter.cc:47</div></div>
-<div class="ttc" id="aclass_i_o_1_1_json_writer_html_a40cb4f13c867adca3531a25034ed0156"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a40cb4f13c867adca3531a25034ed0156">IO::JsonWriter::document</a></div><div class="ttdeci">pjson::document * document</div><div class="ttdoc">add a value to current object node</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:91</div></div>
+<div class="ttc" id="aclass_i_o_1_1_json_writer_html_a40cb4f13c867adca3531a25034ed0156"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a40cb4f13c867adca3531a25034ed0156">IO::JsonWriter::document</a></div><div class="ttdeci">pjson::document * document</div><div class="ttdoc">add a value to current object node</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:92</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a47257190dff3354f1f328f1981eeaada"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a47257190dff3354f1f328f1981eeaada">IO::JsonWriter::BeginObject</a></div><div class="ttdeci">void BeginObject(const char *nodeName=nullptr)</div><div class="ttdoc">begin a new node that can host key-value pairs</div><div class="ttdef"><b>Definition:</b> jsonwriter.cc:99</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a52547eb7ea271950ed2086d5da4439d2"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a52547eb7ea271950ed2086d5da4439d2">IO::JsonWriter::Close</a></div><div class="ttdeci">virtual void Close()</div><div class="ttdoc">end writing the stream</div><div class="ttdef"><b>Definition:</b> jsonwriter.cc:65</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a7f40a1f190bb824a4ce3640be2639931"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a7f40a1f190bb824a4ce3640be2639931">IO::JsonWriter::Add</a></div><div class="ttdeci">void Add(const T &amp;value, const Util::String &amp;name=&quot;&quot;)</div><div class="ttdoc">add a value to the current array node</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a84acf6cecd6276b384163cb0ed53d304"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a84acf6cecd6276b384163cb0ed53d304">IO::JsonWriter::~JsonWriter</a></div><div class="ttdeci">virtual ~JsonWriter()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> jsonwriter.cc:35</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_a97bd4a6034a5d6172606eb45f0bc265a"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#a97bd4a6034a5d6172606eb45f0bc265a">IO::JsonWriter::End</a></div><div class="ttdeci">void End()</div><div class="ttdoc">end current object or array</div><div class="ttdef"><b>Definition:</b> jsonwriter.cc:112</div></div>
-<div class="ttc" id="aclass_i_o_1_1_json_writer_html_ab0dfa54318c50fb3e15a35ebd6cfb67e"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#ab0dfa54318c50fb3e15a35ebd6cfb67e">IO::JsonWriter::hierarchy</a></div><div class="ttdeci">Util::Stack&lt; pjson::value_variant * &gt; hierarchy</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:92</div></div>
+<div class="ttc" id="aclass_i_o_1_1_json_writer_html_ab0dfa54318c50fb3e15a35ebd6cfb67e"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#ab0dfa54318c50fb3e15a35ebd6cfb67e">IO::JsonWriter::hierarchy</a></div><div class="ttdeci">Util::Stack&lt; pjson::value_variant * &gt; hierarchy</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:93</div></div>
 <div class="ttc" id="aclass_i_o_1_1_json_writer_html_acb3a5eaa4264afbf717fdf166f986e38"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#acb3a5eaa4264afbf717fdf166f986e38">IO::JsonWriter::BeginArray</a></div><div class="ttdeci">void BeginArray(const char *nodeName=nullptr)</div><div class="ttdoc">begin a new array node</div><div class="ttdef"><b>Definition:</b> jsonwriter.cc:86</div></div>
-<div class="ttc" id="aclass_i_o_1_1_json_writer_html_af09cb3728f524208e61e6874b2d014f9"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#af09cb3728f524208e61e6874b2d014f9">IO::JsonWriter::nameHierarchy</a></div><div class="ttdeci">Util::Stack&lt; Util::String &gt; nameHierarchy</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:93</div></div>
-<div class="ttc" id="aclass_i_o_1_1_stream_writer_html"><div class="ttname"><a href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div><div class="ttdoc">Stream writer classes provide a specialized write-interface for a stream.</div><div class="ttdef"><b>Definition:</b> streamwriter.h:21</div></div>
+<div class="ttc" id="aclass_i_o_1_1_json_writer_html_af09cb3728f524208e61e6874b2d014f9"><div class="ttname"><a href="class_i_o_1_1_json_writer.html#af09cb3728f524208e61e6874b2d014f9">IO::JsonWriter::nameHierarchy</a></div><div class="ttdeci">Util::Stack&lt; Util::String &gt; nameHierarchy</div><div class="ttdef"><b>Definition:</b> jsonwriter.h:94</div></div>
+<div class="ttc" id="aclass_i_o_1_1_stream_writer_html"><div class="ttname"><a href="class_i_o_1_1_stream_writer.html">IO::StreamWriter</a></div><div class="ttdoc">Stream writer classes provide a specialized write-interface for a stream.</div><div class="ttdef"><b>Definition:</b> streamwriter.h:22</div></div>
 <div class="ttc" id="aclass_util_1_1_stack_html"><div class="ttname"><a href="class_util_1_1_stack.html">Util::Stack&lt; pjson::value_variant * &gt;</a></div></div>
-<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:47</div></div>
+<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:48</div></div>
 <div class="ttc" id="anamespace_i_o_html"><div class="ttname"><a href="namespace_i_o.html">IO</a></div><div class="ttdoc">Instances of wrapped stream classes.</div><div class="ttdef"><b>Definition:</b> archive.cc:10</div></div>
-<div class="ttc" id="anamespacepjson_html"><div class="ttname"><a href="namespacepjson.html">pjson</a></div><div class="ttdef"><b>Definition:</b> gltfdata.h:24</div></div>
+<div class="ttc" id="anamespacepjson_html"><div class="ttname"><a href="namespacepjson.html">pjson</a></div><div class="ttdef"><b>Definition:</b> gltfdata.h:25</div></div>
 <div class="ttc" id="astack_8h_html"><div class="ttname"><a href="stack_8h.html">stack.h</a></div></div>
 <div class="ttc" id="astreamwriter_8h_html"><div class="ttname"><a href="streamwriter_8h.html">streamwriter.h</a></div></div>
 <div class="ttc" id="astring_8h_html"><div class="ttname"><a href="string_8h.html">string.h</a></div></div>
@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('jsonwriter_8h_source.html',''); initRe
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_7c169f8df77f58a66e45d7cf19b28cb2.html">io</a></li><li class="navelem"><a class="el" href="jsonwriter_8h.html">jsonwriter.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:41 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

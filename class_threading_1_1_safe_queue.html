@@ -101,7 +101,7 @@ class Threading::SafeQueue&lt; TYPE &gt;</h3>
 
 <p>Thread-safe version of <a class="el" href="class_util_1_1_queue.html" title="Nebula&#39;s queue class (a FIFO container).">Util::Queue</a>. </p>
 <p>The <a class="el" href="class_threading_1_1_safe_queue.html" title="Thread-safe version of Util::Queue.">SafeQueue</a> is normally configured to signal an internal <a class="el" href="class_threading_1_1_event.html">Event</a> object when an element is enqueued, so that a worker-thread can wait for new elements to arrive. This is the default behaviour. This doesn't make sense for a continously running thread (i.e. a rendering thread), thus this behaviour can be disabled using the <a class="el" href="class_threading_1_1_safe_queue.html#a8b98db5c98cfaf505ce9596fffa2e803" title="enable/disable signalling on Enqueue() (default is enabled)">SetSignalOnEnqueueEnabled()</a>. In this case, the <a class="el" href="class_threading_1_1_safe_queue.html#a9e389f9c013a66fea74365d91daf158d" title="add element to the back of the queue">Enqueue()</a> method won't signal the internal event, and the <a class="el" href="class_threading_1_1_safe_queue.html#a9f2aeece3f7b983399cecd447718d359" title="wait until queue contains at least one element">Wait()</a> method will return immediately without ever waiting.</p>
-<p>(C) 2007 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2007 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -620,7 +620,7 @@ template&lt;class TYPE &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_threading.html">Threading</a></li><li class="navelem"><a class="el" href="class_threading_1_1_safe_queue.html">SafeQueue</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:53 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:09 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

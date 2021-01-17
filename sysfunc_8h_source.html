@@ -88,32 +88,32 @@ $(document).ready(function(){initNavTree('sysfunc_8h_source.html',''); initResiz
 <div class="contents">
 <a href="sysfunc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#if __WIN32__</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="win32sysfunc_8h.html">core/win32/win32sysfunc.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core.html">Core</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_1_1_sys_func.html">SysFunc</a> : <span class="keyword">public</span> <a class="code" href="class_win32_1_1_sys_func.html">Win32::SysFunc</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// empty</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} <span class="comment">// namespace Core</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#elif ( __OSX__ || __APPLE__ || __linux__ )</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="posixsysfunc_8h.html">core/posix/posixsysfunc.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core.html">Core</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_1_1_sys_func.html">SysFunc</a> : <span class="keyword">public</span> <a class="code" href="class_posix_1_1_sys_func.html">Posix::SysFunc</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// empty</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace Core</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#error &quot;Core::SysFunc not implemented on this platform!&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#if __WIN32__</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="win32sysfunc_8h.html">core/win32/win32sysfunc.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core.html">Core</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_1_1_sys_func.html">SysFunc</a> : <span class="keyword">public</span> <a class="code" href="class_win32_1_1_sys_func.html">Win32::SysFunc</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// empty</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// namespace Core</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#elif ( __OSX__ || __APPLE__ || __linux__ )</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="posixsysfunc_8h.html">core/posix/posixsysfunc.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core.html">Core</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_1_1_sys_func.html">SysFunc</a> : <span class="keyword">public</span> <a class="code" href="class_posix_1_1_sys_func.html">Posix::SysFunc</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// empty</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace Core</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#error &quot;Core::SysFunc not implemented on this platform!&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="ttc" id="aclass_core_1_1_sys_func_html"><div class="ttname"><a href="class_core_1_1_sys_func.html">SysFunc</a></div><div class="ttdoc">Wrap some platform specific low-level functions.</div></div>
 <div class="ttc" id="aclass_posix_1_1_sys_func_html"><div class="ttname"><a href="class_posix_1_1_sys_func.html">Posix::SysFunc</a></div><div class="ttdoc">Provides Posix specific helper functions.</div><div class="ttdef"><b>Definition:</b> posixsysfunc.h:25</div></div>
-<div class="ttc" id="aclass_win32_1_1_sys_func_html"><div class="ttname"><a href="class_win32_1_1_sys_func.html">Win32::SysFunc</a></div><div class="ttdoc">Provides Win32 specific helper functions.</div><div class="ttdef"><b>Definition:</b> win32sysfunc.h:22</div></div>
+<div class="ttc" id="aclass_win32_1_1_sys_func_html"><div class="ttname"><a href="class_win32_1_1_sys_func.html">Win32::SysFunc</a></div><div class="ttdoc">Provides Win32 specific helper functions.</div><div class="ttdef"><b>Definition:</b> win32sysfunc.h:23</div></div>
 <div class="ttc" id="afoundation_2core_2config_8h_html"><div class="ttname"><a href="foundation_2core_2config_8h.html">config.h</a></div><div class="ttdoc">Nebula compiler specific defines and configuration.</div></div>
 <div class="ttc" id="anamespace_core_html"><div class="ttname"><a href="namespace_core.html">Core</a></div><div class="ttdef"><b>Definition:</b> coreserver.cc:10</div></div>
 <div class="ttc" id="aposixsysfunc_8h_html"><div class="ttname"><a href="posixsysfunc_8h.html">posixsysfunc.h</a></div></div>
@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('sysfunc_8h_source.html',''); initResiz
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_999e4b83a7aab2205e484f6a00e051c0.html">core</a></li><li class="navelem"><a class="el" href="sysfunc_8h.html">sysfunc.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:09 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:40 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

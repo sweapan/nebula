@@ -88,45 +88,45 @@ $(document).ready(function(){initNavTree('time_8h_source.html',''); initResizabl
 <div class="contents">
 <a href="time_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">core/types.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_timing.html">Timing</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">double</span> <a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespace_timing.html#ae00b365e7a8436ebb12705bd633b8234">   26</a></span>&#160;<a class="code" href="namespace_timing.html#ae00b365e7a8436ebb12705bd633b8234">TicksToSeconds</a>(<a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a> ticks)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> ticks * 0.001;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespace_timing.html#a0e6bf8ecbaa0f52daff8ae2e0676eedf">   36</a></span>&#160;<a class="code" href="namespace_timing.html#a0e6bf8ecbaa0f52daff8ae2e0676eedf">SecondsToTicks</a>(<a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a> t)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// perform correct rounding</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a>((t * 1000.0) + 0.5);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespace_timing.html#a60ecc2f2142ee97d39169048e5cf29a9">   47</a></span>&#160;<a class="code" href="namespace_timing.html#a60ecc2f2142ee97d39169048e5cf29a9">Sleep</a>(<a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a> t)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="debug_8cc.html#a44db3b21f678ac8e3f8eb0f1d6ed4723">n_sleep</a>(t);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">core/types.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_timing.html">Timing</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">   18</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">double</span> <a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespace_timing.html#ae00b365e7a8436ebb12705bd633b8234">   27</a></span>&#160;<a class="code" href="namespace_timing.html#ae00b365e7a8436ebb12705bd633b8234">TicksToSeconds</a>(<a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a> ticks)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> ticks * 0.001;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespace_timing.html#a0e6bf8ecbaa0f52daff8ae2e0676eedf">   37</a></span>&#160;<a class="code" href="namespace_timing.html#a0e6bf8ecbaa0f52daff8ae2e0676eedf">SecondsToTicks</a>(<a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a> t)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// perform correct rounding</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Tick</a>((t * 1000.0) + 0.5);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespace_timing.html#a60ecc2f2142ee97d39169048e5cf29a9">   48</a></span>&#160;<a class="code" href="namespace_timing.html#a60ecc2f2142ee97d39169048e5cf29a9">Sleep</a>(<a class="code" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Time</a> t)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="debug_8cc.html#a44db3b21f678ac8e3f8eb0f1d6ed4723">n_sleep</a>(t);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="ttc" id="adebug_8cc_html_a44db3b21f678ac8e3f8eb0f1d6ed4723"><div class="ttname"><a href="debug_8cc.html#a44db3b21f678ac8e3f8eb0f1d6ed4723">n_sleep</a></div><div class="ttdeci">void n_sleep(double sec)</div><div class="ttdoc">Put process to sleep.</div><div class="ttdef"><b>Definition:</b> debug.cc:240</div></div>
-<div class="ttc" id="anamespace_timing_html"><div class="ttname"><a href="namespace_timing.html">Timing</a></div><div class="ttdef"><b>Definition:</b> calendartimebase.h:18</div></div>
-<div class="ttc" id="anamespace_timing_html_a0e6bf8ecbaa0f52daff8ae2e0676eedf"><div class="ttname"><a href="namespace_timing.html#a0e6bf8ecbaa0f52daff8ae2e0676eedf">Timing::SecondsToTicks</a></div><div class="ttdeci">Tick SecondsToTicks(Time t)</div><div class="ttdoc">Convert seconds to ticks.</div><div class="ttdef"><b>Definition:</b> time.h:36</div></div>
-<div class="ttc" id="anamespace_timing_html_a1884fd8969a4a431040692fbcf9f5f1e"><div class="ttname"><a href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Timing::Tick</a></div><div class="ttdeci">int Tick</div><div class="ttdoc">the tick datatype (one tick == 1 millisecond)</div><div class="ttdef"><b>Definition:</b> time.h:19</div></div>
-<div class="ttc" id="anamespace_timing_html_a60ecc2f2142ee97d39169048e5cf29a9"><div class="ttname"><a href="namespace_timing.html#a60ecc2f2142ee97d39169048e5cf29a9">Timing::Sleep</a></div><div class="ttdeci">void Sleep(Time t)</div><div class="ttdoc">Put current thread to sleep for specified amount of seconds.</div><div class="ttdef"><b>Definition:</b> time.h:47</div></div>
-<div class="ttc" id="anamespace_timing_html_a8ad3705944b3f8824d642c4424ab3999"><div class="ttname"><a href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a></div><div class="ttdeci">double Time</div><div class="ttdoc">the time datatype</div><div class="ttdef"><b>Definition:</b> time.h:17</div></div>
-<div class="ttc" id="anamespace_timing_html_ae00b365e7a8436ebb12705bd633b8234"><div class="ttname"><a href="namespace_timing.html#ae00b365e7a8436ebb12705bd633b8234">Timing::TicksToSeconds</a></div><div class="ttdeci">Time TicksToSeconds(Tick ticks)</div><div class="ttdoc">Convert ticks to seconds.</div><div class="ttdef"><b>Definition:</b> time.h:26</div></div>
+<div class="ttc" id="anamespace_timing_html"><div class="ttname"><a href="namespace_timing.html">Timing</a></div><div class="ttdef"><b>Definition:</b> calendartimebase.h:19</div></div>
+<div class="ttc" id="anamespace_timing_html_a0e6bf8ecbaa0f52daff8ae2e0676eedf"><div class="ttname"><a href="namespace_timing.html#a0e6bf8ecbaa0f52daff8ae2e0676eedf">Timing::SecondsToTicks</a></div><div class="ttdeci">Tick SecondsToTicks(Time t)</div><div class="ttdoc">Convert seconds to ticks.</div><div class="ttdef"><b>Definition:</b> time.h:37</div></div>
+<div class="ttc" id="anamespace_timing_html_a1884fd8969a4a431040692fbcf9f5f1e"><div class="ttname"><a href="namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e">Timing::Tick</a></div><div class="ttdeci">int Tick</div><div class="ttdoc">the tick datatype (one tick == 1 millisecond)</div><div class="ttdef"><b>Definition:</b> time.h:20</div></div>
+<div class="ttc" id="anamespace_timing_html_a60ecc2f2142ee97d39169048e5cf29a9"><div class="ttname"><a href="namespace_timing.html#a60ecc2f2142ee97d39169048e5cf29a9">Timing::Sleep</a></div><div class="ttdeci">void Sleep(Time t)</div><div class="ttdoc">Put current thread to sleep for specified amount of seconds.</div><div class="ttdef"><b>Definition:</b> time.h:48</div></div>
+<div class="ttc" id="anamespace_timing_html_a8ad3705944b3f8824d642c4424ab3999"><div class="ttname"><a href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a></div><div class="ttdeci">double Time</div><div class="ttdoc">the time datatype</div><div class="ttdef"><b>Definition:</b> time.h:18</div></div>
+<div class="ttc" id="anamespace_timing_html_ae00b365e7a8436ebb12705bd633b8234"><div class="ttname"><a href="namespace_timing.html#ae00b365e7a8436ebb12705bd633b8234">Timing::TicksToSeconds</a></div><div class="ttdeci">Time TicksToSeconds(Tick ticks)</div><div class="ttdoc">Convert ticks to seconds.</div><div class="ttdef"><b>Definition:</b> time.h:27</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('time_8h_source.html',''); initResizabl
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_cb13724d58d490438127943e04627cdf.html">timing</a></li><li class="navelem"><a class="el" href="time_8h.html">time.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:12 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:43 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

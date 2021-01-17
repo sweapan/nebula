@@ -97,6 +97,12 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dd><p class="startdd"><a class="anchor" id="_todo000005"></a>We can bundle all add and remove property for each entity into one migration.</p>
 <p class="enddd"><a class="anchor" id="_todo000006"></a>This is not thread safe. Either, we keep it like it is and make sure this function is always called synchronously, or add a critical section?  </p>
 </dd>
+<dt>Member <a class="el" href="class_i_o_1_1_u_r_i.html#a98d96e6900e51888ed9b90fa2086ebf5">IO::URI::Split</a>  (const <a class="el" href="class_util_1_1_string.html" title="Nebula&#39;s universal string class.">Util::String</a> &amp;s)</dt>
+<dd><a class="anchor" id="_todo000014"></a>: this is too complicated...  </dd>
+<dt>Member <a class="el" href="namespace_math.html#a45b185959f1c682ea18626a99d096b7b">Math::fchop</a>  (scalar f)</dt>
+<dd><a class="anchor" id="_todo000016"></a>type cast to int is slow!  </dd>
+<dt>Class <a class="el" href="struct_mem_db_1_1_table.html">MemDb::Table</a>  </dt>
+<dd><a class="anchor" id="_todo000004"></a>This should be changed to SOAs  </dd>
 <dt>Member <a class="el" href="class_game_1_1_message.html#a930b8135992515b013e13fe589f0832c">Game::Message&lt; MSG, TYPES &gt;::Distribute</a>  (TYPES ...)</dt>
 <dd><a class="anchor" id="_todo000008"></a>Implement networked messages. </dd>
 <dt>Member <a class="el" href="class_game_1_1_message.html#a7026143280464c6048fdaa1be11f8300">Game::Message&lt; MSG, TYPES &gt;::distributedMessages</a>  </dt>
@@ -110,16 +116,10 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dd><a class="anchor" id="_todo000013"></a>handle non-mappable stream!  </dd>
 <dt>Member <a class="el" href="class_i_o_1_1_io_interface_handler.html#a4b6bad3530bb5043038a6b767e4eb4c5">IO::IoInterfaceHandler::OnWriteStream</a>  (const Ptr&lt; IO::WriteStream &gt; &amp;msg)</dt>
 <dd><a class="anchor" id="_todo000012"></a>handle non-mappable stream  </dd>
-<dt>Member <a class="el" href="class_i_o_1_1_u_r_i.html#a98d96e6900e51888ed9b90fa2086ebf5">IO::URI::Split</a>  (const <a class="el" href="class_util_1_1_string.html" title="Nebula&#39;s universal string class.">Util::String</a> &amp;s)</dt>
-<dd><a class="anchor" id="_todo000014"></a>: this is too complicated...  </dd>
 <dt>Class <a class="el" href="class_linux_1_1_linux_critical_section.html">Linux::LinuxCriticalSection</a>  </dt>
 <dd><a class="anchor" id="_todo000019"></a>: Add debugging asserts? If yes wrap with new __NEBULA-define </dd>
-<dt>Member <a class="el" href="namespace_math.html#a45b185959f1c682ea18626a99d096b7b">Math::fchop</a>  (scalar f)</dt>
-<dd><a class="anchor" id="_todo000016"></a>type cast to int is slow!  </dd>
 <dt>Member <a class="el" href="class_math_1_1line.html#a58124a5f5e1d6fcd6980112b55a8f76f">Math::line::intersect</a>  (const line &amp;l, point &amp;pa, point &amp;pb) const</dt>
 <dd><a class="anchor" id="_todo000015"></a>: Untested! Replace with simpler code.  </dd>
-<dt>Class <a class="el" href="struct_mem_db_1_1_table.html">MemDb::Table</a>  </dt>
-<dd><a class="anchor" id="_todo000004"></a>This should be changed to SOAs  </dd>
 <dt>Member <a class="el" href="class_messaging_1_1_port.html#a5a2c6a4c0e8b16a33c9d0a04983dc2eb">Messaging::Port::Send</a>  (const Ptr&lt; Message &gt; &amp;msg)</dt>
 <dd><a class="anchor" id="_todo000017"></a>should we stop here, once the message had been handled...?  </dd>
 <dt>Member <a class="el" href="struct_models_1_1_transform_node_1_1_instance.html#a6d8b1c511482e0ba6c62608e42d43184">Models::TransformNode::Instance::objectId</a>  </dt>
@@ -158,7 +158,7 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 		<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
 			<ul>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:43 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

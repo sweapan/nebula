@@ -88,50 +88,50 @@ $(document).ready(function(){initNavTree('vkshader_8h_source.html',''); initResi
 <div class="contents">
 <a href="vkshader_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="refcounted_8h.html">core/refcounted.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;lowlevel/afxapi.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="set_8h.html">util/set.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">coregraphics/shader.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sampler_8h.html">coregraphics/sampler.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="resourcetable_8h.html">coregraphics/resourcetable.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_vulkan.html">Vulkan</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_vulkan.html#aa1354632842ea83e3f8e784091715754">VkShaderSetup</a>(</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    VkDevice dev,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_util_1_1_string_atom.html">Util::StringAtom</a>&amp; name,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> VkPhysicalDeviceProperties props,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    AnyFX::ShaderEffect* effect,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_util_1_1_fixed_array.html">Util::FixedArray&lt;CoreGraphics::ResourcePipelinePushConstantRange&gt;</a>&amp; constantRange,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_util_1_1_array.html">Util::Array&lt;CoreGraphics::SamplerId&gt;</a>&amp; immutableSamplers,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_util_1_1_fixed_array.html">Util::FixedArray</a>&lt;<a class="code" href="namespace_util.html#afb76d79dd0028154ff80d514ec0a66cc">Util::Pair&lt;uint32_t, CoreGraphics::ResourceTableLayoutId&gt;</a>&gt;&amp; setLayouts,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;uint32_t, uint32_t&gt;</a>&amp; setLayoutMap,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="struct_core_graphics_1_1_resource_pipeline_id.html">CoreGraphics::ResourcePipelineId</a>&amp; pipelineLayout,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, uint32_t&gt;</a>&amp; resourceSlotMapping,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, IndexT&gt;</a>&amp; constantBindings</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_vulkan.html#abba45a6f6c8be2526d37940303d941e0">VkShaderCleanup</a>(</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    VkDevice dev,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_util_1_1_array.html">Util::Array&lt;CoreGraphics::SamplerId&gt;</a>&amp; immutableSamplers,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_util_1_1_fixed_array.html">Util::FixedArray</a>&lt;<a class="code" href="namespace_util.html#afb76d79dd0028154ff80d514ec0a66cc">Util::Pair&lt;uint32_t, CoreGraphics::ResourceTableLayoutId&gt;</a>&gt;&amp; setLayouts,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, CoreGraphics::BufferId&gt;</a>&amp; buffers,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="struct_core_graphics_1_1_resource_pipeline_id.html">CoreGraphics::ResourcePipelineId</a>&amp; pipelineLayout</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">static</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> <a class="code" href="namespace_vulkan.html#a124c6bbd44811cbbb51b6c2c30269bf4">VkShaderCreateSignature</a>(<span class="keyword">const</span> VkDescriptorSetLayoutBinding&amp; bind);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, VkDescriptorSetLayout&gt;</a> <a class="code" href="namespace_vulkan.html#a68ba96d8d5a0ef5c777c65e84b9e02e0">VkShaderLayoutCache</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, VkPipelineLayout&gt;</a> <a class="code" href="namespace_vulkan.html#ac0aa110716e3b1d8895884f437899107">VkShaderPipelineCache</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, VkDescriptorSet&gt;</a> <a class="code" href="namespace_vulkan.html#a9082a05116971436ae8abc11368f9941">VkShaderDescriptorSetCache</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace Vulkan</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="refcounted_8h.html">core/refcounted.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;lowlevel/afxapi.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="set_8h.html">util/set.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">coregraphics/shader.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sampler_8h.html">coregraphics/sampler.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="resourcetable_8h.html">coregraphics/resourcetable.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_vulkan.html">Vulkan</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_vulkan.html#aa1354632842ea83e3f8e784091715754">VkShaderSetup</a>(</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    VkDevice dev,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_util_1_1_string_atom.html">Util::StringAtom</a>&amp; name,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> VkPhysicalDeviceProperties props,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    AnyFX::ShaderEffect* effect,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_util_1_1_fixed_array.html">Util::FixedArray&lt;CoreGraphics::ResourcePipelinePushConstantRange&gt;</a>&amp; constantRange,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_util_1_1_array.html">Util::Array&lt;CoreGraphics::SamplerId&gt;</a>&amp; immutableSamplers,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_util_1_1_fixed_array.html">Util::FixedArray</a>&lt;<a class="code" href="namespace_util.html#afb76d79dd0028154ff80d514ec0a66cc">Util::Pair&lt;uint32_t, CoreGraphics::ResourceTableLayoutId&gt;</a>&gt;&amp; setLayouts,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;uint32_t, uint32_t&gt;</a>&amp; setLayoutMap,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="struct_core_graphics_1_1_resource_pipeline_id.html">CoreGraphics::ResourcePipelineId</a>&amp; pipelineLayout,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, uint32_t&gt;</a>&amp; resourceSlotMapping,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, IndexT&gt;</a>&amp; constantBindings</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_vulkan.html#abba45a6f6c8be2526d37940303d941e0">VkShaderCleanup</a>(</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    VkDevice dev,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_util_1_1_array.html">Util::Array&lt;CoreGraphics::SamplerId&gt;</a>&amp; immutableSamplers,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_util_1_1_fixed_array.html">Util::FixedArray</a>&lt;<a class="code" href="namespace_util.html#afb76d79dd0028154ff80d514ec0a66cc">Util::Pair&lt;uint32_t, CoreGraphics::ResourceTableLayoutId&gt;</a>&gt;&amp; setLayouts,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, CoreGraphics::BufferId&gt;</a>&amp; buffers,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="struct_core_graphics_1_1_resource_pipeline_id.html">CoreGraphics::ResourcePipelineId</a>&amp; pipelineLayout</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">static</span> <a class="code" href="class_util_1_1_string.html">Util::String</a> <a class="code" href="namespace_vulkan.html#a124c6bbd44811cbbb51b6c2c30269bf4">VkShaderCreateSignature</a>(<span class="keyword">const</span> VkDescriptorSetLayoutBinding&amp; bind);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, VkDescriptorSetLayout&gt;</a> <a class="code" href="namespace_vulkan.html#a68ba96d8d5a0ef5c777c65e84b9e02e0">VkShaderLayoutCache</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, VkPipelineLayout&gt;</a> <a class="code" href="namespace_vulkan.html#ac0aa110716e3b1d8895884f437899107">VkShaderPipelineCache</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_util_1_1_dictionary.html">Util::Dictionary&lt;Util::StringAtom, VkDescriptorSet&gt;</a> <a class="code" href="namespace_vulkan.html#a9082a05116971436ae8abc11368f9941">VkShaderDescriptorSetCache</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace Vulkan</span></div>
 <div class="ttc" id="aclass_util_1_1_array_html"><div class="ttname"><a href="class_util_1_1_array.html">Util::Array&lt; CoreGraphics::SamplerId &gt;</a></div></div>
 <div class="ttc" id="aclass_util_1_1_dictionary_html"><div class="ttname"><a href="class_util_1_1_dictionary.html">Util::Dictionary&lt; uint32_t, uint32_t &gt;</a></div></div>
 <div class="ttc" id="aclass_util_1_1_fixed_array_html"><div class="ttname"><a href="class_util_1_1_fixed_array.html">Util::FixedArray&lt; CoreGraphics::ResourcePipelinePushConstantRange &gt;</a></div></div>
-<div class="ttc" id="aclass_util_1_1_string_atom_html"><div class="ttname"><a href="class_util_1_1_string_atom.html">Util::StringAtom</a></div><div class="ttdoc">A StringAtom.</div><div class="ttdef"><b>Definition:</b> stringatom.h:21</div></div>
-<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:47</div></div>
-<div class="ttc" id="anamespace_util_html_afb76d79dd0028154ff80d514ec0a66cc"><div class="ttname"><a href="namespace_util.html#afb76d79dd0028154ff80d514ec0a66cc">Util::Pair</a></div><div class="ttdeci">std::pair&lt; A, B &gt; Pair</div><div class="ttdoc">Wrap std::pair.</div><div class="ttdef"><b>Definition:</b> tupleutility.h:46</div></div>
+<div class="ttc" id="aclass_util_1_1_string_atom_html"><div class="ttname"><a href="class_util_1_1_string_atom.html">Util::StringAtom</a></div><div class="ttdoc">A StringAtom.</div><div class="ttdef"><b>Definition:</b> stringatom.h:22</div></div>
+<div class="ttc" id="aclass_util_1_1_string_html"><div class="ttname"><a href="class_util_1_1_string.html">Util::String</a></div><div class="ttdoc">Nebula's universal string class.</div><div class="ttdef"><b>Definition:</b> string.h:48</div></div>
+<div class="ttc" id="anamespace_util_html_afb76d79dd0028154ff80d514ec0a66cc"><div class="ttname"><a href="namespace_util.html#afb76d79dd0028154ff80d514ec0a66cc">Util::Pair</a></div><div class="ttdeci">std::pair&lt; A, B &gt; Pair</div><div class="ttdoc">Wrap std::pair.</div><div class="ttdef"><b>Definition:</b> tupleutility.h:47</div></div>
 <div class="ttc" id="anamespace_vulkan_html"><div class="ttname"><a href="namespace_vulkan.html">Vulkan</a></div><div class="ttdoc">The Vulkan implementation of a GPU command barrier.</div><div class="ttdef"><b>Definition:</b> vkbarrier.cc:20</div></div>
 <div class="ttc" id="anamespace_vulkan_html_a124c6bbd44811cbbb51b6c2c30269bf4"><div class="ttname"><a href="namespace_vulkan.html#a124c6bbd44811cbbb51b6c2c30269bf4">Vulkan::VkShaderCreateSignature</a></div><div class="ttdeci">Util::String VkShaderCreateSignature(const VkDescriptorSetLayoutBinding &amp;bind)</div><div class="ttdoc">create descriptor layout signature</div><div class="ttdef"><b>Definition:</b> vkshader.cc:396</div></div>
 <div class="ttc" id="anamespace_vulkan_html_a68ba96d8d5a0ef5c777c65e84b9e02e0"><div class="ttname"><a href="namespace_vulkan.html#a68ba96d8d5a0ef5c777c65e84b9e02e0">Vulkan::VkShaderLayoutCache</a></div><div class="ttdeci">Util::Dictionary&lt; Util::StringAtom, VkDescriptorSetLayout &gt; VkShaderLayoutCache</div><div class="ttdef"><b>Definition:</b> vkshader.cc:21</div></div>
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('vkshader_8h_source.html',''); initResi
 <div class="ttc" id="asampler_8h_html"><div class="ttname"><a href="sampler_8h.html">sampler.h</a></div></div>
 <div class="ttc" id="aset_8h_html"><div class="ttname"><a href="set_8h.html">set.h</a></div></div>
 <div class="ttc" id="ashader_8h_html"><div class="ttname"><a href="shader_8h.html">shader.h</a></div></div>
-<div class="ttc" id="astruct_core_graphics_1_1_resource_pipeline_id_html"><div class="ttname"><a href="struct_core_graphics_1_1_resource_pipeline_id.html">CoreGraphics::ResourcePipelineId</a></div><div class="ttdef"><b>Definition:</b> resourcetable.h:175</div></div>
+<div class="ttc" id="astruct_core_graphics_1_1_resource_pipeline_id_html"><div class="ttname"><a href="struct_core_graphics_1_1_resource_pipeline_id.html">CoreGraphics::ResourcePipelineId</a></div><div class="ttdef"><b>Definition:</b> resourcetable.h:176</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('vkshader_8h_source.html',''); initResi
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_933e88acd4f6f83648c4ee8940d06fa2.html">render</a></li><li class="navelem"><a class="el" href="dir_37551f33e300d96c62573a393f7afa02.html">coregraphics</a></li><li class="navelem"><a class="el" href="dir_8e0a6479ef4d2ba532242f7a47e99014.html">vk</a></li><li class="navelem"><a class="el" href="vkshader_8h.html">vkshader.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:29 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:58:49 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

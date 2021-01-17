@@ -88,22 +88,22 @@ $(document).ready(function(){initNavTree('win32stacktrace_8h_source.html',''); i
 <div class="contents">
 <a href="win32stacktrace_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">core/types.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8h.html">util/string.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_win32.html">Win32</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_win32_1_1_win32_stack_trace.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_win32_1_1_win32_stack_trace.html">Win32StackTrace</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="class_util_1_1_array.html">Util::Array&lt;Util::String&gt;</a> <a class="code" href="class_win32_1_1_win32_stack_trace.html#a9c4d2f2d2960454ec93ac456b7fd9520">GenerateStackTrace</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_win32_1_1_win32_stack_trace.html#a32ae0fcb04b25e31795e72227f2ea685">PrintStackTrace</a>(<span class="keywordtype">int</span> skip = 3);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">core/types.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8h.html">util/string.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_win32.html">Win32</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_win32_1_1_win32_stack_trace.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_win32_1_1_win32_stack_trace.html">Win32StackTrace</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="class_util_1_1_array.html">Util::Array&lt;Util::String&gt;</a> <a class="code" href="class_win32_1_1_win32_stack_trace.html#a9c4d2f2d2960454ec93ac456b7fd9520">GenerateStackTrace</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_win32_1_1_win32_stack_trace.html#a32ae0fcb04b25e31795e72227f2ea685">PrintStackTrace</a>(<span class="keywordtype">int</span> skip = 3);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="ttc" id="aclass_util_1_1_array_html"><div class="ttname"><a href="class_util_1_1_array.html">Util::Array&lt; Util::String &gt;</a></div></div>
-<div class="ttc" id="aclass_win32_1_1_win32_stack_trace_html"><div class="ttname"><a href="class_win32_1_1_win32_stack_trace.html">Win32::Win32StackTrace</a></div><div class="ttdef"><b>Definition:</b> win32stacktrace.h:17</div></div>
+<div class="ttc" id="aclass_win32_1_1_win32_stack_trace_html"><div class="ttname"><a href="class_win32_1_1_win32_stack_trace.html">Win32::Win32StackTrace</a></div><div class="ttdef"><b>Definition:</b> win32stacktrace.h:18</div></div>
 <div class="ttc" id="aclass_win32_1_1_win32_stack_trace_html_a32ae0fcb04b25e31795e72227f2ea685"><div class="ttname"><a href="class_win32_1_1_win32_stack_trace.html#a32ae0fcb04b25e31795e72227f2ea685">Win32::Win32StackTrace::PrintStackTrace</a></div><div class="ttdeci">static void PrintStackTrace(int skip=3)</div><div class="ttdef"><b>Definition:</b> win32stacktrace.cc:47</div></div>
 <div class="ttc" id="aclass_win32_1_1_win32_stack_trace_html_a9c4d2f2d2960454ec93ac456b7fd9520"><div class="ttname"><a href="class_win32_1_1_win32_stack_trace.html#a9c4d2f2d2960454ec93ac456b7fd9520">Win32::Win32StackTrace::GenerateStackTrace</a></div><div class="ttdeci">static const Util::Array&lt; Util::String &gt; GenerateStackTrace()</div><div class="ttdoc">create a stack trace string</div><div class="ttdef"><b>Definition:</b> win32stacktrace.cc:36</div></div>
 <div class="ttc" id="anamespace_win32_html"><div class="ttname"><a href="namespace_win32.html">Win32</a></div><div class="ttdoc">[TODO: Describe Win32 subsystem]</div></div>
@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('win32stacktrace_8h_source.html',''); i
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_a42aadf925508a0f11fe3fda2d07949e.html">debug</a></li><li class="navelem"><a class="el" href="dir_4b631a347c21c14391093c6ef045e616.html">win32</a></li><li class="navelem"><a class="el" href="win32stacktrace_8h.html">win32stacktrace.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:40 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

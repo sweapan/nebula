@@ -88,55 +88,55 @@ $(document).ready(function(){initNavTree('httpstream_8h_source.html',''); initRe
 <div class="contents">
 <a href="httpstream_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorystream_8h.html">io/memorystream.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="httpclient_8h.html">http/httpclient.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_http.html">Http</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_http_1_1_http_stream.html">HttpStream</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#a2eb0b87b5a688f6dd8ca89ad9cc059e5">   20</a></span>&#160;    <a class="code" href="class_http_1_1_http_stream.html#a2eb0b87b5a688f6dd8ca89ad9cc059e5">__DeclareClass</a>(<a class="code" href="class_http_1_1_http_stream.html">HttpStream</a>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_http_1_1_http_stream.html#a5bae3a621dfad1c4483b5c11be416fb7">HttpStream</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_http_1_1_http_stream.html#a5200dfd127ff057dc3af6168f8a4678f">~HttpStream</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_http_1_1_http_stream.html#a0f1ce429d85b8bac7e7f4016821b9042">Open</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">SetRetries</a>(<span class="keywordtype">int</span> count);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">GetRetries</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// amount of retries for slow servers (503 responses)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">   37</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">retries</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">   44</a></span>&#160;<a class="code" href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">HttpStream::SetRetries</a>(<span class="keywordtype">int</span> count)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    this-&gt;<a class="code" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">retries</a> = count;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">   53</a></span>&#160;<a class="code" href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">HttpStream::GetRetries</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">retries</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace Http</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="ttc" id="aclass_http_1_1_http_stream_html"><div class="ttname"><a href="class_http_1_1_http_stream.html">Http::HttpStream</a></div><div class="ttdoc">Wraps client HTTP requests to a HTTP server into an IO::Stream.</div><div class="ttdef"><b>Definition:</b> httpstream.h:19</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorystream_8h.html">io/memorystream.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="httpclient_8h.html">http/httpclient.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_http.html">Http</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_http_1_1_http_stream.html">HttpStream</a> : <span class="keyword">public</span> <a class="code" href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#a2eb0b87b5a688f6dd8ca89ad9cc059e5">   21</a></span>&#160;    <a class="code" href="class_http_1_1_http_stream.html#a2eb0b87b5a688f6dd8ca89ad9cc059e5">__DeclareClass</a>(<a class="code" href="class_http_1_1_http_stream.html">HttpStream</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_http_1_1_http_stream.html#a5bae3a621dfad1c4483b5c11be416fb7">HttpStream</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_http_1_1_http_stream.html#a5200dfd127ff057dc3af6168f8a4678f">~HttpStream</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_http_1_1_http_stream.html#a0f1ce429d85b8bac7e7f4016821b9042">Open</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">SetRetries</a>(<span class="keywordtype">int</span> count);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">GetRetries</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// amount of retries for slow servers (503 responses)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">   38</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">retries</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">   45</a></span>&#160;<a class="code" href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">HttpStream::SetRetries</a>(<span class="keywordtype">int</span> count)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    this-&gt;<a class="code" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">retries</a> = count;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span><span class="keyword">inline</span> <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">   54</a></span>&#160;<a class="code" href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">HttpStream::GetRetries</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">retries</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace Http</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="ttc" id="aclass_http_1_1_http_stream_html"><div class="ttname"><a href="class_http_1_1_http_stream.html">Http::HttpStream</a></div><div class="ttdoc">Wraps client HTTP requests to a HTTP server into an IO::Stream.</div><div class="ttdef"><b>Definition:</b> httpstream.h:20</div></div>
 <div class="ttc" id="aclass_http_1_1_http_stream_html_a0f1ce429d85b8bac7e7f4016821b9042"><div class="ttname"><a href="class_http_1_1_http_stream.html#a0f1ce429d85b8bac7e7f4016821b9042">Http::HttpStream::Open</a></div><div class="ttdeci">virtual bool Open()</div><div class="ttdoc">open the stream</div><div class="ttdef"><b>Definition:</b> httpstream.cc:38</div></div>
 <div class="ttc" id="aclass_http_1_1_http_stream_html_a2eb0b87b5a688f6dd8ca89ad9cc059e5"><div class="ttname"><a href="class_http_1_1_http_stream.html#a2eb0b87b5a688f6dd8ca89ad9cc059e5">Http::HttpStream::__DeclareClass</a></div><div class="ttdeci">__DeclareClass(HttpStream)</div></div>
 <div class="ttc" id="aclass_http_1_1_http_stream_html_a5200dfd127ff057dc3af6168f8a4678f"><div class="ttname"><a href="class_http_1_1_http_stream.html#a5200dfd127ff057dc3af6168f8a4678f">Http::HttpStream::~HttpStream</a></div><div class="ttdeci">virtual ~HttpStream()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> httpstream.cc:26</div></div>
 <div class="ttc" id="aclass_http_1_1_http_stream_html_a5bae3a621dfad1c4483b5c11be416fb7"><div class="ttname"><a href="class_http_1_1_http_stream.html#a5bae3a621dfad1c4483b5c11be416fb7">Http::HttpStream::HttpStream</a></div><div class="ttdeci">HttpStream()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> httpstream.cc:17</div></div>
-<div class="ttc" id="aclass_http_1_1_http_stream_html_a7f8f4d553b737d45306150e2198968f1"><div class="ttname"><a href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">Http::HttpStream::SetRetries</a></div><div class="ttdeci">void SetRetries(int count)</div><div class="ttdef"><b>Definition:</b> httpstream.h:44</div></div>
-<div class="ttc" id="aclass_http_1_1_http_stream_html_a8810d79240e32c3f8479c53938a1fd25"><div class="ttname"><a href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">Http::HttpStream::GetRetries</a></div><div class="ttdeci">int GetRetries() const</div><div class="ttdef"><b>Definition:</b> httpstream.h:53</div></div>
-<div class="ttc" id="aclass_http_1_1_http_stream_html_af6a9c060be23f84f0b334e8d33895f89"><div class="ttname"><a href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">Http::HttpStream::retries</a></div><div class="ttdeci">int retries</div><div class="ttdef"><b>Definition:</b> httpstream.h:37</div></div>
-<div class="ttc" id="aclass_i_o_1_1_memory_stream_html"><div class="ttname"><a href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div><div class="ttdoc">Implements a stream class which writes to and reads from system RAM.</div><div class="ttdef"><b>Definition:</b> memorystream.h:18</div></div>
+<div class="ttc" id="aclass_http_1_1_http_stream_html_a7f8f4d553b737d45306150e2198968f1"><div class="ttname"><a href="class_http_1_1_http_stream.html#a7f8f4d553b737d45306150e2198968f1">Http::HttpStream::SetRetries</a></div><div class="ttdeci">void SetRetries(int count)</div><div class="ttdef"><b>Definition:</b> httpstream.h:45</div></div>
+<div class="ttc" id="aclass_http_1_1_http_stream_html_a8810d79240e32c3f8479c53938a1fd25"><div class="ttname"><a href="class_http_1_1_http_stream.html#a8810d79240e32c3f8479c53938a1fd25">Http::HttpStream::GetRetries</a></div><div class="ttdeci">int GetRetries() const</div><div class="ttdef"><b>Definition:</b> httpstream.h:54</div></div>
+<div class="ttc" id="aclass_http_1_1_http_stream_html_af6a9c060be23f84f0b334e8d33895f89"><div class="ttname"><a href="class_http_1_1_http_stream.html#af6a9c060be23f84f0b334e8d33895f89">Http::HttpStream::retries</a></div><div class="ttdeci">int retries</div><div class="ttdef"><b>Definition:</b> httpstream.h:38</div></div>
+<div class="ttc" id="aclass_i_o_1_1_memory_stream_html"><div class="ttname"><a href="class_i_o_1_1_memory_stream.html">IO::MemoryStream</a></div><div class="ttdoc">Implements a stream class which writes to and reads from system RAM.</div><div class="ttdef"><b>Definition:</b> memorystream.h:19</div></div>
 <div class="ttc" id="afoundation_2core_2config_8h_html"><div class="ttname"><a href="foundation_2core_2config_8h.html">config.h</a></div><div class="ttdoc">Nebula compiler specific defines and configuration.</div></div>
 <div class="ttc" id="ahttpclient_8h_html"><div class="ttname"><a href="httpclient_8h.html">httpclient.h</a></div></div>
 <div class="ttc" id="amemorystream_8h_html"><div class="ttname"><a href="memorystream_8h.html">memorystream.h</a></div></div>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('httpstream_8h_source.html',''); initRe
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_890e2c3a9c3b155590221e5a959f1be1.html">http</a></li><li class="navelem"><a class="el" href="httpstream_8h.html">httpstream.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:41 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

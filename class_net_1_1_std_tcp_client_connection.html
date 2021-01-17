@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('class_net_1_1_std_tcp_client_connectio
 <div class="textblock"><p>A <a class="el" href="class_net_1_1_tcp_client_connection.html" title="See StdTcpClientConnection for details!">TcpClientConnection</a> represents a connected <a class="el" href="class_net_1_1_tcp_client.html" title="See StdTcpClient for details.">TcpClient</a> on the server side. </p>
 <p><a class="el" href="class_net_1_1_tcp_client_connection.html" title="See StdTcpClientConnection for details!">TcpClientConnection</a> objects are created and maintained by a <a class="el" href="class_net_1_1_tcp_server.html" title="Front-end wrapper class for StdTcpServer, see StdTcpServer for details!">TcpServer</a> object over the lifetime of a client connection. <a class="el" href="class_net_1_1_tcp_client_connection.html" title="See StdTcpClientConnection for details!">TcpClientConnection</a> objects are used to communicate directly with the specific client represented by the connection object.</p>
 <p><a class="el" href="class_net_1_1_tcp_client_connection.html" title="See StdTcpClientConnection for details!">TcpClientConnection</a> objects are generally non-blocking. To receive data from the client, call the <a class="el" href="class_net_1_1_std_tcp_client_connection.html#a5e80fbca4d956d785e442e09e4403a40" title="receive data from server into recv stream">Recv()</a> method until it returns true, this indicates that received data is available in the RecvStream. To read data from the RecvStream attach a StreamReader which matches the data format your expecting from the client (e.g. BinaryReader, TextReader, XmlReader, etc...). To send data back to the client just do the reverse: write data to the SendStream, and at any time call the <a class="el" href="class_net_1_1_std_tcp_client_connection.html#a1dc4e46238f9652ecd6b22a5848785df" title="send accumulated content of send stream to server">Send()</a> method which will send all data accumulated in the SendStream to the client.</p>
-<p>(C) 2006 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2006 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div>
 <p>Inherits <a class="el" href="class_core_1_1_ref_counted.html">Core::RefCounted</a>.</p>
 <table class="memberdecls">
@@ -583,7 +583,7 @@ Additional Inherited Members</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_net.html">Net</a></li><li class="navelem"><a class="el" href="class_net_1_1_std_tcp_client_connection.html">StdTcpClientConnection</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:52 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

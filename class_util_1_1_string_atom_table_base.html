@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('class_util_1_1_string_atom_table_base.
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This implements the base class for thread-local and global string atom table classes. </p>
 <p>In order to reduce thread-synchronization, there are 2 levels of string atom tables in N3. One global string atom table for all threads, and one thread-local string atom table in each thread which acts as a cache for the global table. If a new string atom is created from a string, the thread-local string atom table will be searched first. If the string has already been registered in the thread-local table, the string atom will be setup and no locking at all is necessary. Only if the string is not in the thread local table, the global string atom table will be consulted (which requires locking). If the string is in the global table, the pointer to the string will be sorted into the thread-local atom table and the string will be setup. If the string is completely new (not even in the global atom table), then the string needs to be sorted both into the global, and the thread-local atom table.</p>
-<p>(C) 2009 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2009 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div>
 <p>Inherited by <a class="el" href="class_util_1_1_global_string_atom_table.html">Util::GlobalStringAtomTable</a>, and <a class="el" href="class_util_1_1_local_string_atom_table.html">Util::LocalStringAtomTable</a>.</p>
 <table class="memberdecls">
@@ -261,7 +261,7 @@ Friends</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_util.html">Util</a></li><li class="navelem"><a class="el" href="class_util_1_1_string_atom_table_base.html">StringAtomTableBase</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:54 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:59:09 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

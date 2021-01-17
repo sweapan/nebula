@@ -88,35 +88,35 @@ $(document).ready(function(){initNavTree('localstringatomtable_8h_source.html','
 <div class="contents">
 <a href="localstringatomtable_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="stringatomtablebase_8h.html">util/stringatomtablebase.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="singleton_8h.html">core/singleton.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_util.html">Util</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_util_1_1_local_string_atom_table.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_util_1_1_local_string_atom_table.html">LocalStringAtomTable</a> : <span class="keyword">public</span> <a class="code" href="class_util_1_1_string_atom_table_base.html">StringAtomTableBase</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_util_1_1_local_string_atom_table.html#a808526aedf58746f2f76662e0e952e2d">   20</a></span>&#160;    <a class="code" href="class_util_1_1_local_string_atom_table.html#a808526aedf58746f2f76662e0e952e2d">__DeclareSingleton</a>(<a class="code" href="class_util_1_1_local_string_atom_table.html">LocalStringAtomTable</a>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_util_1_1_local_string_atom_table.html#a4bc13fad600d6c1a670691d71b470bdc">LocalStringAtomTable</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_util_1_1_local_string_atom_table.html#a330c03df86e096720bfb0a939bb84597">~LocalStringAtomTable</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_util_1_1_local_string_atom_table.html#aca8d97f14d03d35d35e6f25e79b37510">   28</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_util_1_1_string_atom.html">StringAtom</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_util_1_1_local_string_atom_table.html#afbcadc36334d21f988f584b405a57190">Add</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};        </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace Util</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="ttc" id="aclass_util_1_1_local_string_atom_table_html"><div class="ttname"><a href="class_util_1_1_local_string_atom_table.html">Util::LocalStringAtomTable</a></div><div class="ttdoc">Implements a thread-local string atom table which is used as a cache to prevent excessive locking whe...</div><div class="ttdef"><b>Definition:</b> localstringatomtable.h:19</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="stringatomtablebase_8h.html">util/stringatomtablebase.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="singleton_8h.html">core/singleton.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_util.html">Util</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_util_1_1_local_string_atom_table.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_util_1_1_local_string_atom_table.html">LocalStringAtomTable</a> : <span class="keyword">public</span> <a class="code" href="class_util_1_1_string_atom_table_base.html">StringAtomTableBase</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_util_1_1_local_string_atom_table.html#a808526aedf58746f2f76662e0e952e2d">   21</a></span>&#160;    <a class="code" href="class_util_1_1_local_string_atom_table.html#a808526aedf58746f2f76662e0e952e2d">__DeclareSingleton</a>(<a class="code" href="class_util_1_1_local_string_atom_table.html">LocalStringAtomTable</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_util_1_1_local_string_atom_table.html#a4bc13fad600d6c1a670691d71b470bdc">LocalStringAtomTable</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_util_1_1_local_string_atom_table.html#a330c03df86e096720bfb0a939bb84597">~LocalStringAtomTable</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_util_1_1_local_string_atom_table.html#aca8d97f14d03d35d35e6f25e79b37510">   29</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_util_1_1_string_atom.html">StringAtom</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_util_1_1_local_string_atom_table.html#afbcadc36334d21f988f584b405a57190">Add</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};        </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace Util</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="ttc" id="aclass_util_1_1_local_string_atom_table_html"><div class="ttname"><a href="class_util_1_1_local_string_atom_table.html">Util::LocalStringAtomTable</a></div><div class="ttdoc">Implements a thread-local string atom table which is used as a cache to prevent excessive locking whe...</div><div class="ttdef"><b>Definition:</b> localstringatomtable.h:20</div></div>
 <div class="ttc" id="aclass_util_1_1_local_string_atom_table_html_a330c03df86e096720bfb0a939bb84597"><div class="ttname"><a href="class_util_1_1_local_string_atom_table.html#a330c03df86e096720bfb0a939bb84597">Util::LocalStringAtomTable::~LocalStringAtomTable</a></div><div class="ttdeci">~LocalStringAtomTable()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> localstringatomtable.cc:24</div></div>
 <div class="ttc" id="aclass_util_1_1_local_string_atom_table_html_a4bc13fad600d6c1a670691d71b470bdc"><div class="ttname"><a href="class_util_1_1_local_string_atom_table.html#a4bc13fad600d6c1a670691d71b470bdc">Util::LocalStringAtomTable::LocalStringAtomTable</a></div><div class="ttdeci">LocalStringAtomTable()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> localstringatomtable.cc:16</div></div>
 <div class="ttc" id="aclass_util_1_1_local_string_atom_table_html_a808526aedf58746f2f76662e0e952e2d"><div class="ttname"><a href="class_util_1_1_local_string_atom_table.html#a808526aedf58746f2f76662e0e952e2d">Util::LocalStringAtomTable::__DeclareSingleton</a></div><div class="ttdeci">__DeclareSingleton(LocalStringAtomTable)</div></div>
 <div class="ttc" id="aclass_util_1_1_local_string_atom_table_html_afbcadc36334d21f988f584b405a57190"><div class="ttname"><a href="class_util_1_1_local_string_atom_table.html#afbcadc36334d21f988f584b405a57190">Util::LocalStringAtomTable::Add</a></div><div class="ttdeci">void Add(const char *str)</div><div class="ttdoc">add a string pointer to the atom table</div><div class="ttdef"><b>Definition:</b> localstringatomtable.cc:35</div></div>
-<div class="ttc" id="aclass_util_1_1_string_atom_html"><div class="ttname"><a href="class_util_1_1_string_atom.html">Util::StringAtom</a></div><div class="ttdoc">A StringAtom.</div><div class="ttdef"><b>Definition:</b> stringatom.h:21</div></div>
-<div class="ttc" id="aclass_util_1_1_string_atom_table_base_html"><div class="ttname"><a href="class_util_1_1_string_atom_table_base.html">Util::StringAtomTableBase</a></div><div class="ttdoc">This implements the base class for thread-local and global string atom table classes.</div><div class="ttdef"><b>Definition:</b> stringatomtablebase.h:33</div></div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:37</div></div>
+<div class="ttc" id="aclass_util_1_1_string_atom_html"><div class="ttname"><a href="class_util_1_1_string_atom.html">Util::StringAtom</a></div><div class="ttdoc">A StringAtom.</div><div class="ttdef"><b>Definition:</b> stringatom.h:22</div></div>
+<div class="ttc" id="aclass_util_1_1_string_atom_table_base_html"><div class="ttname"><a href="class_util_1_1_string_atom_table_base.html">Util::StringAtomTableBase</a></div><div class="ttdoc">This implements the base class for thread-local and global string atom table classes.</div><div class="ttdef"><b>Definition:</b> stringatomtablebase.h:34</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 <div class="ttc" id="asingleton_8h_html"><div class="ttname"><a href="singleton_8h.html">singleton.h</a></div></div>
 <div class="ttc" id="astringatomtablebase_8h_html"><div class="ttname"><a href="stringatomtablebase_8h.html">stringatomtablebase.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -126,7 +126,7 @@ $(document).ready(function(){initNavTree('localstringatomtable_8h_source.html','
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_3efd1eb2182038baf5731b057d5f9c3b.html">util</a></li><li class="navelem"><a class="el" href="localstringatomtable_8h.html">localstringatomtable.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:13 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:43 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

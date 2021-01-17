@@ -88,37 +88,37 @@ $(document).ready(function(){initNavTree('physicsfeatureunit_8h_source.html','')
 <div class="contents">
 <a href="physicsfeatureunit_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="featureunit_8h.html">game/featureunit.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="physicsfeatureunit_8h.html#a9057a793bc86a377b872aef76ff288eb">   10</a></span>&#160;<span class="preprocessor">#define TIMESOURCE_PHYSICS &#39;PHTS&#39;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_physics_feature.html">PhysicsFeature</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_feature_unit.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a> : <span class="keyword">public</span> <a class="code" href="class_game_1_1_feature_unit.html">Game::FeatureUnit</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_game_1_1_feature_unit.html#aca57e590ebf9840db1eff0e36ec18e81">__DeclareClass</a>(<a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a>)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="osxsingleton_8h.html#a90622683d9e8c91682ba26b2fae8125f">__DeclareSingleton</a>(<a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a8253b13cefbaff7054e35203c982efc1">~PhysicsFeatureUnit</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a25344a709b2fdc7b65da2e2dae74a5de">OnActivate</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a7d48a0213446b44544278208bdbf8df8">OnDeactivate</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a592d5322ab989bea92cc9404786e9bbd">OnBeginFrame</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a791a9d346d02ad49a6df068efb843ab3">OnRenderDebug</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">// namespace PhysicsFeature</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="ttc" id="aclass_game_1_1_feature_unit_html"><div class="ttname"><a href="class_game_1_1_feature_unit.html">Game::FeatureUnit</a></div><div class="ttdoc">A FeatureUnit is an encapsulated feature which can be added to an application.</div><div class="ttdef"><b>Definition:</b> featureunit.h:32</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="featureunit_8h.html">game/featureunit.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="physicsfeatureunit_8h.html#a9057a793bc86a377b872aef76ff288eb">   11</a></span>&#160;<span class="preprocessor">#define TIMESOURCE_PHYSICS &#39;PHTS&#39;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_physics_feature.html">PhysicsFeature</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_physics_feature_1_1_physics_feature_unit.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a> : <span class="keyword">public</span> <a class="code" href="class_game_1_1_feature_unit.html">Game::FeatureUnit</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_game_1_1_feature_unit.html#aca57e590ebf9840db1eff0e36ec18e81">__DeclareClass</a>(<a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="osxsingleton_8h.html#a90622683d9e8c91682ba26b2fae8125f">__DeclareSingleton</a>(<a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a>)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeatureUnit</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a8253b13cefbaff7054e35203c982efc1">~PhysicsFeatureUnit</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a25344a709b2fdc7b65da2e2dae74a5de">OnActivate</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a7d48a0213446b44544278208bdbf8df8">OnDeactivate</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a592d5322ab989bea92cc9404786e9bbd">OnBeginFrame</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_physics_feature_1_1_physics_feature_unit.html#a791a9d346d02ad49a6df068efb843ab3">OnRenderDebug</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <span class="comment">// namespace PhysicsFeature</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="ttc" id="aclass_game_1_1_feature_unit_html"><div class="ttname"><a href="class_game_1_1_feature_unit.html">Game::FeatureUnit</a></div><div class="ttdoc">A FeatureUnit is an encapsulated feature which can be added to an application.</div><div class="ttdef"><b>Definition:</b> featureunit.h:33</div></div>
 <div class="ttc" id="aclass_game_1_1_feature_unit_html_aca57e590ebf9840db1eff0e36ec18e81"><div class="ttname"><a href="class_game_1_1_feature_unit.html#aca57e590ebf9840db1eff0e36ec18e81">Game::FeatureUnit::__DeclareClass</a></div><div class="ttdeci">__DeclareClass(FeatureUnit)</div></div>
-<div class="ttc" id="aclass_physics_feature_1_1_physics_feature_unit_html"><div class="ttname"><a href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeature::PhysicsFeatureUnit</a></div><div class="ttdef"><b>Definition:</b> physicsfeatureunit.h:17</div></div>
+<div class="ttc" id="aclass_physics_feature_1_1_physics_feature_unit_html"><div class="ttname"><a href="class_physics_feature_1_1_physics_feature_unit.html">PhysicsFeature::PhysicsFeatureUnit</a></div><div class="ttdef"><b>Definition:</b> physicsfeatureunit.h:18</div></div>
 <div class="ttc" id="aclass_physics_feature_1_1_physics_feature_unit_html_a25344a709b2fdc7b65da2e2dae74a5de"><div class="ttname"><a href="class_physics_feature_1_1_physics_feature_unit.html#a25344a709b2fdc7b65da2e2dae74a5de">PhysicsFeature::PhysicsFeatureUnit::OnActivate</a></div><div class="ttdeci">void OnActivate()</div><div class="ttdoc">Called upon activation of feature unit.</div><div class="ttdef"><b>Definition:</b> physicsfeatureunit.cc:40</div></div>
 <div class="ttc" id="aclass_physics_feature_1_1_physics_feature_unit_html_a592d5322ab989bea92cc9404786e9bbd"><div class="ttname"><a href="class_physics_feature_1_1_physics_feature_unit.html#a592d5322ab989bea92cc9404786e9bbd">PhysicsFeature::PhysicsFeatureUnit::OnBeginFrame</a></div><div class="ttdeci">virtual void OnBeginFrame()</div><div class="ttdoc">called on begin of frame</div><div class="ttdef"><b>Definition:</b> physicsfeatureunit.cc:104</div></div>
 <div class="ttc" id="aclass_physics_feature_1_1_physics_feature_unit_html_a791a9d346d02ad49a6df068efb843ab3"><div class="ttname"><a href="class_physics_feature_1_1_physics_feature_unit.html#a791a9d346d02ad49a6df068efb843ab3">PhysicsFeature::PhysicsFeatureUnit::OnRenderDebug</a></div><div class="ttdeci">virtual void OnRenderDebug()</div><div class="ttdoc">called when game debug visualization is on</div><div class="ttdef"><b>Definition:</b> physicsfeatureunit.cc:114</div></div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('physicsfeatureunit_8h_source.html','')
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_b5156faf6c46139e7ab8a688bcfa1a4a.html">application</a></li><li class="navelem"><a class="el" href="dir_e98137800dbfe1643cdd5a99d688c99e.html">physicsfeature</a></li><li class="navelem"><a class="el" href="physicsfeatureunit_8h.html">physicsfeatureunit.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:40 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

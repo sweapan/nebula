@@ -88,24 +88,24 @@ $(document).ready(function(){initNavTree('tcpclientconnection_8h_source.html',''
 <div class="contents">
 <a href="tcpclientconnection_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#if (__WIN32__ || __OSX__ || __APPLE__ || __linux__)</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stdtcpclientconnection_8h.html">net/tcp/stdtcpclientconnection.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_net.html">Net</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_net_1_1_tcp_client_connection.html">TcpClientConnection</a> : <span class="keyword">public</span> StdTcpClientConnection</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a>(<a class="code" href="class_net_1_1_tcp_client_connection.html">TcpClientConnection</a>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#error &quot;Net::TcpClientConnection not implemented on this platform!&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#if (__WIN32__ || __OSX__ || __APPLE__ || __linux__)</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stdtcpclientconnection_8h.html">net/tcp/stdtcpclientconnection.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_net.html">Net</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="class_net_1_1_tcp_client_connection.html">TcpClientConnection</a> : <span class="keyword">public</span> StdTcpClientConnection</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a>(<a class="code" href="class_net_1_1_tcp_client_connection.html">TcpClientConnection</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#error &quot;Net::TcpClientConnection not implemented on this platform!&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="ttc" id="aclass_net_1_1_tcp_client_connection_html"><div class="ttname"><a href="class_net_1_1_tcp_client_connection.html">TcpClientConnection</a></div><div class="ttdoc">See StdTcpClientConnection for details!</div></div>
 <div class="ttc" id="afoundation_2core_2config_8h_html"><div class="ttname"><a href="foundation_2core_2config_8h.html">config.h</a></div><div class="ttdoc">Nebula compiler specific defines and configuration.</div></div>
-<div class="ttc" id="anamespace_net_html"><div class="ttname"><a href="namespace_net.html">Net</a></div><div class="ttdef"><b>Definition:</b> debugmessage.h:19</div></div>
-<div class="ttc" id="arttimacros_8h_html_ac4164ef10ce5c2eac425c3866991b464"><div class="ttname"><a href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a></div><div class="ttdeci">#define __DeclareClass(type)</div><div class="ttdoc">Declaration macro.</div><div class="ttdef"><b>Definition:</b> rttimacros.h:17</div></div>
+<div class="ttc" id="anamespace_net_html"><div class="ttname"><a href="namespace_net.html">Net</a></div><div class="ttdef"><b>Definition:</b> debugmessage.h:20</div></div>
+<div class="ttc" id="arttimacros_8h_html_ac4164ef10ce5c2eac425c3866991b464"><div class="ttname"><a href="rttimacros_8h.html#ac4164ef10ce5c2eac425c3866991b464">__DeclareClass</a></div><div class="ttdeci">#define __DeclareClass(type)</div><div class="ttdoc">Declaration macro.</div><div class="ttdef"><b>Definition:</b> rttimacros.h:18</div></div>
 <div class="ttc" id="astdtcpclientconnection_8h_html"><div class="ttname"><a href="stdtcpclientconnection_8h.html">stdtcpclientconnection.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('tcpclientconnection_8h_source.html',''
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_4afbcc5b9c44ea8bb84ad3be1af3dd19.html">net</a></li><li class="navelem"><a class="el" href="tcpclientconnection_8h.html">tcpclientconnection.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:17:11 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:57:42 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

@@ -88,35 +88,35 @@ $(document).ready(function(){initNavTree('bruteforcesystem_8h_source.html',''); 
 <div class="contents">
 <a href="bruteforcesystem_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="visibilitysystem_8h.html">visibilitysystem.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jobs_8h.html">jobs/jobs.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_visibility.html">Visibility</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="namespace_visibility.html#a06eb3675b1d2f9697d9070b7cf317279">BruteforceSystemJobFunc</a>(<span class="keyword">const</span> <a class="code" href="struct_jobs_1_1_job_func_context.html">Jobs::JobFuncContext</a>&amp; ctx);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_visibility_1_1_bruteforce_system.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_visibility_1_1_bruteforce_system.html">BruteforceSystem</a> : <span class="keyword">public</span> <a class="code" href="class_visibility_1_1_visibility_system.html">VisibilitySystem</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_visibility_1_1_bruteforce_system.html#aa747929850d5410b9d36ea0eb29ab96d">   19</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_visibility_1_1_observer_context.html">ObserverContext</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_visibility_1_1_bruteforce_system.html#ac3c2e50113a0c865a3f88c246897e220">Setup</a>(<span class="keyword">const</span> <a class="code" href="struct_visibility_1_1_bruteforce_system_load_info.html">BruteforceSystemLoadInfo</a>&amp; info);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_visibility_1_1_bruteforce_system.html#a3fb56db91c5018c8f6b075f6c97e32c8">Run</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <span class="comment">// namespace Visibility</span></div>
-<div class="ttc" id="aclass_visibility_1_1_bruteforce_system_html"><div class="ttname"><a href="class_visibility_1_1_bruteforce_system.html">Visibility::BruteforceSystem</a></div><div class="ttdef"><b>Definition:</b> bruteforcesystem.h:17</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="visibilitysystem_8h.html">visibilitysystem.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jobs_8h.html">jobs/jobs.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_visibility.html">Visibility</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="namespace_visibility.html#a06eb3675b1d2f9697d9070b7cf317279">BruteforceSystemJobFunc</a>(<span class="keyword">const</span> <a class="code" href="struct_jobs_1_1_job_func_context.html">Jobs::JobFuncContext</a>&amp; ctx);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_visibility_1_1_bruteforce_system.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_visibility_1_1_bruteforce_system.html">BruteforceSystem</a> : <span class="keyword">public</span> <a class="code" href="class_visibility_1_1_visibility_system.html">VisibilitySystem</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_visibility_1_1_bruteforce_system.html#aa747929850d5410b9d36ea0eb29ab96d">   20</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_visibility_1_1_observer_context.html">ObserverContext</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_visibility_1_1_bruteforce_system.html#ac3c2e50113a0c865a3f88c246897e220">Setup</a>(<span class="keyword">const</span> <a class="code" href="struct_visibility_1_1_bruteforce_system_load_info.html">BruteforceSystemLoadInfo</a>&amp; info);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_visibility_1_1_bruteforce_system.html#a3fb56db91c5018c8f6b075f6c97e32c8">Run</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace Visibility</span></div>
+<div class="ttc" id="aclass_visibility_1_1_bruteforce_system_html"><div class="ttname"><a href="class_visibility_1_1_bruteforce_system.html">Visibility::BruteforceSystem</a></div><div class="ttdef"><b>Definition:</b> bruteforcesystem.h:18</div></div>
 <div class="ttc" id="aclass_visibility_1_1_bruteforce_system_html_a3fb56db91c5018c8f6b075f6c97e32c8"><div class="ttname"><a href="class_visibility_1_1_bruteforce_system.html#a3fb56db91c5018c8f6b075f6c97e32c8">Visibility::BruteforceSystem::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">run system</div><div class="ttdef"><b>Definition:</b> bruteforcesystem.cc:24</div></div>
 <div class="ttc" id="aclass_visibility_1_1_bruteforce_system_html_ac3c2e50113a0c865a3f88c246897e220"><div class="ttname"><a href="class_visibility_1_1_bruteforce_system.html#ac3c2e50113a0c865a3f88c246897e220">Visibility::BruteforceSystem::Setup</a></div><div class="ttdeci">void Setup(const BruteforceSystemLoadInfo &amp;info)</div><div class="ttdoc">setup from load info</div><div class="ttdef"><b>Definition:</b> bruteforcesystem.cc:16</div></div>
-<div class="ttc" id="aclass_visibility_1_1_observer_context_html"><div class="ttname"><a href="class_visibility_1_1_observer_context.html">Visibility::ObserverContext</a></div><div class="ttdef"><b>Definition:</b> visibilitycontext.h:69</div></div>
-<div class="ttc" id="aclass_visibility_1_1_visibility_system_html"><div class="ttname"><a href="class_visibility_1_1_visibility_system.html">Visibility::VisibilitySystem</a></div><div class="ttdef"><b>Definition:</b> visibilitysystem.h:79</div></div>
+<div class="ttc" id="aclass_visibility_1_1_observer_context_html"><div class="ttname"><a href="class_visibility_1_1_observer_context.html">Visibility::ObserverContext</a></div><div class="ttdef"><b>Definition:</b> visibilitycontext.h:70</div></div>
+<div class="ttc" id="aclass_visibility_1_1_visibility_system_html"><div class="ttname"><a href="class_visibility_1_1_visibility_system.html">Visibility::VisibilitySystem</a></div><div class="ttdef"><b>Definition:</b> visibilitysystem.h:80</div></div>
 <div class="ttc" id="ajobs_8h_html"><div class="ttname"><a href="jobs_8h.html">jobs.h</a></div></div>
-<div class="ttc" id="anamespace_visibility_html"><div class="ttname"><a href="namespace_visibility.html">Visibility</a></div><div class="ttdoc">The shader state node wraps the shader associated with a certain primitive node, or group of primitiv...</div><div class="ttdef"><b>Definition:</b> modelcontext.h:22</div></div>
+<div class="ttc" id="anamespace_visibility_html"><div class="ttname"><a href="namespace_visibility.html">Visibility</a></div><div class="ttdoc">The shader state node wraps the shader associated with a certain primitive node, or group of primitiv...</div><div class="ttdef"><b>Definition:</b> modelcontext.h:23</div></div>
 <div class="ttc" id="anamespace_visibility_html_a06eb3675b1d2f9697d9070b7cf317279"><div class="ttname"><a href="namespace_visibility.html#a06eb3675b1d2f9697d9070b7cf317279">Visibility::BruteforceSystemJobFunc</a></div><div class="ttdeci">void BruteforceSystemJobFunc(const Jobs::JobFuncContext &amp;ctx)</div><div class="ttdef"><b>Definition:</b> bruteforcesystemjob.cc:17</div></div>
-<div class="ttc" id="astruct_jobs_1_1_job_func_context_html"><div class="ttname"><a href="struct_jobs_1_1_job_func_context.html">Jobs::JobFuncContext</a></div><div class="ttdoc">This class describes the size of a workload for a single thread (can be multiple items)</div><div class="ttdef"><b>Definition:</b> jobs.h:50</div></div>
-<div class="ttc" id="astruct_visibility_1_1_bruteforce_system_load_info_html"><div class="ttname"><a href="struct_visibility_1_1_bruteforce_system_load_info.html">Visibility::BruteforceSystemLoadInfo</a></div><div class="ttdef"><b>Definition:</b> visibilitysystem.h:74</div></div>
+<div class="ttc" id="astruct_jobs_1_1_job_func_context_html"><div class="ttname"><a href="struct_jobs_1_1_job_func_context.html">Jobs::JobFuncContext</a></div><div class="ttdoc">This class describes the size of a workload for a single thread (can be multiple items)</div><div class="ttdef"><b>Definition:</b> jobs.h:51</div></div>
+<div class="ttc" id="astruct_visibility_1_1_bruteforce_system_load_info_html"><div class="ttname"><a href="struct_visibility_1_1_bruteforce_system_load_info.html">Visibility::BruteforceSystemLoadInfo</a></div><div class="ttdef"><b>Definition:</b> visibilitysystem.h:75</div></div>
 <div class="ttc" id="avisibilitysystem_8h_html"><div class="ttname"><a href="visibilitysystem_8h.html">visibilitysystem.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('bruteforcesystem_8h_source.html',''); 
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_933e88acd4f6f83648c4ee8940d06fa2.html">render</a></li><li class="navelem"><a class="el" href="dir_b1804efb9947d34e4b1ff56267bd870a.html">visibility</a></li><li class="navelem"><a class="el" href="dir_be29135e7a40ddc51ed958a8aaa8626e.html">systems</a></li><li class="navelem"><a class="el" href="bruteforcesystem_8h.html">bruteforcesystem.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:41 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:58:58 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

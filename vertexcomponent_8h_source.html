@@ -88,25 +88,25 @@ $(document).ready(function(){initNavTree('vertexcomponent_8h_source.html',''); i
 <div class="contents">
 <a href="vertexcomponent_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#if __VULKAN__</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vertexcomponentbase_8h.html">coregraphics/base/vertexcomponentbase.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core_graphics.html">CoreGraphics</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_graphics_1_1_vertex_component.html">VertexComponent</a> : <span class="keyword">public</span> <a class="code" href="class_base_1_1_vertex_component_base.html">Base::VertexComponentBase</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_core_graphics_1_1_vertex_component.html">VertexComponent</a>() { };</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_core_graphics_1_1_vertex_component.html">VertexComponent</a>(SemanticName semName, <a class="code" href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a> semIndex, Format format, <a class="code" href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a> streamIndex=0, StrideType strideType=PerVertex, <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> stride=0) : VertexComponentBase(semName, semIndex, format, streamIndex, strideType, stride) { };</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#error &quot;CoreGraphics::VertexComponent not implemented on this platform&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_base_1_1_vertex_component_base_html"><div class="ttname"><a href="class_base_1_1_vertex_component_base.html">Base::VertexComponentBase</a></div><div class="ttdef"><b>Definition:</b> vertexcomponentbase.h:27</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#if __VULKAN__</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vertexcomponentbase_8h.html">coregraphics/base/vertexcomponentbase.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_core_graphics.html">CoreGraphics</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_graphics_1_1_vertex_component.html">VertexComponent</a> : <span class="keyword">public</span> <a class="code" href="class_base_1_1_vertex_component_base.html">Base::VertexComponentBase</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_core_graphics_1_1_vertex_component.html">VertexComponent</a>() { };</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_core_graphics_1_1_vertex_component.html">VertexComponent</a>(SemanticName semName, <a class="code" href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a> semIndex, Format format, <a class="code" href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a> streamIndex=0, StrideType strideType=PerVertex, <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> stride=0) : VertexComponentBase(semName, semIndex, format, streamIndex, strideType, stride) { };</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#error &quot;CoreGraphics::VertexComponent not implemented on this platform&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_base_1_1_vertex_component_base_html"><div class="ttname"><a href="class_base_1_1_vertex_component_base.html">Base::VertexComponentBase</a></div><div class="ttdef"><b>Definition:</b> vertexcomponentbase.h:28</div></div>
 <div class="ttc" id="aclass_core_graphics_1_1_vertex_component_html"><div class="ttname"><a href="class_core_graphics_1_1_vertex_component.html">VertexComponent</a></div><div class="ttdoc">Describes a single vertex component in a vertex layout description.</div></div>
 <div class="ttc" id="anamespace_core_graphics_html"><div class="ttname"><a href="namespace_core_graphics.html">CoreGraphics</a></div><div class="ttdoc">A barrier is a memory barrier between two GPU operations, and thus allows for a guarantee of concurre...</div><div class="ttdef"><b>Definition:</b> adapter.cc:10</div></div>
-<div class="ttc" id="atypes_8h_html_a869418dc7a0404b6441ebc39c5b4bb37"><div class="ttname"><a href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a></div><div class="ttdeci">int SizeT</div><div class="ttdef"><b>Definition:</b> types.h:48</div></div>
-<div class="ttc" id="atypes_8h_html_ad119735112d40fd29a3017de944ccc98"><div class="ttname"><a href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a></div><div class="ttdeci">int IndexT</div><div class="ttdef"><b>Definition:</b> types.h:47</div></div>
+<div class="ttc" id="atypes_8h_html_a869418dc7a0404b6441ebc39c5b4bb37"><div class="ttname"><a href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a></div><div class="ttdeci">int SizeT</div><div class="ttdef"><b>Definition:</b> types.h:49</div></div>
+<div class="ttc" id="atypes_8h_html_ad119735112d40fd29a3017de944ccc98"><div class="ttname"><a href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a></div><div class="ttdeci">int IndexT</div><div class="ttdef"><b>Definition:</b> types.h:48</div></div>
 <div class="ttc" id="avertexcomponentbase_8h_html"><div class="ttname"><a href="vertexcomponentbase_8h.html">vertexcomponentbase.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('vertexcomponent_8h_source.html',''); i
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_933e88acd4f6f83648c4ee8940d06fa2.html">render</a></li><li class="navelem"><a class="el" href="dir_37551f33e300d96c62573a393f7afa02.html">coregraphics</a></li><li class="navelem"><a class="el" href="vertexcomponent_8h.html">vertexcomponent.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 09:18:27 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 11:58:47 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>
