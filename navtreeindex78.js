@@ -1,5 +1,8 @@
 var NAVTREEINDEX78 =
 {
+"struct_core_graphics_1_1_pass_id.html":[9,0,10,53],
+"struct_core_graphics_1_1_query.html":[9,0,10,31],
+"struct_core_graphics_1_1_query.html#a4057e5f3856d6bd6b93612959ee89af5":[9,0,10,31,2],
 "struct_core_graphics_1_1_query.html#a4f76a0360f5e56e9f1c3c958ca96083b":[9,0,10,31,1],
 "struct_core_graphics_1_1_query.html#a7c8e8dbc273fce950bb610abe8a217aa":[9,0,10,31,0],
 "struct_core_graphics_1_1_render_shape_1_1_render_shape_vertex.html":[9,0,10,61,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX78 =
 "struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a2f5c1b9ce7b05f9fde99d24b270b474e":[9,0,15,6,0,10],
 "struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a4c615fc6b60b39d45ad087e1f8dbb6eb":[9,0,15,6,0,2],
 "struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a4fae72449e18c181a90637ee174cd7df":[9,0,15,6,0,6],
-"struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a50cb04b8f22a0fc36b533e45cab9d1b9":[9,0,15,6,0,13],
-"struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a521727057d1aeba5e9b061f3dcc1a15a":[9,0,15,6,0,11],
-"struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a67521927ee89c4e35a9e794ca48ec71e":[9,0,15,6,0,5],
-"struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a722724cbb3db75473d7676158683db92":[9,0,15,6,0,1]
+"struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a50cb04b8f22a0fc36b533e45cab9d1b9":[9,0,15,6,0,13]
 };

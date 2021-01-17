@@ -26,6 +26,7 @@ var namespace_fog =
     [ "lightingTextureSlot", "namespace_fog.html#a5b95de07d7ff7484616a4b07105287c9", null ],
     [ "renderProgram", "namespace_fog.html#a7ce159ae5b822cc57e0f3205009b458d", null ],
     [ "resourceTables", "namespace_fog.html#aea865870e59ab75b2039701111e65007", null ],
+    [ "showUI", "namespace_fog.html#a0817ac657ae13bd15e30a516112edfc2", null ],
     [ "stagingClusterFogLists", "namespace_fog.html#af57b63dc170f2947e11bb4abd43e9e8d", null ],
     [ "turbidity", "namespace_fog.html#a2ec118697792665cd7ead061d1e70969", null ],
     [ "uniformsSlot", "namespace_fog.html#a31e4c904e3c4e7aa0040d4a839229859", null ]

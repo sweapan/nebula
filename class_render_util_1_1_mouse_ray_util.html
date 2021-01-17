@@ -101,7 +101,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a744593c0425c05d10d2491d31e9d8efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute world-space ray from mouse position (mouse position is expected in the range 0..1)  <a href="class_render_util_1_1_mouse_ray_util.html#a744593c0425c05d10d2491d31e9d8efc">More...</a><br /></td></tr>
 <tr class="separator:a744593c0425c05d10d2491d31e9d8efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b7b480dc53f3f3a6805cb1cd2092511"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_math_1_1line.html">Math::line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_util_1_1_mouse_ray_util.html#a7b7b480dc53f3f3a6805cb1cd2092511">ComputeWorldMouseRayOrtho</a> (const <a class="el" href="struct_math_1_1vec2.html">Math::vec2</a> &amp;mousePos, float length, const <a class="el" href="struct_math_1_1mat4.html">Math::mat4</a> &amp;invViewMatrix, const <a class="el" href="struct_math_1_1mat4.html">Math::mat4</a> &amp;invProjMatrix, float nearPlane)</td></tr>
-<tr class="memdesc:a7b7b480dc53f3f3a6805cb1cd2092511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function which computes a ray that extends in world space between mouse position on the near plane and length in cameras z direction Mouse position is expected in the range 0..1.  <a href="class_render_util_1_1_mouse_ray_util.html#a7b7b480dc53f3f3a6805cb1cd2092511">More...</a><br /></td></tr>
+<tr class="memdesc:a7b7b480dc53f3f3a6805cb1cd2092511"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute world-space ray from mouse position (mouse position is expected in the range 0..1). Assumes projection matrix is orthographic  <a href="class_render_util_1_1_mouse_ray_util.html#a7b7b480dc53f3f3a6805cb1cd2092511">More...</a><br /></td></tr>
 <tr class="separator:a7b7b480dc53f3f3a6805cb1cd2092511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -215,7 +215,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Utility function which computes a ray that extends in world space between mouse position on the near plane and length in cameras z direction Mouse position is expected in the range 0..1. </p>
+<p>compute world-space ray from mouse position (mouse position is expected in the range 0..1). Assumes projection matrix is orthographic </p>
+<p>Utility function which computes a ray that extends in world space between mouse position on the near plane and length in cameras z direction Mouse position is expected in the range 0..1.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000034">Todo:</a></b></dt><dd>There are better ways to do this! </dd></dl>
 
 </div>
@@ -231,7 +232,7 @@ Static Public Member Functions</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_render_util.html">RenderUtil</a></li><li class="navelem"><a class="el" href="class_render_util_1_1_mouse_ray_util.html">MouseRayUtil</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 19:27:45 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:44:34 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

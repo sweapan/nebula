@@ -1,5 +1,9 @@
 var NAVTREEINDEX97 =
 {
+"xinputgamepad_8cc.html#a26215d4e1f16b240db1ce8997ab6102c":[10,0,0,5,11,3,0,0],
+"xinputgamepad_8h.html":[10,0,0,5,11,3,1],
+"xinputgamepad_8h_source.html":[10,0,0,5,11,3,1],
+"xmlreader_8cc.html":[10,0,0,3,9,69],
 "xmlreader_8cc.html#a0b5f68e51e611582bfad2307a52b10b3":[10,0,0,3,9,69,0],
 "xmlreader_8h.html":[10,0,0,3,9,70],
 "xmlreader_8h_source.html":[10,0,0,3,9,70],

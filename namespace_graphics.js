@@ -52,6 +52,7 @@ var namespace_graphics =
     [ "maxEyeLuminance", "namespace_graphics.html#a453b15b4e216297d28a23f3ba0bdbcb4", null ],
     [ "numGlobalEnvironmentMips", "namespace_graphics.html#aa6a43340e31be23e17d1f1d4e0552245", null ],
     [ "saturation", "namespace_graphics.html#a5e5ff2c61d89db42e1fde1e0f4bb6317", null ],
+    [ "showUI", "namespace_graphics.html#aaba2494cba0ef4601e60b132c131da6e", null ],
     [ "skyBoxEntity", "namespace_graphics.html#adf058b61ba8a8da47a45c25b10432c29", null ],
     [ "skyTurbidity", "namespace_graphics.html#a05c928d3e4d055666fa4a907c1859ddc", null ],
     [ "sunEntity", "namespace_graphics.html#a3793cc15add236828da55cd27818d82b", null ]
