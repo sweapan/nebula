@@ -90,7 +90,15 @@ $(document).ready(function(){initNavTree('namespace_game_1_1_time_manager.html',
 <div class="title">Game::TimeManager Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Singleton object which manages the current game time. </p>
+<p>These are the standard time source objects provided by Application layer:</p>
+<p>TIMESOURCE_SYSTEM - timing for low level Application layer subsystems TIMESOURCE_GAMEPLAY - timing for the game logic TIMESOURCE_INPUT - extra time source for input handling</p>
+<p>Each time source tracks its own time independently from the other time sources, they can also be paused and unpaused independentlty from each other, and they may also run faster or slower then realtime.</p>
+<p>You can create custom time sources by using the create interface.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Thread safety</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file </dd></dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_time_manager_1_1_time_source_state.html">TimeSourceState</a></td></tr>
@@ -115,7 +123,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a18c6aa9e2f022cec2293bc8ba843ac6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">create the singleton  <a href="namespace_game_1_1_time_manager.html#a18c6aa9e2f022cec2293bc8ba843ac6f">More...</a><br /></td></tr>
 <tr class="separator:a18c6aa9e2f022cec2293bc8ba843ac6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad867406e26580fa1a27caeceb335d4cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_1_1_time_source.html">TimeSource</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game_1_1_time_manager.html#ad867406e26580fa1a27caeceb335d4cb">CreateTimeSource</a> (<a class="el" href="struct_game_1_1_time_source_create_info.html">TimeSourceCreateInfo</a> const &amp;info)</td></tr>
-<tr class="memdesc:ad867406e26580fa1a27caeceb335d4cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a timesource. The time managers handles the timesources.  <a href="namespace_game_1_1_time_manager.html#ad867406e26580fa1a27caeceb335d4cb">More...</a><br /></td></tr>
+<tr class="memdesc:ad867406e26580fa1a27caeceb335d4cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a timesource. The global time manager handles the timesources.  <a href="namespace_game_1_1_time_manager.html#ad867406e26580fa1a27caeceb335d4cb">More...</a><br /></td></tr>
 <tr class="separator:ad867406e26580fa1a27caeceb335d4cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadd6c209607e59b7fa60e8402bcf0a5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_1_1_time_source.html">TimeSource</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game_1_1_time_manager.html#aadd6c209607e59b7fa60e8402bcf0a5e">GetTimeSource</a> (uint32_t TIMESOURCE_HASH)</td></tr>
 <tr class="memdesc:aadd6c209607e59b7fa60e8402bcf0a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a time source by hash  <a href="namespace_game_1_1_time_manager.html#aadd6c209607e59b7fa60e8402bcf0a5e">More...</a><br /></td></tr>
@@ -168,7 +176,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>create a timesource. The time managers handles the timesources. </p>
+<p>create a timesource. The global time manager handles the timesources. </p>
 
 </div>
 </div>
@@ -318,7 +326,7 @@ Variables</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_game.html">Game</a></li><li class="navelem"><a class="el" href="namespace_game_1_1_time_manager.html">TimeManager</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:03 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

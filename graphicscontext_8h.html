@@ -111,6 +111,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graphics_1_1_context_entity_id.html">Graphics::ContextEntityId</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graphics_1_1_graphics_context_state.html">Graphics::GraphicsContextState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A graphics context is a resource which holds a contextual representation for a graphics entity.  <a href="struct_graphics_1_1_graphics_context_state.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_graphics_context.html">Graphics::GraphicsContext</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,24 +119,22 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_graphics"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html">Graphics</a></td></tr>
-<tr class="memdesc:namespace_graphics"><td class="mdescLeft">&#160;</td><td class="mdescRight">A FrameScript describes render operations being done to produce a single frame. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ae6c2acb927df28b6758b40dda737a3c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#ae6c2acb927df28b6758b40dda737a3c3">_DeclarePluginContext</a>()</td></tr>
-<tr class="memdesc:ae6c2acb927df28b6758b40dda737a3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespace_graphics.html" title="A FrameScript describes render operations being done to produce a single frame.">Graphics</a> context is a helper class to setup graphics contexts.  <a href="graphicscontext_8h.html#ae6c2acb927df28b6758b40dda737a3c3">More...</a><br /></td></tr>
-<tr class="separator:ae6c2acb927df28b6758b40dda737a3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62e61841eff2db7546f28150a79875e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#a62e61841eff2db7546f28150a79875e9">_DeclareContext</a>()</td></tr>
-<tr class="separator:a62e61841eff2db7546f28150a79875e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bda97614580ba97bbd36a0e5082d570"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#a4bda97614580ba97bbd36a0e5082d570">_ImplementPluginContext</a>(ctx)</td></tr>
-<tr class="separator:a4bda97614580ba97bbd36a0e5082d570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8101f9998e32fccb1956eeca7b9d70ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#a8101f9998e32fccb1956eeca7b9d70ef">_ImplementContext</a>(ctx,  idAllocator)</td></tr>
-<tr class="separator:a8101f9998e32fccb1956eeca7b9d70ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ef0e670c8a395e8eba4aa97f204462f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#a8ef0e670c8a395e8eba4aa97f204462f">_CreatePluginContext</a>()</td></tr>
-<tr class="separator:a8ef0e670c8a395e8eba4aa97f204462f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea3dc7a2fa0bb120535c07c640c4161f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#aea3dc7a2fa0bb120535c07c640c4161f">_CreateContext</a>()</td></tr>
-<tr class="separator:aea3dc7a2fa0bb120535c07c640c4161f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ade09cae86ffa2215d42900391a3b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#ab5ade09cae86ffa2215d42900391a3b2">__DeclarePluginContext</a>()</td></tr>
+<tr class="separator:ab5ade09cae86ffa2215d42900391a3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1a3f3fff31efb7a5a3abe397e7bdf98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#ae1a3f3fff31efb7a5a3abe397e7bdf98">__DeclareContext</a>()</td></tr>
+<tr class="separator:ae1a3f3fff31efb7a5a3abe397e7bdf98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d444f7e771b2ab69dec1066eb826356"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#a3d444f7e771b2ab69dec1066eb826356">__ImplementPluginContext</a>(ctx)</td></tr>
+<tr class="separator:a3d444f7e771b2ab69dec1066eb826356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6ecabb8b5294ad9d9e26b72abdd8a93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#ac6ecabb8b5294ad9d9e26b72abdd8a93">__ImplementContext</a>(ctx,  idAllocator)</td></tr>
+<tr class="separator:ac6ecabb8b5294ad9d9e26b72abdd8a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cac5283f38308a752d0ae8335c95845"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#a3cac5283f38308a752d0ae8335c95845">__CreatePluginContext</a>()</td></tr>
+<tr class="separator:a3cac5283f38308a752d0ae8335c95845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947d41e0ab8c3c2ee6a01817fe899b31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphicscontext_8h.html#a947d41e0ab8c3c2ee6a01817fe899b31">__CreateContext</a>()</td></tr>
+<tr class="separator:a947d41e0ab8c3c2ee6a01817fe899b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -164,76 +163,76 @@ Functions</h2></td></tr>
 <tr class="separator:a129d53aa58c90a48757ccf145b70cb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aea3dc7a2fa0bb120535c07c640c4161f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea3dc7a2fa0bb120535c07c640c4161f">&#9670;&nbsp;</a></span>_CreateContext</h2>
+<a id="a947d41e0ab8c3c2ee6a01817fe899b31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947d41e0ab8c3c2ee6a01817fe899b31">&#9670;&nbsp;</a></span>__CreateContext</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _CreateContext</td>
+          <td class="memname">#define __CreateContext</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="graphicscontext_8h.html#a8ef0e670c8a395e8eba4aa97f204462f">_CreatePluginContext</a>() \</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="graphicscontext_8h.html#a3cac5283f38308a752d0ae8335c95845">__CreatePluginContext</a>() \</div>
 <div class="line">    __state.Defragment = Defragment;</div>
-<div class="ttc" id="agraphicscontext_8h_html_a8ef0e670c8a395e8eba4aa97f204462f"><div class="ttname"><a href="graphicscontext_8h.html#a8ef0e670c8a395e8eba4aa97f204462f">_CreatePluginContext</a></div><div class="ttdeci">#define _CreatePluginContext()</div><div class="ttdef"><b>Definition:</b> graphicscontext.h:148</div></div>
+<div class="ttc" id="agraphicscontext_8h_html_a3cac5283f38308a752d0ae8335c95845"><div class="ttname"><a href="graphicscontext_8h.html#a3cac5283f38308a752d0ae8335c95845">__CreatePluginContext</a></div><div class="ttdeci">#define __CreatePluginContext()</div><div class="ttdef"><b>Definition:</b> graphicscontext.h:149</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a8ef0e670c8a395e8eba4aa97f204462f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ef0e670c8a395e8eba4aa97f204462f">&#9670;&nbsp;</a></span>_CreatePluginContext</h2>
+<a id="a3cac5283f38308a752d0ae8335c95845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cac5283f38308a752d0ae8335c95845">&#9670;&nbsp;</a></span>__CreatePluginContext</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _CreatePluginContext</td>
+          <td class="memname">#define __CreatePluginContext</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    __state.Alloc = <a class="code" href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Alloc</a>; \</div>
+<b>Value:</b><div class="fragment"><div class="line">    __state.Alloc = <a class="code" href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Alloc</a>; \</div>
 <div class="line">    __state.Dealloc = Dealloc; \</div>
 <div class="line">    __state.currentStage = <a class="code" href="namespace_graphics.html#ac37d1d933a1897e5a04c0cef8816f4d8a7d0d596d14934b54b72b10c79517aa80">Graphics::NoStage</a>;</div>
-<div class="ttc" id="anamespace_graphics_html_ac37d1d933a1897e5a04c0cef8816f4d8a7d0d596d14934b54b72b10c79517aa80"><div class="ttname"><a href="namespace_graphics.html#ac37d1d933a1897e5a04c0cef8816f4d8a7d0d596d14934b54b72b10c79517aa80">Graphics::NoStage</a></div><div class="ttdeci">@ NoStage</div><div class="ttdef"><b>Definition:</b> graphicscontext.h:166</div></div>
-<div class="ttc" id="anamespace_memory_html_aaf5b823d7efe2bcc3d5fa52701fbb993"><div class="ttname"><a href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
+<div class="ttc" id="anamespace_graphics_html_ac37d1d933a1897e5a04c0cef8816f4d8a7d0d596d14934b54b72b10c79517aa80"><div class="ttname"><a href="namespace_graphics.html#ac37d1d933a1897e5a04c0cef8816f4d8a7d0d596d14934b54b72b10c79517aa80">Graphics::NoStage</a></div><div class="ttdeci">@ NoStage</div><div class="ttdef"><b>Definition:</b> graphicscontext.h:167</div></div>
+<div class="ttc" id="anamespace_memory_html_a302b8099d0bbcc9bccfd578814e5b4f3"><div class="ttname"><a href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a62e61841eff2db7546f28150a79875e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62e61841eff2db7546f28150a79875e9">&#9670;&nbsp;</a></span>_DeclareContext</h2>
+<a id="ae1a3f3fff31efb7a5a3abe397e7bdf98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1a3f3fff31efb7a5a3abe397e7bdf98">&#9670;&nbsp;</a></span>__DeclareContext</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _DeclareContext</td>
+          <td class="memname">#define __DeclareContext</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="graphicscontext_8h.html#ae6c2acb927df28b6758b40dda737a3c3">_DeclarePluginContext</a>(); \</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="graphicscontext_8h.html#ab5ade09cae86ffa2215d42900391a3b2">__DeclarePluginContext</a>(); \</div>
 <div class="line">    static <span class="keywordtype">void</span> Defragment();</div>
-<div class="ttc" id="agraphicscontext_8h_html_ae6c2acb927df28b6758b40dda737a3c3"><div class="ttname"><a href="graphicscontext_8h.html#ae6c2acb927df28b6758b40dda737a3c3">_DeclarePluginContext</a></div><div class="ttdeci">#define _DeclarePluginContext()</div><div class="ttdoc">Graphics context is a helper class to setup graphics contexts.</div><div class="ttdef"><b>Definition:</b> graphicscontext.h:28</div></div>
+<div class="ttc" id="agraphicscontext_8h_html_ab5ade09cae86ffa2215d42900391a3b2"><div class="ttname"><a href="graphicscontext_8h.html#ab5ade09cae86ffa2215d42900391a3b2">__DeclarePluginContext</a></div><div class="ttdeci">#define __DeclarePluginContext()</div><div class="ttdef"><b>Definition:</b> graphicscontext.h:29</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ae6c2acb927df28b6758b40dda737a3c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6c2acb927df28b6758b40dda737a3c3">&#9670;&nbsp;</a></span>_DeclarePluginContext</h2>
+<a id="ab5ade09cae86ffa2215d42900391a3b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ade09cae86ffa2215d42900391a3b2">&#9670;&nbsp;</a></span>__DeclarePluginContext</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _DeclarePluginContext</td>
+          <td class="memname">#define __DeclarePluginContext</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -253,30 +252,24 @@ Functions</h2></td></tr>
 <div class="line">    static <span class="keywordtype">void</span> BeginBulkRegister(); \</div>
 <div class="line">    static <span class="keywordtype">void</span> EndBulkRegister(); \</div>
 <div class="line">private:</div>
-<div class="ttc" id="anamespace_game_1_1_time_manager_html_ae1fd57385e5c144532be51e7b2592c79"><div class="ttname"><a href="namespace_game_1_1_time_manager.html#ae1fd57385e5c144532be51e7b2592c79">Game::TimeManager::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdoc">Destroy the singleton.</div><div class="ttdef"><b>Definition:</b> timemanager.cc:117</div></div>
-<div class="ttc" id="anamespace_graphics_html_ac2d20843571a372465d8dba316e0cc60"><div class="ttname"><a href="namespace_graphics.html#ac2d20843571a372465d8dba316e0cc60">Graphics::RegisterEntity</a></div><div class="ttdeci">static void RegisterEntity(const GraphicsEntityId id)</div><div class="ttdef"><b>Definition:</b> graphicsserver.h:167</div></div>
-<div class="ttc" id="anamespace_graphics_html_ae29c9e9fcf92d0cd5e781c7efffd9b0f"><div class="ttname"><a href="namespace_graphics.html#ae29c9e9fcf92d0cd5e781c7efffd9b0f">Graphics::DeregisterEntity</a></div><div class="ttdeci">static void DeregisterEntity(const GraphicsEntityId id)</div><div class="ttdef"><b>Definition:</b> graphicsserver.h:177</div></div>
-<div class="ttc" id="astruct_graphics_1_1_context_entity_id_html"><div class="ttname"><a href="struct_graphics_1_1_context_entity_id.html">Graphics::ContextEntityId</a></div><div class="ttdef"><b>Definition:</b> graphicscontext.h:217</div></div>
-<div class="ttc" id="astruct_graphics_1_1_graphics_context_function_bundle_html"><div class="ttname"><a href="struct_graphics_1_1_graphics_context_function_bundle.html">Graphics::GraphicsContextFunctionBundle</a></div><div class="ttdef"><b>Definition:</b> graphicscontext.h:183</div></div>
-<div class="ttc" id="astruct_graphics_1_1_graphics_context_state_html"><div class="ttname"><a href="struct_graphics_1_1_graphics_context_state.html">Graphics::GraphicsContextState</a></div><div class="ttdef"><b>Definition:</b> graphicscontext.h:220</div></div>
-<div class="ttc" id="astruct_graphics_1_1_graphics_entity_id_html"><div class="ttname"><a href="struct_graphics_1_1_graphics_entity_id.html">Graphics::GraphicsEntityId</a></div><div class="ttdef"><b>Definition:</b> graphicsentity.h:14</div></div>
+<div class="ttc" id="anamespace_game_1_1_time_manager_html_ae1fd57385e5c144532be51e7b2592c79"><div class="ttname"><a href="namespace_game_1_1_time_manager.html#ae1fd57385e5c144532be51e7b2592c79">Game::TimeManager::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdoc">Destroy the singleton.</div><div class="ttdef"><b>Definition:</b> timemanager.cc:118</div></div>
+<div class="ttc" id="anamespace_graphics_html_ac2d20843571a372465d8dba316e0cc60"><div class="ttname"><a href="namespace_graphics.html#ac2d20843571a372465d8dba316e0cc60">Graphics::RegisterEntity</a></div><div class="ttdeci">static void RegisterEntity(const GraphicsEntityId id)</div><div class="ttdef"><b>Definition:</b> graphicsserver.h:169</div></div>
+<div class="ttc" id="anamespace_graphics_html_ae29c9e9fcf92d0cd5e781c7efffd9b0f"><div class="ttname"><a href="namespace_graphics.html#ae29c9e9fcf92d0cd5e781c7efffd9b0f">Graphics::DeregisterEntity</a></div><div class="ttdeci">static void DeregisterEntity(const GraphicsEntityId id)</div><div class="ttdef"><b>Definition:</b> graphicsserver.h:179</div></div>
+<div class="ttc" id="astruct_graphics_1_1_context_entity_id_html"><div class="ttname"><a href="struct_graphics_1_1_context_entity_id.html">Graphics::ContextEntityId</a></div><div class="ttdef"><b>Definition:</b> graphicscontext.h:218</div></div>
+<div class="ttc" id="astruct_graphics_1_1_graphics_context_function_bundle_html"><div class="ttname"><a href="struct_graphics_1_1_graphics_context_function_bundle.html">Graphics::GraphicsContextFunctionBundle</a></div><div class="ttdef"><b>Definition:</b> graphicscontext.h:184</div></div>
+<div class="ttc" id="astruct_graphics_1_1_graphics_context_state_html"><div class="ttname"><a href="struct_graphics_1_1_graphics_context_state.html">Graphics::GraphicsContextState</a></div><div class="ttdoc">A graphics context is a resource which holds a contextual representation for a graphics entity.</div><div class="ttdef"><b>Definition:</b> graphicscontext.h:221</div></div>
+<div class="ttc" id="astruct_graphics_1_1_graphics_entity_id_html"><div class="ttname"><a href="struct_graphics_1_1_graphics_entity_id.html">Graphics::GraphicsEntityId</a></div><div class="ttdoc">The graphics entity is only an Id, to which we can attach GraphicsContexts.</div><div class="ttdef"><b>Definition:</b> graphicsentity.h:16</div></div>
 </div><!-- fragment -->
-<p><a class="el" href="namespace_graphics.html" title="A FrameScript describes render operations being done to produce a single frame.">Graphics</a> context is a helper class to setup graphics contexts. </p>
-<p>A graphics context is a resource which holds a contextual representation for a graphics entity.</p>
-<p>Use the DeclareRegistration macro in the header and DefineRegistration in the implementation.</p>
-<p>The reason for why the function bundle and state are implemented through macros, is because they have to be static, and thus implemented explicitly once per each context.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file </dd></dl>
-
 </div>
 </div>
-<a id="a8101f9998e32fccb1956eeca7b9d70ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8101f9998e32fccb1956eeca7b9d70ef">&#9670;&nbsp;</a></span>_ImplementContext</h2>
+<a id="ac6ecabb8b5294ad9d9e26b72abdd8a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6ecabb8b5294ad9d9e26b72abdd8a93">&#9670;&nbsp;</a></span>__ImplementContext</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _ImplementContext</td>
+          <td class="memname">#define __ImplementContext</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">ctx, </td>
@@ -297,14 +290,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4bda97614580ba97bbd36a0e5082d570"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bda97614580ba97bbd36a0e5082d570">&#9670;&nbsp;</a></span>_ImplementPluginContext</h2>
+<a id="a3d444f7e771b2ab69dec1066eb826356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d444f7e771b2ab69dec1066eb826356">&#9670;&nbsp;</a></span>__ImplementPluginContext</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _ImplementPluginContext</td>
+          <td class="memname">#define __ImplementPluginContext</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">ctx</td><td>)</td>
@@ -322,7 +315,7 @@ Functions</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_933e88acd4f6f83648c4ee8940d06fa2.html">render</a></li><li class="navelem"><a class="el" href="dir_9ca153d2197e5a64e112f2977692b41a.html">graphics</a></li><li class="navelem"><a class="el" href="graphicscontext_8h.html">graphicscontext.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:01 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:56 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

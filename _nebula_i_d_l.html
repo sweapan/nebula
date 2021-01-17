@@ -86,7 +86,8 @@ $(document).ready(function(){initNavTree('_nebula_i_d_l.html',''); initResizable
 <div class="title">Nebula IDL </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The Nebula IDL uses JSON but also supports comments using <code>//</code>.</p>
+<div class="textblock"><p>The Nebula Intermediate Definition Language (NIDL) can be used to generate C++ code for Properties.</p>
+<p>NIDL uses JSON but also supports comments using <code>//</code>.</p>
 <h1><a class="anchor" id="NebulaIDLHeaders"></a>
 Generated headers</h1>
 <p>When generating code from NIDL files, the files are placed in the <code>fips-build/{PROJECT}/{FIPS-CONFIG}/nidl</code> directory. In C++ code, you can include them as if they were placed in the same directory as the .nidl file.</p>
@@ -136,8 +137,8 @@ Enumerated types</h2>
 <h2><a class="anchor" id="NIDLProperties"></a>
 Properties</h2>
 <div class="fragment"><div class="line">&quot;properties&quot;: {</div>
-<div class="line">    &quot;Health&quot;: &quot;float&quot;,</div>
-<div class="line">    &quot;Stats&quot;: {</div>
+<div class="line">    &quot;Health&quot;: &quot;float&quot;, // just a regular type</div>
+<div class="line">    &quot;Stats&quot;: { // struct</div>
 <div class="line">        &quot;Strength&quot;: &quot;float&quot;,</div>
 <div class="line">        &quot;IQ&quot;: &quot;int&quot;,</div>
 <div class="line">        &quot;isLarge&quot;: {</div>
@@ -145,12 +146,12 @@ Properties</h2>
 <div class="line">            &quot;_default_&quot;: false</div>
 <div class="line">        }</div>
 <div class="line">    },</div>
-<div class="line">    &quot;Target&quot;: {</div>
+<div class="line">    &quot;Target&quot;: { // detailed type, not aggregate/struct</div>
 <div class="line">        &quot;_type_&quot;: &quot;Game::Entity&quot;,</div>
 <div class="line">        &quot;_default_&quot;: -1,</div>
 <div class="line">        &quot;_desc_&quot;: &quot;Target entity to attack.&quot;</div>
 <div class="line">    },</div>
-<div class="line">    &quot;Movable&quot;: &quot;_flag_&quot;</div>
+<div class="line">    &quot;Movable&quot;: &quot;_flag_&quot; // a flag type, will not allocate memory per instance and cannot have a value.</div>
 <div class="line">}</div>
 </div><!-- fragment --><h3><a class="anchor" id="NIDLPropertiesLayout"></a>
 Layout</h3>
@@ -206,6 +207,7 @@ Layout</h3>
 </ul>
 <p>Additional types are:</p>
 <ul>
+<li><code>_flag_</code> - Create a flag type property that will not allocate memory per instance and cannot have a value. This is useful for categorizing entities, for example Static vs Dynamic entities.</li>
 <li><code>Enumerated type</code> - Any enumerated type defined in a NIDL file can be used as type.</li>
 <li><code>C++ type</code><ul>
 <li>Any included C++ headers types can be used as type. Note that C++ type must be trivially destructible and trivially copyable.</li>
@@ -248,7 +250,7 @@ Layout</h3>
 			<ul>
 				<li class="navelem"><a class="el" href="_nebula_application.html">Application</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:57 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

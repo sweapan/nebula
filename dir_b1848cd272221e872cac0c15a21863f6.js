@@ -40,7 +40,6 @@ var dir_b1848cd272221e872cac0c15a21863f6 =
       [ "sphere", "class_math_1_1sphere.html", "class_math_1_1sphere" ]
     ] ],
     [ "sse.h", "sse_8h.html", "sse_8h" ],
-    [ "transform.h", "transform_8h.html", null ],
     [ "transform44.h", "transform44_8h.html", [
       [ "transform44", "class_math_1_1transform44.html", "class_math_1_1transform44" ]
     ] ],

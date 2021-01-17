@@ -9,7 +9,7 @@ var class_decals_1_1_decal_context =
     ] ],
     [ "DecalContext", "class_decals_1_1_decal_context.html#ae787372a5964df0d2261e3b7d6ca4e32", null ],
     [ "~DecalContext", "class_decals_1_1_decal_context.html#a79632d9d01441d67ab19a246bdac01f6", null ],
-    [ "_DeclareContext", "class_decals_1_1_decal_context.html#a65ca79c8a92605b1bc4877f49b129459", null ],
+    [ "__DeclareContext", "class_decals_1_1_decal_context.html#a1ee9e394a01938f9ab5090797ea68d8f", null ],
     [ "Alloc", "class_decals_1_1_decal_context.html#a988c4b66b581a7b0a07631409aa72aae", null ],
     [ "Create", "class_decals_1_1_decal_context.html#a5d46360f6fd33a0a8d2a3528b692eb5d", null ],
     [ "CullAndClassify", "class_decals_1_1_decal_context.html#a7374785d3c7426d0d4d0ffa52418f72b", null ],

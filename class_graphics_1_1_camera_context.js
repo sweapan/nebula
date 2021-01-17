@@ -3,7 +3,7 @@ var class_graphics_1_1_camera_context =
     [ "CameraAllocator", "class_graphics_1_1_camera_context.html#aa64d3fb17b5e826ce941ae727b25938f", null ],
     [ "CameraContext", "class_graphics_1_1_camera_context.html#a2db88644454b692fcfe33ecb3fcd8b39", null ],
     [ "~CameraContext", "class_graphics_1_1_camera_context.html#a0062d3da85fb7253cac2ad5208917a13", null ],
-    [ "_DeclareContext", "class_graphics_1_1_camera_context.html#a838e00e32872ded5b33e040fdf70232d", null ],
+    [ "__DeclareContext", "class_graphics_1_1_camera_context.html#ab03cf4136df0e57405ba55d9ecc36fb1", null ],
     [ "Alloc", "class_graphics_1_1_camera_context.html#ae2eecb2f6c7946c313043e30005423e0", null ],
     [ "Create", "class_graphics_1_1_camera_context.html#a15435fc5535f92a3a8f6f8db49920909", null ],
     [ "Dealloc", "class_graphics_1_1_camera_context.html#ada9c35f84fbdffa5a597d53e34dfd6b8", null ],

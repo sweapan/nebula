@@ -3,7 +3,7 @@ var class_dynui_1_1_imgui_context =
     [ "ImguiState", "struct_dynui_1_1_imgui_context_1_1_imgui_state.html", "struct_dynui_1_1_imgui_context_1_1_imgui_state" ],
     [ "ImguiContext", "class_dynui_1_1_imgui_context.html#ac646e39858f39a148513f7554476b573", null ],
     [ "~ImguiContext", "class_dynui_1_1_imgui_context.html#a7ba6117f2567f8af0bc32c3bb531f81b", null ],
-    [ "_DeclarePluginContext", "class_dynui_1_1_imgui_context.html#a603a1da47b95436bafe5568d3edf8c00", null ],
+    [ "__DeclarePluginContext", "class_dynui_1_1_imgui_context.html#ac2892d59a3dbb70cee517550b579f071", null ],
     [ "Create", "class_dynui_1_1_imgui_context.html#a749808f2a669e262971831dde911743c", null ],
     [ "Discard", "class_dynui_1_1_imgui_context.html#ae28df194270b1c4718829a1c42aa7cd2", null ],
     [ "HandleInput", "class_dynui_1_1_imgui_context.html#ac792ccbe38687117c232e6f6aa5d2db6", null ],

@@ -92,7 +92,17 @@ $(document).ready(function(){initNavTree('class_util_1_1_array_allocator.html','
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="arrayallocator_8h_source.html">arrayallocator.h</a>&gt;</code></p>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class ... TYPES&gt;<br />
+class Util::ArrayAllocator&lt; TYPES &gt;</h3>
+
+<p>The <a class="el" href="class_util_1_1_array_allocator.html" title="The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...">ArrayAllocator</a> provides a variadic list of types which is to be contained in the allocator and fetching each value by providing the index into the list of types, which means the members are nameless. </p>
+<p>Note that this is not a container for multiple arrays, but a object allocator that uses multiple arrays to store their variables parallelly, and should be treated as such.</p>
+<p>There are two versions of this type, an unsafe and a safe one. Both are implemented in the same way.</p>
+<p>The thread safe allocator requires the Get-methods to be within an Enter/Leave lockstep phase.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="arrayallocatorsafe_8h.html">arrayallocatorsafe.h</a></dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2019-2020 Individual contributors, see AUTHORS file </dd></dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9ba1caee1b3469136e1f860dbf960e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_array_allocator.html#ab9ba1caee1b3469136e1f860dbf960e7">ArrayAllocator</a> ()</td></tr>
@@ -855,7 +865,7 @@ template&lt;class ... TYPES&gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_util.html">Util</a></li><li class="navelem"><a class="el" href="class_util_1_1_array_allocator.html">ArrayAllocator</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:12 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:07 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

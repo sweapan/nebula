@@ -84,7 +84,7 @@ var namespace_im3d =
       [ "TextFlags_Default", "namespace_im3d.html#ada2331d37b6eb628569fe04c0ae34274a68a18a173641afb884f66cfb56684fe8", null ]
     ] ],
     [ "__ImplementClass", "namespace_im3d.html#aa9325676fc5e5a80f159a8a4ca7798f6", null ],
-    [ "_ImplementPluginContext", "namespace_im3d.html#aeb476b117d58a0839ca1a9dddd0ef94f", null ],
+    [ "__ImplementPluginContext", "namespace_im3d.html#aa345ac35f555f55e177959bbaff0ee86", null ],
     [ "Abs", "namespace_im3d.html#a6f79dfc53c412d80e1e7d507cad4cd68", null ],
     [ "Abs", "namespace_im3d.html#a5f02f31c0380a01abfeb69413393145d", null ],
     [ "Abs", "namespace_im3d.html#a1d35dc7dfe49f4ea13a0195a46b74925", null ],

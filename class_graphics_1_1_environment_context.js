@@ -1,6 +1,6 @@
 var class_graphics_1_1_environment_context =
 [
-    [ "_DeclarePluginContext", "class_graphics_1_1_environment_context.html#a42cf8f11f14ff68f53d8d9629ea2f9f0", null ],
+    [ "__DeclarePluginContext", "class_graphics_1_1_environment_context.html#ae8a38309ad4e1b0a7106cf666b888a65", null ],
     [ "Create", "class_graphics_1_1_environment_context.html#a20f6cbbfa31548e7bc58503b33030ed2", null ],
     [ "OnBeforeFrame", "class_graphics_1_1_environment_context.html#ada483312b016d74888f007882f3ecd71", null ],
     [ "RenderUI", "class_graphics_1_1_environment_context.html#a61e0351cf80e99de130b3a8ebfa7aecb", null ],

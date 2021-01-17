@@ -92,39 +92,42 @@ $(document).ready(function(){initNavTree('class_math_1_1_angular_p_feedback_loop
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="angularpfeedbackloop_8h_source.html">angularpfeedbackloop.h</a>&gt;</code></p>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A proportional feedback loop with correct angular interpolation. </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2004 RadonLabs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adbc150917d849bfc113ac407a2a5946f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#adbc150917d849bfc113ac407a2a5946f">AngularPFeedbackLoop</a> ()</td></tr>
-<tr class="memdesc:adbc150917d849bfc113ac407a2a5946f"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="class_math_1_1_angular_p_feedback_loop.html#adbc150917d849bfc113ac407a2a5946f">More...</a><br /></td></tr>
-<tr class="separator:adbc150917d849bfc113ac407a2a5946f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7efbfcde53d753291ae203bc0abd9f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#af7efbfcde53d753291ae203bc0abd9f2">Reset</a> (<a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ac951ff0c33064780ee498ea1dbead4f0">time</a>, float <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a043d6bba444e1f248a88f41c129f4a70">stepSize</a>, float <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a5096c590a113bb76529ada0adbb4f505">gain</a>, float curState)</td></tr>
-<tr class="memdesc:af7efbfcde53d753291ae203bc0abd9f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset the time  <a href="class_math_1_1_angular_p_feedback_loop.html#af7efbfcde53d753291ae203bc0abd9f2">More...</a><br /></td></tr>
-<tr class="separator:af7efbfcde53d753291ae203bc0abd9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2711b24ab3a2397403f48c69a8056a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ac2711b24ab3a2397403f48c69a8056a5">SetGain</a> (float g)</td></tr>
-<tr class="memdesc:ac2711b24ab3a2397403f48c69a8056a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the gain  <a href="class_math_1_1_angular_p_feedback_loop.html#ac2711b24ab3a2397403f48c69a8056a5">More...</a><br /></td></tr>
-<tr class="separator:ac2711b24ab3a2397403f48c69a8056a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1ce724f9150311c62c6ddfae6d17573"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ad1ce724f9150311c62c6ddfae6d17573">GetGain</a> () const</td></tr>
-<tr class="memdesc:ad1ce724f9150311c62c6ddfae6d17573"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the gain  <a href="class_math_1_1_angular_p_feedback_loop.html#ad1ce724f9150311c62c6ddfae6d17573">More...</a><br /></td></tr>
-<tr class="separator:ad1ce724f9150311c62c6ddfae6d17573"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77cbf8636538b2959d214e4661e2149f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a77cbf8636538b2959d214e4661e2149f">SetGoal</a> (float c)</td></tr>
-<tr class="memdesc:a77cbf8636538b2959d214e4661e2149f"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the goal  <a href="class_math_1_1_angular_p_feedback_loop.html#a77cbf8636538b2959d214e4661e2149f">More...</a><br /></td></tr>
-<tr class="separator:a77cbf8636538b2959d214e4661e2149f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0e293fa753d619c403f5d9cc9627271"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#aa0e293fa753d619c403f5d9cc9627271">GetGoal</a> () const</td></tr>
-<tr class="memdesc:aa0e293fa753d619c403f5d9cc9627271"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the goal  <a href="class_math_1_1_angular_p_feedback_loop.html#aa0e293fa753d619c403f5d9cc9627271">More...</a><br /></td></tr>
-<tr class="separator:aa0e293fa753d619c403f5d9cc9627271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2367628dd955be529548c059f62a9dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ab2367628dd955be529548c059f62a9dd">SetState</a> (float s)</td></tr>
-<tr class="memdesc:ab2367628dd955be529548c059f62a9dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the current state directly  <a href="class_math_1_1_angular_p_feedback_loop.html#ab2367628dd955be529548c059f62a9dd">More...</a><br /></td></tr>
-<tr class="separator:ab2367628dd955be529548c059f62a9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5759cf705010a5f0db3e45edab5a5198"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a5759cf705010a5f0db3e45edab5a5198">GetState</a> () const</td></tr>
-<tr class="memdesc:a5759cf705010a5f0db3e45edab5a5198"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the current state the system is in  <a href="class_math_1_1_angular_p_feedback_loop.html#a5759cf705010a5f0db3e45edab5a5198">More...</a><br /></td></tr>
-<tr class="separator:a5759cf705010a5f0db3e45edab5a5198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0d1050f9fd1013699f29fd443839a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a4d0d1050f9fd1013699f29fd443839a2">Update</a> (<a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ac951ff0c33064780ee498ea1dbead4f0">time</a>)</td></tr>
-<tr class="memdesc:a4d0d1050f9fd1013699f29fd443839a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the object, return new state  <a href="class_math_1_1_angular_p_feedback_loop.html#a4d0d1050f9fd1013699f29fd443839a2">More...</a><br /></td></tr>
-<tr class="separator:a4d0d1050f9fd1013699f29fd443839a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad90173c479a2f3cc01aae7dd89e61d8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ad90173c479a2f3cc01aae7dd89e61d8d">GetTime</a> () const</td></tr>
-<tr class="memdesc:ad90173c479a2f3cc01aae7dd89e61d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">get currrent time  <a href="class_math_1_1_angular_p_feedback_loop.html#ad90173c479a2f3cc01aae7dd89e61d8d">More...</a><br /></td></tr>
-<tr class="separator:ad90173c479a2f3cc01aae7dd89e61d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa9b8e3c11f031e2d33b98a18f23f0c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#aaa9b8e3c11f031e2d33b98a18f23f0c8">AngularPFeedbackLoop</a> ()</td></tr>
+<tr class="memdesc:aaa9b8e3c11f031e2d33b98a18f23f0c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="class_math_1_1_angular_p_feedback_loop.html#aaa9b8e3c11f031e2d33b98a18f23f0c8">More...</a><br /></td></tr>
+<tr class="separator:aaa9b8e3c11f031e2d33b98a18f23f0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d6c41f06631e7489af86fdc201d9ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a51d6c41f06631e7489af86fdc201d9ba">Reset</a> (<a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ac951ff0c33064780ee498ea1dbead4f0">time</a>, float <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a043d6bba444e1f248a88f41c129f4a70">stepSize</a>, float <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a5096c590a113bb76529ada0adbb4f505">gain</a>, float curState)</td></tr>
+<tr class="memdesc:a51d6c41f06631e7489af86fdc201d9ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset the time  <a href="class_math_1_1_angular_p_feedback_loop.html#a51d6c41f06631e7489af86fdc201d9ba">More...</a><br /></td></tr>
+<tr class="separator:a51d6c41f06631e7489af86fdc201d9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5720757fb17bc2318943474ba4e78225"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a5720757fb17bc2318943474ba4e78225">SetGain</a> (float g)</td></tr>
+<tr class="memdesc:a5720757fb17bc2318943474ba4e78225"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the gain  <a href="class_math_1_1_angular_p_feedback_loop.html#a5720757fb17bc2318943474ba4e78225">More...</a><br /></td></tr>
+<tr class="separator:a5720757fb17bc2318943474ba4e78225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9b949a827add015860cdad3805c19e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#afa9b949a827add015860cdad3805c19e">GetGain</a> () const</td></tr>
+<tr class="memdesc:afa9b949a827add015860cdad3805c19e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the gain  <a href="class_math_1_1_angular_p_feedback_loop.html#afa9b949a827add015860cdad3805c19e">More...</a><br /></td></tr>
+<tr class="separator:afa9b949a827add015860cdad3805c19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9708937a598c1da154b03d818c92e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ada9708937a598c1da154b03d818c92e3">SetGoal</a> (float c)</td></tr>
+<tr class="memdesc:ada9708937a598c1da154b03d818c92e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the goal  <a href="class_math_1_1_angular_p_feedback_loop.html#ada9708937a598c1da154b03d818c92e3">More...</a><br /></td></tr>
+<tr class="separator:ada9708937a598c1da154b03d818c92e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a879b2de948546ab428f004ba96885986"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a879b2de948546ab428f004ba96885986">GetGoal</a> () const</td></tr>
+<tr class="memdesc:a879b2de948546ab428f004ba96885986"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the goal  <a href="class_math_1_1_angular_p_feedback_loop.html#a879b2de948546ab428f004ba96885986">More...</a><br /></td></tr>
+<tr class="separator:a879b2de948546ab428f004ba96885986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4826a8331df63c8675dc71390371713"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ab4826a8331df63c8675dc71390371713">SetState</a> (float s)</td></tr>
+<tr class="memdesc:ab4826a8331df63c8675dc71390371713"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the current state directly  <a href="class_math_1_1_angular_p_feedback_loop.html#ab4826a8331df63c8675dc71390371713">More...</a><br /></td></tr>
+<tr class="separator:ab4826a8331df63c8675dc71390371713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d6a7b5bce04535ddb9fb4a2c4f16ece"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a4d6a7b5bce04535ddb9fb4a2c4f16ece">GetState</a> () const</td></tr>
+<tr class="memdesc:a4d6a7b5bce04535ddb9fb4a2c4f16ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the current state the system is in  <a href="class_math_1_1_angular_p_feedback_loop.html#a4d6a7b5bce04535ddb9fb4a2c4f16ece">More...</a><br /></td></tr>
+<tr class="separator:a4d6a7b5bce04535ddb9fb4a2c4f16ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b43662093b766915f8d3e51554ba359"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a2b43662093b766915f8d3e51554ba359">Update</a> (<a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> <a class="el" href="class_math_1_1_angular_p_feedback_loop.html#ac951ff0c33064780ee498ea1dbead4f0">time</a>)</td></tr>
+<tr class="memdesc:a2b43662093b766915f8d3e51554ba359"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the object, return new state  <a href="class_math_1_1_angular_p_feedback_loop.html#a2b43662093b766915f8d3e51554ba359">More...</a><br /></td></tr>
+<tr class="separator:a2b43662093b766915f8d3e51554ba359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a486b1894e26bb6e15a701eab324f6ef2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html#a486b1894e26bb6e15a701eab324f6ef2">GetTime</a> () const</td></tr>
+<tr class="memdesc:a486b1894e26bb6e15a701eab324f6ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">get currrent time  <a href="class_math_1_1_angular_p_feedback_loop.html#a486b1894e26bb6e15a701eab324f6ef2">More...</a><br /></td></tr>
+<tr class="separator:a486b1894e26bb6e15a701eab324f6ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -140,8 +143,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a5158a16f7519bbacc812287f4b9669d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adbc150917d849bfc113ac407a2a5946f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbc150917d849bfc113ac407a2a5946f">&#9670;&nbsp;</a></span>AngularPFeedbackLoop()</h2>
+<a id="aaa9b8e3c11f031e2d33b98a18f23f0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa9b8e3c11f031e2d33b98a18f23f0c8">&#9670;&nbsp;</a></span>AngularPFeedbackLoop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +153,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">AngularPFeedbackLoop::AngularPFeedbackLoop </td>
+          <td class="memname">Math::AngularPFeedbackLoop::AngularPFeedbackLoop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -168,8 +171,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad1ce724f9150311c62c6ddfae6d17573"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1ce724f9150311c62c6ddfae6d17573">&#9670;&nbsp;</a></span>GetGain()</h2>
+<a id="afa9b949a827add015860cdad3805c19e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9b949a827add015860cdad3805c19e">&#9670;&nbsp;</a></span>GetGain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +181,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float AngularPFeedbackLoop::GetGain </td>
+          <td class="memname">float Math::AngularPFeedbackLoop::GetGain </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -195,8 +198,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa0e293fa753d619c403f5d9cc9627271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0e293fa753d619c403f5d9cc9627271">&#9670;&nbsp;</a></span>GetGoal()</h2>
+<a id="a879b2de948546ab428f004ba96885986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a879b2de948546ab428f004ba96885986">&#9670;&nbsp;</a></span>GetGoal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +208,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float AngularPFeedbackLoop::GetGoal </td>
+          <td class="memname">float Math::AngularPFeedbackLoop::GetGoal </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -222,8 +225,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5759cf705010a5f0db3e45edab5a5198"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5759cf705010a5f0db3e45edab5a5198">&#9670;&nbsp;</a></span>GetState()</h2>
+<a id="a4d6a7b5bce04535ddb9fb4a2c4f16ece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d6a7b5bce04535ddb9fb4a2c4f16ece">&#9670;&nbsp;</a></span>GetState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +235,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float AngularPFeedbackLoop::GetState </td>
+          <td class="memname">float Math::AngularPFeedbackLoop::GetState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -249,8 +252,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad90173c479a2f3cc01aae7dd89e61d8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad90173c479a2f3cc01aae7dd89e61d8d">&#9670;&nbsp;</a></span>GetTime()</h2>
+<a id="a486b1894e26bb6e15a701eab324f6ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a486b1894e26bb6e15a701eab324f6ef2">&#9670;&nbsp;</a></span>GetTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,7 +262,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> AngularPFeedbackLoop::GetTime </td>
+          <td class="memname"><a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> Math::AngularPFeedbackLoop::GetTime </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -276,8 +279,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af7efbfcde53d753291ae203bc0abd9f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7efbfcde53d753291ae203bc0abd9f2">&#9670;&nbsp;</a></span>Reset()</h2>
+<a id="a51d6c41f06631e7489af86fdc201d9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d6c41f06631e7489af86fdc201d9ba">&#9670;&nbsp;</a></span>Reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +289,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AngularPFeedbackLoop::Reset </td>
+          <td class="memname">void Math::AngularPFeedbackLoop::Reset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a>&#160;</td>
           <td class="paramname"><em>time</em>, </td>
@@ -326,8 +329,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac2711b24ab3a2397403f48c69a8056a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2711b24ab3a2397403f48c69a8056a5">&#9670;&nbsp;</a></span>SetGain()</h2>
+<a id="a5720757fb17bc2318943474ba4e78225"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5720757fb17bc2318943474ba4e78225">&#9670;&nbsp;</a></span>SetGain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,7 +339,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AngularPFeedbackLoop::SetGain </td>
+          <td class="memname">void Math::AngularPFeedbackLoop::SetGain </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>g</em></td><td>)</td>
@@ -354,8 +357,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a77cbf8636538b2959d214e4661e2149f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77cbf8636538b2959d214e4661e2149f">&#9670;&nbsp;</a></span>SetGoal()</h2>
+<a id="ada9708937a598c1da154b03d818c92e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada9708937a598c1da154b03d818c92e3">&#9670;&nbsp;</a></span>SetGoal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,7 +367,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AngularPFeedbackLoop::SetGoal </td>
+          <td class="memname">void Math::AngularPFeedbackLoop::SetGoal </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
@@ -382,8 +385,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab2367628dd955be529548c059f62a9dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2367628dd955be529548c059f62a9dd">&#9670;&nbsp;</a></span>SetState()</h2>
+<a id="ab4826a8331df63c8675dc71390371713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4826a8331df63c8675dc71390371713">&#9670;&nbsp;</a></span>SetState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,7 +395,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AngularPFeedbackLoop::SetState </td>
+          <td class="memname">void Math::AngularPFeedbackLoop::SetState </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -410,8 +413,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4d0d1050f9fd1013699f29fd443839a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d0d1050f9fd1013699f29fd443839a2">&#9670;&nbsp;</a></span>Update()</h2>
+<a id="a2b43662093b766915f8d3e51554ba359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b43662093b766915f8d3e51554ba359">&#9670;&nbsp;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,7 +423,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AngularPFeedbackLoop::Update </td>
+          <td class="memname">void Math::AngularPFeedbackLoop::Update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a>&#160;</td>
           <td class="paramname"><em>time</em></td><td>)</td>
@@ -559,7 +562,7 @@ Private Attributes</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_math.html">Math</a></li><li class="navelem"><a class="el" href="class_math_1_1_angular_p_feedback_loop.html">AngularPFeedbackLoop</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

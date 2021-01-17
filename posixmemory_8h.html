@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('posixmemory_8h.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="namespace_memory.html" title="Doesn&#39;t actually allocate memory, but is used to keep track of free ranges of elements in a virtual m...">Memory</a> subsystem features for the <a class="el" href="namespace_posix.html">Posix</a> platform. </p>
+<div class="textblock"><p><a class="el" href="namespace_memory.html">Memory</a> subsystem features for the <a class="el" href="namespace_posix.html">Posix</a> platform. </p>
 <p>(C) 2008 Radon Labs GmbH (C) 2013-2018 Individual contributors, see AUTHORS file <br  />
  </p>
 </div><div class="textblock"><code>#include &quot;<a class="el" href="foundation_2core_2config_8h_source.html">core/config.h</a>&quot;</code><br />
@@ -113,7 +113,6 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_memory"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html">Memory</a></td></tr>
-<tr class="memdesc:namespace_memory"><td class="mdescLeft">&#160;</td><td class="mdescRight">Doesn't actually allocate memory, but is used to keep track of free ranges of elements in a virtual memory buffer. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -133,18 +132,18 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a23d6b752b191a9aabbae8310b9685338"><td class="memItemLeft" align="right" valign="top">__forceinline void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a23d6b752b191a9aabbae8310b9685338">Memory::Alloc</a> (HeapType heapType, size_t size)</td></tr>
-<tr class="memdesc:a23d6b752b191a9aabbae8310b9685338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory from the process heap.  <a href="namespace_memory.html#a23d6b752b191a9aabbae8310b9685338">More...</a><br /></td></tr>
-<tr class="separator:a23d6b752b191a9aabbae8310b9685338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e4c5d9cc89e8396194ee73406be36b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a05e4c5d9cc89e8396194ee73406be36b">Memory::Realloc</a> (HeapType heapType, void *ptr, size_t size)</td></tr>
-<tr class="memdesc:a05e4c5d9cc89e8396194ee73406be36b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-Allocate a block of memory from one of the global heaps.  <a href="namespace_memory.html#a05e4c5d9cc89e8396194ee73406be36b">More...</a><br /></td></tr>
-<tr class="separator:a05e4c5d9cc89e8396194ee73406be36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24993fac616060d0f19f14d43fc27103"><td class="memItemLeft" align="right" valign="top">__forceinline void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a24993fac616060d0f19f14d43fc27103">Memory::Alloc</a> (HeapType heapType, size_t size)</td></tr>
+<tr class="memdesc:a24993fac616060d0f19f14d43fc27103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory from the process heap.  <a href="namespace_memory.html#a24993fac616060d0f19f14d43fc27103">More...</a><br /></td></tr>
+<tr class="separator:a24993fac616060d0f19f14d43fc27103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c839285702633f8178be0224273a14"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a66c839285702633f8178be0224273a14">Memory::Realloc</a> (HeapType heapType, void *ptr, size_t size)</td></tr>
+<tr class="memdesc:a66c839285702633f8178be0224273a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-Allocate a block of memory from one of the global heaps.  <a href="namespace_memory.html#a66c839285702633f8178be0224273a14">More...</a><br /></td></tr>
+<tr class="separator:a66c839285702633f8178be0224273a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6055e491858cd969e93326d9b3e4b420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Memory::Free</a> (HeapType heapType, void *ptr)</td></tr>
 <tr class="memdesc:a6055e491858cd969e93326d9b3e4b420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free a block of memory.  <a href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">More...</a><br /></td></tr>
 <tr class="separator:a6055e491858cd969e93326d9b3e4b420"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afddfa173cab925938e29c6d2b77ccef6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Memory::Copy</a> (const void *from, void *to, size_t numBytes)</td></tr>
-<tr class="memdesc:afddfa173cab925938e29c6d2b77ccef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a chunk of memory (note the argument order is different from memcpy()!!!)  <a href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">More...</a><br /></td></tr>
-<tr class="separator:afddfa173cab925938e29c6d2b77ccef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b30970207f199d34ccd289fb784f8c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Memory::Copy</a> (const void *from, void *to, size_t numBytes)</td></tr>
+<tr class="memdesc:a1b30970207f199d34ccd289fb784f8c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a chunk of memory (note the argument order is different from memcpy()!!!)  <a href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">More...</a><br /></td></tr>
+<tr class="separator:a1b30970207f199d34ccd289fb784f8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1103820d68788c85bbb28a62e05d99e2"><td class="memItemLeft" align="right" valign="top">__forceinline void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a1103820d68788c85bbb28a62e05d99e2">Memory::Move</a> (const void *from, void *to, size_t numBytes)</td></tr>
 <tr class="memdesc:a1103820d68788c85bbb28a62e05d99e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a chunk of memory, can handle overlapping regions.  <a href="namespace_memory.html#a1103820d68788c85bbb28a62e05d99e2">More...</a><br /></td></tr>
 <tr class="separator:a1103820d68788c85bbb28a62e05d99e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,12 +154,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ad3881f3155d64563b618c89b3ea66a14"><td class="memItemLeft" align="right" valign="top">__forceinline void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#ad3881f3155d64563b618c89b3ea66a14">Memory::CopyToGraphicsMemory</a> (const void *from, void *to, size_t numBytes)</td></tr>
 <tr class="memdesc:ad3881f3155d64563b618c89b3ea66a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy data from a system memory buffer to graphics resource memory.  <a href="namespace_memory.html#ad3881f3155d64563b618c89b3ea66a14">More...</a><br /></td></tr>
 <tr class="separator:ad3881f3155d64563b618c89b3ea66a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d02bcd45d328a0bccf6ca549df2c2ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a3d02bcd45d328a0bccf6ca549df2c2ae">Memory::Clear</a> (void *ptr, size_t numBytes)</td></tr>
-<tr class="memdesc:a3d02bcd45d328a0bccf6ca549df2c2ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite a chunk of memory with 0's.  <a href="namespace_memory.html#a3d02bcd45d328a0bccf6ca549df2c2ae">More...</a><br /></td></tr>
-<tr class="separator:a3d02bcd45d328a0bccf6ca549df2c2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f437ea3e5fd10f767efc810867069bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a2f437ea3e5fd10f767efc810867069bb">Memory::Fill</a> (void *ptr, size_t numBytes, unsigned char value)</td></tr>
-<tr class="memdesc:a2f437ea3e5fd10f767efc810867069bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill memory with a specific byte.  <a href="namespace_memory.html#a2f437ea3e5fd10f767efc810867069bb">More...</a><br /></td></tr>
-<tr class="separator:a2f437ea3e5fd10f767efc810867069bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8504a1916282a835f1e16e3912e4c87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#ad8504a1916282a835f1e16e3912e4c87">Memory::Clear</a> (void *ptr, size_t numBytes)</td></tr>
+<tr class="memdesc:ad8504a1916282a835f1e16e3912e4c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite a chunk of memory with 0's.  <a href="namespace_memory.html#ad8504a1916282a835f1e16e3912e4c87">More...</a><br /></td></tr>
+<tr class="separator:ad8504a1916282a835f1e16e3912e4c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a527477862257488319ed410e35988043"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a527477862257488319ed410e35988043">Memory::Fill</a> (void *ptr, size_t numBytes, unsigned char value)</td></tr>
+<tr class="memdesc:a527477862257488319ed410e35988043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill memory with a specific byte.  <a href="namespace_memory.html#a527477862257488319ed410e35988043">More...</a><br /></td></tr>
+<tr class="separator:a527477862257488319ed410e35988043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a14be8456d9a48c1c3ff9a221f09900"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a7a14be8456d9a48c1c3ff9a221f09900">Memory::DuplicateCString</a> (const char *from)</td></tr>
 <tr class="memdesc:a7a14be8456d9a48c1c3ff9a221f09900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplicate a 0-terminated string, this method should no longer be used!  <a href="namespace_memory.html#a7a14be8456d9a48c1c3ff9a221f09900">More...</a><br /></td></tr>
 <tr class="separator:a7a14be8456d9a48c1c3ff9a221f09900"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -397,7 +396,7 @@ Functions</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_667462bf3902e31e6469e5425fdef989.html">memory</a></li><li class="navelem"><a class="el" href="dir_80f14fc2f23c119c66a6dd40ada12f99.html">posix</a></li><li class="navelem"><a class="el" href="posixmemory_8h.html">posixmemory.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:56 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

@@ -262,8 +262,8 @@ $(document).ready(function(){initNavTree('texture_8h_source.html',''); initResiz
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;};</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">class </span>MemoryTexturePool;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">extern</span> MemoryTexturePool* <a class="code" href="namespace_core_graphics.html#a69c97a7e18caca8e767172cae55aa035">texturePool</a>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">class </span><a class="code" href="class_core_graphics_1_1_memory_texture_pool.html">MemoryTexturePool</a>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_core_graphics_1_1_memory_texture_pool.html">MemoryTexturePool</a>* <a class="code" href="namespace_core_graphics.html#a69c97a7e18caca8e767172cae55aa035">texturePool</a>;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">const</span> <a class="code" href="struct_core_graphics_1_1_texture_id.html">TextureId</a> <a class="code" href="namespace_core_graphics.html#afd701776510676d10ed7784f494fdc98">CreateTexture</a>(<span class="keyword">const</span> <a class="code" href="struct_core_graphics_1_1_texture_create_info.html">TextureCreateInfo</a>&amp; info);</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_core_graphics.html#aae5aa0ab197f498c75e7e5d958b2cded">DestroyTexture</a>(<span class="keyword">const</span> <a class="code" href="struct_core_graphics_1_1_texture_id.html">TextureId</a> <span class="keywordtype">id</span>);</div>
@@ -361,6 +361,7 @@ $(document).ready(function(){initNavTree('texture_8h_source.html',''); initResiz
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="keyword">extern</span> TextureId <a class="code" href="namespace_core_graphics.html#a64e2a01dabd55c8ed509f9f152761124">Blue2D</a>;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;} <span class="comment">// CoreGraphics</span></div>
+<div class="ttc" id="aclass_core_graphics_1_1_memory_texture_pool_html"><div class="ttname"><a href="class_core_graphics_1_1_memory_texture_pool.html">MemoryTexturePool</a></div><div class="ttdoc">Platform-wrapper for memory texture loader.</div></div>
 <div class="ttc" id="aclass_core_graphics_1_1_pixel_format_html"><div class="ttname"><a href="class_core_graphics_1_1_pixel_format.html">CoreGraphics::PixelFormat</a></div><div class="ttdoc">Pixel format enumeration.</div><div class="ttdef"><b>Definition:</b> pixelformat.h:21</div></div>
 <div class="ttc" id="aclass_core_graphics_1_1_pixel_format_html_a24b206428fd09eedaa91cd3e34bfc7d0"><div class="ttname"><a href="class_core_graphics_1_1_pixel_format.html#a24b206428fd09eedaa91cd3e34bfc7d0">CoreGraphics::PixelFormat::Code</a></div><div class="ttdeci">Code</div><div class="ttdoc">enums</div><div class="ttdef"><b>Definition:</b> pixelformat.h:25</div></div>
 <div class="ttc" id="aclass_math_1_1rectangle_html"><div class="ttname"><a href="class_math_1_1rectangle.html">Math::rectangle&lt; int &gt;</a></div></div>
@@ -453,9 +454,9 @@ $(document).ready(function(){initNavTree('texture_8h_source.html',''); initResiz
 <div class="ttc" id="apixelformat_8h_html"><div class="ttname"><a href="pixelformat_8h.html">pixelformat.h</a></div></div>
 <div class="ttc" id="arectangle_8h_html"><div class="ttname"><a href="rectangle_8h.html">rectangle.h</a></div></div>
 <div class="ttc" id="arender_2coregraphics_2config_8h_html"><div class="ttname"><a href="render_2coregraphics_2config_8h.html">config.h</a></div><div class="ttdoc">Compile time configuration options for the CoreGraphics subsystem.</div></div>
-<div class="ttc" id="arender_2coregraphics_2memory_8h_html"><div class="ttname"><a href="render_2coregraphics_2memory_8h.html">memory.h</a></div></div>
+<div class="ttc" id="arender_2coregraphics_2memory_8h_html"><div class="ttname"><a href="render_2coregraphics_2memory_8h.html">memory.h</a></div><div class="ttdoc">Graphics memory interface.</div></div>
 <div class="ttc" id="aresourceid_8h_html_ac10163bde441bef269d83cda54767506"><div class="ttname"><a href="resourceid_8h.html#ac10163bde441bef269d83cda54767506">RESOURCE_ID_TYPE</a></div><div class="ttdeci">#define RESOURCE_ID_TYPE(type)</div><div class="ttdef"><b>Definition:</b> resourceid.h:40</div></div>
-<div class="ttc" id="astruct_core_graphics_1_1_alloc_html"><div class="ttname"><a href="struct_core_graphics_1_1_alloc.html">CoreGraphics::Alloc</a></div><div class="ttdef"><b>Definition:</b> memory.h:38</div></div>
+<div class="ttc" id="astruct_core_graphics_1_1_alloc_html"><div class="ttname"><a href="struct_core_graphics_1_1_alloc.html">CoreGraphics::Alloc</a></div><div class="ttdef"><b>Definition:</b> memory.h:40</div></div>
 <div class="ttc" id="astruct_core_graphics_1_1_depth_stencil_clear_html"><div class="ttname"><a href="struct_core_graphics_1_1_depth_stencil_clear.html">CoreGraphics::DepthStencilClear</a></div><div class="ttdef"><b>Definition:</b> texture.h:89</div></div>
 <div class="ttc" id="astruct_core_graphics_1_1_depth_stencil_clear_html_a3e2216f78b7070a507ff892db70590d5"><div class="ttname"><a href="struct_core_graphics_1_1_depth_stencil_clear.html#a3e2216f78b7070a507ff892db70590d5">CoreGraphics::DepthStencilClear::stencil</a></div><div class="ttdeci">uint stencil</div><div class="ttdef"><b>Definition:</b> texture.h:91</div></div>
 <div class="ttc" id="astruct_core_graphics_1_1_depth_stencil_clear_html_aeee58dea424b7912880b0efd82edfa88"><div class="ttname"><a href="struct_core_graphics_1_1_depth_stencil_clear.html#aeee58dea424b7912880b0efd82edfa88">CoreGraphics::DepthStencilClear::depth</a></div><div class="ttdeci">float depth</div><div class="ttdef"><b>Definition:</b> texture.h:90</div></div>
@@ -544,7 +545,7 @@ $(document).ready(function(){initNavTree('texture_8h_source.html',''); initResiz
 <div class="ttc" id="astruct_math_1_1float4_html"><div class="ttname"><a href="struct_math_1_1float4.html">Math::float4</a></div><div class="ttdef"><b>Definition:</b> scalar.h:77</div></div>
 <div class="ttc" id="astruct_math_1_1int4_html"><div class="ttname"><a href="struct_math_1_1int4.html">Math::int4</a></div><div class="ttdef"><b>Definition:</b> scalar.h:104</div></div>
 <div class="ttc" id="astruct_math_1_1uint4_html"><div class="ttname"><a href="struct_math_1_1uint4.html">Math::uint4</a></div><div class="ttdef"><b>Definition:</b> scalar.h:131</div></div>
-<div class="ttc" id="astruct_math_1_1vec4_html"><div class="ttname"><a href="struct_math_1_1vec4.html">Math::vec4</a></div><div class="ttdoc">4D vector</div><div class="ttdef"><b>Definition:</b> vec4.h:21</div></div>
+<div class="ttc" id="astruct_math_1_1vec4_html"><div class="ttname"><a href="struct_math_1_1vec4.html">Math::vec4</a></div><div class="ttdoc">A 4D vector.</div><div class="ttdef"><b>Definition:</b> vec4.h:24</div></div>
 <div class="ttc" id="asubmissioncontext_8h_html"><div class="ttname"><a href="submissioncontext_8h.html">submissioncontext.h</a></div></div>
 <div class="ttc" id="atypes_8h_html_a5dd4f281954ce1405c92d62a427f839a"><div class="ttname"><a href="types_8h.html#a5dd4f281954ce1405c92d62a427f839a">ubyte</a></div><div class="ttdeci">unsigned char ubyte</div><div class="ttdef"><b>Definition:</b> types.h:34</div></div>
 <div class="ttc" id="atypes_8h_html_a869418dc7a0404b6441ebc39c5b4bb37"><div class="ttname"><a href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a></div><div class="ttdeci">int SizeT</div><div class="ttdef"><b>Definition:</b> types.h:49</div></div>
@@ -558,7 +559,7 @@ $(document).ready(function(){initNavTree('texture_8h_source.html',''); initResiz
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_933e88acd4f6f83648c4ee8940d06fa2.html">render</a></li><li class="navelem"><a class="el" href="dir_37551f33e300d96c62573a393f7afa02.html">coregraphics</a></li><li class="navelem"><a class="el" href="texture_8h.html">texture.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:07:45 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:42 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

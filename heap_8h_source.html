@@ -88,27 +88,27 @@ $(document).ready(function(){initNavTree('heap_8h_source.html',''); initResizabl
 <div class="contents">
 <a href="heap_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#if (__WIN32__)</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="win32heap_8h.html">memory/win32/win32heap.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_memory.html">Memory</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">typedef</span> <a class="code" href="class_win32_1_1_win32_heap.html">Win32::Win32Heap</a> <a class="code" href="class_memory_1_1_heap.html">Heap</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#elif ( __OSX__ || __APPLE__ || __linux__ )</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="posixheap_8h.html">memory/posix/posixheap.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_memory.html">Memory</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">typedef</span> <a class="code" href="class_posix_1_1_posix_heap.html">Posix::PosixHeap</a> <a class="code" href="class_memory_1_1_heap.html">Heap</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#error &quot;IMPLEMENT ME!&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#if (__WIN32__)</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="win32heap_8h.html">memory/win32/win32heap.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_memory.html">Memory</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">typedef</span> <a class="code" href="class_win32_1_1_win32_heap.html">Win32::Win32Heap</a> <a class="code" href="class_memory_1_1_heap.html">Heap</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#elif ( __OSX__ || __APPLE__ || __linux__ )</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="posixheap_8h.html">memory/posix/posixheap.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_memory.html">Memory</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">typedef</span> <a class="code" href="class_posix_1_1_posix_heap.html">Posix::PosixHeap</a> <a class="code" href="class_memory_1_1_heap.html">Heap</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#error &quot;IMPLEMENT ME!&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_memory_1_1_heap_html"><div class="ttname"><a href="class_memory_1_1_heap.html">Heap</a></div><div class="ttdoc">Implements a private heap.</div></div>
 <div class="ttc" id="aclass_posix_1_1_posix_heap_html"><div class="ttname"><a href="class_posix_1_1_posix_heap.html">Posix::PosixHeap</a></div><div class="ttdoc">Posix implementation of the class Memory::Heap using the Posix-Heap functions.</div><div class="ttdef"><b>Definition:</b> posixheap.h:25</div></div>
 <div class="ttc" id="aclass_win32_1_1_win32_heap_html"><div class="ttname"><a href="class_win32_1_1_win32_heap.html">Win32::Win32Heap</a></div><div class="ttdoc">Win32 implementation of the class Memory::Heap.</div><div class="ttdef"><b>Definition:</b> win32heap.h:23</div></div>
 <div class="ttc" id="afoundation_2core_2config_8h_html"><div class="ttname"><a href="foundation_2core_2config_8h.html">config.h</a></div><div class="ttdoc">Nebula compiler specific defines and configuration.</div></div>
-<div class="ttc" id="anamespace_memory_html"><div class="ttname"><a href="namespace_memory.html">Memory</a></div><div class="ttdoc">Doesn't actually allocate memory, but is used to keep track of free ranges of elements in a virtual m...</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:26</div></div>
+<div class="ttc" id="anamespace_memory_html"><div class="ttname"><a href="namespace_memory.html">Memory</a></div><div class="ttdef"><b>Definition:</b> arenaallocator.h:30</div></div>
 <div class="ttc" id="aposixheap_8h_html"><div class="ttname"><a href="posixheap_8h.html">posixheap.h</a></div></div>
 <div class="ttc" id="awin32heap_8h_html"><div class="ttname"><a href="win32heap_8h.html">win32heap.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('heap_8h_source.html',''); initResizabl
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_667462bf3902e31e6469e5425fdef989.html">memory</a></li><li class="navelem"><a class="el" href="heap_8h.html">heap.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:27 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:33 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

@@ -1,7 +1,6 @@
 var NAVTREEINDEX25 =
 {
-"class_lighting_1_1_light_context.html#a6a063558626c070bffeb24177ed7f8d2":[9,0,33,4,30],
-"class_lighting_1_1_light_context.html#a6ac593627dd8dbafe0be3cf63ea2d177":[9,0,33,4,19],
+"class_lighting_1_1_light_context.html#a6e93d8a53a3ad10d2adb0787d951099a":[9,0,33,4,9],
 "class_lighting_1_1_light_context.html#a6e99448433627802fc274cfa24054b3e":[9,0,33,4,7],
 "class_lighting_1_1_light_context.html#a7a1596f3f46fb032d226d618ea33b103":[9,0,33,4,37],
 "class_lighting_1_1_light_context.html#a85253c54c76bf9fe252f1158ebbecd9a":[9,0,33,4,45],
@@ -26,7 +25,7 @@ var NAVTREEINDEX25 =
 "class_lighting_1_1_light_context.html#adc2c7d544365ea17cbbcd00126df4a82":[9,0,33,4,34],
 "class_lighting_1_1_light_context.html#adf869a7b599c9dac5abc610916cd9195":[9,0,33,4,3],
 "class_lighting_1_1_light_context.html#aed2000c34973ae2ef548adf0be92ed25":[9,0,33,4,42],
-"class_lighting_1_1_light_server.html":[9,0,115],
+"class_lighting_1_1_light_server.html":[9,0,111],
 "class_lighting_1_1_light_server_base.html":[9,0,33,0],
 "class_lighting_1_1_light_server_base.html#a02a170922ad0d28127b9116ad13f711f":[9,0,33,0,14],
 "class_lighting_1_1_light_server_base.html#a07266388ea23a63f2f571bf65754f661":[9,0,33,0,15],
@@ -209,8 +208,8 @@ var NAVTREEINDEX25 =
 "class_lighting_1_1_vk_shadow_server.html#af0ba342dde2a63fb0f6dd635c9cdd63c":[9,0,33,7,30],
 "class_lighting_1_1_vk_shadow_server.html#af22d598f3237fff3e573a7faccd3d27b":[9,0,33,7,4],
 "class_lighting_1_1_vk_shadow_server.html#af507c109714bc99998fbfa822b2c4012":[9,0,33,7,2],
-"class_linux_1_1_file_watcher.html":[9,0,90],
-"class_linux_1_1_linux_barrier.html":[9,0,116],
+"class_linux_1_1_file_watcher.html":[9,0,87],
+"class_linux_1_1_linux_barrier.html":[9,0,112],
 "class_linux_1_1_linux_completion_counter.html":[9,0,34,0],
 "class_linux_1_1_linux_completion_counter.html#aa7aaeae2a1d5bfd475897307d172240c":[9,0,34,0,4],
 "class_linux_1_1_linux_completion_counter.html#ab08496635ed6fab96783f15efea767ca":[9,0,34,0,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX25 =
 "class_linux_1_1_linux_interlocked.html#a31140d23785356bdd7d41fc11ed1ad60":[9,0,34,3,0],
 "class_linux_1_1_linux_interlocked.html#a549062c3db653c36015693506d6c406c":[9,0,34,3,5],
 "class_linux_1_1_linux_interlocked.html#a657f92c7c25564e1a9539bd4d8bbad32":[9,0,34,3,2],
-"class_linux_1_1_linux_interlocked.html#a9ca61a85b9db5cd72ef44660049868a0":[9,0,34,3,3]
+"class_linux_1_1_linux_interlocked.html#a9ca61a85b9db5cd72ef44660049868a0":[9,0,34,3,3],
+"class_linux_1_1_linux_interlocked.html#abba0a82b23c01e78f393b608c7c204ac":[9,0,34,3,6]
 };

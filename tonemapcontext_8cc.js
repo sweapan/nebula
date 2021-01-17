@@ -1,6 +1,6 @@
 var tonemapcontext_8cc =
 [
-    [ "_ImplementPluginContext", "tonemapcontext_8cc.html#ac1d8736f7d12da7e095a58e24d2698b5", null ],
+    [ "__ImplementPluginContext", "tonemapcontext_8cc.html#adc5f5f273f22dd12188b2d41f566840e", null ],
     [ "averageLumBuffer", "tonemapcontext_8cc.html#a9557314444bd754b1649f21b9379ea10", null ],
     [ "colorBuffer", "tonemapcontext_8cc.html#a6492fd98b4c3e6ec0472fe9e92934686", null ],
     [ "colorSlot", "tonemapcontext_8cc.html#a9a9a38686d7a1a45e4a7753eb8665a88", null ],

@@ -93,8 +93,6 @@ var dir_37551f33e300d96c62573a393f7afa02 =
       [ "RenderShape", "class_core_graphics_1_1_render_shape.html", "class_core_graphics_1_1_render_shape" ],
       [ "RenderShapeVertex", "struct_core_graphics_1_1_render_shape_1_1_render_shape_vertex.html", "struct_core_graphics_1_1_render_shape_1_1_render_shape_vertex" ]
     ] ],
-    [ "rendertexture.cc", "rendertexture_8cc.html", null ],
-    [ "rendertexture.h", "rendertexture_8h.html", null ],
     [ "resourcetable.h", "resourcetable_8h.html", "resourcetable_8h" ],
     [ "sampler.h", "sampler_8h.html", "sampler_8h" ],
     [ "semaphore.h", "semaphore_8h.html", "semaphore_8h" ],

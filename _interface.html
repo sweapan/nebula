@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('_interface.html',''); initResizable();
 
 <div class="PageDoc"><div class="contents">
 <div class="textblock"><dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Warning: The <a class="el" href="namespace_interface.html">Interface</a> code isn't used very extensively anymore, so the comments below are legacy and not necessary.</dd></dl>
-<p><a class="el" href="namespace_interface.html">Interface</a> objects offer asynchronous access to important Nebula subsystems, like <a class="el" href="namespace_i_o.html" title="Instances of wrapped stream classes.">IO</a>, <a class="el" href="namespace_audio.html" title="Audio::AudioServer.">Audio</a> and Rendering. They are the key mechanism in Nebula to make efficient use of multicore CPUs.</p>
+<p><a class="el" href="namespace_interface.html">Interface</a> objects offer asynchronous access to important Nebula subsystems, like <a class="el" href="namespace_i_o.html" title="Instances of wrapped stream classes.">IO</a>, <a class="el" href="namespace_audio.html">Audio</a> and Rendering. They are the key mechanism in Nebula to make efficient use of multicore CPUs.</p>
 <p><a class="el" href="namespace_interface.html">Interface</a> objects are thread-global singletons which encapsulate an entire Nebula subsystem. In fact each <a class="el" href="namespace_interface.html">Interface</a> object initializes a minimal Nebula runtime which runs in a separate thread. This works great because all Nebula singletons are thread-local (the only exception are <a class="el" href="namespace_interface.html">Interface</a> objects which are singletons across threads). So code running in a parallel thread will only see the Nebula server objects which have been created in this thread. This parallel approach simplifies the implementation of Nebula classes, since only the code which handles communication across threads has to be thread safe.</p>
 <p>Communication with <a class="el" href="namespace_interface.html">Interface</a> objects happens through normal Message objects. To instruct an <a class="el" href="namespace_interface.html">Interface</a> object to execute a task in parallel to the main thread, just create a Message object, initialize it and send it through to the <a class="el" href="namespace_interface.html">Interface</a>'s Send() method. The Send() method will return immediately and the calling thread is free to do other stuff while the task is executing in the <a class="el" href="namespace_interface.html">Interface</a> object's worker thread. If a result is desired, the calling thread can either poll or wait for completion of the original message. </p>
 </div></div><!-- contents -->
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('_interface.html',''); initResizable();
 			<ul>
 				<li class="navelem"><a class="el" href="foundation.html">Foundation Libraries</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:57 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

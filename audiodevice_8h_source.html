@@ -190,7 +190,7 @@ $(document).ready(function(){initNavTree('audiodevice_8h_source.html',''); initR
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;} <span class="comment">// namespace Audio</span></div>
 <div class="ttc" id="aaudioclip_8h_html"><div class="ttname"><a href="audioclip_8h.html">audioclip.h</a></div><div class="ttdoc">Implements some audio clip types.</div></div>
-<div class="ttc" id="aclass_audio_1_1_audio_device_html"><div class="ttname"><a href="class_audio_1_1_audio_device.html">Audio::AudioDevice</a></div><div class="ttdef"><b>Definition:</b> audiodevice.h:35</div></div>
+<div class="ttc" id="aclass_audio_1_1_audio_device_html"><div class="ttname"><a href="class_audio_1_1_audio_device.html">Audio::AudioDevice</a></div><div class="ttdoc">Central class of the core audio subsystem.</div><div class="ttdef"><b>Definition:</b> audiodevice.h:35</div></div>
 <div class="ttc" id="aclass_audio_1_1_audio_device_html_a032cd44c5e331a84fb11cd691a7a0583"><div class="ttname"><a href="class_audio_1_1_audio_device.html#a032cd44c5e331a84fb11cd691a7a0583">Audio::AudioDevice::OnFrame</a></div><div class="ttdeci">void OnFrame()</div><div class="ttdoc">Called per frame to update spatial positions.</div><div class="ttdef"><b>Definition:</b> audiodevice.cc:65</div></div>
 <div class="ttc" id="aclass_audio_1_1_audio_device_html_a099ab155bc3ae2619e8f2fcea8c2f9bd"><div class="ttname"><a href="class_audio_1_1_audio_device.html#a099ab155bc3ae2619e8f2fcea8c2f9bd">Audio::AudioDevice::emitterAllocator</a></div><div class="ttdeci">Ids::IdAllocator&lt; ClipId, Math::point, Math::vector, float, float, float, float, bool, float &gt; emitterAllocator</div><div class="ttdef"><b>Definition:</b> audiodevice.h:116</div></div>
 <div class="ttc" id="aclass_audio_1_1_audio_device_html_a1b92314e2e116da482b19463ab7f99a8"><div class="ttname"><a href="class_audio_1_1_audio_device.html#a1b92314e2e116da482b19463ab7f99a8">Audio::AudioDevice::SetClock</a></div><div class="ttdeci">void SetClock(AudioEmitterId id, float value)</div><div class="ttdoc">Set min delay between subsequent instances of an emitted sound (value of 0 disables)</div><div class="ttdef"><b>Definition:</b> audiodevice.cc:255</div></div>
@@ -235,7 +235,7 @@ $(document).ready(function(){initNavTree('audiodevice_8h_source.html',''); initR
 <div class="ttc" id="aclass_audio_1_1_audio_device_html_aecfc309a1013d9b53e2447f6ee6810ec"><div class="ttname"><a href="class_audio_1_1_audio_device.html#aecfc309a1013d9b53e2447f6ee6810ec">Audio::AudioDevice::ResetListener</a></div><div class="ttdeci">void ResetListener()</div><div class="ttdoc">Reset listener.</div><div class="ttdef"><b>Definition:</b> audiodevice.cc:347</div></div>
 <div class="ttc" id="aclass_audio_1_1_audio_device_html_aff0df7d9bd15ac730b7d490fd679111a"><div class="ttname"><a href="class_audio_1_1_audio_device.html#aff0df7d9bd15ac730b7d490fd679111a">Audio::AudioDevice::Open</a></div><div class="ttdeci">bool Open()</div><div class="ttdoc">Initialize the audio engine.</div><div class="ttdef"><b>Definition:</b> audiodevice.cc:38</div></div>
 <div class="ttc" id="aclass_core_1_1_ref_counted_html"><div class="ttname"><a href="class_core_1_1_ref_counted.html">Core::RefCounted</a></div><div class="ttdoc">The common base class of Nebula.</div><div class="ttdef"><b>Definition:</b> refcounted.h:38</div></div>
-<div class="ttc" id="aclass_ids_1_1_id_allocator_html"><div class="ttname"><a href="class_ids_1_1_id_allocator.html">Ids::IdAllocator</a></div><div class="ttdef"><b>Definition:</b> idallocator.h:33</div></div>
+<div class="ttc" id="aclass_ids_1_1_id_allocator_html"><div class="ttname"><a href="class_ids_1_1_id_allocator.html">Ids::IdAllocator</a></div><div class="ttdoc">An ID allocator associates an id with a slice in an N number of arrays.</div><div class="ttdef"><b>Definition:</b> idallocator.h:39</div></div>
 <div class="ttc" id="aclass_util_1_1_dictionary_html"><div class="ttname"><a href="class_util_1_1_dictionary.html">Util::Dictionary</a></div><div class="ttdoc">A collection of key/value pairs with quick value retrieval by key at roughly O(log n).</div><div class="ttdef"><b>Definition:</b> dictionary.h:34</div></div>
 <div class="ttc" id="aclass_util_1_1_string_atom_html"><div class="ttname"><a href="class_util_1_1_string_atom.html">Util::StringAtom</a></div><div class="ttdoc">A StringAtom.</div><div class="ttdef"><b>Definition:</b> stringatom.h:22</div></div>
 <div class="ttc" id="adebugcounter_8h_html"><div class="ttname"><a href="debugcounter_8h.html">debugcounter.h</a></div></div>
@@ -243,9 +243,9 @@ $(document).ready(function(){initNavTree('audiodevice_8h_source.html',''); initR
 <div class="ttc" id="adebugtimer_8h_html"><div class="ttname"><a href="debugtimer_8h.html">debugtimer.h</a></div></div>
 <div class="ttc" id="adebugtimer_8h_html_a17460cea02007232f6405cb35e7b9cbf"><div class="ttname"><a href="debugtimer_8h.html#a17460cea02007232f6405cb35e7b9cbf">_declare_timer</a></div><div class="ttdeci">#define _declare_timer(timer)</div><div class="ttdef"><b>Definition:</b> debugtimer.h:35</div></div>
 <div class="ttc" id="aidallocator_8h_html"><div class="ttname"><a href="idallocator_8h.html">idallocator.h</a></div></div>
-<div class="ttc" id="aids_2id_8h_html_a4235c5ac56c4d81970d369dcae60c903"><div class="ttname"><a href="ids_2id_8h.html#a4235c5ac56c4d81970d369dcae60c903">ID_32_TYPE</a></div><div class="ttdeci">#define ID_32_TYPE(x)</div><div class="ttdoc">This class implements some static helper functions to set high and low 32-bit integers,...</div><div class="ttdef"><b>Definition:</b> id.h:14</div></div>
-<div class="ttc" id="anamespace_audio_html"><div class="ttname"><a href="namespace_audio.html">Audio</a></div><div class="ttdoc">Audio::AudioServer.</div><div class="ttdef"><b>Definition:</b> audioclip.h:15</div></div>
-<div class="ttc" id="anamespace_so_loud_html"><div class="ttname"><a href="namespace_so_loud.html">SoLoud</a></div><div class="ttdoc">Audio::AudioDevice.</div><div class="ttdef"><b>Definition:</b> audiodevice.h:27</div></div>
+<div class="ttc" id="aids_2id_8h_html_a4235c5ac56c4d81970d369dcae60c903"><div class="ttname"><a href="ids_2id_8h.html#a4235c5ac56c4d81970d369dcae60c903">ID_32_TYPE</a></div><div class="ttdeci">#define ID_32_TYPE(x)</div><div class="ttdef"><b>Definition:</b> id.h:16</div></div>
+<div class="ttc" id="anamespace_audio_html"><div class="ttname"><a href="namespace_audio.html">Audio</a></div><div class="ttdef"><b>Definition:</b> audioclip.h:15</div></div>
+<div class="ttc" id="anamespace_so_loud_html"><div class="ttname"><a href="namespace_so_loud.html">SoLoud</a></div><div class="ttdef"><b>Definition:</b> audiodevice.h:27</div></div>
 <div class="ttc" id="arefcounted_8h_html"><div class="ttname"><a href="refcounted_8h.html">refcounted.h</a></div></div>
 <div class="ttc" id="aresourceid_8h_html"><div class="ttname"><a href="resourceid_8h.html">resourceid.h</a></div></div>
 <div class="ttc" id="asingleton_8h_html"><div class="ttname"><a href="singleton_8h.html">singleton.h</a></div></div>
@@ -257,9 +257,9 @@ $(document).ready(function(){initNavTree('audiodevice_8h_source.html',''); initR
 <div class="ttc" id="astruct_audio_1_1_audio_emitter_id_html"><div class="ttname"><a href="struct_audio_1_1_audio_emitter_id.html">Audio::AudioEmitterId</a></div><div class="ttdef"><b>Definition:</b> audiodevice.h:32</div></div>
 <div class="ttc" id="astruct_audio_1_1_clip_id_html"><div class="ttname"><a href="struct_audio_1_1_clip_id.html">Audio::ClipId</a></div><div class="ttdef"><b>Definition:</b> audioclip.h:17</div></div>
 <div class="ttc" id="astruct_audio_1_1_clip_instance_id_html"><div class="ttname"><a href="struct_audio_1_1_clip_instance_id.html">Audio::ClipInstanceId</a></div><div class="ttdef"><b>Definition:</b> audioclip.h:18</div></div>
-<div class="ttc" id="astruct_math_1_1mat4_html"><div class="ttname"><a href="struct_math_1_1mat4.html">Math::mat4</a></div><div class="ttdoc">Matrix4x4.</div><div class="ttdef"><b>Definition:</b> mat4.h:44</div></div>
-<div class="ttc" id="astruct_math_1_1point_html"><div class="ttname"><a href="struct_math_1_1point.html">Math::point</a></div><div class="ttdef"><b>Definition:</b> point.h:18</div></div>
-<div class="ttc" id="astruct_math_1_1vector_html"><div class="ttname"><a href="struct_math_1_1vector.html">Math::vector</a></div><div class="ttdef"><b>Definition:</b> vector.h:18</div></div>
+<div class="ttc" id="astruct_math_1_1mat4_html"><div class="ttname"><a href="struct_math_1_1mat4.html">Math::mat4</a></div><div class="ttdoc">A 4x4 single point precision float matrix.</div><div class="ttdef"><b>Definition:</b> mat4.h:44</div></div>
+<div class="ttc" id="astruct_math_1_1point_html"><div class="ttname"><a href="struct_math_1_1point.html">Math::point</a></div><div class="ttdoc">Represents a 3D point in space.</div><div class="ttdef"><b>Definition:</b> point.h:22</div></div>
+<div class="ttc" id="astruct_math_1_1vector_html"><div class="ttname"><a href="struct_math_1_1vector.html">Math::vector</a></div><div class="ttdoc">A vector is a 3D direction in space.</div><div class="ttdef"><b>Definition:</b> vector.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
@@ -267,7 +267,7 @@ $(document).ready(function(){initNavTree('audiodevice_8h_source.html',''); initR
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_a6fa80f6dfb2e3162b39cc729d9dee46.html">audio</a></li><li class="navelem"><a class="el" href="audiodevice_8h.html">audiodevice.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:25 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:30 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

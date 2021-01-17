@@ -169,7 +169,7 @@ Creating Nebula Objects</h2>
 <p>A variation of the create-by-class-name method is to create the object by its class fourcc code: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_core.html">Core</a>;</div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_util.html">Util</a>;</div>
 <div class="line"><a class="code" href="class_ptr.html">Ptr&lt;MyClass&gt;</a> myObj = (MyClass*) <a class="code" href="class_core_1_1_factory.html#a7929efbcb2e9cb3d47dfa5d3122aa6d6">Factory::Instance</a>()-&gt;<a class="code" href="class_core_1_1_factory.html#af34d651240c89bcb55bd071a5822c806">Create</a>(FourCC(<span class="stringliteral">&#39;MYCL&#39;</span>));</div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">Tuple helper functions and typedefs.</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 </div><!-- fragment --><p> This method looks less intuitive, but it is often faster as create-by-name and the fourcc class identifier uses less space (4 bytes) then the string class name, which may be of advantage when objects are encoded/decoded to and from binary streams.</p>
 <h2><a class="anchor" id="NebulaRTTI"></a>
 The Nebula Runtime Type Information System</h2>
@@ -271,7 +271,7 @@ Performance And Memory Footprint Considerations</h2>
 			<ul>
 				<li class="navelem"><a class="el" href="foundation.html">Foundation Libraries</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:57 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

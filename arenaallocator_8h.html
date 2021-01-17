@@ -98,18 +98,17 @@ $(document).ready(function(){initNavTree('arenaallocator_8h.html',''); initResiz
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_memory_1_1_arena_allocator.html">Memory::ArenaAllocator&lt; ChunkSize &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates memory in chunks.  <a href="class_memory_1_1_arena_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_memory"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html">Memory</a></td></tr>
-<tr class="memdesc:namespace_memory"><td class="mdescLeft">&#160;</td><td class="mdescRight">Doesn't actually allocate memory, but is used to keep track of free ranges of elements in a virtual memory buffer. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ab3197c20d4512c145ad69a6f453c0329"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arenaallocator_8h.html#ab3197c20d4512c145ad69a6f453c0329">SMALL_CHUNK</a>&#160;&#160;&#160;0x100</td></tr>
-<tr class="memdesc:ab3197c20d4512c145ad69a6f453c0329"><td class="mdescLeft">&#160;</td><td class="mdescRight">This allocator creates memory in user-specified (default 65535) byte chunks.  <a href="arenaallocator_8h.html#ab3197c20d4512c145ad69a6f453c0329">More...</a><br /></td></tr>
 <tr class="separator:ab3197c20d4512c145ad69a6f453c0329"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba0cf9ee3e89269ecdf69437f2feaae2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arenaallocator_8h.html#aba0cf9ee3e89269ecdf69437f2feaae2">MEDIUM_CHUNK</a>&#160;&#160;&#160;0x1000</td></tr>
 <tr class="separator:aba0cf9ee3e89269ecdf69437f2feaae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,11 +156,6 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This allocator creates memory in user-specified (default 65535) byte chunks. </p>
-<p>Each time an object is requested, the current chunk is checked for storage, and if the object fits, an iterator is progressed with the size of the object, after which a pointer to the allocated space is returned. If the object does not fit, the allocator creates a new chunk, and retires the old, without considering the potential space lost in the process.</p>
-<p>This type of allocator allows for several objects of different types to be allocated linearly in memory, thus providing a cache-friendly access pattern for places where memory allocation is somewhat deterministic.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file </dd></dl>
-
 </div>
 </div>
 </div><!-- contents -->
@@ -171,7 +165,7 @@ Macros</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_667462bf3902e31e6469e5425fdef989.html">memory</a></li><li class="navelem"><a class="el" href="arenaallocator_8h.html">arenaallocator.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:56 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

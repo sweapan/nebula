@@ -1,15 +1,5 @@
 var NAVTREEINDEX82 =
 {
-"struct_im3d_1_1_context.html#a3e77673a8cbad86ae2ef9db1cc1ca9ad":[9,0,28,13,54],
-"struct_im3d_1_1_context.html#a401c31d55e16ec3e802a296fe765ae5c":[9,0,28,13,100],
-"struct_im3d_1_1_context.html#a405adfd4834e69a4dd11099d75548782":[9,0,28,13,56],
-"struct_im3d_1_1_context.html#a438fce4dec535aebf4cff1d929f667d0":[9,0,28,13,4],
-"struct_im3d_1_1_context.html#a484b9f6195c3af16cca9f4ca4c2edd93":[9,0,28,13,26],
-"struct_im3d_1_1_context.html#a498fada41558bb693855ca122d8dd155":[9,0,28,13,103],
-"struct_im3d_1_1_context.html#a4bbe17c8586dddce120945181023dcd6":[9,0,28,13,33],
-"struct_im3d_1_1_context.html#a4c09bfba58bbd8bb315c74697b22f445":[9,0,28,13,92],
-"struct_im3d_1_1_context.html#a4ee88d03bdb068edd1b61fff82f276d0":[9,0,28,13,84],
-"struct_im3d_1_1_context.html#a5653d348f39001da79c890968f29c5ec":[9,0,28,13,57],
 "struct_im3d_1_1_context.html#a593d69524762434126ae3c14ad22f4c2":[9,0,28,13,20],
 "struct_im3d_1_1_context.html#a5d9c2d5e800252a8d4a8ce28fa616116":[9,0,28,13,9],
 "struct_im3d_1_1_context.html#a62da6e6f4e2eb5577f7ef34e4dd70175":[9,0,28,13,1],
@@ -249,5 +239,15 @@ var NAVTREEINDEX82 =
 "struct_im3d_1_1_vertex_data.html#acc7fb65428dd76cf447b6eb24aa94c20":[9,0,28,7,1],
 "struct_im3d_1_1_vertex_data.html#aff59be7b7996a25ef954dfbf75b52463":[9,0,28,7,3],
 "struct_im3d_1_1internal_1_1_composite_t.html":[9,0,28,0,3],
-"struct_im3d_1_1internal_1_1_float_t.html":[9,0,28,0,1]
+"struct_im3d_1_1internal_1_1_float_t.html":[9,0,28,0,1],
+"struct_im3d_1_1internal_1_1_int_t.html":[9,0,28,0,2],
+"struct_im3d_1_1internal_1_1_mat_t.html":[9,0,28,0,5],
+"struct_im3d_1_1internal_1_1_scalar_t.html":[9,0,28,0,0],
+"struct_im3d_1_1internal_1_1_type_traits.html":[9,0,28,0,6],
+"struct_im3d_1_1internal_1_1_type_traits.html#a8088b4b14e512505879a34ee04749110":[9,0,28,0,6,0],
+"struct_im3d_1_1internal_1_1_type_traits_3_01_mat4_01_4.html":[9,0,28,0,12],
+"struct_im3d_1_1internal_1_1_type_traits_3_01_mat4_01_4.html#a4bf936192bfc5161950def73211267f1":[9,0,28,0,12,0],
+"struct_im3d_1_1internal_1_1_type_traits_3_01_vec2_01_4.html":[9,0,28,0,9],
+"struct_im3d_1_1internal_1_1_type_traits_3_01_vec2_01_4.html#a81a2dda53a402f96f403f1223f662426":[9,0,28,0,9,0],
+"struct_im3d_1_1internal_1_1_type_traits_3_01_vec3_01_4.html":[9,0,28,0,10]
 };

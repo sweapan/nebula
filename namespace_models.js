@@ -26,8 +26,8 @@ var namespace_models =
       [ "NumNodeTypes", "namespace_models.html#af6d870409eb928dcad15db9ca58a3790a76fd296649f128b5956e0877c5214353", null ]
     ] ],
     [ "__ImplementClass", "namespace_models.html#a2deac470faa8d447db436b01655c7bf4", null ],
+    [ "__ImplementContext", "namespace_models.html#a5407681c81e3608dc4c7605c5380d032", null ],
     [ "__ImplementEnumBitOperators", "namespace_models.html#a37c6ed83ff3393ad88921c722694b364", null ],
-    [ "_ImplementContext", "namespace_models.html#ae3c1681606a3aab9aaa3b6ad702ae777", null ],
     [ "CreateModel", "namespace_models.html#a1b8205930c5627e5d49360d0814f14f6", null ],
     [ "CreateModelInstance", "namespace_models.html#ab6e7088971fa6de0797593191226923c", null ],
     [ "DestroyModel", "namespace_models.html#a2c1aae4f2466c8c4ebf819884f81405b", null ],

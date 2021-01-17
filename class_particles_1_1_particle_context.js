@@ -10,7 +10,7 @@ var class_particles_1_1_particle_context =
     ] ],
     [ "ParticleContext", "class_particles_1_1_particle_context.html#ab92684444fb00bae40ab4e282dedab41", null ],
     [ "~ParticleContext", "class_particles_1_1_particle_context.html#a69beffb36d85bc5391b96154b845d2e2", null ],
-    [ "_DeclareContext", "class_particles_1_1_particle_context.html#abdc0a8b6b01c97b4482d719db856ae38", null ],
+    [ "__DeclareContext", "class_particles_1_1_particle_context.html#a6e9663cb3e50f0fc4c97c7d24baeaf7c", null ],
     [ "Alloc", "class_particles_1_1_particle_context.html#a20129122e7e50d5fda10e6088c8b114d", null ],
     [ "Create", "class_particles_1_1_particle_context.html#a166e3a1ebb60ed851f895d4c0d5aaa18", null ],
     [ "Dealloc", "class_particles_1_1_particle_context.html#adb9fb44eead6fab0a87b3373da3e1f10", null ],

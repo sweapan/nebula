@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('struct_math_1_1quat.html',''); initRes
 
 <p><code>#include &lt;<a class="el" href="quat_8h_source.html">quat.h</a>&gt;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A quat class using SSE. </p>
+<div class="textblock"><p>A quaternion is usually used to represent an orientation in 3D space. </p>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -109,7 +109,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab60d0f0b42e5d6f0ed802d62a2a58e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from components  <a href="struct_math_1_1quat.html#ab60d0f0b42e5d6f0ed802d62a2a58e45">More...</a><br /></td></tr>
 <tr class="separator:ab60d0f0b42e5d6f0ed802d62a2a58e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a923d918af3e026e134720b8a0da7c58a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1quat.html#a923d918af3e026e134720b8a0da7c58a">quat</a> (const <a class="el" href="struct_math_1_1vec4.html">vec4</a> &amp;rhs)</td></tr>
-<tr class="memdesc:a923d918af3e026e134720b8a0da7c58a"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a>  <a href="struct_math_1_1quat.html#a923d918af3e026e134720b8a0da7c58a">More...</a><br /></td></tr>
+<tr class="memdesc:a923d918af3e026e134720b8a0da7c58a"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a>  <a href="struct_math_1_1quat.html#a923d918af3e026e134720b8a0da7c58a">More...</a><br /></td></tr>
 <tr class="separator:a923d918af3e026e134720b8a0da7c58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a186a3ae66c236cf10f192b99a8d31fc1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1quat.html#a186a3ae66c236cf10f192b99a8d31fc1">quat</a> (const __m128 &amp;rhs)</td></tr>
 <tr class="memdesc:a186a3ae66c236cf10f192b99a8d31fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from __m128  <a href="struct_math_1_1quat.html#a186a3ae66c236cf10f192b99a8d31fc1">More...</a><br /></td></tr>
@@ -142,7 +142,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab3e635b531c83ea8bae9fe09df8443f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">set content  <a href="struct_math_1_1quat.html#ab3e635b531c83ea8bae9fe09df8443f7">More...</a><br /></td></tr>
 <tr class="separator:ab3e635b531c83ea8bae9fe09df8443f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7862f06deec6f9fd9ba86724af62661d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1quat.html#a7862f06deec6f9fd9ba86724af62661d">set</a> (<a class="el" href="struct_math_1_1vec4.html">vec4</a> const &amp;f4)</td></tr>
-<tr class="memdesc:a7862f06deec6f9fd9ba86724af62661d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a>  <a href="struct_math_1_1quat.html#a7862f06deec6f9fd9ba86724af62661d">More...</a><br /></td></tr>
+<tr class="memdesc:a7862f06deec6f9fd9ba86724af62661d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a>  <a href="struct_math_1_1quat.html#a7862f06deec6f9fd9ba86724af62661d">More...</a><br /></td></tr>
 <tr class="separator:a7862f06deec6f9fd9ba86724af62661d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -275,7 +275,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>construct from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a> </p>
+<p>construct from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a> </p>
 
 </div>
 </div>
@@ -460,7 +460,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>set from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a> </p>
+<p>set from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a> </p>
 
 </div>
 </div>
@@ -644,7 +644,7 @@ Friends</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_math.html">Math</a></li><li class="navelem"><a class="el" href="struct_math_1_1quat.html">quat</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

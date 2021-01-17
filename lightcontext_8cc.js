@@ -1,7 +1,7 @@
 var lightcontext_8cc =
 [
     [ "CLUSTERED_LIGHTING_DEBUG", "lightcontext_8cc.html#acb7429b02430fb4301b68918d90038c7", null ],
-    [ "_ImplementContext", "lightcontext_8cc.html#a2e9df7412f55f29fa8a7296f7fcd1651", null ],
+    [ "__ImplementContext", "lightcontext_8cc.html#ab9873ee37c7a13ebbe86f10ce763fc9d", null ],
     [ "aoTextureSlot", "lightcontext_8cc.html#a0102d3eb48f2b08db39c01663592c873", null ],
     [ "classificationShader", "lightcontext_8cc.html#a88b859b7189073b53ab2f892908e31f2", null ],
     [ "clusterDebugTexture", "lightcontext_8cc.html#ab2d34eb20701d22c8d2ba47d18c26eb2", null ],

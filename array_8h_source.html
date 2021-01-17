@@ -252,7 +252,7 @@ $(document).ready(function(){initNavTree('array_8h_source.html',''); initResizab
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    static_assert(std::is_trivially_copyable&lt;TYPE&gt;::value, <span class="stringliteral">&quot;TYPE is not trivially copyable; Util::Array cannot be constructed from pointer of TYPE.&quot;</span>);</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    this-&gt;<a class="code" href="class_util_1_1_array.html#a29655143bb879ce827b730bbb2a1d502">elements</a> = n_new_array_alloc&lt;TYPE&gt;(this-&gt;<a class="code" href="class_util_1_1_array.html#a77cf5edf0d5a914b9937e40ad616640b">capacity</a>);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">const</span> <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> bytes = num * <span class="keyword">sizeof</span>(TYPE);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Memory::Copy</a>(buf, this-&gt;<a class="code" href="class_util_1_1_array.html#a29655143bb879ce827b730bbb2a1d502">elements</a>, bytes);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Memory::Copy</a>(buf, this-&gt;<a class="code" href="class_util_1_1_array.html#a29655143bb879ce827b730bbb2a1d502">elements</a>, bytes);</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
@@ -404,7 +404,7 @@ $(document).ready(function(){initNavTree('array_8h_source.html',''); initResizab
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        {</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            <span class="comment">// source array doesn&#39;t fit into our capacity, need to reallocate</span></div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            this-&gt;Delete();</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            this-&gt;<a class="code" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Copy</a>(rhs);</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            this-&gt;<a class="code" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Copy</a>(rhs);</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        }</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    }</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;}</div>
@@ -538,7 +538,7 @@ $(document).ready(function(){initNavTree('array_8h_source.html',''); initResizab
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="preprocessor">#if NEBULA_DEBUG</span></div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    {</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <a class="code" href="namespace_memory.html#a3d02bcd45d328a0bccf6ca549df2c2ae">Memory::Clear</a>(&amp;this-&gt;elements[fromIndex], <span class="keyword">sizeof</span>(TYPE) * (toIndex - fromIndex));        </div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <a class="code" href="namespace_memory.html#ad8504a1916282a835f1e16e3912e4c87">Memory::Clear</a>(&amp;this-&gt;elements[fromIndex], <span class="keyword">sizeof</span>(TYPE) * (toIndex - fromIndex));        </div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    }</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;}</div>
@@ -559,7 +559,7 @@ $(document).ready(function(){initNavTree('array_8h_source.html',''); initResizab
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    }</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    {</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <a class="code" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Memory::Copy</a>(from, to, num * <span class="keyword">sizeof</span>(TYPE));</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <a class="code" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Memory::Copy</a>(from, to, num * <span class="keyword">sizeof</span>(TYPE));</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    }       </div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;}</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
@@ -1134,7 +1134,7 @@ $(document).ready(function(){initNavTree('array_8h_source.html',''); initResizab
 <div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keyword">class</span> TYPE&gt; <span class="keywordtype">void</span></div>
 <div class="line"><a name="l01330"></a><span class="lineno"><a class="line" href="class_util_1_1_array.html#ada618064032fbe3b77543b1ebb8b1929"> 1330</a></span>&#160;<a class="code" href="class_util_1_1_array.html#ada618064032fbe3b77543b1ebb8b1929">Array&lt;TYPE&gt;::SetSize</a>(<a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> s)</div>
 <div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;{</div>
-<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    this-&gt;<a class="code" href="namespace_memory.html#a05e4c5d9cc89e8396194ee73406be36b">Realloc</a>(s, 8);</div>
+<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    this-&gt;<a class="code" href="namespace_memory.html#a66c839285702633f8178be0224273a14">Realloc</a>(s, 8);</div>
 <div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;}</div>
 <div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160; </div>
 <div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
@@ -1386,13 +1386,13 @@ $(document).ready(function(){initNavTree('array_8h_source.html',''); initResizab
 <div class="ttc" id="adebug_8h_html_af07fc1acd3d67e0bcafa5ef5bcba4042"><div class="ttname"><a href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a></div><div class="ttdeci">#define n_assert(exp)</div><div class="ttdef"><b>Definition:</b> debug.h:49</div></div>
 <div class="ttc" id="afoundation_2memory_2memory_8h_html_a0d088b3d997f2847764c0317db714623"><div class="ttname"><a href="foundation_2memory_2memory_8h.html#a0d088b3d997f2847764c0317db714623">n_new_array_free</a></div><div class="ttdeci">void n_new_array_free(size_t size, TYPE *buffer)</div><div class="ttdef"><b>Definition:</b> memory.h:38</div></div>
 <div class="ttc" id="anamespace_characters_html_ae4ad265a7161cf04bbaee511c95ae613af978c16aa539b5335082e261b1397363"><div class="ttname"><a href="namespace_characters.html#ae4ad265a7161cf04bbaee511c95ae613af978c16aa539b5335082e261b1397363">Characters::Append</a></div><div class="ttdeci">@ Append</div><div class="ttdef"><b>Definition:</b> charactercontext.h:52</div></div>
-<div class="ttc" id="anamespace_game_1_1_time_manager_html_ae1fd57385e5c144532be51e7b2592c79"><div class="ttname"><a href="namespace_game_1_1_time_manager.html#ae1fd57385e5c144532be51e7b2592c79">Game::TimeManager::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdoc">Destroy the singleton.</div><div class="ttdef"><b>Definition:</b> timemanager.cc:117</div></div>
+<div class="ttc" id="anamespace_game_1_1_time_manager_html_ae1fd57385e5c144532be51e7b2592c79"><div class="ttname"><a href="namespace_game_1_1_time_manager.html#ae1fd57385e5c144532be51e7b2592c79">Game::TimeManager::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdoc">Destroy the singleton.</div><div class="ttdef"><b>Definition:</b> timemanager.cc:118</div></div>
 <div class="ttc" id="anamespace_im3d_html_a16976e802214d9f51d2dc5c4b90b68b6"><div class="ttname"><a href="namespace_im3d.html#a16976e802214d9f51d2dc5c4b90b68b6">Im3d::End</a></div><div class="ttdeci">IM3D_API void End()</div><div class="ttdef"><b>Definition:</b> im3d.h:807</div></div>
-<div class="ttc" id="anamespace_memory_html_a05e4c5d9cc89e8396194ee73406be36b"><div class="ttname"><a href="namespace_memory.html#a05e4c5d9cc89e8396194ee73406be36b">Memory::Realloc</a></div><div class="ttdeci">void * Realloc(HeapType heapType, void *ptr, size_t size)</div><div class="ttdoc">Re-Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:99</div></div>
 <div class="ttc" id="anamespace_memory_html_a1103820d68788c85bbb28a62e05d99e2"><div class="ttname"><a href="namespace_memory.html#a1103820d68788c85bbb28a62e05d99e2">Memory::Move</a></div><div class="ttdeci">__forceinline void Move(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Move a chunk of memory, can handle overlapping regions.</div><div class="ttdef"><b>Definition:</b> posixmemory.h:130</div></div>
-<div class="ttc" id="anamespace_memory_html_a3d02bcd45d328a0bccf6ca549df2c2ae"><div class="ttname"><a href="namespace_memory.html#a3d02bcd45d328a0bccf6ca549df2c2ae">Memory::Clear</a></div><div class="ttdeci">void Clear(void *ptr, size_t numBytes)</div><div class="ttdoc">Overwrite a chunk of memory with 0's.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:229</div></div>
-<div class="ttc" id="anamespace_memory_html_afddfa173cab925938e29c6d2b77ccef6"><div class="ttname"><a href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
+<div class="ttc" id="anamespace_memory_html_a1b30970207f199d34ccd289fb784f8c1"><div class="ttname"><a href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
+<div class="ttc" id="anamespace_memory_html_a66c839285702633f8178be0224273a14"><div class="ttname"><a href="namespace_memory.html#a66c839285702633f8178be0224273a14">Memory::Realloc</a></div><div class="ttdeci">void * Realloc(HeapType heapType, void *ptr, size_t size)</div><div class="ttdoc">Re-Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:99</div></div>
+<div class="ttc" id="anamespace_memory_html_ad8504a1916282a835f1e16e3912e4c87"><div class="ttname"><a href="namespace_memory.html#ad8504a1916282a835f1e16e3912e4c87">Memory::Clear</a></div><div class="ttdeci">void Clear(void *ptr, size_t numBytes)</div><div class="ttdoc">Overwrite a chunk of memory with 0's.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:229</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">Tuple helper functions and typedefs.</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
 <div class="ttc" id="atypes_8h_html_a3e2ae2e8cd04c212563dafc16149995c"><div class="ttname"><a href="types_8h.html#a3e2ae2e8cd04c212563dafc16149995c">InvalidIndex</a></div><div class="ttdeci">static const int InvalidIndex</div><div class="ttdef"><b>Definition:</b> types.h:54</div></div>
 <div class="ttc" id="atypes_8h_html_a869418dc7a0404b6441ebc39c5b4bb37"><div class="ttname"><a href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a></div><div class="ttdeci">int SizeT</div><div class="ttdef"><b>Definition:</b> types.h:49</div></div>
@@ -1404,7 +1404,7 @@ $(document).ready(function(){initNavTree('array_8h_source.html',''); initResizab
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_3efd1eb2182038baf5731b057d5f9c3b.html">util</a></li><li class="navelem"><a class="el" href="array_8h.html">array.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:29 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:34 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

@@ -7,7 +7,7 @@ var class_vegetation_1_1_vegetation_context =
     ] ],
     [ "VegetationContext", "class_vegetation_1_1_vegetation_context.html#a17e5a2581cb1a80a33cda44d0a79e7dd", null ],
     [ "~VegetationContext", "class_vegetation_1_1_vegetation_context.html#a752effc55d99bf251123408e1e68cceb", null ],
-    [ "_DeclareContext", "class_vegetation_1_1_vegetation_context.html#a642e67d076db7a77641d92bef8350ba6", null ],
+    [ "__DeclareContext", "class_vegetation_1_1_vegetation_context.html#ae8bafa2a53840b71fa9a0e69688b79c3", null ],
     [ "Alloc", "class_vegetation_1_1_vegetation_context.html#a2d117c8baee0b7ed5652c2164578d670", null ],
     [ "Create", "class_vegetation_1_1_vegetation_context.html#a5cdd36ab6d17e5e970631eedacf8fc1e", null ],
     [ "Dealloc", "class_vegetation_1_1_vegetation_context.html#a92126372f489ab6abdd0d19198034dfc", null ],

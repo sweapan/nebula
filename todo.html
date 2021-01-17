@@ -87,69 +87,71 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
+<dt>Class <a class="el" href="class_threading_1_1_event.html">Event</a>  </dt>
+<dd><a class="anchor" id="_todo000019"></a>describe <a class="el" href="class_threading_1_1_event.html">Event</a> class </dd>
 <dt>Member <a class="el" href="class_dynui_1_1_imgui_context.html#af90a56be8d9abdd6365499d10c686f9b">Dynui::ImguiContext::RecoverImGuiContextErrors</a>  ()</dt>
 <dd><a class="anchor" id="_todo000003"></a>update imgui and uncomment the commented code below!  </dd>
-<dt>Class <a class="el" href="class_threading_1_1_event.html">Event</a>  </dt>
-<dd><a class="anchor" id="_todo000018"></a>describe <a class="el" href="class_threading_1_1_event.html">Event</a> class </dd>
 <dt>Member <a class="el" href="namespace_game.html#afbcecd0fe9398a2df42c1a25c140af00">Game::AddOp</a>  (OpBuffer buffer, <a class="el" href="struct_game_1_1_op_1_1_register_property.html">Op::RegisterProperty</a> op)</dt>
-<dd><a class="anchor" id="_todo000007"></a>optimize  </dd>
+<dd><a class="anchor" id="_todo000008"></a>optimize  </dd>
 <dt>Member <a class="el" href="namespace_game.html#a2b227a6da60a673d4c9be7762fafe730">Game::Dispatch</a>  (OpBuffer &amp;buffer)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000005"></a>We can bundle all add and remove property for each entity into one migration.</p>
-<p class="enddd"><a class="anchor" id="_todo000006"></a>This is not thread safe. Either, we keep it like it is and make sure this function is always called synchronously, or add a critical section?  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000006"></a>We can bundle all add and remove property for each entity into one migration.</p>
+<p class="enddd"><a class="anchor" id="_todo000007"></a>This is not thread safe. Either, we keep it like it is and make sure this function is always called synchronously, or add a critical section?  </p>
 </dd>
 <dt>Member <a class="el" href="class_game_1_1_message.html#a930b8135992515b013e13fe589f0832c">Game::Message&lt; MSG, TYPES &gt;::Distribute</a>  (TYPES ...)</dt>
-<dd><a class="anchor" id="_todo000008"></a>Implement networked messages. </dd>
+<dd><a class="anchor" id="_todo000009"></a>Implement networked messages. </dd>
 <dt>Member <a class="el" href="class_game_1_1_message.html#a7026143280464c6048fdaa1be11f8300">Game::Message&lt; MSG, TYPES &gt;::distributedMessages</a>  </dt>
-<dd><a class="anchor" id="_todo000009"></a>This should be updated by some NetworkMessageManager-y object.  </dd>
+<dd><a class="anchor" id="_todo000010"></a>This should be updated by some NetworkMessageManager-y object.  </dd>
+<dt>Namespace <a class="el" href="namespace_game_1_1_time_manager.html">Game::TimeManager</a>  </dt>
+<dd><a class="anchor" id="_todo000005"></a>Thread safety </dd>
 <dt>Class <a class="el" href="class_i_o_1_1_binary_reader.html">IO::BinaryReader</a>  </dt>
-<dd><a class="anchor" id="_todo000010"></a>convert endianess! </dd>
+<dd><a class="anchor" id="_todo000011"></a>convert endianess! </dd>
 <dt>Class <a class="el" href="class_i_o_1_1_binary_writer.html">IO::BinaryWriter</a>  </dt>
-<dd><a class="anchor" id="_todo000011"></a>convert endianess! <br  />
+<dd><a class="anchor" id="_todo000012"></a>convert endianess! <br  />
  </dd>
 <dt>Member <a class="el" href="class_i_o_1_1_io_interface_handler.html#ac219e8f68b0b473d032954b1131f5541">IO::IoInterfaceHandler::OnReadStream</a>  (const Ptr&lt; IO::ReadStream &gt; &amp;msg)</dt>
-<dd><a class="anchor" id="_todo000013"></a>handle non-mappable stream!  </dd>
+<dd><a class="anchor" id="_todo000014"></a>handle non-mappable stream!  </dd>
 <dt>Member <a class="el" href="class_i_o_1_1_io_interface_handler.html#a4b6bad3530bb5043038a6b767e4eb4c5">IO::IoInterfaceHandler::OnWriteStream</a>  (const Ptr&lt; IO::WriteStream &gt; &amp;msg)</dt>
-<dd><a class="anchor" id="_todo000012"></a>handle non-mappable stream  </dd>
+<dd><a class="anchor" id="_todo000013"></a>handle non-mappable stream  </dd>
 <dt>Member <a class="el" href="class_i_o_1_1_u_r_i.html#a98d96e6900e51888ed9b90fa2086ebf5">IO::URI::Split</a>  (const <a class="el" href="class_util_1_1_string.html" title="Nebula&#39;s universal string class.">Util::String</a> &amp;s)</dt>
-<dd><a class="anchor" id="_todo000014"></a>: this is too complicated...  </dd>
+<dd><a class="anchor" id="_todo000015"></a>: this is too complicated...  </dd>
 <dt>Class <a class="el" href="class_linux_1_1_linux_critical_section.html">Linux::LinuxCriticalSection</a>  </dt>
-<dd><a class="anchor" id="_todo000019"></a>: Add debugging asserts? If yes wrap with new __NEBULA-define </dd>
+<dd><a class="anchor" id="_todo000020"></a>: Add debugging asserts? If yes wrap with new __NEBULA-define </dd>
 <dt>Member <a class="el" href="namespace_math.html#a45b185959f1c682ea18626a99d096b7b">Math::fchop</a>  (scalar f)</dt>
-<dd><a class="anchor" id="_todo000016"></a>type cast to int is slow!  </dd>
+<dd><a class="anchor" id="_todo000017"></a>type cast to int is slow!  </dd>
 <dt>Member <a class="el" href="class_math_1_1line.html#a58124a5f5e1d6fcd6980112b55a8f76f">Math::line::intersect</a>  (const line &amp;l, point &amp;pa, point &amp;pb) const</dt>
-<dd><a class="anchor" id="_todo000015"></a>: Untested! Replace with simpler code.  </dd>
+<dd><a class="anchor" id="_todo000016"></a>: Untested! Replace with simpler code.  </dd>
 <dt>Class <a class="el" href="struct_mem_db_1_1_table.html">MemDb::Table</a>  </dt>
 <dd><a class="anchor" id="_todo000004"></a>This should be changed to SOAs  </dd>
 <dt>Member <a class="el" href="class_messaging_1_1_port.html#a5a2c6a4c0e8b16a33c9d0a04983dc2eb">Messaging::Port::Send</a>  (const Ptr&lt; Message &gt; &amp;msg)</dt>
-<dd><a class="anchor" id="_todo000017"></a>should we stop here, once the message had been handled...?  </dd>
+<dd><a class="anchor" id="_todo000018"></a>should we stop here, once the message had been handled...?  </dd>
 <dt>Member <a class="el" href="struct_models_1_1_transform_node_1_1_instance.html#a6d8b1c511482e0ba6c62608e42d43184">Models::TransformNode::Instance::objectId</a>  </dt>
-<dd><a class="anchor" id="_todo000032"></a>Should be moved to a per-model-instance resource since it's the same for every model instance  </dd>
+<dd><a class="anchor" id="_todo000033"></a>Should be moved to a per-model-instance resource since it's the same for every model instance  </dd>
 <dt>Class <a class="el" href="class_o_s_x_1_1_o_s_x_critical_section.html">OSX::OSXCriticalSection</a>  </dt>
-<dd><a class="anchor" id="_todo000020"></a>: Add debugging asserts? If yes wrap with new __NEBULA-define </dd>
+<dd><a class="anchor" id="_todo000021"></a>: Add debugging asserts? If yes wrap with new __NEBULA-define </dd>
 <dt>Class <a class="el" href="class_o_s_x_1_1_o_s_x_thread_local_ptr.html">OSX::OSXThreadLocalPtr&lt; TYPE &gt;</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000021"></a>: Performance? Would it actually be better to allocate one pointer lookup-table and associate this with a single thread-local key as like on the Wii? At the moment every <a class="el" href="class_ptr.html" title="Nebula&#39;s smart pointer class which manages the life time of RefCounted objects.">Ptr</a> has its own key.</p>
-<p class="interdd"><a class="anchor" id="_todo000022"></a>: If this object will be used for anything else then singleton, it might make sense to change the interface to look like a normal C-pointer.</p>
-<p class="interdd"><a class="anchor" id="_todo000023"></a>: Performance? Would it actually be better to allocate one pointer lookup-table and associate this with a single thread-local key as like on the Wii? At the moment every <a class="el" href="class_ptr.html" title="Nebula&#39;s smart pointer class which manages the life time of RefCounted objects.">Ptr</a> has its own key.</p>
-<p class="enddd"><a class="anchor" id="_todo000024"></a>: If this object will be used for anything else then singleton, it might make sense to change the interface to look like a normal C-pointer. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000022"></a>: Performance? Would it actually be better to allocate one pointer lookup-table and associate this with a single thread-local key as like on the Wii? At the moment every <a class="el" href="class_ptr.html" title="Nebula&#39;s smart pointer class which manages the life time of RefCounted objects.">Ptr</a> has its own key.</p>
+<p class="interdd"><a class="anchor" id="_todo000023"></a>: If this object will be used for anything else then singleton, it might make sense to change the interface to look like a normal C-pointer.</p>
+<p class="interdd"><a class="anchor" id="_todo000024"></a>: Performance? Would it actually be better to allocate one pointer lookup-table and associate this with a single thread-local key as like on the Wii? At the moment every <a class="el" href="class_ptr.html" title="Nebula&#39;s smart pointer class which manages the life time of RefCounted objects.">Ptr</a> has its own key.</p>
+<p class="enddd"><a class="anchor" id="_todo000025"></a>: If this object will be used for anything else then singleton, it might make sense to change the interface to look like a normal C-pointer. </p>
 </dd>
 <dt>Class <a class="el" href="class_posix_1_1_posix_timer.html">Posix::PosixTimer</a>  </dt>
-<dd><a class="anchor" id="_todo000026"></a>solve multiprocessor issues of QueryPerformanceCounter() (different processors may return different PerformanceFrequency values, thus, threads should be prevented from switching between processors with thread affinities). </dd>
-<dt>Member <a class="el" href="class_render_util_1_1_mouse_ray_util.html#a7b7b480dc53f3f3a6805cb1cd2092511">RenderUtil::MouseRayUtil::ComputeWorldMouseRayOrtho</a>  (const <a class="el" href="struct_math_1_1vec2.html" title="A 2-component float vector class.">Math::vec2</a> &amp;mousePos, float length, const <a class="el" href="struct_math_1_1mat4.html" title="Matrix4x4.">Math::mat4</a> &amp;invViewMatrix, const <a class="el" href="struct_math_1_1mat4.html" title="Matrix4x4.">Math::mat4</a> &amp;invProjMatrix, float nearPlane)</dt>
-<dd><a class="anchor" id="_todo000033"></a>There are better ways to do this!  </dd>
+<dd><a class="anchor" id="_todo000027"></a>solve multiprocessor issues of QueryPerformanceCounter() (different processors may return different PerformanceFrequency values, thus, threads should be prevented from switching between processors with thread affinities). </dd>
+<dt>Member <a class="el" href="class_render_util_1_1_mouse_ray_util.html#a7b7b480dc53f3f3a6805cb1cd2092511">RenderUtil::MouseRayUtil::ComputeWorldMouseRayOrtho</a>  (const <a class="el" href="struct_math_1_1vec2.html" title="A 2-component float vector class.">Math::vec2</a> &amp;mousePos, float length, const <a class="el" href="struct_math_1_1mat4.html" title="A 4x4 single point precision float matrix.">Math::mat4</a> &amp;invViewMatrix, const <a class="el" href="struct_math_1_1mat4.html" title="A 4x4 single point precision float matrix.">Math::mat4</a> &amp;invProjMatrix, float nearPlane)</dt>
+<dd><a class="anchor" id="_todo000034"></a>There are better ways to do this!  </dd>
 <dt>Class <a class="el" href="class_threading_1_1_thread.html">Thread</a>  </dt>
-<dd><a class="anchor" id="_todo000025"></a>describe <a class="el" href="class_threading_1_1_thread.html">Thread</a> class </dd>
+<dd><a class="anchor" id="_todo000026"></a>describe <a class="el" href="class_threading_1_1_thread.html">Thread</a> class </dd>
 <dt>Member <a class="el" href="class_util_1_1_array.html#ac359420e3cc4379039f6a5548833175b">Util::Array&lt; TYPE &gt;::Difference</a>  (const Array&lt; TYPE &gt; &amp;rhs)</dt>
-<dd><a class="anchor" id="_todo000028"></a>this method is broken, check test case to see why!  </dd>
+<dd><a class="anchor" id="_todo000029"></a>this method is broken, check test case to see why!  </dd>
 <dt>Member <a class="el" href="class_util_1_1_array_stack.html#a969db006c74a4ff8d0e29a4dfb3f63d7">Util::ArrayStack&lt; TYPE, STACK_SIZE &gt;::Difference</a>  (const ArrayStack&lt; TYPE, STACK_SIZE &gt; &amp;rhs)</dt>
-<dd><a class="anchor" id="_todo000030"></a>this method is broken, check test case to see why!  </dd>
+<dd><a class="anchor" id="_todo000031"></a>this method is broken, check test case to see why!  </dd>
 <dt>Member <a class="el" href="class_util_1_1_fixed_array.html#a09cdd38ec9d3cf37a710e558315dab52">Util::FixedArray&lt; TYPE &gt;::BinarySearchIndex</a>  (const TYPE &amp;val) const</dt>
-<dd><a class="anchor" id="_todo000031"></a>hmm, this is copy-pasted from <a class="el" href="class_util_1_1_array.html" title="Nebula&#39;s dynamic array class.">Array</a>... </dd>
+<dd><a class="anchor" id="_todo000032"></a>hmm, this is copy-pasted from <a class="el" href="class_util_1_1_array.html" title="Nebula&#39;s dynamic array class.">Array</a>... </dd>
 <dt>Class <a class="el" href="class_util_1_1_queue.html">Util::Queue&lt; TYPE &gt;</a>  </dt>
-<dd><a class="anchor" id="_todo000029"></a>This is extremely slow and should probably use a list instead. </dd>
+<dd><a class="anchor" id="_todo000030"></a>This is extremely slow and should probably use a list instead. </dd>
 <dt>File <a class="el" href="valuetype_8h.html">valuetype.h</a>  </dt>
 <dd><a class="anchor" id="_todo000002"></a>Add quaternions and additional types that are missing  </dd>
 <dt>Class <a class="el" href="class_win32_1_1_win32_timer.html">Win32::Win32Timer</a>  </dt>
-<dd><a class="anchor" id="_todo000027"></a>solve multiprocessor issues of QueryPerformanceCounter() (different processors may return different PerformanceFrequency values, thus, threads should be prevented from switching between processors with thread affinities).</dd>
+<dd><a class="anchor" id="_todo000028"></a>solve multiprocessor issues of QueryPerformanceCounter() (different processors may return different PerformanceFrequency values, thus, threads should be prevented from switching between processors with thread affinities).</dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
@@ -158,7 +160,7 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 		<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
 			<ul>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:57 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

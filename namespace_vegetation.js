@@ -7,7 +7,7 @@ var namespace_vegetation =
     [ "VegetationGrassSetup", "struct_vegetation_1_1_vegetation_grass_setup.html", "struct_vegetation_1_1_vegetation_grass_setup" ],
     [ "VegetationMeshSetup", "struct_vegetation_1_1_vegetation_mesh_setup.html", "struct_vegetation_1_1_vegetation_mesh_setup" ],
     [ "VegetationContext", "class_vegetation_1_1_vegetation_context.html", "class_vegetation_1_1_vegetation_context" ],
-    [ "_ImplementContext", "namespace_vegetation.html#a9a2955765cb12e1c9ae11bb09747ffa9", null ],
+    [ "__ImplementContext", "namespace_vegetation.html#ae8288a7f53581f0f90e887a719277cd0", null ],
     [ "combinedMeshIbo", "namespace_vegetation.html#a77d36906031117e3d8360ee4090c5604", null ],
     [ "combinedMeshLayout", "namespace_vegetation.html#a6dc69c0a29e45d73b00be5e6ecd991b9", null ],
     [ "combinedMeshVbo", "namespace_vegetation.html#ada97e07f468bbe2ec8808f803f2e86e0", null ],

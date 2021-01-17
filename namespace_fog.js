@@ -1,7 +1,7 @@
 var namespace_fog =
 [
     [ "VolumetricFogContext", "class_fog_1_1_volumetric_fog_context.html", "class_fog_1_1_volumetric_fog_context" ],
-    [ "_ImplementContext", "namespace_fog.html#a7450ac1758691fc1602894e63e7403df", null ],
+    [ "__ImplementContext", "namespace_fog.html#af81679b45aebe83c1878effd1840d253", null ],
     [ "blurInputXSlot", "namespace_fog.html#a03849d400d04c291daa9443a5bc0ad89", null ],
     [ "blurInputYSlot", "namespace_fog.html#afe493294fd4f4da1dd8c1106dcd52165", null ],
     [ "blurOutputXSlot", "namespace_fog.html#a0054f7dd5016efa4e33970a03836f750", null ],

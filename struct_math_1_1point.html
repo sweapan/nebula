@@ -92,7 +92,11 @@ $(document).ready(function(){initNavTree('struct_math_1_1point.html',''); initRe
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="point_8h_source.html">point.h</a>&gt;</code></p>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a 3D point in space. </p>
+<p>A point is a 4d vector with a fixed W coordinate of 1, which allows it to be transformed. A point implements a limited set of operators and functions, which distinguishes it from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a>, <a class="el" href="struct_math_1_1vec3.html" title="A 3D vector.">vec3</a> and vector.</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file </dd></dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa04de3183ac910d1e8f4ab7b03b82d7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1point.html#aa04de3183ac910d1e8f4ab7b03b82d7d">point</a> ()</td></tr>
@@ -108,10 +112,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2ce870be633b574a69dddb123ea8d283"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor  <a href="struct_math_1_1point.html#a2ce870be633b574a69dddb123ea8d283">More...</a><br /></td></tr>
 <tr class="separator:a2ce870be633b574a69dddb123ea8d283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85cf584d3e0b2b66b2255c9066e722b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1point.html#a85cf584d3e0b2b66b2255c9066e722b9">point</a> (const <a class="el" href="struct_math_1_1vec3.html">vec3</a> &amp;rhs)</td></tr>
-<tr class="memdesc:a85cf584d3e0b2b66b2255c9066e722b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec3.html" title="4D vector">vec3</a>  <a href="struct_math_1_1point.html#a85cf584d3e0b2b66b2255c9066e722b9">More...</a><br /></td></tr>
+<tr class="memdesc:a85cf584d3e0b2b66b2255c9066e722b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec3.html" title="A 3D vector.">vec3</a>  <a href="struct_math_1_1point.html#a85cf584d3e0b2b66b2255c9066e722b9">More...</a><br /></td></tr>
 <tr class="separator:a85cf584d3e0b2b66b2255c9066e722b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf1c5a9a75462959f8d509387c46b480"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1point.html#abf1c5a9a75462959f8d509387c46b480">point</a> (const <a class="el" href="struct_math_1_1vec4.html">vec4</a> &amp;rhs)</td></tr>
-<tr class="memdesc:abf1c5a9a75462959f8d509387c46b480"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a>  <a href="struct_math_1_1point.html#abf1c5a9a75462959f8d509387c46b480">More...</a><br /></td></tr>
+<tr class="memdesc:abf1c5a9a75462959f8d509387c46b480"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a>  <a href="struct_math_1_1point.html#abf1c5a9a75462959f8d509387c46b480">More...</a><br /></td></tr>
 <tr class="separator:abf1c5a9a75462959f8d509387c46b480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a806c57b6f84a55473e54bb2876755c8d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1point.html#a806c57b6f84a55473e54bb2876755c8d">point</a> (const __m128 &amp;rhs)</td></tr>
 <tr class="memdesc:a806c57b6f84a55473e54bb2876755c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from SSE 128 byte float array  <a href="struct_math_1_1point.html#a806c57b6f84a55473e54bb2876755c8d">More...</a><br /></td></tr>
@@ -153,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3d837009456d44a37b13d55607be2ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">inequality operator  <a href="struct_math_1_1point.html#a3d837009456d44a37b13d55607be2ca8">More...</a><br /></td></tr>
 <tr class="separator:a3d837009456d44a37b13d55607be2ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23123a4a2d2ab5caf3fe20678b977493"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1point.html#a23123a4a2d2ab5caf3fe20678b977493">operator vec4</a> () const</td></tr>
-<tr class="memdesc:a23123a4a2d2ab5caf3fe20678b977493"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert to <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a>  <a href="struct_math_1_1point.html#a23123a4a2d2ab5caf3fe20678b977493">More...</a><br /></td></tr>
+<tr class="memdesc:a23123a4a2d2ab5caf3fe20678b977493"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert to <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a>  <a href="struct_math_1_1point.html#a23123a4a2d2ab5caf3fe20678b977493">More...</a><br /></td></tr>
 <tr class="separator:a23123a4a2d2ab5caf3fe20678b977493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b68db4ff58de6c95343dc31e258b8f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1point.html#a1b68db4ff58de6c95343dc31e258b8f7">set</a> (<a class="el" href="namespace_math.html#aa2733c5340f0e631b4e55bbda18b3243">scalar</a> <a class="el" href="struct_math_1_1point.html#a7e4776b164ba80a30f5b777ae4375c32">x</a>, <a class="el" href="namespace_math.html#aa2733c5340f0e631b4e55bbda18b3243">scalar</a> <a class="el" href="struct_math_1_1point.html#aca2ad88cc7a0e76e625a4b07769362cd">y</a>, <a class="el" href="namespace_math.html#aa2733c5340f0e631b4e55bbda18b3243">scalar</a> <a class="el" href="struct_math_1_1point.html#a1cfbd292f08abf43ea2069740bad4aad">z</a>)</td></tr>
 <tr class="memdesc:a1b68db4ff58de6c95343dc31e258b8f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">set content  <a href="struct_math_1_1point.html#a1b68db4ff58de6c95343dc31e258b8f7">More...</a><br /></td></tr>
@@ -288,7 +292,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>construct from <a class="el" href="struct_math_1_1vec3.html" title="4D vector">vec3</a> </p>
+<p>construct from <a class="el" href="struct_math_1_1vec3.html" title="A 3D vector.">vec3</a> </p>
 
 </div>
 </div>
@@ -308,7 +312,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>construct from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a> </p>
+<p>construct from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a> </p>
 
 </div>
 </div>
@@ -390,7 +394,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>convert to <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a> </p>
+<p>convert to <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a> </p>
 
 </div>
 </div>
@@ -715,7 +719,7 @@ Public Attributes</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_math.html">Math</a></li><li class="navelem"><a class="el" href="struct_math_1_1point.html">point</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

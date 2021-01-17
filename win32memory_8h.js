@@ -8,7 +8,7 @@ var win32memory_8h =
     [ "n_new", "win32memory_8h.html#a51c2e4de1ee6fbd34ba914d85503008b", null ],
     [ "n_new_array", "win32memory_8h.html#a5cf48dc77bff1d634ec12422258d9f3b", null ],
     [ "n_new_inplace", "win32memory_8h.html#a0eec3879696b8c31037f6adbf4508656", null ],
-    [ "Alloc", "win32memory_8h.html#a23d6b752b191a9aabbae8310b9685338", null ],
+    [ "Alloc", "win32memory_8h.html#a24993fac616060d0f19f14d43fc27103", null ],
     [ "DumpTotalMemoryStatus", "win32memory_8h.html#aacd6e0e3d90cc8724a07d52c8f1acb43", null ],
     [ "DuplicateCString", "win32memory_8h.html#a7a14be8456d9a48c1c3ff9a221f09900", null ],
     [ "Free", "win32memory_8h.html#a6055e491858cd969e93326d9b3e4b420", null ],
@@ -20,5 +20,5 @@ var win32memory_8h =
     [ "operator new", "win32memory_8h.html#a849546d24e5cbe5dca845b13d22bcabd", null ],
     [ "operator new[]", "win32memory_8h.html#ae4033b8ea6d3772911dea9520a8fbc8c", null ],
     [ "operator new[]", "win32memory_8h.html#a0c8e31e270fa69f52fc4c81fc88a71e7", null ],
-    [ "Realloc", "win32memory_8h.html#a05e4c5d9cc89e8396194ee73406be36b", null ]
+    [ "Realloc", "win32memory_8h.html#a66c839285702633f8178be0224273a14", null ]
 ];

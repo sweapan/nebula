@@ -93,16 +93,13 @@ $(document).ready(function(){initNavTree('namespace_game.html',''); initResizabl
 <div class="title">Game Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Property serialization functions. </p>
-<p>Implements various serialization functions for different types of properties</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file </dd></dl>
-</div><table class="memberdecls">
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_game_1_1_op"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game_1_1_op.html">Op</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespace_game_1_1_time_manager"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game_1_1_time_manager.html">TimeManager</a></td></tr>
+<tr class="memdesc:namespace_game_1_1_time_manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton object which manages the current game time. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -117,7 +114,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to create a timesource.  <a href="struct_game_1_1_time_source_create_info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_time_source.html">TimeSource</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic time source POD struct which is created and deleted by the <a class="el" href="namespace_game_1_1_time_manager.html">TimeManager</a>.  <a href="struct_game_1_1_time_source.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic time source POD struct which is created and deleted by the <a class="el" href="namespace_game_1_1_time_manager.html" title="Singleton object which manages the current game time.">TimeManager</a>.  <a href="struct_game_1_1_time_source.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_entity_mapping.html">EntityMapping</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps an entity to a category and instance id.  <a href="struct_game_1_1_entity_mapping.html#details">More...</a><br /></td></tr>
@@ -130,6 +127,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_filter_create_info.html">FilterCreateInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_property_create_info.html">PropertyCreateInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to create a property.  <a href="struct_game_1_1_property_create_info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_processor_create_info.html">ProcessorCreateInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,6 +167,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_message.html">Message</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_property_serialization.html">PropertySerialization</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property serialization functions.  <a href="class_game_1_1_property_serialization.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -209,6 +208,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:abf20a860953ef4305fa8a8cfa5faa3df"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#abf20a860953ef4305fa8a8cfa5faa3df">PropertyFlags</a> : uint32_t { <a class="el" href="namespace_game.html#abf20a860953ef4305fa8a8cfa5faa3dfaa1b6ddf4460edce4ffd8da87ea38adf8">PROPERTYFLAG_NONE</a> = 0
 , <a class="el" href="namespace_game.html#abf20a860953ef4305fa8a8cfa5faa3dfada21bd20ef273d1e375a623c03eaa482">PROPERTYFLAG_MANAGED</a> = 1 &lt;&lt; 0
  }</td></tr>
+<tr class="memdesc:abf20a860953ef4305fa8a8cfa5faa3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies special behaviour for a property.  <a href="namespace_game.html#abf20a860953ef4305fa8a8cfa5faa3df">More...</a><br /></td></tr>
 <tr class="separator:abf20a860953ef4305fa8a8cfa5faa3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -528,9 +528,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies special behaviour for a property. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abf20a860953ef4305fa8a8cfa5faa3dfaa1b6ddf4460edce4ffd8da87ea38adf8"></a>PROPERTYFLAG_NONE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abf20a860953ef4305fa8a8cfa5faa3dfada21bd20ef273d1e375a623c03eaa482"></a>PROPERTYFLAG_MANAGED&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abf20a860953ef4305fa8a8cfa5faa3dfaa1b6ddf4460edce4ffd8da87ea38adf8"></a>PROPERTYFLAG_NONE&#160;</td><td class="fielddoc"><p>regular property </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abf20a860953ef4305fa8a8cfa5faa3dfada21bd20ef273d1e375a623c03eaa482"></a>PROPERTYFLAG_MANAGED&#160;</td><td class="fielddoc"><p>managed property. </p>
+<p>This will delay the deletion of this property by one frame, allowing managers to clean up externally allocated resources </p>
+</td></tr>
 </table>
 
 </div>
@@ -697,7 +702,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Register a property &lt;-&gt; entity association. Moves entity to a different category table. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>optimize </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>optimize </dd></dl>
 
 </div>
 </div>
@@ -893,8 +898,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Runs all operations in an operations buffer and clears it. This will invalidate category table views. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>We can bundle all add and remove property for each entity into one migration.</dd></dl>
-<p>We can also batch them based on their new category, so we won't need to do as many column id lookups. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>This is not thread safe. Either, we keep it like it is and make sure this function is always called synchronously, or add a critical section? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>We can bundle all add and remove property for each entity into one migration.</dd></dl>
+<p>We can also batch them based on their new category, so we won't need to do as many column id lookups. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>This is not thread safe. Either, we keep it like it is and make sure this function is always called synchronously, or add a critical section? </dd></dl>
 
 </div>
 </div>
@@ -1518,7 +1523,7 @@ template&lt;typename TYPE &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_game.html">Game</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

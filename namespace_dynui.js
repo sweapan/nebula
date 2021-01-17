@@ -15,5 +15,5 @@ var namespace_dynui =
     [ "__ImplementClass", "namespace_dynui.html#ac4ab0271350dae2ef9c0c12f96cca9dd", null ],
     [ "__ImplementClass", "namespace_dynui.html#a0e5d20caac8cced6b73b673ec6206b70", null ],
     [ "__ImplementInterfaceSingleton", "namespace_dynui.html#ade0789354735a8035bc0548bf8f9458e", null ],
-    [ "_ImplementPluginContext", "namespace_dynui.html#a4308bd131e3996105145dd503b0929f4", null ]
+    [ "__ImplementPluginContext", "namespace_dynui.html#ac30d999a3f97cb82b19b146cf0b7e5e3", null ]
 ];

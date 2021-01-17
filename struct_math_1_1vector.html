@@ -93,7 +93,11 @@ $(document).ready(function(){initNavTree('struct_math_1_1vector.html',''); initR
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="vector_8h_source.html">vector.h</a>&gt;</code></p>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A vector is a 3D direction in space. </p>
+<p>Represented as a __m128 with the W component being 0 at all times. Useful for representing normal vectors and directions.</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file </dd></dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af786766bcf417b5714096a88e24f05ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1vector.html#af786766bcf417b5714096a88e24f05ac">vector</a> ()</td></tr>
@@ -109,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a48d8dd4cd89578eddae58186610ff62d"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor  <a href="struct_math_1_1vector.html#a48d8dd4cd89578eddae58186610ff62d">More...</a><br /></td></tr>
 <tr class="separator:a48d8dd4cd89578eddae58186610ff62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73a001aff94f476cc1e78f0518101823"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1vector.html#a73a001aff94f476cc1e78f0518101823">vector</a> (const <a class="el" href="struct_math_1_1vec3.html">vec3</a> &amp;rhs)</td></tr>
-<tr class="memdesc:a73a001aff94f476cc1e78f0518101823"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a>  <a href="struct_math_1_1vector.html#a73a001aff94f476cc1e78f0518101823">More...</a><br /></td></tr>
+<tr class="memdesc:a73a001aff94f476cc1e78f0518101823"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a>  <a href="struct_math_1_1vector.html#a73a001aff94f476cc1e78f0518101823">More...</a><br /></td></tr>
 <tr class="separator:a73a001aff94f476cc1e78f0518101823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5605535db505100d18ed88dc0c64acad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1vector.html#a5605535db505100d18ed88dc0c64acad">vector</a> (const __m128 &amp;rhs)</td></tr>
 <tr class="memdesc:a5605535db505100d18ed88dc0c64acad"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from SSE 128 byte float array  <a href="struct_math_1_1vector.html#a5605535db505100d18ed88dc0c64acad">More...</a><br /></td></tr>
@@ -148,10 +152,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad213cf5468a096a6c00736d5d04008f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">inequality operator  <a href="struct_math_1_1vector.html#ad213cf5468a096a6c00736d5d04008f4">More...</a><br /></td></tr>
 <tr class="separator:ad213cf5468a096a6c00736d5d04008f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb5f4a6889715c5246cf2f9e77185234"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1vector.html#aeb5f4a6889715c5246cf2f9e77185234">operator vec4</a> () const</td></tr>
-<tr class="memdesc:aeb5f4a6889715c5246cf2f9e77185234"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert to <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a>  <a href="struct_math_1_1vector.html#aeb5f4a6889715c5246cf2f9e77185234">More...</a><br /></td></tr>
+<tr class="memdesc:aeb5f4a6889715c5246cf2f9e77185234"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert to <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a>  <a href="struct_math_1_1vector.html#aeb5f4a6889715c5246cf2f9e77185234">More...</a><br /></td></tr>
 <tr class="separator:aeb5f4a6889715c5246cf2f9e77185234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad6bf083e06f2371ba48de09b59b8a6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1vector.html#aad6bf083e06f2371ba48de09b59b8a6f">operator vec3</a> () const</td></tr>
-<tr class="memdesc:aad6bf083e06f2371ba48de09b59b8a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert to <a class="el" href="struct_math_1_1vec3.html" title="4D vector">vec3</a>  <a href="struct_math_1_1vector.html#aad6bf083e06f2371ba48de09b59b8a6f">More...</a><br /></td></tr>
+<tr class="memdesc:aad6bf083e06f2371ba48de09b59b8a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert to <a class="el" href="struct_math_1_1vec3.html" title="A 3D vector.">vec3</a>  <a href="struct_math_1_1vector.html#aad6bf083e06f2371ba48de09b59b8a6f">More...</a><br /></td></tr>
 <tr class="separator:aad6bf083e06f2371ba48de09b59b8a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92a3ba10d34d42943d288314b83b9a75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_math_1_1vector.html#a92a3ba10d34d42943d288314b83b9a75">set</a> (<a class="el" href="namespace_math.html#aa2733c5340f0e631b4e55bbda18b3243">scalar</a> <a class="el" href="struct_math_1_1vector.html#a5bec30ddf12976cc8d52971af4488005">x</a>, <a class="el" href="namespace_math.html#aa2733c5340f0e631b4e55bbda18b3243">scalar</a> <a class="el" href="struct_math_1_1vector.html#a5d4d1e77f9c39850cf475a0814d90879">y</a>, <a class="el" href="namespace_math.html#aa2733c5340f0e631b4e55bbda18b3243">scalar</a> <a class="el" href="struct_math_1_1vector.html#a3d792c01b10c0415bdadf21e7ccc3687">z</a>)</td></tr>
 <tr class="memdesc:a92a3ba10d34d42943d288314b83b9a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">set content  <a href="struct_math_1_1vector.html#a92a3ba10d34d42943d288314b83b9a75">More...</a><br /></td></tr>
@@ -295,7 +299,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>construct from <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a> </p>
+<p>construct from <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a> </p>
 
 </div>
 </div>
@@ -404,7 +408,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>convert to <a class="el" href="struct_math_1_1vec3.html" title="4D vector">vec3</a> </p>
+<p>convert to <a class="el" href="struct_math_1_1vec3.html" title="A 3D vector.">vec3</a> </p>
 
 </div>
 </div>
@@ -423,7 +427,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>convert to <a class="el" href="struct_math_1_1vec4.html" title="4D vector">vec4</a> </p>
+<p>convert to <a class="el" href="struct_math_1_1vec4.html" title="A 4D vector.">vec4</a> </p>
 
 </div>
 </div>
@@ -753,7 +757,7 @@ Public Attributes</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_math.html">Math</a></li><li class="navelem"><a class="el" href="struct_math_1_1vector.html">vector</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

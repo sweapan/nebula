@@ -1,6 +1,6 @@
 var environmentcontext_8cc =
 [
-    [ "_ImplementPluginContext", "environmentcontext_8cc.html#ab896822ca2c4b902250963ef32eddb1d", null ],
+    [ "__ImplementPluginContext", "environmentcontext_8cc.html#a55c559f3d0f83a15d177c2910c9cf4e3", null ],
     [ "CalculatePerezDistribution", "environmentcontext_8cc.html#ac96399889b3b370f950dca49c973290b", null ],
     [ "CalculateZenithLuminanceYxy", "environmentcontext_8cc.html#a1f40e80c6cf2f4c7b7f2d4bdf1f1b306", null ],
     [ "bloomColor", "environmentcontext_8cc.html#a60355f78c6631df4122762346b7c2f1b", null ],

@@ -259,7 +259,7 @@ $(document).ready(function(){initNavTree('fixedtable_8h_source.html',''); initRe
 <div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="class_util_1_1_fixed_table.html#acee2c9e7421823e0488b7be7bc55baa2">  222</a></span>&#160;<a class="code" href="class_util_1_1_fixed_table.html#acee2c9e7421823e0488b7be7bc55baa2">FixedTable&lt;TYPE&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="class_util_1_1_fixed_table.html">FixedTable&lt;TYPE&gt;</a>&amp; rhs)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;{</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    this-&gt;Delete();</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    this-&gt;<a class="code" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Copy</a>(rhs);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    this-&gt;<a class="code" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Copy</a>(rhs);</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
@@ -396,10 +396,10 @@ $(document).ready(function(){initNavTree('fixedtable_8h_source.html',''); initRe
 <div class="ttc" id="aclass_util_1_1_fixed_table_html_ad09fc61bda074a8ac0284d10b7dac67e"><div class="ttname"><a href="class_util_1_1_fixed_table.html#ad09fc61bda074a8ac0284d10b7dac67e">Util::FixedTable::Clear</a></div><div class="ttdeci">void Clear(const TYPE &amp;val)</div><div class="ttdoc">clear the table with value</div><div class="ttdef"><b>Definition:</b> fixedtable.h:143</div></div>
 <div class="ttc" id="aclass_util_1_1_fixed_table_html_adfc6c5c268a1180829d5f1a581cc3999"><div class="ttname"><a href="class_util_1_1_fixed_table.html#adfc6c5c268a1180829d5f1a581cc3999">Util::FixedTable::height</a></div><div class="ttdeci">SizeT height</div><div class="ttdef"><b>Definition:</b> fixedtable.h:64</div></div>
 <div class="ttc" id="adebug_8h_html_af07fc1acd3d67e0bcafa5ef5bcba4042"><div class="ttname"><a href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a></div><div class="ttdeci">#define n_assert(exp)</div><div class="ttdef"><b>Definition:</b> debug.h:49</div></div>
-<div class="ttc" id="anamespace_memory_html_afddfa173cab925938e29c6d2b77ccef6"><div class="ttname"><a href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
+<div class="ttc" id="anamespace_memory_html_a1b30970207f199d34ccd289fb784f8c1"><div class="ttname"><a href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
 <div class="ttc" id="anamespace_post_effects_html_a0519448bec51881f4fe30d816287693f"><div class="ttname"><a href="namespace_post_effects.html#a0519448bec51881f4fe30d816287693f">PostEffects::width</a></div><div class="ttdeci">float width</div><div class="ttdef"><b>Definition:</b> ssaocontext.cc:45</div></div>
 <div class="ttc" id="anamespace_post_effects_html_acdd6236edb9638125677a1874b6998f5"><div class="ttname"><a href="namespace_post_effects.html#acdd6236edb9638125677a1874b6998f5">PostEffects::height</a></div><div class="ttdeci">float height</div><div class="ttdef"><b>Definition:</b> ssaocontext.cc:45</div></div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">Tuple helper functions and typedefs.</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 <div class="ttc" id="aosxmemory_8h_html_a2f4c1f2844efb2ea8057c83f1c9d3f99"><div class="ttname"><a href="osxmemory_8h.html#a2f4c1f2844efb2ea8057c83f1c9d3f99">n_delete_array</a></div><div class="ttdeci">#define n_delete_array(ptr)</div><div class="ttdef"><b>Definition:</b> osxmemory.h:116</div></div>
 <div class="ttc" id="aosxmemory_8h_html_a5cf48dc77bff1d634ec12422258d9f3b"><div class="ttname"><a href="osxmemory_8h.html#a5cf48dc77bff1d634ec12422258d9f3b">n_new_array</a></div><div class="ttdeci">#define n_new_array(type, size)</div><div class="ttdef"><b>Definition:</b> osxmemory.h:114</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
@@ -412,7 +412,7 @@ $(document).ready(function(){initNavTree('fixedtable_8h_source.html',''); initRe
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_3efd1eb2182038baf5731b057d5f9c3b.html">util</a></li><li class="navelem"><a class="el" href="fixedtable_8h.html">fixedtable.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:29 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:34 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

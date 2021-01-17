@@ -1,13 +1,5 @@
 var NAVTREEINDEX72 =
 {
-"render.html":[4],
-"render_2coregraphics_2barrier_8h.html":[10,0,0,5,5,12],
-"render_2coregraphics_2barrier_8h.html#a03ee60cb51a90c9fe4ac9c928ba185bc":[10,0,0,5,5,12,18],
-"render_2coregraphics_2barrier_8h.html#a07bd5c40f8efc96da9f7cb1e83334b0c":[10,0,0,5,5,12,16],
-"render_2coregraphics_2barrier_8h.html#a0b189bd1ddab40698f497f1432bb4f62":[10,0,0,5,5,12,12],
-"render_2coregraphics_2barrier_8h.html#a185e80e1dac8b45588f9e229b76de672":[10,0,0,5,5,12,23],
-"render_2coregraphics_2barrier_8h.html#a352b246b4a1a19a7d5689fa108446179":[10,0,0,5,5,12,8],
-"render_2coregraphics_2barrier_8h.html#a3a4feacd52aee6b7f611b0a71bb50b25":[10,0,0,5,5,12,31],
 "render_2coregraphics_2barrier_8h.html#a43391cf72a2a75807c4af2aa44dc1f4a":[10,0,0,5,5,12,29],
 "render_2coregraphics_2barrier_8h.html#a51fc314dd4a13ea14e9f4ed14c0725b0":[10,0,0,5,5,12,25],
 "render_2coregraphics_2barrier_8h.html#a58153ff879b903d117c8083bd65bde07":[10,0,0,5,5,12,27],
@@ -222,9 +214,6 @@ var NAVTREEINDEX72 =
 "rendershape_8cc.html":[10,0,0,5,5,56],
 "rendershape_8h.html":[10,0,0,5,5,57],
 "rendershape_8h_source.html":[10,0,0,5,5,57],
-"rendertexture_8cc.html":[10,0,0,5,5,58],
-"rendertexture_8h.html":[10,0,0,5,5,59],
-"rendertexture_8h_source.html":[10,0,0,5,5,59],
 "rendezvous_8h.html":[10,0,0,3,17,15],
 "rendezvous_8h_source.html":[10,0,0,3,17,15],
 "resource_8cc.html":[10,0,0,6,0,0],
@@ -249,5 +238,16 @@ var NAVTREEINDEX72 =
 "resourcepool_8h.html#a01fc27f67f65302fbf0aa620691733f8":[10,0,0,6,0,8,4],
 "resourcepool_8h.html#a4127dbc5f7c7213f53ef4728201abf83":[10,0,0,6,0,8,2],
 "resourcepool_8h.html#a63ec9acaf6a7354a7cdb76bf336d760f":[10,0,0,6,0,8,1],
-"resourcepool_8h.html#ac04333a9af2f23314643f7f403be9784":[10,0,0,6,0,8,3]
+"resourcepool_8h.html#ac04333a9af2f23314643f7f403be9784":[10,0,0,6,0,8,3],
+"resourcepool_8h_source.html":[10,0,0,6,0,8],
+"resourcesaver_8cc.html":[10,0,0,6,0,9],
+"resourcesaver_8cc.html#ad3dbe98c3458b2938f9d6e38e18a4a3d":[10,0,0,6,0,9,0],
+"resourcesaver_8h.html":[10,0,0,6,0,10],
+"resourcesaver_8h_source.html":[10,0,0,6,0,10],
+"resourceserver_8cc.html":[10,0,0,6,0,11],
+"resourceserver_8cc.html#a2ed351b42086ddb8433b6b652fd60b88":[10,0,0,6,0,11,0],
+"resourceserver_8cc.html#ab004bd1df5940b1b5cbc80eefa0f6db3":[10,0,0,6,0,11,1],
+"resourceserver_8h.html":[10,0,0,6,0,12],
+"resourceserver_8h.html#a1193aa1d8791a6dfd090d8e1ec9a55d0":[10,0,0,6,0,12,2],
+"resourceserver_8h.html#a2d3a81bbde504d7a472e9a6eae66e10e":[10,0,0,6,0,12,3]
 };

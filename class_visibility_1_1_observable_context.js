@@ -2,7 +2,7 @@ var class_visibility_1_1_observable_context =
 [
     [ "ObservableAllocator", "class_visibility_1_1_observable_context.html#a0b87cef696e5c4bbc20b357c0433a8ed", null ],
     [ "ObservableAtomAllocator", "class_visibility_1_1_observable_context.html#a1b266f916ffe1fc1c0ece6280fb9dcab", null ],
-    [ "_DeclareContext", "class_visibility_1_1_observable_context.html#a0ed7b243839cf44baf211c122fab2660", null ],
+    [ "__DeclareContext", "class_visibility_1_1_observable_context.html#aafbdc24a1d5e501b0d2164bdd4f13f1b", null ],
     [ "Alloc", "class_visibility_1_1_observable_context.html#a72c8230383dc62a3f8cc95feea5f35e1", null ],
     [ "Create", "class_visibility_1_1_observable_context.html#addb3da43d39a884efa064d5b9e8ba6cb", null ],
     [ "Dealloc", "class_visibility_1_1_observable_context.html#ab72c1385c2ffc3188b76033c2ede1bcb", null ],

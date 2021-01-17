@@ -2,7 +2,7 @@ var class_im3d_1_1_im3d_context =
 [
     [ "Im3dContext", "class_im3d_1_1_im3d_context.html#a22a7636417763530152769deeb2eb379", null ],
     [ "~Im3dContext", "class_im3d_1_1_im3d_context.html#af8b84c4dc1a31ce7bb1488553acc547a", null ],
-    [ "_DeclarePluginContext", "class_im3d_1_1_im3d_context.html#a48b8be74ee6ceedf306499e4cabd704e", null ],
+    [ "__DeclarePluginContext", "class_im3d_1_1_im3d_context.html#a90aad961734fd0c2a6b641fd29945512", null ],
     [ "Create", "class_im3d_1_1_im3d_context.html#ab28a77da68724ead6db9ef394e817ad4", null ],
     [ "Discard", "class_im3d_1_1_im3d_context.html#aaa9f513a163fe198939163fe51b87868", null ],
     [ "DrawBox", "class_im3d_1_1_im3d_context.html#ae8b28872054df43c05ee1ef9ca5253f9", null ],

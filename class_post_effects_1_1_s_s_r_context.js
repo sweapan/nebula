@@ -2,7 +2,7 @@ var class_post_effects_1_1_s_s_r_context =
 [
     [ "SSRContext", "class_post_effects_1_1_s_s_r_context.html#a4c076f50d33fab6ccf3fa36586fa3a58", null ],
     [ "~SSRContext", "class_post_effects_1_1_s_s_r_context.html#abb44733ff93c02dd7e76bce761c6c4dd", null ],
-    [ "_DeclarePluginContext", "class_post_effects_1_1_s_s_r_context.html#abad5e34166e0f40ce9e01140ee2c0399", null ],
+    [ "__DeclarePluginContext", "class_post_effects_1_1_s_s_r_context.html#a0ffc972bbc0a1f96f594ef9ba8f4e822", null ],
     [ "Alloc", "class_post_effects_1_1_s_s_r_context.html#aa2607d42fa53ac47adc06c754b3feef4", null ],
     [ "Create", "class_post_effects_1_1_s_s_r_context.html#a2fd54174ab4322546ee3efa239857b37", null ],
     [ "Dealloc", "class_post_effects_1_1_s_s_r_context.html#a9e66bdcf7c2db8305adbb5c21cd202c8", null ],

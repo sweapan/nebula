@@ -10,7 +10,7 @@ var class_characters_1_1_character_context =
     ] ],
     [ "CharacterContext", "class_characters_1_1_character_context.html#aa9e6a0a192c466338824a497b08c05ad", null ],
     [ "~CharacterContext", "class_characters_1_1_character_context.html#ac833a3314669c024dca0e2d8af134ed1", null ],
-    [ "_DeclareContext", "class_characters_1_1_character_context.html#ab44ec79ac201bce1f8e87b8a5abea809", null ],
+    [ "__DeclareContext", "class_characters_1_1_character_context.html#aaa8c376d1f228c894cdfc14e961e1e85", null ],
     [ "Alloc", "class_characters_1_1_character_context.html#a612adeedd4f92f60ffd0e70ae797f687", null ],
     [ "Create", "class_characters_1_1_character_context.html#a7fdde31351ad8728d122d7f4079a30b9", null ],
     [ "CreateAnimSampleMask", "class_characters_1_1_character_context.html#ab493107b65ec36a0c14c9e1ff957f5d6", null ],

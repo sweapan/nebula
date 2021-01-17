@@ -49,11 +49,13 @@ var NAVTREEINDEX0 =
 "_memory.html#NebulaMemorySystem":[2,9,0],
 "_messaging.html":[2,10],
 "_nebula_application.html":[1],
+"_nebula_application.html#NebulaApplicationBaseGameFeature":[1,0,3],
 "_nebula_application.html#NebulaApplicationGameManagers":[1,0,2],
 "_nebula_application.html#NebulaApplicationGameSystem":[1,0],
 "_nebula_application.html#NebulaApplicationGameSystemEntities":[1,0,0],
 "_nebula_application.html#NebulaApplicationGameSystemProperties":[1,0,1],
-"_nebula_application.html#NebulaApplicationSeeAlso":[1,0,3],
+"_nebula_application.html#NebulaApplicationGraphicsFeature":[1,0,4],
+"_nebula_application.html#NebulaApplicationSeeAlso":[1,0,5],
 "_nebula_i_d_l.html":[1,1],
 "_nebula_i_d_l.html#NIDLDependencies":[1,1,1,2],
 "_nebula_i_d_l.html#NIDLEnumeratedTypes":[1,1,1,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "api_8cc.html#affb1a4aed8b1d583af989854ccbe7c34":[10,0,0,1,3,1,14],
 "api_8h.html":[10,0,0,1,3,2],
 "api_8h.html#a0d564ec900b4c13289760ae37846cfb1":[10,0,0,1,3,2,30],
-"api_8h.html#a0f061e122abfb2b563a9f2cfc4d4373a":[10,0,0,1,3,2,35],
-"api_8h.html#a1662e5ccb92417291ab5653883de7145":[10,0,0,1,3,2,9],
-"api_8h.html#a22a044ba95689ee39c23bfd5aa643dbb":[10,0,0,1,3,2,38]
+"api_8h.html#a0f061e122abfb2b563a9f2cfc4d4373a":[10,0,0,1,3,2,35]
 };

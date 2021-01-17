@@ -91,29 +91,9 @@ $(document).ready(function(){initNavTree('namespace_util.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_util_1_1_array_allocator.html">ArrayAllocator</a> provides a variadic list of types which is to be contained in the allocator and fetching each value by providing the index into the list of types, which means the members are nameless. </p>
+<div class="textblock"><p>Tuple helper functions and typedefs. </p>
 <p>@function TypePunning</p>
-<p>Tuple helper functions and typedefs.</p>
-<p>Note that this is not a container for multiple arrays, but a object allocator that uses multiple arrays to store their variables parallelly, and should be treated as such.</p>
-<p>There are two versions of this type, an unsafe and a safe one. Both are implemented in the same way.</p>
-<p>The thread safe allocator requires the Get-methods to be within an Enter/Leave lockstep phase.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="arrayallocatorsafe_8h.html">arrayallocatorsafe.h</a></dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2019-2020 Individual contributors, see AUTHORS file</dd></dl>
-<pre class="fragment">@class Util::Delegate
-
-Nebula delegate class, allows to store a function, method or lambda call into a C++ object
-for later execution.
-
-Note that this does not store any objects or capture, meaning these are extremely volatile to dangling pointers.
-This is by design, since it allows us to have much better performance than for example std::function that does
-expensive runtime heap allocations for storing objects and lambda capture.
-
-Usage:
-</pre><p> 'Foo' can be a function or static method Util::Delegate&lt;int(int, float)&gt; funcDelegate = Delegate&lt;int(int, float)&gt;::FromFunction&lt;Foo&gt;(); Requires an object Util::Delegate&lt;int()&gt; methodDelegate = Delegate&lt;int()&gt;::FromMethod&lt;MyClass, MyMethod&gt;(MyObject); Can not utilize closures! Util::Delegate&lt;void(int)&gt; lambdaDelegate = [](int a, int b) { return a + b; };</p>
-<p>See <a href="http://www.codeproject.com/KB/cpp/ImpossiblyFastCppDelegate.aspx">http://www.codeproject.com/KB/cpp/ImpossiblyFastCppDelegate.aspx</a> for details.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2008 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file</dd>
-<dd>
-(C) 2018-2020 Individual contributors, see AUTHORS file</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2018-2020 Individual contributors, see AUTHORS file</dd></dl>
 <p>Function to implement type-punning, explanation here: <a href="http://mail-index.netbsd.org/tech-kern/2003/08/11/0001.html">http://mail-index.netbsd.org/tech-kern/2003/08/11/0001.html</a> <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.1/gcc/Optimize-Options.html#Optimize-Options">http://gcc.gnu.org/onlinedocs/gcc-4.1.1/gcc/Optimize-Options.html#Optimize-Options</a></p>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) 2009 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
@@ -123,10 +103,12 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nebula's dynamic array class.  <a href="class_util_1_1_array.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_array_allocator.html">ArrayAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_util_1_1_array_allocator.html" title="The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...">ArrayAllocator</a> provides a variadic list of types which is to be contained in the allocator and fetching each value by providing the index into the list of types, which means the members are nameless.  <a href="class_util_1_1_array_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_util_1_1_allocator_lock.html">AllocatorLock</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_array_allocator_safe.html">ArrayAllocatorSafe</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_util_1_1_array_allocator_safe.html" title="The ArrayAllocatorSafe provides a thread safe variadic list of types which is to be contained in the ...">ArrayAllocatorSafe</a> provides a thread safe variadic list of types which is to be contained in the allocator and fetching each value by providing the index into the list of types, which means the members are nameless.  <a href="class_util_1_1_array_allocator_safe.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_array_queue.html">ArrayQueue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +116,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nebula's small vector optimized array.  <a href="class_util_1_1_array_stack.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_bit_field.html">BitField</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements large bit field with multiple of 32 bits.  <a href="class_util_1_1_bit_field.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements large bit field.  <a href="class_util_1_1_bit_field.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_blob.html">Blob</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_util_1_1_blob.html" title="The Util::Blob class encapsulates a chunk of raw memory into a C++ object which can be copied,...">Util::Blob</a> class encapsulates a chunk of raw memory into a C++ object which can be copied, compared and hashed.  <a href="class_util_1_1_blob.html#details">More...</a><br /></td></tr>
@@ -146,6 +128,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute CRC checksums over a range of memory.  <a href="class_util_1_1_crc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_delegate.html">Delegate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nebula delegate class, allows to store a function, method or lambda call into a C++ object for later execution.  <a href="class_util_1_1_delegate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util_1_1_delegate_3_01_r_e_t_t_y_p_e_07_a_r_g_t_y_p_e_s_8_8_8_08_4.html">Delegate&lt; RETTYPE(ARGTYPES...)&gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2146,7 +2129,7 @@ template&lt;typename A , typename B &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_util.html">Util</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:12 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:07 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

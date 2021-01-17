@@ -147,13 +147,24 @@ Lets take an example: <br  />
 <h2><a class="anchor" id="NebulaApplicationGameSystemProperties"></a>
 Properties</h2>
 <p>Properties are the main way to describe an entity's state. <br  />
-Properties are declared and defined via .nidl files (Nebula intermediate definition language) and compiled into C++ code via an IDL compiler. <br  />
- The NIDL specification can be found here: <a class="el" href="_nebula_i_d_l.html">Nebula IDL</a> <br  />
- TODO: write about property flags, managed properties, etc.</p>
+Properties are usually declared and defined via .nidl files (Nebula intermediate definition language) and compiled into C++ code via an IDL compiler. <br  />
+All properties must be <a href="http://www.cplusplus.com/reference/type_traits/is_trivially_destructible/">trivially destructible</a> and <a href="http://www.cplusplus.com/reference/type_traits/is_trivially_copyable/">trivially copyable</a>. Note that it can still define a constructor or have initilizers in the declaration. The NIDL specification can be found here: <a class="el" href="_nebula_i_d_l.html">Nebula IDL</a> <br  />
+ Properties can also be created explicitly via the <a class="el" href="api_8h.html">Game API's</a> <a class="el" href="namespace_game.html#a707bbc5560935318f9169a72b88554ab">CreateProperty</a> function or the <a class="el" href="class_mem_db_1_1_type_registry.html#a507d38e0d8748cf5194a1dba19da3528" title="register a type (templated)">MemDb::TypeRegistry::Register</a> (typesafe) function. When explicitly creating a property, you can choose to flag the property with various flags. These flags can for example alter the lifetime of the property, allowing certain managers to clean up external resources before an entity is fully destroyed.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_game_1_1_property_create_info.html" title="Used to create a property.">Game::PropertyCreateInfo</a> </dd>
+<dd>
+<a class="el" href="namespace_game.html#abf20a860953ef4305fa8a8cfa5faa3df" title="Specifies special behaviour for a property.">Game::PropertyFlags</a> </dd>
+<dd>
+<a class="el" href="class_mem_db_1_1_type_registry.html#a507d38e0d8748cf5194a1dba19da3528" title="register a type (templated)">MemDb::TypeRegistry::Register</a></dd></dl>
 <h2><a class="anchor" id="NebulaApplicationGameManagers"></a>
 Game Managers</h2>
 <p>Managers are defined via a simple function API. They are meant to care about "specific global stuff" and should be defined by applications to implement globals aspects of the application (mainly global game play related). Managers should be created and triggered by <a class="el" href="class_game_1_1_feature_unit.html">game features</a>. Their frame event functions are invoked when the gameserver triggers the game feature.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_game_1_1_manager_a_p_i.html" title="A Manager is just a bundle of function pointers to static or global functions that is called by the G...">Game::ManagerAPI</a></dd></dl>
+<h2><a class="anchor" id="NebulaApplicationBaseGameFeature"></a>
+Base Game Feature</h2>
+<p>The <a class="el" href="namespace_base_game_feature.html">BaseGameFeature</a> is integral to the Nebula entity system and sets up the <a class="el" href="class_game_1_1_entity_manager.html">entity</a>, <a class="el" href="class_game_1_1_blueprint_manager.html">blueprint</a> and <a class="el" href="namespace_game_1_1_time_manager.html">time</a> managers. These managers supply the runtime with the core management needed for the entity system, and this feature should most likely always be attached to the <a class="el" href="class_game_1_1_game_server.html">game server</a> upon application startup.</p>
+<h2><a class="anchor" id="NebulaApplicationGraphicsFeature"></a>
+Graphics Feature</h2>
+<p>The <a class="el" href="namespace_graphics_feature.html">GraphicsFeature</a> automatically sets up the core rendering subsystem and initializes tons of boilerplate so that you won't have to. The feature also creates a number of useful properties and managers that allow you to easily render models, animations, particles etc.</p>
 <h2><a class="anchor" id="NebulaApplicationSeeAlso"></a>
 See also</h2>
 <p><a class="el" href="api_8h.html">api.h</a> <br  />
@@ -170,7 +181,7 @@ See also</h2>
 		<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
 			<ul>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:57 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

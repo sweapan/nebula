@@ -14,7 +14,7 @@ var class_lighting_1_1_light_context =
     ] ],
     [ "LightContext", "class_lighting_1_1_light_context.html#a6e99448433627802fc274cfa24054b3e", null ],
     [ "~LightContext", "class_lighting_1_1_light_context.html#a8a92c1c2bdb5e4dc21924e9afd3b3096", null ],
-    [ "_DeclareContext", "class_lighting_1_1_light_context.html#a44a33fc24e3404be71fa997a70ad3889", null ],
+    [ "__DeclareContext", "class_lighting_1_1_light_context.html#a6e93d8a53a3ad10d2adb0787d951099a", null ],
     [ "Alloc", "class_lighting_1_1_light_context.html#a5e1e746f8bb3b6d5e4353340c7144939", null ],
     [ "BlurGlobalShadowMap", "class_lighting_1_1_light_context.html#a1d469afbc02b91f1bb07859c6f22218d", null ],
     [ "CombineLighting", "class_lighting_1_1_light_context.html#a8e379497c367abad17a6efbacd334804", null ],

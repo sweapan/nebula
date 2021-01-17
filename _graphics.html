@@ -83,14 +83,14 @@ $(document).ready(function(){initNavTree('_graphics.html',''); initResizable(); 
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="namespace_graphics.html" title="A FrameScript describes render operations being done to produce a single frame.">Graphics</a> </div>  </div>
+<div class="title"><a class="el" href="namespace_graphics.html">Graphics</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="NebulaGraphicsSystem"></a>
 The Graphics High-level Interface</h1>
-<p>The <a class="el" href="namespace_graphics.html" title="A FrameScript describes render operations being done to produce a single frame.">Graphics</a> <a class="el" href="namespace_interface.html">Interface</a> is supposed to provide a high-level interaction with the rendering systems.</p>
-<p>All graphics related entities are the same type, but they can be registered in different <b><a class="el" href="class_graphics_1_1_graphics_context.html">Graphics::GraphicsContext</a></b> classes. A <a class="el" href="class_graphics_1_1_graphics_context.html">Graphics::GraphicsContext</a> implements some rendering component, for example we have the <a class="el" href="class_visibility_1_1_observer_context.html">Visibility::ObserverContext</a>, which handles visibility resolution, or the <a class="el" href="class_models_1_1_model_context.html">Models::ModelContext</a>, which sets an <a class="el" href="struct_graphics_1_1_graphics_entity_id.html">Graphics::GraphicsEntityId</a> up with a model. As such, the <a class="el" href="namespace_graphics.html" title="A FrameScript describes render operations being done to produce a single frame.">Graphics</a> namespace is quite small, however there are many other namespaces which are entirely Graphics-level APIs, such as <a class="el" href="class_lighting_1_1_light_context.html">Lighting::LightContext</a> and <a class="el" href="class_particles_1_1_particle_context.html">Particles::ParticleContext</a>.</p>
-<p>A <a class="el" href="class_graphics_1_1_view.html">Graphics::View</a> corresponds to a camera, <a class="el" href="class_frame_1_1_frame_script.html">Frame::FrameScript</a>, and <a class="el" href="struct_core_graphics_1_1_window_id.html">CoreGraphics::WindowId</a> tuple, combining these three to produce a frame fit for a window. Use View when you need to render the scene again, from another angle, or for example in VR, where you need to render through another eye. Use with caution however, since it will cause the scene to be rendered once per view. </p>
+<p>The <a class="el" href="namespace_graphics.html">Graphics</a> <a class="el" href="namespace_interface.html">Interface</a> is supposed to provide a high-level interaction with the rendering systems.</p>
+<p>All graphics related entities are the same type, but they can be registered in different <b><a class="el" href="class_graphics_1_1_graphics_context.html">Graphics::GraphicsContext</a></b> classes. A <a class="el" href="class_graphics_1_1_graphics_context.html">Graphics::GraphicsContext</a> implements some rendering component, for example we have the <a class="el" href="class_visibility_1_1_observer_context.html">Visibility::ObserverContext</a>, which handles visibility resolution, or the <a class="el" href="class_models_1_1_model_context.html">Models::ModelContext</a>, which sets an <a class="el" href="struct_graphics_1_1_graphics_entity_id.html" title="The graphics entity is only an Id, to which we can attach GraphicsContexts.">Graphics::GraphicsEntityId</a> up with a model. As such, the <a class="el" href="namespace_graphics.html">Graphics</a> namespace is quite small, however there are many other namespaces which are entirely Graphics-level APIs, such as <a class="el" href="class_lighting_1_1_light_context.html">Lighting::LightContext</a> and <a class="el" href="class_particles_1_1_particle_context.html">Particles::ParticleContext</a>.</p>
+<p>A <a class="el" href="class_graphics_1_1_view.html" title="A view describes a camera which can observe a Stage.">Graphics::View</a> corresponds to a camera, <a class="el" href="class_frame_1_1_frame_script.html" title="A FrameScript describes render operations being done to produce a single frame.">Frame::FrameScript</a>, and <a class="el" href="struct_core_graphics_1_1_window_id.html">CoreGraphics::WindowId</a> tuple, combining these three to produce a frame fit for a window. Use View when you need to render the scene again, from another angle, or for example in VR, where you need to render through another eye. Use with caution however, since it will cause the scene to be rendered once per view. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -99,7 +99,7 @@ The Graphics High-level Interface</h1>
 			<ul>
 				<li class="navelem"><a class="el" href="render.html">Render Systems</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:57 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

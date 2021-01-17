@@ -1,7 +1,7 @@
 var namespace_decals =
 [
     [ "DecalContext", "class_decals_1_1_decal_context.html", "class_decals_1_1_decal_context" ],
-    [ "_ImplementContext", "namespace_decals.html#ade715367910fe4318d5b0c84c27b53e4", null ],
+    [ "__ImplementContext", "namespace_decals.html#a04907986cb59293b62a713b4eff5dfef", null ],
     [ "classificationShader", "namespace_decals.html#a051ec609c55107566d769361759b3668", null ],
     [ "clusterDecalIndexLists", "namespace_decals.html#ad5b1de72f85ea67646c2dec76bddc638", null ],
     [ "clusterDecalsList", "namespace_decals.html#a489acc54f56561d8a4f52aae7fcf626a", null ],

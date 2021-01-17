@@ -1,6 +1,6 @@
 var ssrcontext_8cc =
 [
-    [ "_ImplementPluginContext", "ssrcontext_8cc.html#a69fc3aea03a0ab33ec6824e2ecb9f8cb", null ],
+    [ "__ImplementPluginContext", "ssrcontext_8cc.html#adb3614691649da130ae8a1afcdb97527", null ],
     [ "constants", "ssrcontext_8cc.html#ad16b264ff9de9ac76abb528886446ac6", null ],
     [ "constantsSlot", "ssrcontext_8cc.html#a9ee85eeab4416987b46b82ce252be4be", null ],
     [ "lightBufferSlot", "ssrcontext_8cc.html#a7a42d7a2d2286e6770cfa323bfc15ad3", null ],

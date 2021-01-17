@@ -91,16 +91,11 @@ $(document).ready(function(){initNavTree('namespace_memory.html',''); initResiza
 <div class="title">Memory Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Doesn't actually allocate memory, but is used to keep track of free ranges of elements in a virtual memory buffer. </p>
-<p>Allocates memory up-front, and then allows other systems to grab regions.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file</dd></dl>
-<p>Synchronizes used regions between frames (thread safe) in order to recycle previously occupied memory.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2018-2020 Individual contributors, see AUTHORS file </dd></dl>
-</div><table class="memberdecls">
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates memory in chunks.  <a href="class_memory_1_1_arena_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_memory_1_1_total_memory_status.html">TotalMemoryStatus</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the system's total current memory, this does not only include Nebula's memory allocations but the memory usage of the entire system.  <a href="struct_memory_1_1_total_memory_status.html#details">More...</a><br /></td></tr>
@@ -109,10 +104,12 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates small memory blocks from an array of fixed-size memory pools.  <a href="class_memory_1_1_pool_array_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_memory_1_1_range_allocator.html">RangeAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Doesn't actually allocate memory, but is used to keep track of free ranges of elements in a virtual memory buffer.  <a href="class_memory_1_1_range_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_memory_1_1_ring_alloc.html">RingAlloc</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_memory_1_1_ring_allocator.html">RingAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates memory up-front, and then allows other systems to grab regions.  <a href="class_memory_1_1_ring_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -267,12 +264,12 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aaf5b823d7efe2bcc3d5fa52701fbb993"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Alloc</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType, size_t size, size_t alignment)</td></tr>
-<tr class="memdesc:aaf5b823d7efe2bcc3d5fa52701fbb993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory from one of the global heaps.  <a href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">More...</a><br /></td></tr>
-<tr class="separator:aaf5b823d7efe2bcc3d5fa52701fbb993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e4c5d9cc89e8396194ee73406be36b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a05e4c5d9cc89e8396194ee73406be36b">Realloc</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType, void *ptr, size_t size)</td></tr>
-<tr class="memdesc:a05e4c5d9cc89e8396194ee73406be36b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-Allocate a block of memory from one of the global heaps.  <a href="namespace_memory.html#a05e4c5d9cc89e8396194ee73406be36b">More...</a><br /></td></tr>
-<tr class="separator:a05e4c5d9cc89e8396194ee73406be36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302b8099d0bbcc9bccfd578814e5b4f3"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Alloc</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType, size_t size, size_t alignment)</td></tr>
+<tr class="memdesc:a302b8099d0bbcc9bccfd578814e5b4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory from one of the global heaps.  <a href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">More...</a><br /></td></tr>
+<tr class="separator:a302b8099d0bbcc9bccfd578814e5b4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c839285702633f8178be0224273a14"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a66c839285702633f8178be0224273a14">Realloc</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType, void *ptr, size_t size)</td></tr>
+<tr class="memdesc:a66c839285702633f8178be0224273a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-Allocate a block of memory from one of the global heaps.  <a href="namespace_memory.html#a66c839285702633f8178be0224273a14">More...</a><br /></td></tr>
+<tr class="separator:a66c839285702633f8178be0224273a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6055e491858cd969e93326d9b3e4b420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Free</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType, void *ptr)</td></tr>
 <tr class="memdesc:a6055e491858cd969e93326d9b3e4b420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free a block of memory.  <a href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">More...</a><br /></td></tr>
 <tr class="separator:a6055e491858cd969e93326d9b3e4b420"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -285,24 +282,24 @@ Functions</h2></td></tr>
 <tr class="memitem:a05533d2c6154b45946e2e915fdcbb173"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_memory_1_1_total_memory_status.html">TotalMemoryStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a05533d2c6154b45946e2e915fdcbb173">GetTotalMemoryStatus</a> ()</td></tr>
 <tr class="memdesc:a05533d2c6154b45946e2e915fdcbb173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the system's total memory status.  <a href="namespace_memory.html#a05533d2c6154b45946e2e915fdcbb173">More...</a><br /></td></tr>
 <tr class="separator:a05533d2c6154b45946e2e915fdcbb173"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afddfa173cab925938e29c6d2b77ccef6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Copy</a> (const void *from, void *to, size_t numBytes)</td></tr>
-<tr class="memdesc:afddfa173cab925938e29c6d2b77ccef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a chunk of memory (note the argument order is different from memcpy()!!!)  <a href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">More...</a><br /></td></tr>
-<tr class="separator:afddfa173cab925938e29c6d2b77ccef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d02bcd45d328a0bccf6ca549df2c2ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a3d02bcd45d328a0bccf6ca549df2c2ae">Clear</a> (void *ptr, size_t numBytes)</td></tr>
-<tr class="memdesc:a3d02bcd45d328a0bccf6ca549df2c2ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite a chunk of memory with 0's.  <a href="namespace_memory.html#a3d02bcd45d328a0bccf6ca549df2c2ae">More...</a><br /></td></tr>
-<tr class="separator:a3d02bcd45d328a0bccf6ca549df2c2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f437ea3e5fd10f767efc810867069bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a2f437ea3e5fd10f767efc810867069bb">Fill</a> (void *ptr, size_t numBytes, unsigned char value)</td></tr>
-<tr class="memdesc:a2f437ea3e5fd10f767efc810867069bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill memory with a specific byte.  <a href="namespace_memory.html#a2f437ea3e5fd10f767efc810867069bb">More...</a><br /></td></tr>
-<tr class="separator:a2f437ea3e5fd10f767efc810867069bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b30970207f199d34ccd289fb784f8c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Copy</a> (const void *from, void *to, size_t numBytes)</td></tr>
+<tr class="memdesc:a1b30970207f199d34ccd289fb784f8c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a chunk of memory (note the argument order is different from memcpy()!!!)  <a href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">More...</a><br /></td></tr>
+<tr class="separator:a1b30970207f199d34ccd289fb784f8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8504a1916282a835f1e16e3912e4c87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#ad8504a1916282a835f1e16e3912e4c87">Clear</a> (void *ptr, size_t numBytes)</td></tr>
+<tr class="memdesc:ad8504a1916282a835f1e16e3912e4c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite a chunk of memory with 0's.  <a href="namespace_memory.html#ad8504a1916282a835f1e16e3912e4c87">More...</a><br /></td></tr>
+<tr class="separator:ad8504a1916282a835f1e16e3912e4c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a527477862257488319ed410e35988043"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a527477862257488319ed410e35988043">Fill</a> (void *ptr, size_t numBytes, unsigned char value)</td></tr>
+<tr class="memdesc:a527477862257488319ed410e35988043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill memory with a specific byte.  <a href="namespace_memory.html#a527477862257488319ed410e35988043">More...</a><br /></td></tr>
+<tr class="separator:a527477862257488319ed410e35988043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae173ee11e0f1aa1ad9b8603e40ecbd4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#ae173ee11e0f1aa1ad9b8603e40ecbd4b">SetupHeaps</a> ()</td></tr>
 <tr class="memdesc:ae173ee11e0f1aa1ad9b8603e40ecbd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup the global heaps.  <a href="namespace_memory.html#ae173ee11e0f1aa1ad9b8603e40ecbd4b">More...</a><br /></td></tr>
 <tr class="separator:ae173ee11e0f1aa1ad9b8603e40ecbd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a779eb7178f1887e9759e90511acd5a05"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a779eb7178f1887e9759e90511acd5a05">GetHeapTypeName</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType)</td></tr>
 <tr class="memdesc:a779eb7178f1887e9759e90511acd5a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a human readable name for a heap type.  <a href="namespace_memory.html#a779eb7178f1887e9759e90511acd5a05">More...</a><br /></td></tr>
 <tr class="separator:a779eb7178f1887e9759e90511acd5a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23d6b752b191a9aabbae8310b9685338"><td class="memItemLeft" align="right" valign="top">__forceinline void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a23d6b752b191a9aabbae8310b9685338">Alloc</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType, size_t size)</td></tr>
-<tr class="memdesc:a23d6b752b191a9aabbae8310b9685338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory from the process heap.  <a href="namespace_memory.html#a23d6b752b191a9aabbae8310b9685338">More...</a><br /></td></tr>
-<tr class="separator:a23d6b752b191a9aabbae8310b9685338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24993fac616060d0f19f14d43fc27103"><td class="memItemLeft" align="right" valign="top">__forceinline void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a24993fac616060d0f19f14d43fc27103">Alloc</a> (<a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a> heapType, size_t size)</td></tr>
+<tr class="memdesc:a24993fac616060d0f19f14d43fc27103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory from the process heap.  <a href="namespace_memory.html#a24993fac616060d0f19f14d43fc27103">More...</a><br /></td></tr>
+<tr class="separator:a24993fac616060d0f19f14d43fc27103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1103820d68788c85bbb28a62e05d99e2"><td class="memItemLeft" align="right" valign="top">__forceinline void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_memory.html#a1103820d68788c85bbb28a62e05d99e2">Move</a> (const void *from, void *to, size_t numBytes)</td></tr>
 <tr class="memdesc:a1103820d68788c85bbb28a62e05d99e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a chunk of memory, can handle overlapping regions.  <a href="namespace_memory.html#a1103820d68788c85bbb28a62e05d99e2">More...</a><br /></td></tr>
 <tr class="separator:a1103820d68788c85bbb28a62e05d99e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -726,14 +723,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a23d6b752b191a9aabbae8310b9685338"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23d6b752b191a9aabbae8310b9685338">&#9670;&nbsp;</a></span>Alloc() <span class="overload">[1/2]</span></h2>
+<a id="a24993fac616060d0f19f14d43fc27103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24993fac616060d0f19f14d43fc27103">&#9670;&nbsp;</a></span>Alloc() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">__forceinline void* Memory::Alloc </td>
+          <td class="memname">void * Memory::Alloc </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a>&#160;</td>
           <td class="paramname"><em>heapType</em>, </td>
@@ -759,14 +756,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aaf5b823d7efe2bcc3d5fa52701fbb993"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf5b823d7efe2bcc3d5fa52701fbb993">&#9670;&nbsp;</a></span>Alloc() <span class="overload">[2/2]</span></h2>
+<a id="a302b8099d0bbcc9bccfd578814e5b4f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a302b8099d0bbcc9bccfd578814e5b4f3">&#9670;&nbsp;</a></span>Alloc() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* Memory::Alloc </td>
+          <td class="memname">void * Memory::Alloc </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a>&#160;</td>
           <td class="paramname"><em>heapType</em>, </td>
@@ -797,14 +794,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a3d02bcd45d328a0bccf6ca549df2c2ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d02bcd45d328a0bccf6ca549df2c2ae">&#9670;&nbsp;</a></span>Clear()</h2>
+<a id="ad8504a1916282a835f1e16e3912e4c87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8504a1916282a835f1e16e3912e4c87">&#9670;&nbsp;</a></span>Clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Memory::Clear </td>
+          <td class="memname">__forceinline void Memory::Clear </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ptr</em>, </td>
@@ -828,14 +825,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="afddfa173cab925938e29c6d2b77ccef6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afddfa173cab925938e29c6d2b77ccef6">&#9670;&nbsp;</a></span>Copy()</h2>
+<a id="a1b30970207f199d34ccd289fb784f8c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b30970207f199d34ccd289fb784f8c1">&#9670;&nbsp;</a></span>Copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Memory::Copy </td>
+          <td class="memname">__forceinline void Memory::Copy </td>
           <td>(</td>
           <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>from</em>, </td>
@@ -983,14 +980,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a2f437ea3e5fd10f767efc810867069bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f437ea3e5fd10f767efc810867069bb">&#9670;&nbsp;</a></span>Fill()</h2>
+<a id="a527477862257488319ed410e35988043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a527477862257488319ed410e35988043">&#9670;&nbsp;</a></span>Fill()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Memory::Fill </td>
+          <td class="memname">__forceinline void Memory::Fill </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ptr</em>, </td>
@@ -1225,14 +1222,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a05e4c5d9cc89e8396194ee73406be36b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05e4c5d9cc89e8396194ee73406be36b">&#9670;&nbsp;</a></span>Realloc()</h2>
+<a id="a66c839285702633f8178be0224273a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66c839285702633f8178be0224273a14">&#9670;&nbsp;</a></span>Realloc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* Memory::Realloc </td>
+          <td class="memname">void * Memory::Realloc </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56">HeapType</a>&#160;</td>
           <td class="paramname"><em>heapType</em>, </td>
@@ -1459,7 +1456,7 @@ template&lt;typename T &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_memory.html">Memory</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

@@ -6,7 +6,7 @@ var class_terrain_1_1_terrain_context =
     [ "TerrainBiomeAllocator", "class_terrain_1_1_terrain_context.html#a0c2a63979e586b36dcc68f599c91a5e5", null ],
     [ "TerrainContext", "class_terrain_1_1_terrain_context.html#a6d15038fd6d17f8bf3ffe6fa5693d7c0", null ],
     [ "~TerrainContext", "class_terrain_1_1_terrain_context.html#aa9233d808254ad54d8fd2fb8a491b869", null ],
-    [ "_DeclareContext", "class_terrain_1_1_terrain_context.html#a819468d03118b88f3a4587ecbc2d75a7", null ],
+    [ "__DeclareContext", "class_terrain_1_1_terrain_context.html#ad6720579ec5c4c6250a30edb02aa9388", null ],
     [ "Alloc", "class_terrain_1_1_terrain_context.html#a273cbce241d0ed32331abbc09689b0ac", null ],
     [ "ClearCache", "class_terrain_1_1_terrain_context.html#ae11a98fa0d465618e24dff796f26ec58", null ],
     [ "Create", "class_terrain_1_1_terrain_context.html#ac68deed900bfbd944b50f27c45a8ded0", null ],

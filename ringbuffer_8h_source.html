@@ -237,7 +237,7 @@ $(document).ready(function(){initNavTree('ringbuffer_8h_source.html',''); initRe
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;{</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    this-&gt;Delete();</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">if</span> (rhs.<a class="code" href="class_util_1_1_ring_buffer.html#a2414008d395e4b9557fbe56f82bb8fe5">capacity</a> &gt; 0)</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        this-&gt;<a class="code" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Copy</a>(rhs);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        this-&gt;<a class="code" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Copy</a>(rhs);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
@@ -427,8 +427,8 @@ $(document).ready(function(){initNavTree('ringbuffer_8h_source.html',''); initRe
 <div class="ttc" id="aclass_util_1_1_ring_buffer_html_ae8d90332250ef6b0cdf10232631fb311"><div class="ttname"><a href="class_util_1_1_ring_buffer.html#ae8d90332250ef6b0cdf10232631fb311">Util::RingBuffer::GetBuffer</a></div><div class="ttdeci">const TYPE * GetBuffer() const</div><div class="ttdoc">get real linear underlying buffer</div><div class="ttdef"><b>Definition:</b> ringbuffer.h:379</div></div>
 <div class="ttc" id="aclass_util_1_1_ring_buffer_html_aeb23b424d6479678ca468cd9b46b6771"><div class="ttname"><a href="class_util_1_1_ring_buffer.html#aeb23b424d6479678ca468cd9b46b6771">Util::RingBuffer::Capacity</a></div><div class="ttdeci">SizeT Capacity() const</div><div class="ttdoc">get capacity</div><div class="ttdef"><b>Definition:</b> ringbuffer.h:298</div></div>
 <div class="ttc" id="adebug_8h_html_af07fc1acd3d67e0bcafa5ef5bcba4042"><div class="ttname"><a href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a></div><div class="ttdeci">#define n_assert(exp)</div><div class="ttdef"><b>Definition:</b> debug.h:49</div></div>
-<div class="ttc" id="anamespace_memory_html_afddfa173cab925938e29c6d2b77ccef6"><div class="ttname"><a href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
+<div class="ttc" id="anamespace_memory_html_a1b30970207f199d34ccd289fb784f8c1"><div class="ttname"><a href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">Tuple helper functions and typedefs.</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 <div class="ttc" id="aosxmemory_8h_html_a2f4c1f2844efb2ea8057c83f1c9d3f99"><div class="ttname"><a href="osxmemory_8h.html#a2f4c1f2844efb2ea8057c83f1c9d3f99">n_delete_array</a></div><div class="ttdeci">#define n_delete_array(ptr)</div><div class="ttdef"><b>Definition:</b> osxmemory.h:116</div></div>
 <div class="ttc" id="aosxmemory_8h_html_a5cf48dc77bff1d634ec12422258d9f3b"><div class="ttname"><a href="osxmemory_8h.html#a5cf48dc77bff1d634ec12422258d9f3b">n_new_array</a></div><div class="ttdeci">#define n_new_array(type, size)</div><div class="ttdef"><b>Definition:</b> osxmemory.h:114</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
@@ -441,7 +441,7 @@ $(document).ready(function(){initNavTree('ringbuffer_8h_source.html',''); initRe
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_3efd1eb2182038baf5731b057d5f9c3b.html">util</a></li><li class="navelem"><a class="el" href="ringbuffer_8h.html">ringbuffer.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:29 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:35 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

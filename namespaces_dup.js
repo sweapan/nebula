@@ -81,7 +81,6 @@ var namespaces_dup =
     [ "System", "namespace_system.html", "namespace_system" ],
     [ "Terrain", "namespace_terrain.html", "namespace_terrain" ],
     [ "Threading", "namespace_threading.html", "namespace_threading" ],
-    [ "TimeManager", "namespace_time_manager.html", null ],
     [ "Timing", "namespace_timing.html", [
       [ "Tick", "namespace_timing.html#a1884fd8969a4a431040692fbcf9f5f1e", null ],
       [ "Time", "namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999", null ],

@@ -92,42 +92,45 @@ $(document).ready(function(){initNavTree('class_math_1_1_p_i_d_feedback_loop.htm
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="pidfeedbackloop_8h_source.html">pidfeedbackloop.h</a>&gt;</code></p>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A PID feedback loop (proportional integral derivative feedback loop) </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2007 RadonLabs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad79488743cd46cea705e8c5aba6c3b94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#ad79488743cd46cea705e8c5aba6c3b94">PIDFeedbackLoop</a> ()</td></tr>
-<tr class="memdesc:ad79488743cd46cea705e8c5aba6c3b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="class_math_1_1_p_i_d_feedback_loop.html#ad79488743cd46cea705e8c5aba6c3b94">More...</a><br /></td></tr>
-<tr class="separator:ad79488743cd46cea705e8c5aba6c3b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfb521de13d1e26b66c2911e36ee89af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#abfb521de13d1e26b66c2911e36ee89af">SetState</a> (double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a37454483f1cb24136d0bf0331b7eb695">value</a>)</td></tr>
-<tr class="memdesc:abfb521de13d1e26b66c2911e36ee89af"><td class="mdescLeft">&#160;</td><td class="mdescRight">set value of loop  <a href="class_math_1_1_p_i_d_feedback_loop.html#abfb521de13d1e26b66c2911e36ee89af">More...</a><br /></td></tr>
-<tr class="separator:abfb521de13d1e26b66c2911e36ee89af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f7794cfcd5a83db63c36dca856961be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a9f7794cfcd5a83db63c36dca856961be">SetGoal</a> (double wantedValue)</td></tr>
-<tr class="memdesc:a9f7794cfcd5a83db63c36dca856961be"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the goal  <a href="class_math_1_1_p_i_d_feedback_loop.html#a9f7794cfcd5a83db63c36dca856961be">More...</a><br /></td></tr>
-<tr class="separator:a9f7794cfcd5a83db63c36dca856961be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a643b57f70fed24b59ef1588016849fbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a643b57f70fed24b59ef1588016849fbb">SetConstants</a> (double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a96fe43ff62f3da880124223fe8b217a4">pConst</a>, double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a13b6cdf508f885ebc9d91caaea652e59">iConst</a>, double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a4d6d15c8e431ac4c1d1c7756781dfdc2">dConst</a>, double acceleration=0.0)</td></tr>
-<tr class="memdesc:a643b57f70fed24b59ef1588016849fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the propotional, integral and derivative constants, and maximum acceleration (how fast the value kann change, will be disabled if set to 0.0 (default))  <a href="class_math_1_1_p_i_d_feedback_loop.html#a643b57f70fed24b59ef1588016849fbb">More...</a><br /></td></tr>
-<tr class="separator:a643b57f70fed24b59ef1588016849fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a530e133df1c90471fee1577ce1b137cf"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a530e133df1c90471fee1577ce1b137cf">GetState</a> () const</td></tr>
-<tr class="memdesc:a530e133df1c90471fee1577ce1b137cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">get current value  <a href="class_math_1_1_p_i_d_feedback_loop.html#a530e133df1c90471fee1577ce1b137cf">More...</a><br /></td></tr>
-<tr class="separator:a530e133df1c90471fee1577ce1b137cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bcb1615c6207de98974ab17ebb938d0"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a8bcb1615c6207de98974ab17ebb938d0">GetGoal</a> () const</td></tr>
-<tr class="memdesc:a8bcb1615c6207de98974ab17ebb938d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the goal  <a href="class_math_1_1_p_i_d_feedback_loop.html#a8bcb1615c6207de98974ab17ebb938d0">More...</a><br /></td></tr>
-<tr class="separator:a8bcb1615c6207de98974ab17ebb938d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c8b5246544feb20fb3ea5eca569176c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a5c8b5246544feb20fb3ea5eca569176c">GetLastError</a> () const</td></tr>
-<tr class="memdesc:a5c8b5246544feb20fb3ea5eca569176c"><td class="mdescLeft">&#160;</td><td class="mdescRight">get last computed error  <a href="class_math_1_1_p_i_d_feedback_loop.html#a5c8b5246544feb20fb3ea5eca569176c">More...</a><br /></td></tr>
-<tr class="separator:a5c8b5246544feb20fb3ea5eca569176c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa66da8bd1479546b539482cbc31a2511"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#aa66da8bd1479546b539482cbc31a2511">GetLastDelta</a> () const</td></tr>
-<tr class="memdesc:aa66da8bd1479546b539482cbc31a2511"><td class="mdescLeft">&#160;</td><td class="mdescRight">last delta of error  <a href="class_math_1_1_p_i_d_feedback_loop.html#aa66da8bd1479546b539482cbc31a2511">More...</a><br /></td></tr>
-<tr class="separator:aa66da8bd1479546b539482cbc31a2511"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adce6dc34d4072c8bdc5c236bbc2e6a71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#adce6dc34d4072c8bdc5c236bbc2e6a71">Update</a> (<a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> time)</td></tr>
-<tr class="memdesc:adce6dc34d4072c8bdc5c236bbc2e6a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">update current value  <a href="class_math_1_1_p_i_d_feedback_loop.html#adce6dc34d4072c8bdc5c236bbc2e6a71">More...</a><br /></td></tr>
-<tr class="separator:adce6dc34d4072c8bdc5c236bbc2e6a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a498ac747edd5322fe42a996bcf5d2ec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a498ac747edd5322fe42a996bcf5d2ec5">ResetError</a> ()</td></tr>
-<tr class="memdesc:a498ac747edd5322fe42a996bcf5d2ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset running error  <a href="class_math_1_1_p_i_d_feedback_loop.html#a498ac747edd5322fe42a996bcf5d2ec5">More...</a><br /></td></tr>
-<tr class="separator:a498ac747edd5322fe42a996bcf5d2ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2962b5633342af4806360a9efc2965ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a2962b5633342af4806360a9efc2965ab">SetIsAngularValue</a> (bool val)</td></tr>
-<tr class="memdesc:a2962b5633342af4806360a9efc2965ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">set IsAngularValue  <a href="class_math_1_1_p_i_d_feedback_loop.html#a2962b5633342af4806360a9efc2965ab">More...</a><br /></td></tr>
-<tr class="separator:a2962b5633342af4806360a9efc2965ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeafcce1552e1699f39cb9233d140e9db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#aeafcce1552e1699f39cb9233d140e9db">PIDFeedbackLoop</a> ()</td></tr>
+<tr class="memdesc:aeafcce1552e1699f39cb9233d140e9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="class_math_1_1_p_i_d_feedback_loop.html#aeafcce1552e1699f39cb9233d140e9db">More...</a><br /></td></tr>
+<tr class="separator:aeafcce1552e1699f39cb9233d140e9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa02467d2c2ef229d79e80b362c820fd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#aa02467d2c2ef229d79e80b362c820fd0">SetState</a> (double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a37454483f1cb24136d0bf0331b7eb695">value</a>)</td></tr>
+<tr class="memdesc:aa02467d2c2ef229d79e80b362c820fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">set value of loop  <a href="class_math_1_1_p_i_d_feedback_loop.html#aa02467d2c2ef229d79e80b362c820fd0">More...</a><br /></td></tr>
+<tr class="separator:aa02467d2c2ef229d79e80b362c820fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b90eb7d0c3694773057d15aa260e2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a31b90eb7d0c3694773057d15aa260e2b">SetGoal</a> (double wantedValue)</td></tr>
+<tr class="memdesc:a31b90eb7d0c3694773057d15aa260e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the goal  <a href="class_math_1_1_p_i_d_feedback_loop.html#a31b90eb7d0c3694773057d15aa260e2b">More...</a><br /></td></tr>
+<tr class="separator:a31b90eb7d0c3694773057d15aa260e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd1b4609c16901164c69363fca18f56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#accd1b4609c16901164c69363fca18f56">SetConstants</a> (double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a96fe43ff62f3da880124223fe8b217a4">pConst</a>, double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a13b6cdf508f885ebc9d91caaea652e59">iConst</a>, double <a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a4d6d15c8e431ac4c1d1c7756781dfdc2">dConst</a>, double acceleration=0.0)</td></tr>
+<tr class="memdesc:accd1b4609c16901164c69363fca18f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the propotional, integral and derivative constants, and maximum acceleration (how fast the value kann change, will be disabled if set to 0.0 (default))  <a href="class_math_1_1_p_i_d_feedback_loop.html#accd1b4609c16901164c69363fca18f56">More...</a><br /></td></tr>
+<tr class="separator:accd1b4609c16901164c69363fca18f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf9689e014f692b16011ac983ab739e"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a5cf9689e014f692b16011ac983ab739e">GetState</a> () const</td></tr>
+<tr class="memdesc:a5cf9689e014f692b16011ac983ab739e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get current value  <a href="class_math_1_1_p_i_d_feedback_loop.html#a5cf9689e014f692b16011ac983ab739e">More...</a><br /></td></tr>
+<tr class="separator:a5cf9689e014f692b16011ac983ab739e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c87f3967b86502b34cbe051ee65ae0"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a20c87f3967b86502b34cbe051ee65ae0">GetGoal</a> () const</td></tr>
+<tr class="memdesc:a20c87f3967b86502b34cbe051ee65ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the goal  <a href="class_math_1_1_p_i_d_feedback_loop.html#a20c87f3967b86502b34cbe051ee65ae0">More...</a><br /></td></tr>
+<tr class="separator:a20c87f3967b86502b34cbe051ee65ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40bc7a71a329126acea49a6a9fdbf13"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#ab40bc7a71a329126acea49a6a9fdbf13">GetLastError</a> () const</td></tr>
+<tr class="memdesc:ab40bc7a71a329126acea49a6a9fdbf13"><td class="mdescLeft">&#160;</td><td class="mdescRight">get last computed error  <a href="class_math_1_1_p_i_d_feedback_loop.html#ab40bc7a71a329126acea49a6a9fdbf13">More...</a><br /></td></tr>
+<tr class="separator:ab40bc7a71a329126acea49a6a9fdbf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a880148435111a8d591465d1e0f5f1c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#a3a880148435111a8d591465d1e0f5f1c">GetLastDelta</a> () const</td></tr>
+<tr class="memdesc:a3a880148435111a8d591465d1e0f5f1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">last delta of error  <a href="class_math_1_1_p_i_d_feedback_loop.html#a3a880148435111a8d591465d1e0f5f1c">More...</a><br /></td></tr>
+<tr class="separator:a3a880148435111a8d591465d1e0f5f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab22fac97b825e3584c780dee7856f9dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#ab22fac97b825e3584c780dee7856f9dd">Update</a> (<a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a> time)</td></tr>
+<tr class="memdesc:ab22fac97b825e3584c780dee7856f9dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">update current value  <a href="class_math_1_1_p_i_d_feedback_loop.html#ab22fac97b825e3584c780dee7856f9dd">More...</a><br /></td></tr>
+<tr class="separator:ab22fac97b825e3584c780dee7856f9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa86a746741ab16d6098f733753087d3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#aa86a746741ab16d6098f733753087d3c">ResetError</a> ()</td></tr>
+<tr class="memdesc:aa86a746741ab16d6098f733753087d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset running error  <a href="class_math_1_1_p_i_d_feedback_loop.html#aa86a746741ab16d6098f733753087d3c">More...</a><br /></td></tr>
+<tr class="separator:aa86a746741ab16d6098f733753087d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ff0ec1ce53ac5439ffcbfec8277f30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html#ab3ff0ec1ce53ac5439ffcbfec8277f30">SetIsAngularValue</a> (bool val)</td></tr>
+<tr class="memdesc:ab3ff0ec1ce53ac5439ffcbfec8277f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">set IsAngularValue  <a href="class_math_1_1_p_i_d_feedback_loop.html#ab3ff0ec1ce53ac5439ffcbfec8277f30">More...</a><br /></td></tr>
+<tr class="separator:ab3ff0ec1ce53ac5439ffcbfec8277f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -161,8 +164,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a35e494698b142bae6cd06f052129c704"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad79488743cd46cea705e8c5aba6c3b94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad79488743cd46cea705e8c5aba6c3b94">&#9670;&nbsp;</a></span>PIDFeedbackLoop()</h2>
+<a id="aeafcce1552e1699f39cb9233d140e9db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafcce1552e1699f39cb9233d140e9db">&#9670;&nbsp;</a></span>PIDFeedbackLoop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +174,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">PIDFeedbackLoop::PIDFeedbackLoop </td>
+          <td class="memname">Math::PIDFeedbackLoop::PIDFeedbackLoop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -189,8 +192,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8bcb1615c6207de98974ab17ebb938d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bcb1615c6207de98974ab17ebb938d0">&#9670;&nbsp;</a></span>GetGoal()</h2>
+<a id="a20c87f3967b86502b34cbe051ee65ae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c87f3967b86502b34cbe051ee65ae0">&#9670;&nbsp;</a></span>GetGoal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +202,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double &amp; PIDFeedbackLoop::GetGoal </td>
+          <td class="memname">const double &amp; Math::PIDFeedbackLoop::GetGoal </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -216,8 +219,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa66da8bd1479546b539482cbc31a2511"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa66da8bd1479546b539482cbc31a2511">&#9670;&nbsp;</a></span>GetLastDelta()</h2>
+<a id="a3a880148435111a8d591465d1e0f5f1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a880148435111a8d591465d1e0f5f1c">&#9670;&nbsp;</a></span>GetLastDelta()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +229,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double PIDFeedbackLoop::GetLastDelta </td>
+          <td class="memname">double Math::PIDFeedbackLoop::GetLastDelta </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -243,8 +246,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5c8b5246544feb20fb3ea5eca569176c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c8b5246544feb20fb3ea5eca569176c">&#9670;&nbsp;</a></span>GetLastError()</h2>
+<a id="ab40bc7a71a329126acea49a6a9fdbf13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab40bc7a71a329126acea49a6a9fdbf13">&#9670;&nbsp;</a></span>GetLastError()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -253,7 +256,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double PIDFeedbackLoop::GetLastError </td>
+          <td class="memname">double Math::PIDFeedbackLoop::GetLastError </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -270,8 +273,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a530e133df1c90471fee1577ce1b137cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a530e133df1c90471fee1577ce1b137cf">&#9670;&nbsp;</a></span>GetState()</h2>
+<a id="a5cf9689e014f692b16011ac983ab739e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf9689e014f692b16011ac983ab739e">&#9670;&nbsp;</a></span>GetState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,7 +283,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double &amp; PIDFeedbackLoop::GetState </td>
+          <td class="memname">const double &amp; Math::PIDFeedbackLoop::GetState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -297,8 +300,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a498ac747edd5322fe42a996bcf5d2ec5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a498ac747edd5322fe42a996bcf5d2ec5">&#9670;&nbsp;</a></span>ResetError()</h2>
+<a id="aa86a746741ab16d6098f733753087d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa86a746741ab16d6098f733753087d3c">&#9670;&nbsp;</a></span>ResetError()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +310,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PIDFeedbackLoop::ResetError </td>
+          <td class="memname">void Math::PIDFeedbackLoop::ResetError </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -324,8 +327,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a643b57f70fed24b59ef1588016849fbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a643b57f70fed24b59ef1588016849fbb">&#9670;&nbsp;</a></span>SetConstants()</h2>
+<a id="accd1b4609c16901164c69363fca18f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accd1b4609c16901164c69363fca18f56">&#9670;&nbsp;</a></span>SetConstants()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,7 +337,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PIDFeedbackLoop::SetConstants </td>
+          <td class="memname">void Math::PIDFeedbackLoop::SetConstants </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>pConst</em>, </td>
@@ -374,8 +377,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9f7794cfcd5a83db63c36dca856961be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f7794cfcd5a83db63c36dca856961be">&#9670;&nbsp;</a></span>SetGoal()</h2>
+<a id="a31b90eb7d0c3694773057d15aa260e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b90eb7d0c3694773057d15aa260e2b">&#9670;&nbsp;</a></span>SetGoal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +387,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PIDFeedbackLoop::SetGoal </td>
+          <td class="memname">void Math::PIDFeedbackLoop::SetGoal </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>wantedValue</em></td><td>)</td>
@@ -402,8 +405,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2962b5633342af4806360a9efc2965ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2962b5633342af4806360a9efc2965ab">&#9670;&nbsp;</a></span>SetIsAngularValue()</h2>
+<a id="ab3ff0ec1ce53ac5439ffcbfec8277f30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ff0ec1ce53ac5439ffcbfec8277f30">&#9670;&nbsp;</a></span>SetIsAngularValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -412,7 +415,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PIDFeedbackLoop::SetIsAngularValue </td>
+          <td class="memname">void Math::PIDFeedbackLoop::SetIsAngularValue </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -430,8 +433,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="abfb521de13d1e26b66c2911e36ee89af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfb521de13d1e26b66c2911e36ee89af">&#9670;&nbsp;</a></span>SetState()</h2>
+<a id="aa02467d2c2ef229d79e80b362c820fd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02467d2c2ef229d79e80b362c820fd0">&#9670;&nbsp;</a></span>SetState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -440,7 +443,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PIDFeedbackLoop::SetState </td>
+          <td class="memname">void Math::PIDFeedbackLoop::SetState </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -458,8 +461,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="adce6dc34d4072c8bdc5c236bbc2e6a71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adce6dc34d4072c8bdc5c236bbc2e6a71">&#9670;&nbsp;</a></span>Update()</h2>
+<a id="ab22fac97b825e3584c780dee7856f9dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab22fac97b825e3584c780dee7856f9dd">&#9670;&nbsp;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -468,7 +471,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PIDFeedbackLoop::Update </td>
+          <td class="memname">void Math::PIDFeedbackLoop::Update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespace_timing.html#a8ad3705944b3f8824d642c4424ab3999">Timing::Time</a>&#160;</td>
           <td class="paramname"><em>time</em></td><td>)</td>
@@ -805,7 +808,7 @@ Private Attributes</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_math.html">Math</a></li><li class="navelem"><a class="el" href="class_math_1_1_p_i_d_feedback_loop.html">PIDFeedbackLoop</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:10 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

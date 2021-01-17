@@ -13,8 +13,8 @@ var namespace_characters =
       [ "IgnoreIfSame", "namespace_characters.html#ae4ad265a7161cf04bbaee511c95ae613ad341542e1f38c5e70845977233564931", null ]
     ] ],
     [ "__ImplementClass", "namespace_characters.html#a2caacd3d283d7429c08105d610aef90d", null ],
+    [ "__ImplementContext", "namespace_characters.html#a969705a559fb41ba2b6edd841dbd09f8", null ],
     [ "__ImplementEnumBitOperators", "namespace_characters.html#ac596dc49035c05e3bac610c45a430a84", null ],
-    [ "_ImplementContext", "namespace_characters.html#a68be9eaa477ced37e3c1b3655a3b3a1a", null ],
     [ "ClampKeyIndex", "namespace_characters.html#a7f4600aa78eea3c58590b4e03f0da7ca", null ],
     [ "CreateSkeleton", "namespace_characters.html#aad5922be3e4c9255b9fa48fbd14c41b5", null ],
     [ "DestroySkeleton", "namespace_characters.html#ad6bbec5c5582bd44ff0825bcdaf6c21a", null ],

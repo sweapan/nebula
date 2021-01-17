@@ -22,7 +22,7 @@ var namespace_terrain =
       [ "Grew", "namespace_terrain.html#adbc376225f7b7a972247d971534a7199a0c78fcf8d86b214d67879d4d287d6f0f", null ],
       [ "Shrank", "namespace_terrain.html#adbc376225f7b7a972247d971534a7199a9893840ceb7c291e924cd85710ff1caa", null ]
     ] ],
-    [ "_ImplementContext", "namespace_terrain.html#afbc819f53b8b34995fb9e7b265bfd0b3", null ],
+    [ "__ImplementContext", "namespace_terrain.html#ace013dcb2e57a15867b92506c9a557c1", null ],
     [ "IndirectionClear", "namespace_terrain.html#a5c4623ba4a51aabb017436b94fbac908", null ],
     [ "IndirectionMoveShiftDown", "namespace_terrain.html#adbca203f5bb2268ed3a87ae4d99ccb8a", null ],
     [ "IndirectionMoveShiftUp", "namespace_terrain.html#a553c20392dd54d5e17bc3fb360890d7b", null ],

@@ -2,7 +2,7 @@ var class_clustering_1_1_cluster_context =
 [
     [ "ClusterContext", "class_clustering_1_1_cluster_context.html#aa67f28088c15e7dce71abe6f909ea140", null ],
     [ "~ClusterContext", "class_clustering_1_1_cluster_context.html#a88a80ef9531ba9cb394b2c4efdc0bf34", null ],
-    [ "_DeclarePluginContext", "class_clustering_1_1_cluster_context.html#a2bbc4dd93edd6cdadcb0a6f47fd6ae0e", null ],
+    [ "__DeclarePluginContext", "class_clustering_1_1_cluster_context.html#a28d8a58e090bee6fa1457dd0467ed228", null ],
     [ "Create", "class_clustering_1_1_cluster_context.html#a7960e18a623a1647caec955bc2664282", null ],
     [ "GetClusterBuffer", "class_clustering_1_1_cluster_context.html#a1a60956c017e942f3a756baded22d582", null ],
     [ "GetClusterDimensions", "class_clustering_1_1_cluster_context.html#a76a18fc7e411285f7f89683c0c2ed0e0", null ],

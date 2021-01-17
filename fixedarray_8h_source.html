@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('fixedarray_8h_source.html',''); initRe
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rhs &amp;&amp; rhs.<a class="code" href="class_util_1_1_fixed_array.html#a6d3d9bd45cea67352cadde3524ad7e15">count</a> &gt; 0)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        this-&gt;<a class="code" href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Alloc</a>(rhs.<a class="code" href="class_util_1_1_fixed_array.html#a6d3d9bd45cea67352cadde3524ad7e15">count</a>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        this-&gt;<a class="code" href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Alloc</a>(rhs.<a class="code" href="class_util_1_1_fixed_array.html#a6d3d9bd45cea67352cadde3524ad7e15">count</a>);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">if</span> constexpr (!std::is_trivially_copyable&lt;TYPE&gt;::value)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        {</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a> i;</div>
@@ -277,7 +277,7 @@ $(document).ready(function(){initNavTree('fixedarray_8h_source.html',''); initRe
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rhs)</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    {</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        this-&gt;Delete();</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        this-&gt;<a class="code" href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Copy</a>(rhs);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        this-&gt;<a class="code" href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Copy</a>(rhs);</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    }</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
@@ -345,7 +345,7 @@ $(document).ready(function(){initNavTree('fixedarray_8h_source.html',''); initRe
 <div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="class_util_1_1_fixed_array.html#ad92be3013d92f92e5b425f3c20931e5c">  334</a></span>&#160;<a class="code" href="class_util_1_1_fixed_array.html#ad92be3013d92f92e5b425f3c20931e5c">FixedArray&lt;TYPE&gt;::SetSize</a>(<a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> s)</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;{</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    this-&gt;Delete();</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    this-&gt;<a class="code" href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Alloc</a>(s);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    this-&gt;<a class="code" href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Alloc</a>(s);</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;}</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
@@ -635,9 +635,9 @@ $(document).ready(function(){initNavTree('fixedarray_8h_source.html',''); initRe
 <div class="ttc" id="aclass_util_1_1_fixed_array_html_af903dfa77c0ad96fbc1daac924bf252a"><div class="ttname"><a href="class_util_1_1_fixed_array.html#af903dfa77c0ad96fbc1daac924bf252a">Util::FixedArray::Clear</a></div><div class="ttdeci">void Clear()</div><div class="ttdoc">clear the array, free elements</div><div class="ttdef"><b>Definition:</b> fixedarray.h:410</div></div>
 <div class="ttc" id="adebug_8h_html_af07fc1acd3d67e0bcafa5ef5bcba4042"><div class="ttname"><a href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a></div><div class="ttdeci">#define n_assert(exp)</div><div class="ttdef"><b>Definition:</b> debug.h:49</div></div>
 <div class="ttc" id="anamespace_im3d_html_a16976e802214d9f51d2dc5c4b90b68b6"><div class="ttname"><a href="namespace_im3d.html#a16976e802214d9f51d2dc5c4b90b68b6">Im3d::End</a></div><div class="ttdeci">IM3D_API void End()</div><div class="ttdef"><b>Definition:</b> im3d.h:807</div></div>
-<div class="ttc" id="anamespace_memory_html_aaf5b823d7efe2bcc3d5fa52701fbb993"><div class="ttname"><a href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
-<div class="ttc" id="anamespace_memory_html_afddfa173cab925938e29c6d2b77ccef6"><div class="ttname"><a href="namespace_memory.html#afddfa173cab925938e29c6d2b77ccef6">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
-<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">The ArrayAllocator provides a variadic list of types which is to be contained in the allocator and fe...</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
+<div class="ttc" id="anamespace_memory_html_a1b30970207f199d34ccd289fb784f8c1"><div class="ttname"><a href="namespace_memory.html#a1b30970207f199d34ccd289fb784f8c1">Memory::Copy</a></div><div class="ttdeci">void Copy(const void *from, void *to, size_t numBytes)</div><div class="ttdoc">Copy a chunk of memory (note the argument order is different from memcpy()!!!)</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:213</div></div>
+<div class="ttc" id="anamespace_memory_html_a302b8099d0bbcc9bccfd578814e5b4f3"><div class="ttname"><a href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
+<div class="ttc" id="anamespace_util_html"><div class="ttname"><a href="namespace_util.html">Util</a></div><div class="ttdoc">Tuple helper functions and typedefs.</div><div class="ttdef"><b>Definition:</b> array.h:38</div></div>
 <div class="ttc" id="aosxmemory_8h_html_a2f4c1f2844efb2ea8057c83f1c9d3f99"><div class="ttname"><a href="osxmemory_8h.html#a2f4c1f2844efb2ea8057c83f1c9d3f99">n_delete_array</a></div><div class="ttdeci">#define n_delete_array(ptr)</div><div class="ttdef"><b>Definition:</b> osxmemory.h:116</div></div>
 <div class="ttc" id="aosxmemory_8h_html_a5cf48dc77bff1d634ec12422258d9f3b"><div class="ttname"><a href="osxmemory_8h.html#a5cf48dc77bff1d634ec12422258d9f3b">n_new_array</a></div><div class="ttdeci">#define n_new_array(type, size)</div><div class="ttdef"><b>Definition:</b> osxmemory.h:114</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
@@ -651,7 +651,7 @@ $(document).ready(function(){initNavTree('fixedarray_8h_source.html',''); initRe
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_3efd1eb2182038baf5731b057d5f9c3b.html">util</a></li><li class="navelem"><a class="el" href="fixedarray_8h.html">fixedarray.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:29 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:34 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

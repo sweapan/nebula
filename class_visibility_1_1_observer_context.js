@@ -4,7 +4,7 @@ var class_visibility_1_1_observer_context =
     [ "ObserverAllocator", "class_visibility_1_1_observer_context.html#aae09556bf7866ec1882c39b2389e1497", null ],
     [ "VisibilityDrawList", "class_visibility_1_1_observer_context.html#af8fc836cc5238b53d2e3cd133cc841d1", null ],
     [ "VisibilityResultAllocator", "class_visibility_1_1_observer_context.html#a3786dfe4d2e3726538ac2cb57ae8e61a", null ],
-    [ "_DeclareContext", "class_visibility_1_1_observer_context.html#a40eb057183e0cd5da834cf669f95b7b8", null ],
+    [ "__DeclareContext", "class_visibility_1_1_observer_context.html#a2767d302bd5c61d6df3b2fd020c7d7bc", null ],
     [ "Alloc", "class_visibility_1_1_observer_context.html#a3eb34557887055f9dea1f2b7279e5219", null ],
     [ "Create", "class_visibility_1_1_observer_context.html#a8d8b550afe83cb2ce5aed76c26552648", null ],
     [ "CreateBoxSystem", "class_visibility_1_1_observer_context.html#a4452f33775b90e7b34eba6d8c36b4e73", null ],

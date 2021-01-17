@@ -315,7 +315,7 @@ $(document).ready(function(){initNavTree('jobs_8h_source.html',''); initResizabl
 <div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="namespace_jobs.html#a2679e335bf8653dd563863da77d6a229">  279</a></span>&#160;<span class="keyword">extern</span> <a class="code" href="class_ids_1_1_id_allocator.html">JobSyncAllocator</a> <a class="code" href="namespace_jobs.html#a2679e335bf8653dd563863da77d6a229">jobSyncAllocator</a>;</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;} <span class="comment">// namespace Jobs</span></div>
-<div class="ttc" id="aclass_ids_1_1_id_allocator_html"><div class="ttname"><a href="class_ids_1_1_id_allocator.html">Ids::IdAllocator</a></div><div class="ttdef"><b>Definition:</b> idallocator.h:33</div></div>
+<div class="ttc" id="aclass_ids_1_1_id_allocator_html"><div class="ttname"><a href="class_ids_1_1_id_allocator.html">Ids::IdAllocator</a></div><div class="ttdoc">An ID allocator associates an id with a slice in an N number of arrays.</div><div class="ttdef"><b>Definition:</b> idallocator.h:39</div></div>
 <div class="ttc" id="aclass_jobs_1_1_job_thread_html"><div class="ttname"><a href="class_jobs_1_1_job_thread.html">Jobs::JobThread</a></div><div class="ttdef"><b>Definition:</b> jobs.h:97</div></div>
 <div class="ttc" id="aclass_jobs_1_1_job_thread_html_a163ec0d4fca6ec01bfc8b59d5effae54"><div class="ttname"><a href="class_jobs_1_1_job_thread.html#a163ec0d4fca6ec01bfc8b59d5effae54">Jobs::JobThread::HasWork</a></div><div class="ttdeci">bool HasWork()</div><div class="ttdoc">returns true if thread has work</div><div class="ttdef"><b>Definition:</b> jobs.cc:463</div></div>
 <div class="ttc" id="aclass_jobs_1_1_job_thread_html_a23f96cdd775f0c5f28ecd92021541e67"><div class="ttname"><a href="class_jobs_1_1_job_thread.html#a23f96cdd775f0c5f28ecd92021541e67">Jobs::JobThread::DoWork</a></div><div class="ttdeci">void DoWork()</div><div class="ttdoc">this method runs in the thread context</div><div class="ttdef"><b>Definition:</b> jobs.cc:401</div></div>
@@ -342,8 +342,8 @@ $(document).ready(function(){initNavTree('jobs_8h_source.html',''); initResizabl
 <div class="ttc" id="afoundation_2threading_2event_8h_html"><div class="ttname"><a href="foundation_2threading_2event_8h.html">event.h</a></div></div>
 <div class="ttc" id="aidallocator_8h_html"><div class="ttname"><a href="idallocator_8h.html">idallocator.h</a></div></div>
 <div class="ttc" id="aids_2id_8h_html"><div class="ttname"><a href="ids_2id_8h.html">id.h</a></div></div>
-<div class="ttc" id="aids_2id_8h_html_a32443a9b8baee9883348a631cf5c2f37"><div class="ttname"><a href="ids_2id_8h.html#a32443a9b8baee9883348a631cf5c2f37">ID_16_TYPE</a></div><div class="ttdeci">#define ID_16_TYPE(x)</div><div class="ttdef"><b>Definition:</b> id.h:44</div></div>
-<div class="ttc" id="aids_2id_8h_html_a4235c5ac56c4d81970d369dcae60c903"><div class="ttname"><a href="ids_2id_8h.html#a4235c5ac56c4d81970d369dcae60c903">ID_32_TYPE</a></div><div class="ttdeci">#define ID_32_TYPE(x)</div><div class="ttdoc">This class implements some static helper functions to set high and low 32-bit integers,...</div><div class="ttdef"><b>Definition:</b> id.h:14</div></div>
+<div class="ttc" id="aids_2id_8h_html_a32443a9b8baee9883348a631cf5c2f37"><div class="ttname"><a href="ids_2id_8h.html#a32443a9b8baee9883348a631cf5c2f37">ID_16_TYPE</a></div><div class="ttdeci">#define ID_16_TYPE(x)</div><div class="ttdef"><b>Definition:</b> id.h:46</div></div>
+<div class="ttc" id="aids_2id_8h_html_a4235c5ac56c4d81970d369dcae60c903"><div class="ttname"><a href="ids_2id_8h.html#a4235c5ac56c4d81970d369dcae60c903">ID_32_TYPE</a></div><div class="ttdeci">#define ID_32_TYPE(x)</div><div class="ttdef"><b>Definition:</b> id.h:16</div></div>
 <div class="ttc" id="ajobs_8h_html_a5f16e304fda5642d3a82c6fccf2e3e88"><div class="ttname"><a href="jobs_8h.html#a5f16e304fda5642d3a82c6fccf2e3e88">JOBFUNCCONTEXT_MAXUNIFORMS</a></div><div class="ttdeci">#define JOBFUNCCONTEXT_MAXUNIFORMS</div><div class="ttdef"><b>Definition:</b> jobs.h:41</div></div>
 <div class="ttc" id="ajobs_8h_html_a64cafa9cd75a056938161a4c74cc483f"><div class="ttname"><a href="jobs_8h.html#a64cafa9cd75a056938161a4c74cc483f">JOBFUNCCONTEXT_MAXIO</a></div><div class="ttdeci">#define JOBFUNCCONTEXT_MAXIO</div><div class="ttdef"><b>Definition:</b> jobs.h:40</div></div>
 <div class="ttc" id="anamespace_jobs_html"><div class="ttname"><a href="namespace_jobs.html">Jobs</a></div><div class="ttdoc">Job system allows for scheduling and execution of a parallel task.</div><div class="ttdef"><b>Definition:</b> jobs.cc:11</div></div>
@@ -448,7 +448,7 @@ $(document).ready(function(){initNavTree('jobs_8h_source.html',''); initResizabl
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_102fcba59b9bdd1b915a2315d54475a8.html">jobs</a></li><li class="navelem"><a class="el" href="jobs_8h.html">jobs.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:27 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:32 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

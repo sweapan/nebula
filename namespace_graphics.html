@@ -91,56 +91,42 @@ $(document).ready(function(){initNavTree('namespace_graphics.html',''); initResi
 <div class="title">Graphics Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A FrameScript describes render operations being done to produce a single frame. </p>
-<p>Adds a light probe component to graphics entities.</p>
-<p>A view describes a camera which can observe a <a class="el" href="class_graphics_1_1_stage.html">Stage</a>.</p>
-<p>A stage contains a list of graphics entities, which can be rendered through a <a class="el" href="class_graphics_1_1_view.html">View</a>.</p>
-<p>The graphics server is the main singleton for the <a class="el" href="namespace_graphics.html" title="A FrameScript describes render operations being done to produce a single frame.">Graphics</a> subsystem.</p>
-<p>The graphics entity is only an Id, to which we can attach GraphicsContexts.</p>
-<p>The environment context deals with anything related to the sky and atmosphere effects.</p>
-<p>Handles cameras.</p>
-<p><a class="el" href="namespace_frame.html" title="ImGUI debug interface for inspecting frame scripts.">Frame</a> scripts are loaded once like a template, and then compiled to produce an optimized result. When a pass is disabled or re-enabled, the script is rebuilt, so refrain from doing this frequently.</p>
-<p>On DX12 and <a class="el" href="namespace_vulkan.html" title="The Vulkan implementation of a GPU command barrier.">Vulkan</a>, the compile process serves to insert proper barriers, events and semaphore operations such that shader resources are not stomped or read prematurely.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2016-2020 Individual contributors, see AUTHORS file</dd>
-<dd>
-(C) 2018-2020 Individual contributors, see AUTHORS file</dd>
-<dd>
-(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
-<p>Updating the <a class="el" href="class_graphics_1_1_graphics_server.html">GraphicsServer</a> will progress the rendering process by one frame.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
-<p>The stage is also responsible for negotiating resource loading, and visibility resolution.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file</dd></dl>
-<p>The view processes the attached <a class="el" href="class_graphics_1_1_stage.html">Stage</a> through its FrameScript each frame.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2017-2020 Individual contributors, see AUTHORS file </dd></dl>
-</div><table class="memberdecls">
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_camera_context.html">CameraContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles cameras.  <a href="class_graphics_1_1_camera_context.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_camera_settings.html">CameraSettings</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_environment_context.html">EnvironmentContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The environment context deals with anything related to the sky and atmosphere effects.  <a href="class_graphics_1_1_environment_context.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graphics_1_1_graphics_context_function_bundle.html">GraphicsContextFunctionBundle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graphics_1_1_context_entity_id.html">ContextEntityId</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graphics_1_1_graphics_context_state.html">GraphicsContextState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A graphics context is a resource which holds a contextual representation for a graphics entity.  <a href="struct_graphics_1_1_graphics_context_state.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_graphics_context.html">GraphicsContext</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graphics_1_1_graphics_entity_id.html">GraphicsEntityId</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The graphics entity is only an Id, to which we can attach GraphicsContexts.  <a href="struct_graphics_1_1_graphics_entity_id.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graphics_1_1_frame_context.html">FrameContext</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_graphics_server.html">GraphicsServer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The graphics server is the main singleton for the <a class="el" href="namespace_graphics.html">Graphics</a> subsystem.  <a href="class_graphics_1_1_graphics_server.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_stage.html">Stage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stage contains a list of graphics entities, which can be rendered through a <a class="el" href="class_graphics_1_1_view.html" title="A view describes a camera which can observe a Stage.">View</a>.  <a href="class_graphics_1_1_stage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_view.html">View</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A view describes a camera which can observe a <a class="el" href="class_graphics_1_1_stage.html" title="A stage contains a list of graphics entities, which can be rendered through a View.">Stage</a>.  <a href="class_graphics_1_1_view.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_1_1_light_probe_context.html">LightProbeContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a light probe component to graphics entities.  <a href="class_graphics_1_1_light_probe_context.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -166,10 +152,10 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a370a3c2f355a51c4b512767f41b2bd0f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#a370a3c2f355a51c4b512767f41b2bd0f">_ImplementContext</a> (<a class="el" href="class_graphics_1_1_camera_context.html">CameraContext</a>, <a class="el" href="class_graphics_1_1_camera_context.html#ac24164f617361d116566eceebda414c4">CameraContext::cameraAllocator</a>)</td></tr>
-<tr class="separator:a370a3c2f355a51c4b512767f41b2bd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab896822ca2c4b902250963ef32eddb1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#ab896822ca2c4b902250963ef32eddb1d">_ImplementPluginContext</a> (<a class="el" href="class_graphics_1_1_environment_context.html">EnvironmentContext</a>)</td></tr>
-<tr class="separator:ab896822ca2c4b902250963ef32eddb1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1b4f5c1d526c3c132d3ba4aa87125d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#a7e1b4f5c1d526c3c132d3ba4aa87125d">__ImplementContext</a> (<a class="el" href="class_graphics_1_1_camera_context.html">CameraContext</a>, <a class="el" href="class_graphics_1_1_camera_context.html#ac24164f617361d116566eceebda414c4">CameraContext::cameraAllocator</a>)</td></tr>
+<tr class="separator:a7e1b4f5c1d526c3c132d3ba4aa87125d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c559f3d0f83a15d177c2910c9cf4e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#a55c559f3d0f83a15d177c2910c9cf4e3">__ImplementPluginContext</a> (<a class="el" href="class_graphics_1_1_environment_context.html">EnvironmentContext</a>)</td></tr>
+<tr class="separator:a55c559f3d0f83a15d177c2910c9cf4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f40e80c6cf2f4c7b7f2d4bdf1f1b306"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_math_1_1vec4.html">Math::vec4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#a1f40e80c6cf2f4c7b7f2d4bdf1f1b306">CalculateZenithLuminanceYxy</a> (float t, float thetaS)</td></tr>
 <tr class="separator:a1f40e80c6cf2f4c7b7f2d4bdf1f1b306"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac96399889b3b370f950dca49c973290b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#ac96399889b3b370f950dca49c973290b">CalculatePerezDistribution</a> (float t, <a class="el" href="struct_math_1_1vec4.html">Math::vec4</a> &amp;A, <a class="el" href="struct_math_1_1vec4.html">Math::vec4</a> &amp;B, <a class="el" href="struct_math_1_1vec4.html">Math::vec4</a> &amp;C, <a class="el" href="struct_math_1_1vec4.html">Math::vec4</a> &amp;D, <a class="el" href="struct_math_1_1vec4.html">Math::vec4</a> &amp;E)</td></tr>
@@ -194,8 +180,8 @@ Functions</h2></td></tr>
 <tr class="separator:aae660d4d348061c4b17aec169308899f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e2ab7341b441a793512f2287ee7c33a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#a3e2ab7341b441a793512f2287ee7c33a">__ImplementClass</a> (<a class="el" href="class_graphics_1_1_view.html">Graphics::View</a>, 'VIEW', <a class="el" href="class_core_1_1_ref_counted.html">Core::RefCounted</a>)</td></tr>
 <tr class="separator:a3e2ab7341b441a793512f2287ee7c33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71bc5a1155585a0c7b0782886be8eac4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#a71bc5a1155585a0c7b0782886be8eac4">_ImplementContext</a> (<a class="el" href="class_graphics_1_1_light_probe_context.html">LightProbeContext</a>, <a class="el" href="class_graphics_1_1_light_probe_context.html#a7d0f6c1f242d2461be6814b06fb0ace4">LightProbeContext::lightProbeAllocator</a>)</td></tr>
-<tr class="separator:a71bc5a1155585a0c7b0782886be8eac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eae413ac63ff9ea24afc48f80ea8fb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_graphics.html#a7eae413ac63ff9ea24afc48f80ea8fb0">__ImplementContext</a> (<a class="el" href="class_graphics_1_1_light_probe_context.html">LightProbeContext</a>, <a class="el" href="class_graphics_1_1_light_probe_context.html#a7d0f6c1f242d2461be6814b06fb0ace4">LightProbeContext::lightProbeAllocator</a>)</td></tr>
+<tr class="separator:a7eae413ac63ff9ea24afc48f80ea8fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -361,50 +347,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a129d53aa58c90a48757ccf145b70cb97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a129d53aa58c90a48757ccf145b70cb97">&#9670;&nbsp;</a></span>__ImplementEnumBitOperators()</h2>
+<a id="a7e1b4f5c1d526c3c132d3ba4aa87125d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e1b4f5c1d526c3c132d3ba4aa87125d">&#9670;&nbsp;</a></span>__ImplementContext() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Graphics::__ImplementEnumBitOperators </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_graphics.html#ac37d1d933a1897e5a04c0cef8816f4d8">StageBits</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a591078e2b9fc77c122e1b3e117354302"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a591078e2b9fc77c122e1b3e117354302">&#9670;&nbsp;</a></span>__ImplementSingleton()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Graphics::__ImplementSingleton </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_graphics_1_1_graphics_server.html">Graphics::GraphicsServer</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a370a3c2f355a51c4b512767f41b2bd0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a370a3c2f355a51c4b512767f41b2bd0f">&#9670;&nbsp;</a></span>_ImplementContext() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Graphics::_ImplementContext </td>
+          <td class="memname">Graphics::__ImplementContext </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_graphics_1_1_camera_context.html">CameraContext</a>&#160;</td>
           <td class="paramname">, </td>
@@ -425,14 +375,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a71bc5a1155585a0c7b0782886be8eac4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71bc5a1155585a0c7b0782886be8eac4">&#9670;&nbsp;</a></span>_ImplementContext() <span class="overload">[2/2]</span></h2>
+<a id="a7eae413ac63ff9ea24afc48f80ea8fb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eae413ac63ff9ea24afc48f80ea8fb0">&#9670;&nbsp;</a></span>__ImplementContext() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Graphics::_ImplementContext </td>
+          <td class="memname">Graphics::__ImplementContext </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_graphics_1_1_light_probe_context.html">LightProbeContext</a>&#160;</td>
           <td class="paramname">, </td>
@@ -453,16 +403,52 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab896822ca2c4b902250963ef32eddb1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab896822ca2c4b902250963ef32eddb1d">&#9670;&nbsp;</a></span>_ImplementPluginContext()</h2>
+<a id="a129d53aa58c90a48757ccf145b70cb97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a129d53aa58c90a48757ccf145b70cb97">&#9670;&nbsp;</a></span>__ImplementEnumBitOperators()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Graphics::_ImplementPluginContext </td>
+          <td class="memname">Graphics::__ImplementEnumBitOperators </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_graphics.html#ac37d1d933a1897e5a04c0cef8816f4d8">StageBits</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55c559f3d0f83a15d177c2910c9cf4e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c559f3d0f83a15d177c2910c9cf4e3">&#9670;&nbsp;</a></span>__ImplementPluginContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Graphics::__ImplementPluginContext </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_graphics_1_1_environment_context.html">EnvironmentContext</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a591078e2b9fc77c122e1b3e117354302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a591078e2b9fc77c122e1b3e117354302">&#9670;&nbsp;</a></span>__ImplementSingleton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Graphics::__ImplementSingleton </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_graphics_1_1_graphics_server.html">Graphics::GraphicsServer</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -862,7 +848,7 @@ template&lt;typename ... CONTEXTS&gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_graphics.html">Graphics</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:03 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

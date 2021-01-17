@@ -86,7 +86,25 @@ $(document).ready(function(){initNavTree('class_util_1_1_delegate.html',''); ini
 <div class="title">Util::Delegate&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<hr/>The documentation for this class was generated from the following file:<ul>
+
+<p><code>#include &lt;<a class="el" href="delegate_8h_source.html">delegate.h</a>&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class Util::Delegate&lt; T &gt;</h3>
+
+<p>Nebula delegate class, allows to store a function, method or lambda call into a C++ object for later execution. </p>
+<p>Note that this does not store any objects or capture, meaning these are extremely vulnerable to dangling pointers. This is by design, since it allows us to have much better performance than for example std::function that does expensive runtime heap allocations for storing objects and lambda capture.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// &#39;Foo&#39; can be a function or static method</span></div>
+<div class="line"><a class="code" href="class_util_1_1_delegate.html">Util::Delegate</a>&lt;int(<span class="keywordtype">int</span>, <span class="keywordtype">float</span>)&gt; funcDelegate = Delegate&lt;int(<span class="keywordtype">int</span>, <span class="keywordtype">float</span>)&gt;::FromFunction&lt;Foo&gt;();</div>
+<div class="line"><span class="comment">// Requires an object</span></div>
+<div class="line"><a class="code" href="class_util_1_1_delegate.html">Util::Delegate</a>&lt;int()&gt; methodDelegate = Delegate&lt;int()&gt;::FromMethod&lt;MyClass, MyMethod&gt;(MyObject);</div>
+<div class="line"><span class="comment">// Can not utilize closures!</span></div>
+<div class="line"><a class="code" href="class_util_1_1_delegate.html">Util::Delegate</a>&lt;void(<span class="keywordtype">int</span>)&gt; lambdaDelegate = [](<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) { <span class="keywordflow">return</span> a + b; };</div>
+<div class="ttc" id="aclass_util_1_1_delegate_html"><div class="ttname"><a href="class_util_1_1_delegate.html">Util::Delegate</a></div><div class="ttdoc">Nebula delegate class, allows to store a function, method or lambda call into a C++ object for later ...</div><div class="ttdef"><b>Definition:</b> delegate.h:39</div></div>
+</div><!-- fragment --><p>See <a href="http://www.codeproject.com/KB/cpp/ImpossiblyFastCppDelegate.aspx">http://www.codeproject.com/KB/cpp/ImpossiblyFastCppDelegate.aspx</a> for implementation details.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_util_1_1_delegate_3_01_r_e_t_t_y_p_e_07_a_r_g_t_y_p_e_s_8_8_8_08_4.html">Util::Delegate&lt;RETTYPE(ARGTYPES...)&gt;</a></dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2008 Radon Labs GmbH (C) 2013-2020 Individual contributors, see AUTHORS file </dd></dl>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/github/workspace/code/foundation/util/<a class="el" href="delegate_8h_source.html">delegate.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -96,7 +114,7 @@ $(document).ready(function(){initNavTree('class_util_1_1_delegate.html',''); ini
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_util.html">Util</a></li><li class="navelem"><a class="el" href="class_util_1_1_delegate.html">Delegate</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:12 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 19:00:07 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

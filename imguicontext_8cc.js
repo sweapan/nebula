@@ -1,4 +1,4 @@
 var imguicontext_8cc =
 [
-    [ "_ImplementPluginContext", "imguicontext_8cc.html#a4308bd131e3996105145dd503b0929f4", null ]
+    [ "__ImplementPluginContext", "imguicontext_8cc.html#ac30d999a3f97cb82b19b146cf0b7e5e3", null ]
 ];

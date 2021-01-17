@@ -235,7 +235,7 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><span class="keyword">public</span>: \</div>
 <div class="line">    void* <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keywordtype">size_t</span> size) \</div>
 <div class="line">    { \</div>
-<div class="line">        return <a class="code" href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Memory::Alloc</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56a4ff80c59d09738d4a7c49b982c990f71">Memory::ObjectHeap</a>, size); \</div>
+<div class="line">        return <a class="code" href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Memory::Alloc</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56a4ff80c59d09738d4a7c49b982c990f71">Memory::ObjectHeap</a>, size); \</div>
 <div class="line">    }; \</div>
 <div class="line">    void <span class="keyword">operator</span> <span class="keyword">delete</span>(<span class="keywordtype">void</span>* p) \</div>
 <div class="line">    { <a class="code" href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">\</a></div>
@@ -244,9 +244,9 @@ Macros</h2></td></tr>
 <div class="line">    static type&lt;temp&gt;* <a class="code" href="namespace_game_1_1_time_manager.html#a18c6aa9e2f022cec2293bc8ba843ac6f">Create</a>(); \</div>
 <div class="line">    static type&lt;temp&gt;* CreateArray(<a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> num); \</div>
 <div class="line">private:</div>
+<div class="ttc" id="anamespace_memory_html_a302b8099d0bbcc9bccfd578814e5b4f3"><div class="ttname"><a href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
 <div class="ttc" id="anamespace_memory_html_a6055e491858cd969e93326d9b3e4b420"><div class="ttname"><a href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Memory::Free</a></div><div class="ttdeci">void Free(HeapType heapType, void *ptr)</div><div class="ttdoc">Free a block of memory.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:136</div></div>
 <div class="ttc" id="anamespace_memory_html_a876b4d169c56fbc6a73614d357a46a56a4ff80c59d09738d4a7c49b982c990f71"><div class="ttname"><a href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56a4ff80c59d09738d4a7c49b982c990f71">Memory::ObjectHeap</a></div><div class="ttdeci">@ ObjectHeap</div><div class="ttdef"><b>Definition:</b> osxmemoryconfig.h:27</div></div>
-<div class="ttc" id="anamespace_memory_html_aaf5b823d7efe2bcc3d5fa52701fbb993"><div class="ttname"><a href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -739,7 +739,7 @@ Macros</h2></td></tr>
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_999e4b83a7aab2205e484f6a00e051c0.html">core</a></li><li class="navelem"><a class="el" href="rttimacros_8h.html">rttimacros.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:08:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:59:55 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

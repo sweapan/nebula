@@ -11,7 +11,7 @@ var namespace_particles =
     [ "ParticleContext", "class_particles_1_1_particle_context.html", "class_particles_1_1_particle_context" ],
     [ "JOB_ID", "namespace_particles.html#a6b7774555eac24d3d4fee976940eceff", null ],
     [ "ParticleRenderInfo", "namespace_particles.html#a97c26170398a5cbf672f235b3c21d403", null ],
-    [ "_ImplementContext", "namespace_particles.html#a759af6326c89e806dd1af598c4d5efa4", null ],
+    [ "__ImplementContext", "namespace_particles.html#a1db36c23bd8d5a3c6e7c7d8291674732", null ],
     [ "JobStep", "namespace_particles.html#a719121357082ad4bdbea37dd3ec4e29f", null ],
     [ "LookupEnvelopeSamples", "namespace_particles.html#aac6f7feb079adb563be3300d33af7760", null ],
     [ "ParticleStep", "namespace_particles.html#a16abad504c20a8bd17004076a3c8464f", null ],

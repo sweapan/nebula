@@ -88,254 +88,254 @@ $(document).ready(function(){initNavTree('arenaallocator_8h_source.html',''); in
 <div class="contents">
 <a href="arenaallocator_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="array_8h.html">util/array.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="arenaallocator_8h.html#ab3197c20d4512c145ad69a6f453c0329">   22</a></span>&#160;<span class="preprocessor">#define SMALL_CHUNK 0x100</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="arenaallocator_8h.html#aba0cf9ee3e89269ecdf69437f2feaae2">   23</a></span>&#160;<span class="preprocessor">#define MEDIUM_CHUNK 0x1000</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="arenaallocator_8h.html#ad1788af3f20b8948ba2ba938102f6a61">   24</a></span>&#160;<span class="preprocessor">#define BIG_CHUNK 0x10000</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespace_memory.html">   25</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_memory.html">Memory</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">   34</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">   36</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">~ArenaAllocator</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">   39</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">ArenaAllocator</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs);</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">   41</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">   44</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">ArenaAllocator</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs);</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">   46</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">operator=</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">   49</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T* <a class="code" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">Alloc</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">   51</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">Alloc</a>(<a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> size);</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">   53</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">NewChunk</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">   55</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">Release</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">   58</a></span>&#160;    <span class="keywordtype">byte</span>* <a class="code" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">currentChunk</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">   59</a></span>&#160;    <span class="keywordtype">byte</span>* <a class="code" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">iterator</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">   60</a></span>&#160;    <a class="code" href="class_util_1_1_array.html">Util::Array&lt;byte*&gt;</a> <a class="code" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">retiredChunks</a>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">   68</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator&lt;ChunkSize&gt;::ArenaAllocator</a>() :</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    currentChunk(nullptr),</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    iterator(nullptr)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// constructor</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">   80</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">ArenaAllocator&lt;ChunkSize&gt;::~ArenaAllocator</a>()</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    this-&gt;currentChunk = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    this-&gt;iterator = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    this-&gt;retiredChunks.Clear();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">//this-&gt;Release(); // perhaps call release when we actually want to dealloc</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">   93</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator&lt;ChunkSize&gt;::ArenaAllocator</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    this-&gt;retiredChunks = rhs.retiredChunks;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    this-&gt;currentChunk = rhs.currentChunk;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    this-&gt;iterator = rhs.iterator;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    rhs.retiredChunks.Clear();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    rhs.currentChunk = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    rhs.iterator = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">  109</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator&lt;ChunkSize&gt;::ArenaAllocator</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// copy chunk</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    this-&gt;retiredChunks = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">retiredChunks</a>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    this-&gt;currentChunk = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">currentChunk</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    this-&gt;iterator = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">iterator</a>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">    IndexT i;</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">    for (i = 0; i &lt; rhs.retiredChunks.Size(); i++)</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">        byte* chunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">        memcpy(chunk, rhs.retiredChunks[i], ChunkSize);</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">        this-&gt;retiredChunks.Append(chunk);</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">    if (rhs.currentChunk)</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">        this-&gt;currentChunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">        ptrdiff_t size = rhs.iterator - rhs.currentChunk;</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">        memcpy(this-&gt;currentChunk, rhs.currentChunk, size);</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">        this-&gt;iterator = this-&gt;currentChunk + size;</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">    else</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">        this-&gt;currentChunk = nullptr;</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">        this-&gt;iterator = nullptr;</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">  143</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">ArenaAllocator&lt;ChunkSize&gt;::operator=</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    this-&gt;retiredChunks = rhs.retiredChunks;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    this-&gt;currentChunk = rhs.currentChunk;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    this-&gt;iterator = rhs.iterator;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    rhs.retiredChunks.Clear();</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    rhs.currentChunk = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    rhs.iterator = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">  159</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">ArenaAllocator&lt;ChunkSize&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    this-&gt;retiredChunks = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">retiredChunks</a>;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    this-&gt;currentChunk = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">currentChunk</a>;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    this-&gt;iterator = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">iterator</a>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">    IndexT i;</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">    for (i = 0; i &lt; rhs.retiredChunks.Size(); i++)</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">        byte* chunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">        memcpy(chunk, rhs.retiredChunks[i], ChunkSize);</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">        this-&gt;retiredChunks.Append(chunk);</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">    if (rhs.currentChunk)</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">        this-&gt;currentChunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">        ptrdiff_t size = rhs.iterator - rhs.currentChunk;</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">        memcpy(this-&gt;currentChunk, rhs.currentChunk, size);</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">        this-&gt;iterator = this-&gt;currentChunk + size;</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">    else</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">        this-&gt;currentChunk = nullptr;</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">        this-&gt;iterator = nullptr;</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">  192</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">ArenaAllocator&lt;ChunkSize&gt;::NewChunk</a>()</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">if</span> (this-&gt;currentChunk != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        this-&gt;retiredChunks.Append(this-&gt;currentChunk);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    this-&gt;currentChunk = (<span class="keywordtype">byte</span>*)<a class="code" href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Memory::Alloc</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe">ObjectArrayHeap</a>, ChunkSize);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    this-&gt;iterator = this-&gt;currentChunk;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">  204</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">ArenaAllocator&lt;ChunkSize&gt;::Release</a>()</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a> i;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; this-&gt;retiredChunks.Size(); i++)</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    {</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <a class="code" href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Memory::Free</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe">ObjectArrayHeap</a>, this-&gt;retiredChunks[i]);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">if</span> (this-&gt;currentChunk)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <a class="code" href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Memory::Free</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe">ObjectArrayHeap</a>, this-&gt;currentChunk);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    this-&gt;retiredChunks.Clear();</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    this-&gt;currentChunk = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    this-&gt;iterator = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keyword">inline</span> T*</div>
-<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">  224</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">ArenaAllocator&lt;ChunkSize&gt;::Alloc</a>()</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;{</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    static_assert(<span class="keyword">sizeof</span>(T) &lt;= ChunkSize, <span class="stringliteral">&quot;Size of type is bigger than the chunk size!&quot;</span>);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="comment">// pad up to next multiple of 16 to avoid alignment issues</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> alignedSize = <a class="code" href="namespace_math.html#a830feebf365bd62d5956c9b13d35138f">Math::align</a>(<span class="keyword">sizeof</span>(T), 16);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> (this-&gt;iterator == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        this-&gt;NewChunk();</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="foundation_2core_2config_8h.html">core/config.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="array_8h.html">util/array.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="arenaallocator_8h.html#ab3197c20d4512c145ad69a6f453c0329">   26</a></span>&#160;<span class="preprocessor">#define SMALL_CHUNK 0x100</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="arenaallocator_8h.html#aba0cf9ee3e89269ecdf69437f2feaae2">   27</a></span>&#160;<span class="preprocessor">#define MEDIUM_CHUNK 0x1000</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="arenaallocator_8h.html#ad1788af3f20b8948ba2ba938102f6a61">   28</a></span>&#160;<span class="preprocessor">#define BIG_CHUNK 0x10000</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespace_memory.html">   29</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_memory.html">Memory</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">   38</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">   40</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">~ArenaAllocator</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">   43</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">ArenaAllocator</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs);</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">   45</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">   48</a></span>&#160;    <a class="code" href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">ArenaAllocator</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs);</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">   50</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">operator=</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">   53</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T* <a class="code" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">Alloc</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">   55</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">Alloc</a>(<a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> size);</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">   57</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">NewChunk</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">   59</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">Release</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">   62</a></span>&#160;    <span class="keywordtype">byte</span>* <a class="code" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">currentChunk</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">   63</a></span>&#160;    <span class="keywordtype">byte</span>* <a class="code" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">iterator</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">   64</a></span>&#160;    <a class="code" href="class_util_1_1_array.html">Util::Array&lt;byte*&gt;</a> <a class="code" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">retiredChunks</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">   72</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator&lt;ChunkSize&gt;::ArenaAllocator</a>() :</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    currentChunk(nullptr),</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    iterator(nullptr)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// constructor</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">   84</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">ArenaAllocator&lt;ChunkSize&gt;::~ArenaAllocator</a>()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    this-&gt;currentChunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    this-&gt;iterator = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    this-&gt;retiredChunks.Clear();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">//this-&gt;Release(); // perhaps call release when we actually want to dealloc</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">   97</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator&lt;ChunkSize&gt;::ArenaAllocator</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    this-&gt;retiredChunks = rhs.retiredChunks;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    this-&gt;currentChunk = rhs.currentChunk;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    this-&gt;iterator = rhs.iterator;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    rhs.retiredChunks.Clear();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    rhs.currentChunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    rhs.iterator = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">  113</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">ArenaAllocator&lt;ChunkSize&gt;::ArenaAllocator</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// copy chunk</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    this-&gt;retiredChunks = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">retiredChunks</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    this-&gt;currentChunk = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">currentChunk</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    this-&gt;iterator = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">iterator</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">    IndexT i;</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">    for (i = 0; i &lt; rhs.retiredChunks.Size(); i++)</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">        byte* chunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">        memcpy(chunk, rhs.retiredChunks[i], ChunkSize);</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">        this-&gt;retiredChunks.Append(chunk);</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">    if (rhs.currentChunk)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">        this-&gt;currentChunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">        ptrdiff_t size = rhs.iterator - rhs.currentChunk;</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">        memcpy(this-&gt;currentChunk, rhs.currentChunk, size);</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">        this-&gt;iterator = this-&gt;currentChunk + size;</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">    else</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">        this-&gt;currentChunk = nullptr;</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">        this-&gt;iterator = nullptr;</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">  147</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">ArenaAllocator&lt;ChunkSize&gt;::operator=</a>(<a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp;&amp; rhs)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    this-&gt;retiredChunks = rhs.retiredChunks;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    this-&gt;currentChunk = rhs.currentChunk;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    this-&gt;iterator = rhs.iterator;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    rhs.retiredChunks.Clear();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    rhs.currentChunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    rhs.iterator = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">  163</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">ArenaAllocator&lt;ChunkSize&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="class_memory_1_1_arena_allocator.html">ArenaAllocator</a>&amp; rhs)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    this-&gt;retiredChunks = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">retiredChunks</a>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    this-&gt;currentChunk = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">currentChunk</a>;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    this-&gt;iterator = rhs.<a class="code" href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">iterator</a>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">    IndexT i;</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">    for (i = 0; i &lt; rhs.retiredChunks.Size(); i++)</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">        byte* chunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">        memcpy(chunk, rhs.retiredChunks[i], ChunkSize);</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">        this-&gt;retiredChunks.Append(chunk);</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">    if (rhs.currentChunk)</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">        this-&gt;currentChunk = (byte*)Memory::Alloc(ObjectArrayHeap, ChunkSize);</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">        ptrdiff_t size = rhs.iterator - rhs.currentChunk;</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">        memcpy(this-&gt;currentChunk, rhs.currentChunk, size);</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">        this-&gt;iterator = this-&gt;currentChunk + size;</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">    else</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">        this-&gt;currentChunk = nullptr;</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">        this-&gt;iterator = nullptr;</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">  196</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">ArenaAllocator&lt;ChunkSize&gt;::NewChunk</a>()</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">if</span> (this-&gt;currentChunk != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        this-&gt;retiredChunks.Append(this-&gt;currentChunk);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    this-&gt;currentChunk = (<span class="keywordtype">byte</span>*)<a class="code" href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Memory::Alloc</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe">ObjectArrayHeap</a>, ChunkSize);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    this-&gt;iterator = this-&gt;currentChunk;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">  208</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">ArenaAllocator&lt;ChunkSize&gt;::Release</a>()</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;{</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <a class="code" href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a> i;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; this-&gt;retiredChunks.Size(); i++)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    {</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <a class="code" href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Memory::Free</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe">ObjectArrayHeap</a>, this-&gt;retiredChunks[i]);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span> (this-&gt;currentChunk)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <a class="code" href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Memory::Free</a>(<a class="code" href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe">ObjectArrayHeap</a>, this-&gt;currentChunk);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    this-&gt;retiredChunks.Clear();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    this-&gt;currentChunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    this-&gt;iterator = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">inline</span> T*</div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">  228</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">ArenaAllocator&lt;ChunkSize&gt;::Alloc</a>()</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;{</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    static_assert(<span class="keyword">sizeof</span>(T) &lt;= ChunkSize, <span class="stringliteral">&quot;Size of type is bigger than the chunk size!&quot;</span>);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">// pad up to next multiple of 16 to avoid alignment issues</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> alignedSize = <a class="code" href="namespace_math.html#a830feebf365bd62d5956c9b13d35138f">Math::align</a>(<span class="keyword">sizeof</span>(T), 16);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">if</span> (this-&gt;iterator == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="comment">// we cast the pointer diff but it should be safe since it should never be above ChunkSize</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> remainder = ChunkSize - <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a>(this-&gt;iterator - this-&gt;currentChunk);       </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">if</span> (remainder &lt; alignedSize)</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            this-&gt;NewChunk();</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    }</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    T* ret = <span class="keyword">new</span> (this-&gt;iterator) T;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    this-&gt;iterator += alignedSize;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;}</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>*</div>
-<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">  251</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">ArenaAllocator&lt;ChunkSize&gt;::Alloc</a>(<a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> size)</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;{</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">// pad to next alignment.</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    size = <a class="code" href="namespace_math.html#a830feebf365bd62d5956c9b13d35138f">Math::align</a>(size, 16);</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a>(size &lt;= ChunkSize);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a>(size != 0);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">if</span> (this-&gt;iterator == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        this-&gt;NewChunk();</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        this-&gt;NewChunk();</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    {</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="comment">// we cast the pointer diff but it should be safe since it should never be above ChunkSize</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> remainder = ChunkSize - <a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a>(this-&gt;iterator - this-&gt;currentChunk);       </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">if</span> (remainder &lt; alignedSize)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            this-&gt;NewChunk();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    T* ret = <span class="keyword">new</span> (this-&gt;iterator) T;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    this-&gt;iterator += alignedSize;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;}</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> ChunkSize&gt;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>*</div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">  255</a></span>&#160;<a class="code" href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">ArenaAllocator&lt;ChunkSize&gt;::Alloc</a>(<a class="code" href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a> size)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="comment">// pad to next alignment.</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    size = <a class="code" href="namespace_math.html#a830feebf365bd62d5956c9b13d35138f">Math::align</a>(size, 16);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <a class="code" href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a>(size &lt;= ChunkSize);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <a class="code" href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a>(size != 0);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">if</span> (this-&gt;iterator == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    {</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <a class="code" href="types_8h.html#a631b6ce1ca2927ef71a9a193b2f4ba70">PtrDiff</a> remainder = this-&gt;currentChunk + ChunkSize - this-&gt;iterator;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">if</span> (remainder &lt; size)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            this-&gt;NewChunk();</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">void</span>* ret = this-&gt;iterator;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    this-&gt;iterator += size;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;} <span class="comment">// namespace Memory</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        this-&gt;NewChunk();</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <a class="code" href="types_8h.html#a631b6ce1ca2927ef71a9a193b2f4ba70">PtrDiff</a> remainder = this-&gt;currentChunk + ChunkSize - this-&gt;iterator;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="keywordflow">if</span> (remainder &lt; size)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            this-&gt;NewChunk();</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordtype">void</span>* ret = this-&gt;iterator;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    this-&gt;iterator += size;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;} <span class="comment">// namespace Memory</span></div>
 <div class="ttc" id="aarray_8h_html"><div class="ttname"><a href="array_8h.html">array.h</a></div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html">Memory::ArenaAllocator</a></div><div class="ttdef"><b>Definition:</b> arenaallocator.h:31</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a000ac3e4ea80aa72a2ae41d8cd2a4266"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">Memory::ArenaAllocator::~ArenaAllocator</a></div><div class="ttdeci">~ArenaAllocator()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:80</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a07cdfc4472bcdb8cb47e82de00af5fbd"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">Memory::ArenaAllocator::Alloc</a></div><div class="ttdeci">void * Alloc(SizeT size)</div><div class="ttdoc">allocate new chunk of size</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:251</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a0f29a11f03179c2317f9315cde70c0b5"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">Memory::ArenaAllocator::Alloc</a></div><div class="ttdeci">T * Alloc()</div><div class="ttdoc">allocate new object, and calls constructor, but beware because this allocator does not run the destru...</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:224</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a3053e88d780a5262b8b815038aff5911"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">Memory::ArenaAllocator::ArenaAllocator</a></div><div class="ttdeci">ArenaAllocator()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:68</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a32f17a0a7f62bcc103ac614ea968f9a9"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">Memory::ArenaAllocator::ArenaAllocator</a></div><div class="ttdeci">ArenaAllocator(ArenaAllocator &amp;&amp;rhs)</div><div class="ttdoc">move constructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:93</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a41d46e483d29b1eeb365617db279e07e"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">Memory::ArenaAllocator::ArenaAllocator</a></div><div class="ttdeci">ArenaAllocator(const ArenaAllocator &amp;rhs)</div><div class="ttdoc">copy constructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:109</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a7f860aaca991ff435820ae507ba1c071"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">Memory::ArenaAllocator::operator=</a></div><div class="ttdeci">void operator=(const ArenaAllocator &amp;rhs)</div><div class="ttdoc">assignment operator</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:159</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a835ba81f9823719e2d1a2db37a437f24"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">Memory::ArenaAllocator::currentChunk</a></div><div class="ttdeci">byte * currentChunk</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:58</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_aa01abc3b629955f513500fd454bd6730"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">Memory::ArenaAllocator::operator=</a></div><div class="ttdeci">void operator=(ArenaAllocator &amp;&amp;rhs)</div><div class="ttdoc">move operator</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:143</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_aa88ebe8744b688debadc25eea2f7aad5"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">Memory::ArenaAllocator::retiredChunks</a></div><div class="ttdeci">Util::Array&lt; byte * &gt; retiredChunks</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:60</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_ac3dc23dc20068609162d1964ec65ce79"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">Memory::ArenaAllocator::iterator</a></div><div class="ttdeci">byte * iterator</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:59</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_ae034794f80dbe1312763087d5057e44c"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">Memory::ArenaAllocator::Release</a></div><div class="ttdeci">void Release()</div><div class="ttdoc">release all memory</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:204</div></div>
-<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_af01d3d5ad4bcd98ff0b9892a0a90cb17"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">Memory::ArenaAllocator::NewChunk</a></div><div class="ttdeci">void NewChunk()</div><div class="ttdoc">retires a chunk and creates a new one (might waste memory)</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:192</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html">Memory::ArenaAllocator</a></div><div class="ttdoc">Allocates memory in chunks.</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:35</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a000ac3e4ea80aa72a2ae41d8cd2a4266"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a000ac3e4ea80aa72a2ae41d8cd2a4266">Memory::ArenaAllocator::~ArenaAllocator</a></div><div class="ttdeci">~ArenaAllocator()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:84</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a07cdfc4472bcdb8cb47e82de00af5fbd"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a07cdfc4472bcdb8cb47e82de00af5fbd">Memory::ArenaAllocator::Alloc</a></div><div class="ttdeci">void * Alloc(SizeT size)</div><div class="ttdoc">allocate new chunk of size</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:255</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a0f29a11f03179c2317f9315cde70c0b5"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a0f29a11f03179c2317f9315cde70c0b5">Memory::ArenaAllocator::Alloc</a></div><div class="ttdeci">T * Alloc()</div><div class="ttdoc">allocate new object, and calls constructor, but beware because this allocator does not run the destru...</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:228</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a3053e88d780a5262b8b815038aff5911"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a3053e88d780a5262b8b815038aff5911">Memory::ArenaAllocator::ArenaAllocator</a></div><div class="ttdeci">ArenaAllocator()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:72</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a32f17a0a7f62bcc103ac614ea968f9a9"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a32f17a0a7f62bcc103ac614ea968f9a9">Memory::ArenaAllocator::ArenaAllocator</a></div><div class="ttdeci">ArenaAllocator(ArenaAllocator &amp;&amp;rhs)</div><div class="ttdoc">move constructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:97</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a41d46e483d29b1eeb365617db279e07e"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a41d46e483d29b1eeb365617db279e07e">Memory::ArenaAllocator::ArenaAllocator</a></div><div class="ttdeci">ArenaAllocator(const ArenaAllocator &amp;rhs)</div><div class="ttdoc">copy constructor</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:113</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a7f860aaca991ff435820ae507ba1c071"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a7f860aaca991ff435820ae507ba1c071">Memory::ArenaAllocator::operator=</a></div><div class="ttdeci">void operator=(const ArenaAllocator &amp;rhs)</div><div class="ttdoc">assignment operator</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:163</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_a835ba81f9823719e2d1a2db37a437f24"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#a835ba81f9823719e2d1a2db37a437f24">Memory::ArenaAllocator::currentChunk</a></div><div class="ttdeci">byte * currentChunk</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:62</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_aa01abc3b629955f513500fd454bd6730"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#aa01abc3b629955f513500fd454bd6730">Memory::ArenaAllocator::operator=</a></div><div class="ttdeci">void operator=(ArenaAllocator &amp;&amp;rhs)</div><div class="ttdoc">move operator</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:147</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_aa88ebe8744b688debadc25eea2f7aad5"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#aa88ebe8744b688debadc25eea2f7aad5">Memory::ArenaAllocator::retiredChunks</a></div><div class="ttdeci">Util::Array&lt; byte * &gt; retiredChunks</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:64</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_ac3dc23dc20068609162d1964ec65ce79"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#ac3dc23dc20068609162d1964ec65ce79">Memory::ArenaAllocator::iterator</a></div><div class="ttdeci">byte * iterator</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:63</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_ae034794f80dbe1312763087d5057e44c"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#ae034794f80dbe1312763087d5057e44c">Memory::ArenaAllocator::Release</a></div><div class="ttdeci">void Release()</div><div class="ttdoc">release all memory</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:208</div></div>
+<div class="ttc" id="aclass_memory_1_1_arena_allocator_html_af01d3d5ad4bcd98ff0b9892a0a90cb17"><div class="ttname"><a href="class_memory_1_1_arena_allocator.html#af01d3d5ad4bcd98ff0b9892a0a90cb17">Memory::ArenaAllocator::NewChunk</a></div><div class="ttdeci">void NewChunk()</div><div class="ttdoc">retires a chunk and creates a new one (might waste memory)</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:196</div></div>
 <div class="ttc" id="aclass_util_1_1_array_html"><div class="ttname"><a href="class_util_1_1_array.html">Util::Array&lt; byte * &gt;</a></div></div>
 <div class="ttc" id="adebug_8h_html_af07fc1acd3d67e0bcafa5ef5bcba4042"><div class="ttname"><a href="debug_8h.html#af07fc1acd3d67e0bcafa5ef5bcba4042">n_assert</a></div><div class="ttdeci">#define n_assert(exp)</div><div class="ttdef"><b>Definition:</b> debug.h:49</div></div>
 <div class="ttc" id="afoundation_2core_2config_8h_html"><div class="ttname"><a href="foundation_2core_2config_8h.html">config.h</a></div><div class="ttdoc">Nebula compiler specific defines and configuration.</div></div>
 <div class="ttc" id="anamespace_math_html_a830feebf365bd62d5956c9b13d35138f"><div class="ttname"><a href="namespace_math.html#a830feebf365bd62d5956c9b13d35138f">Math::align</a></div><div class="ttdeci">__forceinline unsigned int align(unsigned int alignant, unsigned int alignment)</div><div class="ttdef"><b>Definition:</b> scalar.h:646</div></div>
-<div class="ttc" id="anamespace_memory_html"><div class="ttname"><a href="namespace_memory.html">Memory</a></div><div class="ttdoc">Doesn't actually allocate memory, but is used to keep track of free ranges of elements in a virtual m...</div><div class="ttdef"><b>Definition:</b> arenaallocator.h:26</div></div>
+<div class="ttc" id="anamespace_memory_html"><div class="ttname"><a href="namespace_memory.html">Memory</a></div><div class="ttdef"><b>Definition:</b> arenaallocator.h:30</div></div>
+<div class="ttc" id="anamespace_memory_html_a302b8099d0bbcc9bccfd578814e5b4f3"><div class="ttname"><a href="namespace_memory.html#a302b8099d0bbcc9bccfd578814e5b4f3">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
 <div class="ttc" id="anamespace_memory_html_a6055e491858cd969e93326d9b3e4b420"><div class="ttname"><a href="namespace_memory.html#a6055e491858cd969e93326d9b3e4b420">Memory::Free</a></div><div class="ttdeci">void Free(HeapType heapType, void *ptr)</div><div class="ttdoc">Free a block of memory.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:136</div></div>
 <div class="ttc" id="anamespace_memory_html_a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe"><div class="ttname"><a href="namespace_memory.html#a876b4d169c56fbc6a73614d357a46a56ab871d02286eb23fd256c2482db9a2cfe">Memory::ObjectArrayHeap</a></div><div class="ttdeci">@ ObjectArrayHeap</div><div class="ttdef"><b>Definition:</b> osxmemoryconfig.h:28</div></div>
-<div class="ttc" id="anamespace_memory_html_aaf5b823d7efe2bcc3d5fa52701fbb993"><div class="ttname"><a href="namespace_memory.html#aaf5b823d7efe2bcc3d5fa52701fbb993">Memory::Alloc</a></div><div class="ttdeci">void * Alloc(HeapType heapType, size_t size, size_t alignment)</div><div class="ttdoc">Allocate a block of memory from one of the global heaps.</div><div class="ttdef"><b>Definition:</b> osxmemory.cc:56</div></div>
 <div class="ttc" id="atypes_8h_html_a631b6ce1ca2927ef71a9a193b2f4ba70"><div class="ttname"><a href="types_8h.html#a631b6ce1ca2927ef71a9a193b2f4ba70">PtrDiff</a></div><div class="ttdeci">ptrdiff PtrDiff</div><div class="ttdef"><b>Definition:</b> types.h:53</div></div>
 <div class="ttc" id="atypes_8h_html_a869418dc7a0404b6441ebc39c5b4bb37"><div class="ttname"><a href="types_8h.html#a869418dc7a0404b6441ebc39c5b4bb37">SizeT</a></div><div class="ttdeci">int SizeT</div><div class="ttdef"><b>Definition:</b> types.h:49</div></div>
 <div class="ttc" id="atypes_8h_html_ad119735112d40fd29a3017de944ccc98"><div class="ttname"><a href="types_8h.html#ad119735112d40fd29a3017de944ccc98">IndexT</a></div><div class="ttdeci">int IndexT</div><div class="ttdef"><b>Definition:</b> types.h:48</div></div>
@@ -346,7 +346,7 @@ $(document).ready(function(){initNavTree('arenaallocator_8h_source.html',''); in
 			<ul>
 				<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_95721ede6f5af11f857e00d39fc9cf1f.html">foundation</a></li><li class="navelem"><a class="el" href="dir_667462bf3902e31e6469e5425fdef989.html">memory</a></li><li class="navelem"><a class="el" href="arenaallocator_8h.html">arenaallocator.h</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 12:06:27 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 18:58:33 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>
