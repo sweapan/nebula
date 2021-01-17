@@ -1,5 +1,7 @@
 var NAVTREEINDEX31 =
 {
+"class_open_g_l4_1_1_g_l_f_w_display_device.html":[9,0,96],
+"class_open_g_l4_1_1_g_l_f_w_input_display_event_handler.html":[9,0,97],
 "class_open_g_l4_1_1_g_l_f_w_input_server.html":[9,0,98],
 "class_p_feedback_loop.html":[9,0,130],
 "class_p_i_d_feedback_loop.html":[9,0,133],
@@ -247,7 +249,5 @@ var NAVTREEINDEX31 =
 "class_physics_1_1_visual_debugger.html#a35dff1885d8086cedd9768eaa10e601c":[9,0,44,8,8],
 "class_physics_1_1_visual_debugger.html#a3ae2f7a1114e783c421cec72a360de34":[9,0,44,8,22],
 "class_physics_1_1_visual_debugger.html#a4498f73bcd37625add0dc84e3bb070c6":[9,0,44,8,18],
-"class_physics_1_1_visual_debugger.html#a539ee516ca60942ae9058f669f75e4fe":[9,0,44,8,3],
-"class_physics_1_1_visual_debugger.html#a574b5382dbf79b8dc23463a77093332f":[9,0,44,8,21],
-"class_physics_1_1_visual_debugger.html#a64e1e643487d573e3ee61cbe09b5ffe2":[9,0,44,8,10]
+"class_physics_1_1_visual_debugger.html#a539ee516ca60942ae9058f669f75e4fe":[9,0,44,8,3]
 };

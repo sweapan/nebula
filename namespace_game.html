@@ -93,21 +93,8 @@ $(document).ready(function(){initNavTree('namespace_game.html',''); initResizabl
 <div class="title">Game Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><a class="el" href="struct_game_1_1_entity.html" title="8+24 bits entity id (generation+index)">Entity</a>.  
-<a href="namespace_game.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="struct_game_1_1_entity.html" title="8+24 bits entity id (generation+index)">Entity</a>. </p>
-<p>Property serialization functions.</p>
-<p><a class="el" href="namespace_game.html" title="Entity.">Game</a> managers.</p>
-<p>An entity is essentially just an Id with some utility functions attached. What actually makes up the entities are their properties and attributes.</p>
-<dl class="section see"><dt>See also</dt><dd>property.h </dd>
-<dd>
-game/database/attribute.h</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2018-2020 Individual contributors, see AUTHORS file</dd></dl>
-<p>Managers are defined via a simple function API. They are meant to care about "specific global stuff". They should be defined by applications to implement globals aspects of the application (mainly global game play related).</p>
-<p>Managers should be created and triggered by game features. The frame event functions are invoked when the gameserver triggers the game feature.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file</dd></dl>
+<div class="textblock"><p>Property serialization functions. </p>
 <p>Implements various serialization functions for different types of properties</p>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) 2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><table class="memberdecls">
@@ -173,6 +160,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_manager_handle.html">ManagerHandle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_manager_a_p_i.html">ManagerAPI</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Manager is just a bundle of function pointers to static or global functions that is called by the <a class="el" href="class_game_1_1_feature_unit.html" title="A FeatureUnit is an encapsulated feature which can be added to an application.">Game::FeatureUnit</a> it is attached to.  <a href="struct_game_1_1_manager_a_p_i.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_message_listener_id.html">MessageListenerId</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1530,7 +1518,7 @@ template&lt;typename TYPE &gt; </div>
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_game.html">Game</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 11:59:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 12:08:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

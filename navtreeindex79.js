@@ -1,5 +1,7 @@
 var NAVTREEINDEX79 =
 {
+"struct_dynui_1_1_imgui_console_1_1_log_entry.html#adb12118e11005e56d3f2f13e12344f6f":[9,0,15,0,0,0],
+"struct_dynui_1_1_imgui_context_1_1_imgui_state.html":[9,0,15,6,0],
 "struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a03ec715834d41a54ee9cf66fe4353c96":[9,0,15,6,0,0],
 "struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a20dc901065950874bb87bdd041ffefb7":[9,0,15,6,0,9],
 "struct_dynui_1_1_imgui_context_1_1_imgui_state.html#a2f5c1b9ce7b05f9fde99d24b270b474e":[9,0,15,6,0,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX79 =
 "struct_game_1_1_processor_create_info.html#a3a0e1f25fda5e7c17cfa183944be49e3":[9,0,21,11,3],
 "struct_game_1_1_processor_create_info.html#a41e6b19b75bad1d22d7fedc12c3fdd7c":[9,0,21,11,10],
 "struct_game_1_1_processor_create_info.html#a4b73927314a00f077cf50711b2618733":[9,0,21,11,6],
-"struct_game_1_1_processor_create_info.html#a9a648b2bf82ebe9c2d79e7e7c0578818":[9,0,21,11,7],
-"struct_game_1_1_processor_create_info.html#ab34555adbc290e58336a4eb3cb136e3c":[9,0,21,11,9],
-"struct_game_1_1_processor_create_info.html#abe55c7c0795ee8c5700eb40d7264c2d6":[9,0,21,11,11]
+"struct_game_1_1_processor_create_info.html#a9a648b2bf82ebe9c2d79e7e7c0578818":[9,0,21,11,7]
 };

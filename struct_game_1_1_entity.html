@@ -87,12 +87,20 @@ $(document).ready(function(){initNavTree('struct_game_1_1_entity.html',''); init
 </div><!--header-->
 <div class="contents">
 
-<p>8+24 bits entity id (generation+index)  
- <a href="struct_game_1_1_entity.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="entity_8h_source.html">entity.h</a>&gt;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>8+24 bits entity id (generation+index) </p>
+<p>An entity is essentially just an Id with some utility functions attached.</p>
+<p>What actually makes up the entities are their properties.</p>
+<p>The id is split into two parts: the 8 upper bits are used as a generation counter, so that we can easily reuse the lower 24 bits as an index.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_game.html#a7b437d7741af28ad333c13b367ff8ff6" title="Check if an entity ID is still valid.">Game::IsValid</a> </dd>
+<dd>
+<a class="el" href="api_8h.html" title="The main programming interface for the Game Subsystem.">api.h</a> </dd>
+<dd>
+<a class="el" href="propertyid_8h.html">propertyid.h</a> </dd>
+<dd>
+<a class="el" href="typeregistry_8h.html">memdb/typeregistry.h</a></dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2018-2020 Individual contributors, see AUTHORS file </dd></dl>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/github/workspace/code/application/game/<a class="el" href="entity_8h_source.html">entity.h</a></li>
 </ul>
@@ -103,7 +111,7 @@ $(document).ready(function(){initNavTree('struct_game_1_1_entity.html',''); init
 			<ul>
 				<li class="navelem"><a class="el" href="namespace_game.html">Game</a></li><li class="navelem"><a class="el" href="struct_game_1_1_entity.html">Entity</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 11:59:05 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 12:08:08 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

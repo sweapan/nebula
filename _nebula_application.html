@@ -100,7 +100,7 @@ Entities, Blueprints and Templates</h2>
 Blueprints are essentially category descriptions that just describe a named collection of properties. <br  />
 Templates are derived from blueprints and describe specific property values for an instantiation of a entity. <br  />
 Lets take an example: <br  />
- We declare an "Orc" blueprint that consists of four properties: Position, Health, Strength and Target.</p><ul>
+ We declare an "Orc" blueprint that consists of four properties: Position, Health, Stats and Target.</p><ul>
 <li>example_blueprints.json: <div class="fragment"><div class="line">{</div>
 <div class="line">    &quot;blueprints&quot;: {</div>
 <div class="line">        &quot;Orc&quot;: {</div>
@@ -150,11 +150,18 @@ Properties</h2>
 Properties are declared and defined via .nidl files (Nebula intermediate definition language) and compiled into C++ code via an IDL compiler. <br  />
  The NIDL specification can be found here: <a class="el" href="_nebula_i_d_l.html">Nebula IDL</a> <br  />
  TODO: write about property flags, managed properties, etc.</p>
-<h3><a class="anchor" id="NebulaApplicationSeeAlso"></a>
-See also</h3>
+<h2><a class="anchor" id="NebulaApplicationGameManagers"></a>
+Game Managers</h2>
+<p>Managers are defined via a simple function API. They are meant to care about "specific global stuff" and should be defined by applications to implement globals aspects of the application (mainly global game play related). Managers should be created and triggered by <a class="el" href="class_game_1_1_feature_unit.html">game features</a>. Their frame event functions are invoked when the gameserver triggers the game feature.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_game_1_1_manager_a_p_i.html" title="A Manager is just a bundle of function pointers to static or global functions that is called by the G...">Game::ManagerAPI</a></dd></dl>
+<h2><a class="anchor" id="NebulaApplicationSeeAlso"></a>
+See also</h2>
 <p><a class="el" href="api_8h.html">api.h</a> <br  />
-<a class="el" href="namespace_mem_db.html">MemDb</a> <br  />
+<a class="el" href="namespace_game.html">Game</a> <br  />
 <a class="el" href="namespace_base_game_feature.html">BaseGameFeature</a> <br  />
+<a class="el" href="namespace_graphics_feature.html">GraphicsFeature</a> <br  />
+<a class="el" href="namespace_physics_feature.html">PhysicsFeature</a> <br  />
+<a class="el" href="namespace_mem_db.html">MemDb</a> <br  />
 </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
@@ -163,7 +170,7 @@ See also</h3>
 		<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
 			<ul>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 11:59:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

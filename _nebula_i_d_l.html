@@ -87,14 +87,20 @@ $(document).ready(function(){initNavTree('_nebula_i_d_l.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>The Nebula IDL uses JSON but also supports comments using <code>//</code>.</p>
-<h1><a class="anchor" id="NIDL"></a>
-file schema:</h1>
+<h1><a class="anchor" id="NebulaIDLHeaders"></a>
+Generated headers</h1>
+<p>When generating code from NIDL files, the files are placed in the <code>fips-build/{PROJECT}/{FIPS-CONFIG}/nidl</code> directory. In C++ code, you can include them as if they were placed in the same directory as the .nidl file.</p>
+<p>Example: <br  />
+NIDL file: <code>nebula-demo/code/properties/movement.nidl</code> <br  />
+C++ include: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;properties/movement.h&quot;</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="NebulaIDLSchema"></a>
+NIDL files</h1>
 <ol type="1">
-<li><a class="el" href="_nebula_i_d_l.html#NIDLNamespace">Namespace</a> Namespace</li>
-<li><a class="el" href="_nebula_i_d_l.html#NIDLIncludes">Includes</a> Includes</li>
-<li><a class="el" href="_nebula_i_d_l.html#NIDLDependencies">Dependencies</a> Dependencies</li>
-<li><a class="el" href="_nebula_i_d_l.html#NIDLEnumeratedTypes">Enumerated types</a> Enumerated Types</li>
-<li><a class="el" href="_nebula_i_d_l.html#NIDLProperties">Properties</a> Properties</li>
+<li><a class="el" href="_nebula_i_d_l.html#NIDLNamespace">Namespace</a></li>
+<li><a class="el" href="_nebula_i_d_l.html#NIDLIncludes">Includes</a></li>
+<li><a class="el" href="_nebula_i_d_l.html#NIDLDependencies">Dependencies</a></li>
+<li><a class="el" href="_nebula_i_d_l.html#NIDLEnumeratedTypes">Enumerated types</a></li>
+<li><a class="el" href="_nebula_i_d_l.html#NIDLProperties">Properties</a></li>
 </ol>
 <h2><a class="anchor" id="NIDLNamespace"></a>
 Namespace</h2>
@@ -203,6 +209,7 @@ Layout</h3>
 <li><code>Enumerated type</code> - Any enumerated type defined in a NIDL file can be used as type.</li>
 <li><code>C++ type</code><ul>
 <li>Any included C++ headers types can be used as type. Note that C++ type must be trivially destructible and trivially copyable.</li>
+<li>The type serializers must be manually created. Check the generated NIDL headers and source files for examples (<code>fips-build/{PROJECT}/{FIPS-CONFIG}/nidl</code>).</li>
 <li>It is required that the type includes its namespace.</li>
 </ul>
 </li>
@@ -232,6 +239,7 @@ Layout</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Enum Type   </td><td class="markdownTableBodyRight">Integer or String   </td></tr>
 </table>
+<p>The default values for different types (usually zero or identity) can be found in <code>{NEBULA-ROOT}/fips-files/generators/IDLC/idltypes.py</code>. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -240,7 +248,7 @@ Layout</h3>
 			<ul>
 				<li class="navelem"><a class="el" href="_nebula_application.html">Application</a></li>
 				<li class="footer">
-					Generated on Sun Jan 17 2021 11:59:00 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
+					Generated on Sun Jan 17 2021 12:08:02 for Nebula. Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
 				</li>
 			</ul>
 		</div>

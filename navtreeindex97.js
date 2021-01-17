@@ -1,5 +1,7 @@
 var NAVTREEINDEX97 =
 {
+"winmemory_8h.html#ad3881f3155d64563b618c89b3ea66a14":[10,0,0,3,12,3,8,3],
+"winmemory_8h.html#afddfa173cab925938e29c6d2b77ccef6":[10,0,0,3,12,3,8,1],
 "winmemory_8h_source.html":[10,0,0,3,12,3,8],
 "writer_8cc.html":[10,0,0,0,1,23],
 "writer_8cc.html#a97d28459a66db3c920254a27606470f2":[10,0,0,0,1,23,0],

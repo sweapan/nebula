@@ -1,5 +1,7 @@
 var NAVTREEINDEX88 =
 {
+"struct_vulkan_1_1_vk_deferred_command_1_1_delegate.html#aa4465f1420dcf5bec290bf32ec9b59dd":[9,0,61,6,0,30],
+"struct_vulkan_1_1_vk_deferred_command_1_1_delegate.html#aadaecae26c025448f8d465c6ee51fe3b":[9,0,61,6,0,13],
 "struct_vulkan_1_1_vk_deferred_command_1_1_delegate.html#ab0938c805a94ad16cb2323668992bb2c":[9,0,61,6,0,9],
 "struct_vulkan_1_1_vk_deferred_command_1_1_delegate.html#ab0a44f2c060f2beb32b692d5e8ec1f57":[9,0,61,6,0,19],
 "struct_vulkan_1_1_vk_deferred_command_1_1_delegate.html#ab17b638b64610adf947f86c144d26fa8":[9,0,61,6,0,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX88 =
 "structpybind11_1_1detail_1_1type__caster_3_01_util_1_1_dictionary_3_01_key_00_01_value_01_4_01_4.html":[9,0,50,0,2],
 "submissioncontext_8cc.html":[10,0,0,5,5,83],
 "submissioncontext_8h.html":[10,0,0,5,5,84],
-"submissioncontext_8h.html#a100af7435fa2fa0492e8ff89abb4fea5":[10,0,0,5,5,84,13],
-"submissioncontext_8h.html#a531e29a37ba82ba8236ecf163d9c9f8e":[10,0,0,5,5,84,2],
-"submissioncontext_8h.html#a735f4008bead2e7d1096808a99fa7f38":[10,0,0,5,5,84,12]
+"submissioncontext_8h.html#a100af7435fa2fa0492e8ff89abb4fea5":[10,0,0,5,5,84,13]
 };
